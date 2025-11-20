@@ -140,7 +140,6 @@ TaxxorEditor/secrets
 startup-profile.txt
 GrpcClient
 GrpcServices/GeneratedGrpcLogic
-GrpcServices/Protos
 PagedMediaContentCache.txt
 core_*
 TaxxorEditor/_claude-taxxoreditor-memory-findings.md
