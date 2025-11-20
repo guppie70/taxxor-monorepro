@@ -343,36 +343,6 @@ namespace Taxxor.Project
                         }
                         break;
 
-                    case "taxxoreditorcomposerdata":
-                        switch (reqVars.method)
-                        {
-                            case RequestMethodEnum.Post:
-                                await SaveFilingComposerData(request, response, routeData);
-                                break;
-
-                            case RequestMethodEnum.Put:
-                                await CreateFilingComposerData(request, response, routeData);
-                                break;
-
-                            default:
-                                _handleMethodNotSupported(reqVars);
-                                break;
-                        }
-                        break;
-
-                    case "taxxoreditorcomposerdataextended":
-                        switch (reqVars.method)
-                        {
-                            case RequestMethodEnum.Post:
-                                await DeleteFilingComposerData(request, response, routeData);
-                                break;
-
-                            default:
-                                _handleMethodNotSupported(reqVars);
-                                break;
-                        }
-                        break;
-
                     case "taxxoreditorversionmanager":
                         switch (reqVars.method)
                         {

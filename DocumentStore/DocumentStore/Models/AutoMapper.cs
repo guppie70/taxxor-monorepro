@@ -39,7 +39,8 @@ public class ProjectMappingProfile : Profile
             .ForMember(dest => dest.outputChannelVariantId, opt => opt.MapFrom(src => GetNestedPropertyValue(src, "GrpcProjectVariables.OutputChannelVariantId")))
             .ForMember(dest => dest.outputChannelVariantLanguage, opt => opt.MapFrom(src => GetNestedPropertyValue(src, "GrpcProjectVariables.OutputChannelVariantLanguage")))
             .ForMember(dest => dest.editorContentType, opt => opt.MapFrom(src => GetNestedPropertyValue(src, "GrpcProjectVariables.EditorContentType")))
-            .ForMember(dest => dest.reportTypeId, opt => opt.MapFrom(src => GetNestedPropertyValue(src, "GrpcProjectVariables.ReportTypeId")));
+            .ForMember(dest => dest.reportTypeId, opt => opt.MapFrom(src => GetNestedPropertyValue(src, "GrpcProjectVariables.ReportTypeId")))
+            .ForMember(dest => dest.currentUser, opt => opt.MapFrom(src => CreateAppUserFromGrpcVariables(src)));
 
         // Map from the source object to ProjectVariables by accessing GrpcProjectVariables
         // CreateMap<object, ProjectVariables>()
@@ -81,5 +82,34 @@ public class ProjectMappingProfile : Profile
         }
 
         return currentObject;
+    }
+
+    private static AppUserTaxxor? CreateAppUserFromGrpcVariables(object src)
+    {
+        if (src == null)
+            return null;
+
+        // Extract user information from GrpcProjectVariables
+        var userId = GetNestedPropertyValue(src, "GrpcProjectVariables.UserId") as string;
+        var userFirstName = GetNestedPropertyValue(src, "GrpcProjectVariables.UserFirstName") as string;
+        var userLastName = GetNestedPropertyValue(src, "GrpcProjectVariables.UserLastName") as string;
+        var userEmail = GetNestedPropertyValue(src, "GrpcProjectVariables.UserEmail") as string;
+        var userDisplayName = GetNestedPropertyValue(src, "GrpcProjectVariables.UserDisplayName") as string;
+
+        // Only create user if we have at least a userId
+        if (string.IsNullOrEmpty(userId))
+            return null;
+
+        return new AppUserTaxxor
+        {
+            Id = userId,
+            FirstName = userFirstName ?? "anonymous",
+            LastName = userLastName ?? "anonymous",
+            Email = userEmail ?? "",
+            DisplayName = userDisplayName ?? $"{userFirstName} {userLastName}",
+            IsAuthenticated = true,
+            HasViewRights = true,
+            HasEditRights = true
+        };
     }
 }

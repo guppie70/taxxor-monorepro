@@ -127,7 +127,8 @@ namespace Taxxor.Project
         /// <param name="pathOs"></param>
         /// <param name="returnType"></param>
         /// <returns></returns>
-        public static bool GitCommit(string message, string pathOs, ReturnTypeEnum returnType = ReturnTypeEnum.Txt, bool stopProcessingOnError = false)
+        public static bool GitCommit(string message, string pathOs, ReturnTypeEnum returnType = ReturnTypeEnum.Txt, bool stopProcessingOnError = false,
+            string authorId = null, string authorName = null, string authorEmail = null)
         {
             bool debugRoutine = false;
             List<string> gitCommandList = ["add -A"];
@@ -149,7 +150,7 @@ namespace Taxxor.Project
             Thread.Sleep(100);
 
             gitCommandList.Clear();
-            gitCommandList.Add("commit -a -m \"" + RenderGitCommitMessageInformation(message) + "\"");
+            gitCommandList.Add("commit -a -m \"" + RenderGitCommitMessageInformation(message, authorId, authorName, authorEmail) + "\"");
             gitResult = GitCommand(gitCommandList, pathOs, returnType, false);
             if (debugRoutine)
             {

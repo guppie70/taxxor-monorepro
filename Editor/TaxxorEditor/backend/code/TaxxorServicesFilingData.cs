@@ -168,32 +168,58 @@ namespace Taxxor
                 /// <param name="debugRoutine">If set to <c>true</c> debug routine.</param>
                 public static async Task<XmlDocument> SaveSourceData(XmlDocument xmlDoc, string id, string contentLanguage, bool debugRoutine = false)
                 {
-                    var context = System.Web.Context.Current;
-                    RequestVariables reqVars = RetrieveRequestVariables(context);
-                    ProjectVariables projectVars = RetrieveProjectVariables(context);
-                    var dataToPost = new Dictionary<string, string>();
-
-                    if (ValidateCmsPostedParameters(projectVars.projectId, "latest", "text") && id != null)
+                    try
                     {
-                        // TODO: Check which variables can be extracted from ProjectVars and which we should pass explicitly to this function (xmlDoc, id, contentLanguage)
-                        dataToPost.Add("data", xmlDoc.OuterXml);
-                        dataToPost.Add("did", id);
-                        dataToPost.Add("oclang", contentLanguage);
+                        var context = System.Web.Context.Current;
+                        ProjectVariables projectVars = RetrieveProjectVariables(context);
 
-                        dataToPost.Add("vid", "latest");
-                        dataToPost.Add("type", "text");
+                        if (ValidateCmsPostedParameters(projectVars.projectId, "latest", "text") && id != null)
+                        {
+                            // Get the gRPC client service
+                            FilingDataService.FilingDataServiceClient filingDataClient = context.RequestServices.GetRequiredService<FilingDataService.FilingDataServiceClient>();
 
-                        dataToPost.Add("pid", projectVars.projectId);
-                        dataToPost.Add("octype", projectVars.outputChannelType);
-                        dataToPost.Add("ocvariantid", projectVars.outputChannelVariantId);
-                        dataToPost.Add("ctype", projectVars.editorContentType);
-                        dataToPost.Add("rtype", projectVars.reportTypeId);
+                            // Create the gRPC request
+                            var grpcRequest = new SaveSourceDataRequest
+                            {
+                                GrpcProjectVariables = ConvertToGrpcProjectVariables(projectVars),
+                                Data = xmlDoc.OuterXml,
+                                Did = id,
+                                ContentLanguage = contentLanguage
+                            };
 
-                        return await CallTaxxorConnectedService<XmlDocument>(ConnectedServiceEnum.DocumentStore, RequestMethodEnum.Post, "taxxoreditorcomposerdata", dataToPost, debugRoutine);
+                            // Call the gRPC service
+                            var grpcResponse = await filingDataClient.SaveSourceDataAsync(grpcRequest);
+
+                            if (grpcResponse.Success)
+                            {
+                                try
+                                {
+                                    var xmlResult = new XmlDocument();
+                                    xmlResult.LoadXml(grpcResponse.Data);
+                                    return xmlResult;
+                                }
+                                catch (Exception ex)
+                                {
+                                    appLogger.LogError(ex, "Could not parse SaveSourceData response");
+                                    return GenerateErrorXml("Could not parse the response data", $"error: {ex}, xml: {TruncateString(grpcResponse.Data, 100)}, stack-trace: {GetStackTrace()}");
+                                }
+                            }
+                            else
+                            {
+                                appLogger.LogError($"Could not save the source data (message: {grpcResponse.Message}, debuginfo: {grpcResponse.Debuginfo})");
+                                return GenerateErrorXml("Could not save the source data", $"message: {grpcResponse.Message}, debuginfo: {grpcResponse.Debuginfo}, stack-trace: {GetStackTrace()}");
+                            }
+                        }
+                        else
+                        {
+                            return GenerateErrorXml("Did not supply enough input to save your source data", $"projectId: {projectVars.projectId}, did: {id}, stack-trace: {GetStackTrace()}");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        return GenerateErrorXml("Did not supply enough input to save your source data", $"projectId: {projectVars.projectId}, did: {id}, stack-trace: {GetStackTrace()}");
+                        var errorMessage = $"Error occurred while saving the source data: {ex.Message}";
+                        appLogger.LogError(ex, errorMessage);
+                        return GenerateErrorXml(errorMessage, $"stack-trace: {GetStackTrace()}");
                     }
                 }
 
@@ -222,19 +248,57 @@ namespace Taxxor
                 /// <returns></returns>
                 public static async Task<XmlDocument> DeleteSourceData(XmlDocument xmlDeleteActions, string projectId, string versionId, string dataType, string contentLanguage, bool debugRoutine = false)
                 {
-                    var context = System.Web.Context.Current;
-                    ProjectVariables projectVars = RetrieveProjectVariables(context);
-
-                    if (ValidateCmsPostedParameters(projectId, versionId, dataType))
+                    try
                     {
-                        var dataToPost = projectVars.RenderPostDictionary();
-                        dataToPost.Add("xmldeleteactions", xmlDeleteActions.OuterXml);
+                        var context = System.Web.Context.Current;
+                        ProjectVariables projectVars = RetrieveProjectVariables(context);
 
-                        return await CallTaxxorConnectedService<XmlDocument>(ConnectedServiceEnum.DocumentStore, RequestMethodEnum.Post, "taxxoreditorcomposerdataextended", dataToPost, debugRoutine);
+                        if (ValidateCmsPostedParameters(projectId, versionId, dataType))
+                        {
+                            // Get the gRPC client service
+                            FilingDataService.FilingDataServiceClient filingDataClient = context.RequestServices.GetRequiredService<FilingDataService.FilingDataServiceClient>();
+
+                            // Create the gRPC request
+                            var grpcRequest = new DeleteSourceDataRequest
+                            {
+                                GrpcProjectVariables = ConvertToGrpcProjectVariables(projectVars),
+                                XmlDeleteActions = xmlDeleteActions.OuterXml,
+                                DataType = dataType
+                            };
+
+                            // Call the gRPC service
+                            var grpcResponse = await filingDataClient.DeleteSourceDataAsync(grpcRequest);
+
+                            if (grpcResponse.Success)
+                            {
+                                try
+                                {
+                                    var xmlResult = new XmlDocument();
+                                    xmlResult.LoadXml(grpcResponse.Data);
+                                    return xmlResult;
+                                }
+                                catch (Exception ex)
+                                {
+                                    appLogger.LogError(ex, "Could not parse DeleteSourceData response");
+                                    return GenerateErrorXml("Could not parse the response data", $"error: {ex}, xml: {TruncateString(grpcResponse.Data, 100)}, stack-trace: {GetStackTrace()}");
+                                }
+                            }
+                            else
+                            {
+                                appLogger.LogError($"Could not delete the source data (message: {grpcResponse.Message}, debuginfo: {grpcResponse.Debuginfo})");
+                                return GenerateErrorXml("Could not delete the source data", $"message: {grpcResponse.Message}, debuginfo: {grpcResponse.Debuginfo}, stack-trace: {GetStackTrace()}");
+                            }
+                        }
+                        else
+                        {
+                            return GenerateErrorXml("Did not supply enough input to delete your source data", $"projectId: {projectId}, versionId: {versionId}, dataType: {dataType}, stack-trace: {GetStackTrace()}");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        return GenerateErrorXml("Did not supply enough input to delete your source data", $"projectId: {projectId}, versionId: {versionId}, dataType: {dataType}, stack-trace: {GetStackTrace()}");
+                        var errorMessage = $"Error occurred while deleting the source data: {ex.Message}";
+                        appLogger.LogError(ex, errorMessage);
+                        return GenerateErrorXml(errorMessage, $"stack-trace: {GetStackTrace()}");
                     }
 
                 }
@@ -266,46 +330,58 @@ namespace Taxxor
                 /// <returns>An xml object containing an overview of all the filing sections available</returns>
                 public static async Task<XmlDocument> CreateSourceData(string sectionId, XmlDocument xmlDoc, string projectId, string versionId, string dataType, string contentLanguage, bool debugRoutine = false)
                 {
-                    var context = System.Web.Context.Current;
-                    ProjectVariables projectVars = RetrieveProjectVariables(context);
-                    var dataToPost = new Dictionary<string, string>();
-
-                    if (ValidateCmsPostedParameters(projectId, versionId, dataType))
+                    try
                     {
+                        var context = System.Web.Context.Current;
+                        ProjectVariables projectVars = RetrieveProjectVariables(context);
 
-                        dataToPost.Add("pid", projectId);
-                        dataToPost.Add("vid", versionId);
-                        dataToPost.Add("type", dataType);
-                        dataToPost.Add("oclang", contentLanguage);
-                        dataToPost.Add("ctype", projectVars.editorContentType);
-                        dataToPost.Add("rtype", projectVars.reportTypeId);
-                        dataToPost.Add("data", xmlDoc.OuterXml);
-                        dataToPost.Add("sectionid", sectionId);
-
-                        var responseXml = await CallTaxxorConnectedService<XmlDocument>(ConnectedServiceEnum.DocumentStore, RequestMethodEnum.Put, "taxxoreditorcomposerdata", dataToPost, debugRoutine);
-
-                        // Handle error
-                        if (XmlContainsError(responseXml)) return responseXml;
-
-                        // The XML content that we are looking for is in decoded form available in the message node
-                        var xml = HttpUtility.HtmlDecode(responseXml.SelectSingleNode("/result/payload").InnerText);
-
-                        try
+                        if (ValidateCmsPostedParameters(projectId, versionId, dataType))
                         {
-                            var xmlSourceDataOverview = new XmlDocument();
-                            xmlSourceDataOverview.LoadXml(xml);
-                            return xmlSourceDataOverview;
-                        }
-                        catch (Exception ex)
-                        {
-                            appLogger.LogError(ex, "Could not load the source data");
-                            return GenerateErrorXml("Could not load the source data", $"error: {ex}, xml: {TruncateString(xml, 100)}, {_generateStandardDebugString(dataToPost)}, stack-trace: {GetStackTrace()}");
-                        }
+                            // Get the gRPC client service
+                            FilingDataService.FilingDataServiceClient filingDataClient = context.RequestServices.GetRequiredService<FilingDataService.FilingDataServiceClient>();
 
+                            // Create the gRPC request
+                            var grpcRequest = new CreateSourceDataRequest
+                            {
+                                GrpcProjectVariables = ConvertToGrpcProjectVariables(projectVars),
+                                SectionId = sectionId,
+                                Data = xmlDoc.OuterXml,
+                                DataType = dataType
+                            };
+
+                            // Call the gRPC service
+                            var grpcResponse = await filingDataClient.CreateSourceDataAsync(grpcRequest);
+
+                            if (grpcResponse.Success)
+                            {
+                                try
+                                {
+                                    var xmlSourceDataOverview = new XmlDocument();
+                                    xmlSourceDataOverview.LoadXml(grpcResponse.Data);
+                                    return xmlSourceDataOverview;
+                                }
+                                catch (Exception ex)
+                                {
+                                    appLogger.LogError(ex, "Could not parse CreateSourceData response");
+                                    return GenerateErrorXml("Could not parse the response data", $"error: {ex}, xml: {TruncateString(grpcResponse.Data, 100)}, stack-trace: {GetStackTrace()}");
+                                }
+                            }
+                            else
+                            {
+                                appLogger.LogError($"Could not create the source data (message: {grpcResponse.Message}, debuginfo: {grpcResponse.Debuginfo})");
+                                return GenerateErrorXml("Could not create the source data", $"message: {grpcResponse.Message}, debuginfo: {grpcResponse.Debuginfo}, stack-trace: {GetStackTrace()}");
+                            }
+                        }
+                        else
+                        {
+                            return GenerateErrorXml("Did not supply enough input to save your source data", $"sectionId: {sectionId}, projectId: {projectId}, versionId: {versionId}, dataType: {dataType}, stack-trace: {GetStackTrace()}");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        return GenerateErrorXml("Did not supply enough input to save your source data", $"sectionId: {sectionId}, projectId: {projectId}, versionId: {versionId}, dataType: {dataType}, stack-trace: {GetStackTrace()}");
+                        var errorMessage = $"Error occurred while creating the source data: {ex.Message}";
+                        appLogger.LogError(ex, errorMessage);
+                        return GenerateErrorXml(errorMessage, $"stack-trace: {GetStackTrace()}");
                     }
                 }
 

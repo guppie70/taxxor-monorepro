@@ -4,6 +4,79 @@
 
 This is a temporary monorepo combining **Editor** and **DocumentStore** services from the Taxxor Document Management (TDM) stack to migrate REST API communications to gRPC.
 
+## ⚠️ CRITICAL: Publishing Changes to Docker-Mounted Directories
+
+**The Docker containers mount the SEPARATE Editor and DocumentStore directories, NOT this monorepo.**
+
+After implementing ANY changes in the monorepo, you **MUST** publish them to the actual target directories using the split script:
+
+```bash
+./split-from-monorepo.sh
+```
+
+### When to Run the Split Script
+
+**Run the split script immediately after:**
+
+1. ✅ Making any C# code changes in the monorepo
+2. ✅ Modifying proto files
+3. ✅ Updating service implementations
+4. ✅ Changing client code
+5. ✅ Modifying Startup.cs files
+6. ✅ Any change that needs to be tested in Docker
+
+### Workflow for Each Change
+
+```bash
+# 1. Make changes in the monorepo
+vim DocumentStore/GrpcServices/Services/FilingDataService.cs
+
+# 2. Verify compilation
+dotnet build DocumentStore.sln
+
+# 3. Publish changes to target directories
+./split-from-monorepo.sh
+
+# 4. Docker will auto-rebuild (wait ~10 seconds)
+# No manual restart needed - dotnet watch handles it
+
+# 5. Test your changes
+# Open browser and test the functionality
+```
+
+### What the Split Script Does
+
+The `split-from-monorepo.sh` script:
+
+- ✅ Syncs **Editor/** from monorepo to `../Editor/`
+- ✅ Syncs **DocumentStore/** from monorepo to `../DocumentStore/`
+- ✅ Excludes monorepo-specific files (MIGRATION_PLAN.md, CLAUDE.md, etc.)
+- ✅ Uses checksums to only copy actually changed files
+- ✅ Shows which files were changed
+
+### Docker Auto-Rebuild
+
+The Docker containers run with `dotnet watch run --no-hot-reload`, which means:
+
+- ✅ **Automatic recompilation** when C# files change
+- ✅ **Automatic restart** after recompilation completes
+- ⏱️ **Wait 5-15 seconds** for rebuild to complete before testing
+- 📺 **Monitor logs** to see when rebuild finishes:
+  ```bash
+  docker logs -f tdm-documentstore-1 | grep "watch :"
+  docker logs -f tdm-editor-1 | grep "watch :"
+  ```
+
+### Important Notes
+
+⚠️ **The monorepo is ONLY for development** - Docker containers don't see monorepo changes until you run the split script
+
+⚠️ **Always run split script before testing** - Otherwise your changes won't be visible to Docker
+
+⚠️ **Don't manually copy files** - Use the split script to ensure consistency
+
+✅ **Commit from the monorepo** - Keep all your work in the monorepo, split script is just for publishing
+
 ## Project Structure
 
 ```
@@ -32,6 +105,69 @@ This is a temporary monorepo combining **Editor** and **DocumentStore** services
 │
 └── MIGRATION_PLAN.md              # Track batch progress (UPDATE THIS!)
 ```
+
+## ⚠️ CRITICAL: Syncing Shared Code Between Services
+
+**BOTH Editor and DocumentStore share identical copies of framework and shared code files. When you modify ANY shared file, you MUST sync the changes to BOTH services.**
+
+### Shared Files That Require Syncing
+
+**Backend Framework Files** (in `backend/code/shared/` or `backend/framework/`):
+- `Git.cs` - Git operations and commit handling
+- `TaxxorUser.cs` - User classes (AppUser, AppUserTaxxor)
+- `Framework.cs` - Core framework classes
+- `RequestVariables.cs` - Request context
+- Any other files in `backend/code/shared/` or `backend/framework/`
+
+**GrpcServices Proto Files**:
+- **Source of Truth**: `DocumentStore/GrpcServices/Protos/*.proto`
+- **Auto-synced to**: `Editor/GrpcServices/Protos/` (via Gulp watcher)
+- **Rule**: Only edit proto files in DocumentStore; Editor's are gitignored and auto-synced
+
+### Syncing Procedure
+
+**When you modify a shared C# file:**
+
+1. **Identify the file location** in both services:
+   - DocumentStore: `DocumentStore/DocumentStore/backend/code/shared/FileName.cs`
+   - Editor: `Editor/TaxxorEditor/backend/code/shared/FileName.cs`
+
+2. **Apply the EXACT same changes** to both files
+
+3. **Verify compilation** for BOTH services:
+   ```bash
+   dotnet build DocumentStore.sln
+   dotnet build Editor/TaxxorEditor.sln
+   ```
+
+4. **Restart BOTH containers** if the changes affect runtime:
+   ```bash
+   docker restart tdm-documentstore-1
+   docker restart tdm-editor-1
+   ```
+
+### Common Shared Files
+
+| File | Location Pattern | Notes |
+|------|------------------|-------|
+| Git.cs | `backend/code/shared/Git.cs` | Git commit operations |
+| TaxxorUser.cs | `backend/code/shared/TaxxorUser.cs` | User management |
+| Framework.cs | `backend/framework/Framework.cs` | Core framework |
+| RequestVariables.cs | `backend/framework/RequestVariables.cs` | Request context |
+| User.cs | `backend/framework/User.cs` | AppUser base class |
+
+### Quick Check Command
+
+```bash
+# Compare a shared file between services
+diff DocumentStore/DocumentStore/backend/code/shared/Git.cs \
+     Editor/TaxxorEditor/backend/code/shared/Git.cs
+
+# No output = files are identical (good!)
+# Output = files differ (need to sync!)
+```
+
+**Remember**: Failure to sync shared files will cause runtime errors in one service that are difficult to diagnose!
 
 ## Standard Response Format
 
@@ -100,6 +236,32 @@ In `DocumentStore/GrpcServices/Services/`, create or update the service implemen
 - Set `success = true` for successful operations
 - Set `success = false` and populate `message` and `debuginfo` for errors
 
+#### ⚠️ CRITICAL: Register the gRPC Service in DocumentStore Startup.cs
+
+**After implementing the service**, you MUST register it in the DocumentStore's endpoint configuration.
+
+**Location**: `DocumentStore/DocumentStore/Startup.cs` in the `Configure` method (around line 179-181)
+
+**Add this registration**:
+```csharp
+endpoints.MapGrpcService<YourService>();
+```
+
+**Example**:
+```csharp
+endpoints.MapGrpcService<FilingDataService>();
+```
+
+**If you forget this step**, you'll get a runtime error:
+```
+Grpc.Core.RpcException: Status(StatusCode="Unimplemented", Detail="Service is unimplemented.")
+```
+
+**After adding the registration**: Restart the DocumentStore Docker container:
+```bash
+docker restart tdm-documentstore-1
+```
+
 ### Step 3: Update Client Code
 
 In `Editor/TaxxorEditor/backend/code/`, update the method:
@@ -155,6 +317,38 @@ public static async Task<XmlDocument> SaveSourceData(
 - Use helper methods: `ConvertToGrpcProjectVariables()`, `GenerateErrorXml()`
 - Always wrap in try-catch
 - Handle both success and error cases
+
+#### ⚠️ CRITICAL: Register the gRPC Client in Startup.cs
+
+**Before the client code will work**, you MUST register the gRPC client in the Editor's dependency injection container.
+
+**Location**: `Editor/TaxxorEditor/Startup.cs` in the `ConfigureServices` method (around line 173-186)
+
+**Add this registration**:
+```csharp
+services.AddGrpcClient<YourService.YourServiceClient>(o =>
+{
+    o.Address = new Uri("https://documentstore:4813");
+});
+```
+
+**Example**:
+```csharp
+services.AddGrpcClient<FilingDataService.FilingDataServiceClient>(o =>
+{
+    o.Address = new Uri("https://documentstore:4813");
+});
+```
+
+**If you forget this step**, you'll get a runtime error:
+```
+System.InvalidOperationException: No service for type 'DocumentStore.Protos.YourService+YourServiceClient' has been registered.
+```
+
+**After adding the registration**: Restart the Editor Docker container:
+```bash
+docker restart tdm-editor-1
+```
 
 ### Step 4: Clean Up REST Code
 
@@ -276,11 +470,111 @@ Available in `Editor/TaxxorEditor/backend/code/`:
 For each batch:
 
 1. **Read** the next batch from `MIGRATION_PLAN.md`
-2. **Implement** using the 4-step pattern
+2. **Implement** using the 4-step pattern in the monorepo
 3. **Compile** both solutions - must succeed!
-4. **Clean up** REST code
-5. **Commit** with clear message
-6. **Update** `MIGRATION_PLAN.md` to mark batch complete
+4. **Publish** changes to Docker-mounted directories: `./split-from-monorepo.sh`
+5. **Test** in Docker (wait ~10 seconds for auto-rebuild)
+6. **Clean up** REST code after successful testing
+7. **Commit** with clear message (from the monorepo)
+8. **Update** `MIGRATION_PLAN.md` to mark batch complete
+
+## Debugging with Docker Logs
+
+When testing gRPC migrations, **ALWAYS monitor both container logs** to get a complete picture of the communication flow.
+
+### Container Names
+
+- **Editor (Client)**: `tdm-editor-1`
+- **DocumentStore (Server)**: `tdm-documentstore-1`
+
+### Essential Debugging Commands
+
+**Monitor both containers simultaneously during testing:**
+
+```bash
+# In separate terminal windows/panes:
+docker logs -f tdm-editor-1 | grep -E "(fail|error|Error|Exception|info)"
+docker logs -f tdm-documentstore-1 | grep -E "(fail|error|Error|Exception|info)"
+```
+
+**Check recent errors:**
+
+```bash
+# Editor errors
+docker logs --tail 100 tdm-editor-1 | grep -A 10 -B 5 -E "(fail|error|Error|Exception)"
+
+# DocumentStore errors
+docker logs --tail 100 tdm-documentstore-1 | grep -A 10 -B 5 -E "(fail|error|Error|Exception)"
+```
+
+**Check logs from specific time:**
+
+```bash
+# Last 5 minutes
+docker logs --since 5m tdm-editor-1
+docker logs --since 5m tdm-documentstore-1
+
+# Last hour
+docker logs --since 1h tdm-documentstore-1
+```
+
+### Debugging Workflow
+
+When encountering runtime errors:
+
+1. **Reproduce the error** - Perform the action that causes the issue
+2. **Check DocumentStore logs first** - Server-side errors show up here
+3. **Check Editor logs** - Client-side perspective and gRPC call details
+4. **Look for the error stack trace** - Note the file and line numbers
+5. **Add debug logging if needed** - Insert `appLogger.LogInformation()` statements
+6. **Restart container** - `docker restart tdm-documentstore-1` or `tdm-editor-1`
+7. **Test again** - Reproduce and check logs for debug output
+
+### Common Error Patterns
+
+**NullReferenceException in DocumentStore:**
+- Check if user context is populated: `reqVars.currentUser`
+- Check if project variables are mapped correctly
+- Verify middleware is running and populating context
+
+**gRPC Communication Errors:**
+- `Status(StatusCode="Unimplemented")` → Service not registered in DocumentStore Startup.cs
+- `No service for type '...' has been registered` → Client not registered in Editor Startup.cs
+- Connection refused → Container not running or wrong port
+
+**Container Restart Required:**
+
+After modifying these files, you **must** restart the container:
+
+```bash
+# Restart DocumentStore after changes to:
+# - Startup.cs (service registration)
+# - GrpcServices/Services/*.cs (service implementation)
+docker restart tdm-documentstore-1
+
+# Restart Editor after changes to:
+# - Startup.cs (client registration)
+# - backend/code/*.cs (client code)
+docker restart tdm-editor-1
+```
+
+Wait 5-10 seconds after restart before testing to ensure the service is fully initialized.
+
+### Log Analysis Tips
+
+**Look for these patterns:**
+
+- `[fail]` or `[error]` - Failed operations
+- `[warn]` - Warnings that might indicate issues
+- `[info]` - Informational messages (useful for tracing flow)
+- `Exception:` - Stack traces with file:line information
+- `DEBUG` - Custom debug logging you've added
+
+**Trace a gRPC call through both services:**
+
+1. Editor log: Request initiated → gRPC client call
+2. DocumentStore log: gRPC request received → processing → response
+3. Editor log: Response received → result processing
 
 ## Commit Convention
 

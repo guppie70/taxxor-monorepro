@@ -17,12 +17,7 @@ message GrpcProjectVariables {
   string reportTypeId = 8;
   string outputChannelType = 9;
   string outputChannelVariantId = 10;
-  string outputChannelVariantLanguage = 11;
-  // User information for Git commits and audit trails
-  string userFirstName = 12;
-  string userLastName = 13;
-  string userEmail = 14;
-  string userDisplayName = 15;
+  string outputChannelVariantLanguage = 11;   
 }
 
 // Standard response message used across all services

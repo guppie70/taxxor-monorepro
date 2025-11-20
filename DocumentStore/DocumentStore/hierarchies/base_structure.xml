@@ -155,18 +155,6 @@
 						<linkname>Streams a binary version of a file</linkname>
 					</web_page>
 				</item>
-				<item id="taxxoreditorcomposerdata">
-					<web_page>
-						<path>/api/taxxoreditor/filing/data/composer</path>
-						<linkname>Loads or saves data that the composer (editor) uses</linkname>
-					</web_page>
-				</item>
-                <item id="taxxoreditorcomposerdataextended">
-					<web_page>
-						<path>/api/taxxoreditor/filing/data/composer/extended</path>
-						<linkname>Extended route that deals with filing composer data</linkname>
-					</web_page>
-				</item>
 				<item id="taxxoreditorcomposerschema">
 					<web_page>
 						<path>/api/taxxoreditor/filing/data/composer/schema</path>

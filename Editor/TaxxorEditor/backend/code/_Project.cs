@@ -2242,7 +2242,12 @@ namespace Taxxor.Project
                 ReportTypeId = projectVars.reportTypeId,
                 OutputChannelType = projectVars.outputChannelType,
                 OutputChannelVariantId = projectVars.outputChannelVariantId,
-                OutputChannelVariantLanguage = projectVars.outputChannelVariantLanguage
+                OutputChannelVariantLanguage = projectVars.outputChannelVariantLanguage,
+                // User information for Git commits and audit trails
+                UserFirstName = projectVars.currentUser?.FirstName ?? "",
+                UserLastName = projectVars.currentUser?.LastName ?? "",
+                UserEmail = projectVars.currentUser?.Email ?? "",
+                UserDisplayName = projectVars.currentUser?.DisplayName ?? ""
             };
 
         }

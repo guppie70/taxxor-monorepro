@@ -25,7 +25,27 @@ namespace Taxxor.Project
         {
             var context = System.Web.Context.Current;
             ProjectVariables projectVars = RetrieveProjectVariables(context);
-            return GitCommit(message, projectVars.cmsDataRootBasePathOs, returnType, stopProcessingOnError);
+            return CommitFilingDataCore(message, projectVars, returnType, stopProcessingOnError);
+        }
+
+        /// <summary>
+        /// Commit the filing data (XHTML + hierarchy files) - Core version that accepts ProjectVariables explicitly for gRPC compatibility
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="projectVars"></param>
+        /// <param name="returnType"></param>
+        /// <param name="stopProcessingOnError"></param>
+        /// <returns></returns>
+        public static bool CommitFilingDataCore(string message, ProjectVariables projectVars, ReturnTypeEnum returnType = ReturnTypeEnum.Txt, bool stopProcessingOnError = false)
+        {
+            // Extract user information from projectVars for Git commit
+            string authorId = projectVars.currentUser?.Id;
+            string authorName = projectVars.currentUser != null ?
+                $"{projectVars.currentUser.FirstName} {projectVars.currentUser.LastName}" : null;
+            string authorEmail = projectVars.currentUser?.Email;
+
+            return GitCommit(message, projectVars.cmsDataRootBasePathOs, returnType, stopProcessingOnError,
+                authorId, authorName, authorEmail);
         }
 
         /// <summary>
@@ -39,6 +59,19 @@ namespace Taxxor.Project
         {
             var context = System.Web.Context.Current;
             ProjectVariables projectVars = RetrieveProjectVariables(context);
+            return CommitFilingAssetsCore(message, projectVars, returnType, stopProcessingOnError);
+        }
+
+        /// <summary>
+        /// Commits the project assets (images, downloads, rendered HTML) - Core version for gRPC compatibility
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="projectVars"></param>
+        /// <param name="returnType"></param>
+        /// <param name="stopProcessingOnError"></param>
+        /// <returns></returns>
+        public static bool CommitFilingAssetsCore(string message, ProjectVariables projectVars, ReturnTypeEnum returnType = ReturnTypeEnum.Txt, bool stopProcessingOnError = false)
+        {
             return GitCommit(message, projectVars.cmsContentRootPathOs, returnType, stopProcessingOnError);
         }
 
