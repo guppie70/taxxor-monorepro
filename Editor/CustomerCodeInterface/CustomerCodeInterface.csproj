@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <UseRazorBuildServer>false</UseRazorBuildServer>
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+    <!--<DefaultItemExcludes>.git/**;backend/code/custom/.git/**;logs/**;frontend/**;node_modules/**;data/**;hierarchies/**;typings/**;$(DefaultItemExcludes)</DefaultItemExcludes>-->
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <UseAppHost>false</UseAppHost>
+    <NoWarn>8981;NU1608</NoWarn>
+    
+    <!-- Improve compilation times -->
+    <Optimize>false</Optimize>
+    <UseAppHost>false</UseAppHost>
+    <ParallelBuildProject>true</ParallelBuildProject>
+    <ParallelBuildToAllProjects>true</ParallelBuildToAllProjects>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+
+</Project>

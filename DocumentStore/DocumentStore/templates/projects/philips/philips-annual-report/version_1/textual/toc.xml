@@ -1,0 +1,63 @@
+<data>
+  <system>
+    <date_created>2018-10-12T15:22:44.901676+02:00</date_created>
+    <date_modified>2019-03-07T07:39:10.0850613+00:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="toc" data-fact-id="toc" data-tangeloid="" data-guid="toc" data-last-modified="2019-02-21T15:07:24.7139522+00:00" data-description="toc" class="" modified-by="magdalena.sosnowska@philips.com">
+      <div class="pageblock toc" data-type="one-column">
+        <section class="content" data-name="toc-content">
+          <div class="inside-cover">
+            <h3 guid="d26865e18" class="">IFRS basis of presentation</h3>
+            <p guid="d26865e20" class="selected">The financial information included in this document is based on IFRS, as explained in <font color="#7d0063"><a class="selected" href="#1151974-significant-accounting-policies" data-link-type="section">Significant accounting policies</a></font>, unless otherwise indicated.</p>
+            <h3>References to Philips</h3>
+            <p>References to the Company or company, to Philips or the (Philips) Group or group, relate to Koninklijke Philips N.V. and its subsidiaries, as the context requires. Royal Philips refers to Koninklijke Philips N.V. </p>
+            <h3>Philips Lighting/Signify</h3>
+            <p guid="d26865e20" class="selected">References to 'Signify' in this Annual Report relate to Philips'
+former Lighting segment (prior to deconsolidation as from the
+end of November 2017 and when reported as discontinued
+operations), Philips Lighting N.V. (before or after such
+deconsolidation) or Signify N.V. (after its renaming in May
+2018), as the context requires.<br /></p>
+            <h3 guid="d26865e26" class="">Dutch Financial Markets Supervision Act</h3>
+            <p guid="d26865e28" class="">This document comprises regulated information within the meaning of the Dutch Financial Markets Supervision Act <i>(Wet op het financieel toezicht).</i></p>
+            <h3 guid="d26865e34" class="">Statutory financial statements and management report</h3>
+            <p guid="d26865e36" class="selected">The chapters Group financial statements and Company financial statements contain the statutory financial statements of the Company. The introduction to the chapter Group financial statements sets out which parts of this Annual Report form the Management report within the meaning of Section 2:391 of the Dutch Civil Code (and related Decrees).</p>
+            <div class="imageblock 1-column">
+              <div class="image-wrapper">
+                <img id="12561" src="/dataserviceassets/ar18/images/cox_in_cover_book.jpg" alt="This photo shows someone working with the Philips Azurion image-guided therapy platform " />
+                <div>
+                  <b>Front cover:</b> In 2018, Philips launched its Lumify with Reacts mobile tele-ultrasound solution in Kenya and Nigeria. This solution is based on Philips’ Lumify portable ultrasound system and powered by Innovative Imaging Technologies’ Reacts collaborative platform. It connects clinicians in real time by turning a compatible smart device into an integrated tele-ultrasound solution, combining two-way audio-visual calls with live ultrasound streaming.</div>
+              </div>
+            </div>
+          </div>
+          <h1 class="">Contents</h1>
+          <ul class="toc-list">
+            <li class="">to be dynamically rendered</li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </content>
+  <content lang="zh">
+    <article id="toc" data-fact-id="toc" data-tangeloid="" data-guid="toc" data-last-modified="2019-03-07T07:39:10.0850613+00:00" data-description="toc" class="" modified-by="rutger.scheepens@philips.com">
+      <div class="pageblock toc" data-type="one-column">
+        <section class="content" data-name="toc-content">
+          <div class="inside-cover">
+            <div class="imageblock 1-column">
+              <div class="image-wrapper">
+                <img id="12561" src="/dataserviceassets/ar18/images/cox_in_cover_book.jpg" alt="This photo shows someone working with the Philips Azurion image-guided therapy platform " />
+              </div>
+              <div>
+                <b>封面:</b> 2018年，飞利浦在肯尼亚和尼日利亚推出Lumify创新产品，配备Reacts移动通信-超声解决方案。这一解决方案基于飞利浦Lumify便携式超声系统，并由Innovative Imaging Technologies公司的Reacts协作平台提供支持，可以实时连接全球各地的医生，结合双向音频/视频电话与实时超声图像，将可兼容的智能设备变成一款通信-超声一体化解决方案。</div>
+            </div>
+          </div>
+          <h1 class="">目录</h1>
+          <ul class="toc-list">
+            <li class="">to be dynamically rendered</li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

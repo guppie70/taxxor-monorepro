@@ -1,0 +1,23 @@
+<data>
+  <system>
+    <date_created>2018-10-12T15:22:44.901676+02:00</date_created>
+    <date_modified>2020-03-05T18:40:31.6504150+00:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="back-cover" data-fact-id="back-cover" data-guid="back-cover" data-last-modified="2020-02-17T21:40:16.5172104+00:00" data-description="back-cover" data-articletype="regular" class="" modified-by="johan.thijs@philips.com">
+      <div class="pageblock back-cover" data-type="one-column">
+        <section class="content" data-name="backcover-content">
+          <div class="arbackcover">
+            <h1>© 202x Company Name</h1>
+
+            <h2>All rights reserved</h2>
+
+            <p>
+              <a href="https://www.company.com/annualreport" class="website-link">www.company.com/annualreport</a>
+            </p>
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

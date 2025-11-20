@@ -1,0 +1,807 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    [page-head-content]
+</head>
+
+<body class="page_[pageid] sitetype_[sitetype] system-page no-skin projectstatus_[projectstatus]">
+    [page-body-start]
+
+    <div class="main-container">
+        [page-maincolumn-start]
+        <div class="page-header">
+            <h1>Project administration <small>[document-name]</small></h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                
+                <h2>Global Find and Replace</h2>
+                <div class="panel panel-default panel-findreplace">
+                    <div class="panel-heading">Search and replace within the complete content of this project</div>
+                    <div class="panel-body">
+
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="select-project-languages" class="col-sm-3 control-label">Content Language</label>
+                                <div class="col-sm-9">
+                                    <select name="select-project-languages" id="select-project-languages" class="select-project-languages form-control">
+        
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-searchfragment" class="col-sm-3 control-label">Search</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="input-searchphrase" placeholder="Search"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-replacefragment" class="col-sm-3 control-label">Replace</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="input-replacephrase" placeholder="Replace"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="chk-searchreplacedryrun" class="col-sm-3 control-label">Dry run</label>
+                                <div class="col-sm-9">
+                                    <input name="chk-searchreplacedryrun" id="chk-searchreplacedryrun" type="checkbox" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="chk-searchreplaceonlyreferencesinuse" class="col-sm-3 control-label">Only references in use</label>
+                                <div class="col-sm-9">
+                                    <input name="chk-searchreplaceonlyreferencesinuse" id="chk-searchreplaceonlyreferencesinuse" type="checkbox" checked="checked"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="chk-searchreplaceincludefootnote" class="col-sm-3 control-label">Include footnote data</label>
+                                <div class="col-sm-9">
+                                    <input name="chk-searchreplaceincludefootnote" id="chk-searchreplaceincludefootnote" type="checkbox" checked="checked"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="chk-createversion" class="col-sm-3 control-label">Auto create version</label>
+                                <div class="col-sm-9">
+                                    <input name="chk-createversion" id="chk-createversion" type="checkbox" checked="checked"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button class="btn btn-default">Replace</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <h4>Result</h4>
+                        <div class="result">
+                            ...
+                        </div>
+                    </div>
+                    <div class="tx-loader-wrapper">
+                        <div class="tx-loader">
+                            <div class="item item-1">T</div>
+                            <div class="item item-2">/</div>
+                            <div class="item item-3">R</div>
+                            <div class="item item-4">\</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Images and Graphs</h2>
+                <div class="panel panel-default panel-imagelibrary">
+                    <div class="panel-heading">Create renditions</div>
+                    <div class="panel-body">
+
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="select-project-languages" class="col-sm-3 control-label">Library</label>
+                                <div class="col-sm-9">
+                                    <div class="checkbox library-selection">
+                                        <label>
+                                          <input type="checkbox" value="image" checked="checked"/> Image Library
+                                        </label>
+                                        <br/>
+                                        <label>
+                                            <input type="checkbox" value="drawing" checked="checked"/> Drawings (SVG) Library
+                                        </label>
+                                        <br/>
+                                        <label>
+                                            <input type="checkbox" value="graph" checked="checked"/> Graphs Library
+                                        </label>
+                                      </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="select-project-languages" class="col-sm-3 control-label">Action</label>
+                                <div class="col-sm-9">
+                                    <button class="btn btn-default btn-update">Update</button>
+                                    <button class="btn btn-default btn-reset">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <h4>Result</h4>
+                        <div class="result">
+                            ...
+                        </div>
+                    </div>
+                    <div class="tx-loader-wrapper">
+                        <div class="tx-loader">
+                            <div class="item item-1">T</div>
+                            <div class="item item-2">/</div>
+                            <div class="item item-3">R</div>
+                            <div class="item item-4">\</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Data Download / Import</h2>
+                <div class="panel panel-default panel-datadownload">
+                    <div class="panel-heading">Download data used in this project</div>
+                    <div class="panel-body">
+
+                        <div class="form-horizontal">
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Scope</label>
+                                <div class="col-sm-9">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="radio-datadownload-scope" id="radio-datadownload-scope-outputchannel" value="outputchannel" checked="checked"> Output channel
+                                      </label>
+                                      <label class="radio-inline">
+                                        <input type="radio" name="radio-datadownload-scope" id="radio-datadownload-scope-datareference" value="source"> Complete source
+                                      </label>
+                                </div>
+                            </div>
+
+                            <div id="controls-datadownload-scope-outputchannel">
+                                <div class="form-group">
+                                    <label for="select-datadownload-outputchannel" class="col-sm-3 control-label">Output channnel</label>
+                                    <div class="col-sm-9">
+                                        <select name="select-datadownload-outputchannel" id="select-datadownload-outputchannel" class="form-control select-outputchannel">
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="controls-datadownload-scope-source">
+                                <div class="form-group">
+                                    <label for="select-language-datadownload" class="col-sm-3 control-label">Content Language</label>
+                                    <div class="col-sm-9">
+                                        <select name="select-language-datadownload" id="select-language-datadownload" class="form-control select-project-languages include-all">
+    
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="chk-inuseonly" class="col-sm-3 control-label">Only references in use</label>
+                                    <div class="col-sm-9">
+                                        <input name="chk-inuseonly" id="chk-inuseonly" type="checkbox" checked="checked"/>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button class="btn btn-default">Download</button>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+
+                <div class="panel panel-default panel-dataimport">
+                    <div class="panel-heading">Import data and images in this project</div>
+                    <div class="panel-body">
+
+                        <div class="form-horizontal">
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Hierarchy handling</label>
+                                <div class="col-sm-9">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="radio-dataimport-scope" id="radio-dataimport-mode" value="replace" checked="checked"> Replace existing
+                                      </label>
+                                      <label class="radio-inline">
+                                        <input type="radio" name="radio-dataimport-scope" id="radio-dataimport-modee" value="append"> Append to existing
+                                      </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="input-zipfile-upload" class="col-sm-3 control-label">Upload ZIP file</label>
+                                <div class="col-sm-9">
+                                    <input type="file" id="input-zipfile-upload" accept=".zip" />
+                                    <p class="help-block">Select a ZIP file to upload</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button class="btn btn-default">Import</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr />
+                        <h4>Result</h4>
+                        <div class="result">
+                            ...
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Data Transformation Service</h2>
+                <div class="panel panel-default panel-datatransform">
+                    <div class="panel-heading">Bulk-transform the data used in this project</div>
+                    <div class="panel-body">
+
+
+                        <div class="form-horizontal">
+
+                            <div class="form-group">
+                                <label for="select-transformation-scenario" class="col-sm-3 control-label">Transformation scenario</label>
+                                <div class="col-sm-9">
+                                    <select name="select-transformation-scenario" id="select-transformation-scenario" class="form-control" onchange="setTransformationDescription()">
+                                        <option>No scenario...</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="transformation-description" class="col-sm-3 control-label">Description</label>
+                                <div class="col-sm-9">
+                                    <div class="transformation-description" id="transformation-description" role="alert">No description available</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Scope</label>
+                                <div class="col-sm-9">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="radio-transformation-scope" id="radio-transformation-scope-outputchannel" value="outputchannel" checked="checked"> Output channel
+                                      </label>
+                                      <label class="radio-inline">
+                                        <input type="radio" name="radio-transformation-scope" id="radio-transformation-scope-datareference" value="datareference"> Data reference
+                                      </label>
+                                </div>
+                            </div>
+
+                            <div id="controls-transformation-scope-outputchannel">
+                                <div class="form-group">
+                                    <label for="select-datatransform-outputchannel" class="col-sm-3 control-label">Output channnel</label>
+                                    <div class="col-sm-9">
+                                        <select name="select-datatransform-outputchannel" multiple="multiple" id="select-datatransform-outputchannel" class="form-control select-outputchannel include-all">
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="chk-includeversionfiles" class="col-sm-3 control-label">Include version HTML files</label>
+                                    <div class="col-sm-9">
+                                        <input name="chk-includeversionfiles" id="chk-includeversionfiles" type="checkbox"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="controls-transformation-scope-datareference">
+                                <div class="form-group">
+                                    <label for="select-language-transformation" class="col-sm-3 control-label">Content Language</label>
+                                    <div class="col-sm-9">
+                                        <select name="select-language-transformation" id="select-language-transformation" class="form-control select-project-languages include-all">
+    
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="select-dataref-transformation" class="col-sm-3 control-label">Data Reference</label>
+                                    <div class="col-sm-9">
+                                        <select name="select-dataref-transformation" id="select-dataref-transformation" class="form-control select-datareference">
+    
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button class="btn btn-default">Start transformation</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <h4>Result</h4>
+                        <div class="result">...</div>
+                    </div>
+                    <div class="tx-loader-wrapper">
+                        <div class="tx-loader">
+                            <div class="item item-1">T</div>
+                            <div class="item item-2">/</div>
+                            <div class="item item-3">R</div>
+                            <div class="item item-4">\</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h2>Data Analysis</h2>
+                <div class="panel panel-default panel-dataanalysis">
+                    <div class="panel-heading">Analyse the data used in this project</div>
+                    <div class="panel-body">
+
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="select-dataanalysis-type" class="col-sm-3 control-label">Type</label>
+                                <div class="col-sm-9">
+                                    <select name="select-dataanalysis-type" id="select-dataanalysis-type" class="form-control" onchange="setAnalysisDescription()">
+                                        <option>No scenario...</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="analysis-description" class="col-sm-3 control-label">Analysis description</label>
+                                <div class="col-sm-9">
+                                    <div class="analysis-description" id="analysis-description" role="alert">No description available</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="select-dataanalysis-outputchannel" class="col-sm-3 control-label">Output channnel</label>
+                                <div class="col-sm-9">
+                                    <select name="select-dataanalysis-outputchannel" id="select-dataanalysis-outputchannel" class="form-control select-outputchannel">
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button class="btn btn-default start-analysis">Start Analysis</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="data-analysis-resultheader">
+                            <h4 class="pull-left">Result</h4>
+                            <div class="pull-right">
+                                <button class="btn btn-default btn-xs" id="data-analysis-resultdownload" onclick="downloadDataAnalysisResult()"><span class="glyphicon glyphicon-download-alt"> </span> Download result</button>
+                            </div>
+                        </div>
+                        
+                        <div class="result">
+                            ...
+                        </div>
+                        <div class="hiddenresult" id="data-analysis-hiddenresult">
+                            ...
+                        </div>
+                    </div>
+                    <div class="tx-loader-wrapper">
+                        <div class="tx-loader">
+                            <div class="item item-1">T</div>
+                            <div class="item item-2">/</div>
+                            <div class="item item-3">R</div>
+                            <div class="item item-4">\</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <h2>Structured Data Elements</h2>
+                <div class="panel panel-default panel-sde">
+                    <div class="panel-heading">Use a fact ID to retrieve a SDE value</div>
+                    <div class="panel-body">
+
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="input-factid" class="col-sm-3 control-label">Fact ID</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="input-factid"/>
+                                </div>
+                            </div>
+							<div class="form-group">
+								<label for="select-sdelanguage" class="col-sm-3 control-label">Value formatting</label>
+								<div class="col-sm-9">
+									<select name="select-sdelanguage" id="select-sdelanguage" class="form-control select-project-languages include-all">
+
+									</select>
+								</div>
+							</div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button class="btn btn-default">Retrieve</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <h4>Result</h4>
+                        <div class="result">
+                            ...
+                        </div>
+                    </div>
+                    <div class="tx-loader-wrapper">
+                        <div class="tx-loader">
+                            <div class="item item-1">T</div>
+                            <div class="item item-2">/</div>
+                            <div class="item item-3">R</div>
+                            <div class="item item-4">\</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default panel-mappingapi">
+                    <div class="panel-heading">Retrieve Mapping Cluster</div>
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="input-fact-id" class="col-sm-3 control-label">Fact ID <small>(or comma delimited list of ID's)</small></label>
+                                <div class="col-sm-9">
+                                    <input name="input-fact-id" class="form-control" id="input-fact-id" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Output format</label>
+                                <div class="col-sm-9">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="radio-mappinginfo-outputformat" id="radio-mappinginfo-outputformat-json" value="json"> JSON
+                                      </label>
+                                      <label class="radio-inline">
+                                        <input type="radio" name="radio-mappinginfo-outputformat" id="radio-mappinginfo-outputformat-xml" value="xml" checked="checked"> XML
+                                      </label>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" name="input-include-sde-value" id="input-include-sde-value" checked="checked" value="true"> Include SDE value
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button class="btn btn-default">Retrieve</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <h4>Result</h4>
+                        <div class="result">...</div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default panel-mappingreplace">
+                    <div class="panel-heading">Search & replace mapping clusters</div>
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="select-dataref-snr" class="col-sm-3 control-label">Data Reference</label>
+                                <div class="col-sm-9">
+                                    <select name="select-dataref-snr" id="select-dataref-snr" class="form-control select-datareference">
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="input-search-snr" class="col-sm-3 control-label">Dataset</label>
+                                <div class="col-sm-9">
+                                    <input name="input-dataset-snr" class="form-control" id="input-dataset-snr" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="input-search-snr" class="col-sm-3 control-label">Search (ERP mapping)</label>
+                                <div class="col-sm-9">
+                                    <input name="input-search-snr" class="form-control" id="input-search-snr" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="input-replace-snr" class="col-sm-3 control-label">Replace (ERP mapping)</label>
+                                <div class="col-sm-9">
+                                    <input name="input-replace-snr" class="form-control" id="input-replace-snr" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" name="input-regex-replace" id="input-regex-replace" value="true"> Use regex pattern for search and replace
+                                    </label>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" name="input-testrun-snr" id="input-testrun-snr" value="true" checked="checked"/> Test run
+                                    </label>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button class="btn btn-default">Execute</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <h4>Result</h4>
+                        <div class="result">...</div>
+                    </div>
+                    <div class="tx-loader-wrapper">
+                        <div class="tx-loader">
+                            <div class="item item-1">T</div>
+                            <div class="item item-2">/</div>
+                            <div class="item item-3">R</div>
+                            <div class="item item-4">\</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="panel panel-default panel-sdecache">
+                    <div class="panel-heading">Rebuild the Structured Data Element cache for a Data Reference</div>
+                    <div class="panel-body">
+
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="input-snapshotid-sdecache" class="col-sm-3 control-label">Snapshot ID</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="input-snapshotid-sdecache" value="1"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="select-dataref-sdecache" class="col-sm-3 control-label">Data Reference</label>
+                                <div class="col-sm-9">
+                                    <select name="select-dataref-sdecache" id="select-dataref-sdecache" class="form-control select-datareference">
+
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button class="btn btn-default">Rebuild</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <h4>Result</h4>
+                        <div class="result">
+                            ...
+                        </div>
+                    </div>
+                    <div class="tx-loader-wrapper">
+                        <div class="tx-loader">
+                            <div class="item item-1">T</div>
+                            <div class="item item-2">/</div>
+                            <div class="item item-3">R</div>
+                            <div class="item item-4">\</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Date shifts</h2>
+                <div class="panel panel-default panel-dateshift">
+                    <div class="panel-heading">Test or run the dateshift routines</div>
+                    <div class="panel-body">
+
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="select-language-dateshift" class="col-sm-3 control-label">Content Language</label>
+                                <div class="col-sm-9">
+                                    <select name="select-language-dateshift" id="select-language-dateshift" class="form-control select-project-languages include-all">
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="select-reportingperiod-dateshift" class="col-sm-3 control-label">Reporting Period</label>
+                                <div class="col-sm-9">
+                                    [select-reporting-period]
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Source data scope</label>
+                                <div class="col-sm-9">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="radio-dateshift-sourcedata-scope" id="radio-dateshift-sourcedata-scope-all" value="all"> All source data
+                                      </label>
+                                      <label class="radio-inline">
+                                        <input type="radio" name="radio-dateshift-sourcedata-scope" id="radio-dateshift-sourcedata-scope-datareference" value="datareference" checked="checked"> Data reference
+                                      </label>
+                                </div>
+                            </div>
+                            <div class="form-group dataref-dateshift">
+                                <label for="select-dataref-dateshift" class="col-sm-3 control-label">Data Reference</label>
+                                <div class="col-sm-9">
+                                    <select name="select-dataref-dateshift" id="select-dataref-dateshift" class="form-control select-datareference">
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="radio-action-dateshift" class="col-sm-3 control-label">Action</label>
+                                <div class="col-sm-9">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="radio-action-dateshift" id="radio-action-dateshift1" value="dateshiftsinglesetwrappers" checked="checked"/>
+                                            Set <code>&lt;span/&gt;</code> date wrappers
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="radio-action-dateshift" id="radio-action-dateshift2" value="dateshiftsinglemigrate"/>
+                                            Shift dates in wrappers
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="radio-action-dateshift" id="radio-action-dateshift3" value="dateshiftsdeperiod"/>
+                                            Shift periods in structured data elements
+
+                                            <div class="form-group dateshift-methods">
+                                                <label for="radio-action-dateshift" class="col-sm-3 control-label">&nbsp;</label>
+                                                <div class="col-sm-9">
+                                                    <p><u>Method:</u></p>
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" name="radio-dateshift-method" id="radio-dateshift-method1" value="matchtabledates" checked="checked"/> 
+                                                            Match table dates
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" name="radio-dateshift-method" id="radio-dateshift-method2" value="relativetobaseperiod"/>
+                                                            Relative to source period: 
+                                                            [select-reporting-period-source]
+                                                        </label>
+                                                    </div>
+                                                    <div class="panel-dateshift-scope">
+                                                        <p><u>Element scope:</u></p>
+                                                        <div class="radio">
+                                                            <select name="select-scope-dateshift" id="select-scope-dateshift" class="form-control">
+                                                                <option value="textandmarkedtables">Text &amp; Marked Tables</option>
+                                                                <option value="markedtables">Marked Tables only</option>
+                                                                <option value="textandtables">Text &amp; Tables</option>
+                                                                <option value="tables">Tables only</option>
+                                                                <option value="text">Text only</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button class="btn btn-default">Run</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <h4>Result</h4>
+                        <div class="result">
+                            ...
+                        </div>
+                    </div>
+                    <div class="tx-loader-wrapper">
+                        <div class="tx-loader">
+                            <div class="item item-1">T</div>
+                            <div class="item item-2">/</div>
+                            <div class="item item-3">R</div>
+                            <div class="item item-4">\</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h2>Import Content &amp; Mappings</h2>
+
+
+                <div class="panel panel-default panel-importdata">
+                    <div class="panel-heading">Import from other projects</div>
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="select-source-projectid" class="col-sm-3 control-label">Source project</label>
+                                <div class="col-sm-9">
+                                    <select name="select-source-projectid" id="select-source-projectid" class="form-control select-source-project">
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="select-source-projectid" class="col-sm-3 control-label"></label>
+                                <div class="col-sm-9">
+                                    <input name="chk-searchallprojecttypes" id="chk-searchallprojecttypes" type="checkbox" /> Show all project types
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="select-source-datareference" class="col-sm-3 control-label">Source datareference</label>
+                                <div class="col-sm-9">
+                                    <select name="select-source-datareference" id="select-source-datareference" class="form-control select-source-datareference">
+                                        <option value="none">-- Select source data reference --</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button class="btn btn-default btn-start">Import</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <h4>Result</h4>
+                        <div class="result">...</div>
+                    </div>
+                    <div class="tx-loader-wrapper">
+                        <div class="tx-loader">
+                            <div class="item item-1">T</div>
+                            <div class="item item-2">/</div>
+                            <div class="item item-3">R</div>
+                            <div class="item item-4">\</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Session data<span onclick="testErrorLogging()" style="cursor: pointer;">:</span></h2>
+                <div class="alert alert-info" role="alert">
+                    [session-data]
+                    <button class="btn btn-default btn-xs" onclick="testErrorLogging()">.</button>
+                    <button class="btn btn-default btn-xs" onclick="testGeneric()">..</button>
+                </div>
+
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+        </div>
+
+        [page-maincolumn-end]
+    </div>
+
+    <div class>
+
+    </div>
+
+    [page-body-end]
+</body>
+
+</html>

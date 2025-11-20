@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	[page-head-content]
+</head>
+<body class="page_[pageid] sitetype_[sitetype] system-page no-skin projectstatus_[projectstatus]">
+    [page-body-start]
+    <div class="iframe-container">
+        <iframe 
+            id="iframevsceditor"
+            name="iframevsceditor"
+            src="/assetcompiler/?folder=/workspace/[octype]"
+            frameborder="0"
+            scrolling="no"
+            allowfullscreen></iframe>       
+    </div>
+
+    [page-body-end-scripts]
+</body>
+</html>

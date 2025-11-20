@@ -1,0 +1,463 @@
+<?xml version="1.0" standalone="yes"?>
+<items membertest="roles">
+	<structured>
+		<item id="apiroot">
+			<web_page>
+				<path>/</path>
+				<linkname>Taxxor Data Service Information</linkname>
+			</web_page>
+			<sub_items>
+				<!-- Internal API routes that are required by the Taxxor system -->
+				<item id="internalservicetools">
+					<web_page>
+						<path>#</path>
+						<linkname>Routes that need to be requested by internal Taxxor services</linkname>
+					</web_page>
+					<sub_items>
+						<item id="serviceinformation">
+							<web_page>
+								<path>/api/configuration/serviceinformation</path>
+								<linkname>Retrieve this service description XML file in hierarchical format</linkname>
+							</web_page>
+						</item>
+					</sub_items>
+				</item>
+				<!-- Data load utilities -->
+				<item id="serviceinformation">
+					<web_page>
+						<path>/api/configuration/serviceinformation</path>
+						<linkname>Retrieve this service description XML file in hierarchical format</linkname>
+					</web_page>
+				</item>
+				<item id="projectconfiguration">
+					<web_page>
+						<path>/api/configuration/project_configuration</path>
+						<linkname>Retrieve the Taxxor Data Service project configuration XML file</linkname>
+					</web_page>
+				</item>
+				<item id="dataconfiguration">
+					<web_page>
+						<path>/api/configuration/data_configuration</path>
+						<linkname>Retrieve the Taxxor Data Service data configuration XML file</linkname>
+					</web_page>
+				</item>
+				<item id="projecttemplatesconfiguration">
+					<web_page>
+						<path>/api/configuration/project_templates</path>
+						<linkname>Retrieve the project templates data configuration XML file for setting up new projects in the Taxxor Editor</linkname>
+					</web_page>
+				</item>
+				<item id="cmsmanagement">
+					<web_page>
+						<path>#</path>
+						<linkname>Taxxor Editor Management Routes</linkname>
+					</web_page>
+					<sub_items>
+						<item id="cmsprojectmanagement">
+							<web_page>
+								<path>/api/taxxoreditor/project</path>
+								<linkname>Manage project/document/filings for the Taxxor Editor</linkname>
+							</web_page>
+						</item>
+						<item id="cloneproject">
+							<web_page>
+								<path>/api/taxxoreditor/project/clone</path>
+								<linkname>Clone a Taxxor Editor project</linkname>
+							</web_page>
+						</item>
+						<item id="projectproperties">
+							<web_page>
+								<path>/api/taxxoreditor/projects/properties</path>
+								<linkname>CRUD project properties</linkname>
+							</web_page>
+						</item>
+					</sub_items>
+				</item>
+
+                <!-- System state -->
+                <item id="systemstate">
+                    <web_page>
+                        <path>/api/taxxoreditor/systemstate</path>
+                        <linkname>Retrieves information about the status of the editor</linkname>
+                    </web_page>
+                </item>
+
+
+				<item id="contentversion">
+					<web_page>
+						<path>/api/taxxoreditor/content/version</path>
+						<linkname>Retrieves the latest version label of the content</linkname>
+					</web_page>
+				</item>
+				<item id="taxxorservicesinformation">
+					<web_page>
+						<path>/api/configuration/taxxorservices</path>
+						<linkname>Retrieve the information about all the Taxxor Services</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditoruserdata">
+					<web_page>
+						<path>/api/taxxoreditor/user/data</path>
+						<linkname>Retrieve or manipulate information of the current Taxxor Editor user</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorusertempdata">
+					<web_page>
+						<path>/api/taxxoreditor/user/data/temp</path>
+						<linkname>Retrieve, stor or manipulate temporary data for the current Taxxor Editor user</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorauditordatamessage">
+					<web_page>
+						<path>/api/taxxoreditor/auditor/message</path>
+						<linkname>Creates an auditor message</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorauditordataoverview">
+					<web_page>
+						<path>/api/taxxoreditor/auditor/data/overview</path>
+						<linkname>Retrieve data for rendering the auditor overview page</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorversionmanager">
+					<web_page>
+						<path>/api/taxxoreditor/versionmanager</path>
+						<linkname>Retrieves data for the version manager or generates a new version</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorcachefiles">
+					<web_page>
+						<path>/api/taxxoreditor/cachefiles</path>
+						<linkname>Interacts with the cache files of a Taxxor Editor project</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorfilingmetadata">
+					<web_page>
+						<path>/api/taxxoreditor/filing/data/metadata</path>
+						<linkname>Retrieves metadata for the filingcontent of one or more projects</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorfilingdata">
+					<web_page>
+						<path>/api/taxxoreditor/filing/data/generic</path>
+						<linkname>Loads or saves filing assets such as metadata, images, etc.</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorfilingimage">
+					<web_page>
+						<path>/api/taxxoreditor/filing/data/image</path>
+						<linkname>Streams a binary version of an image</linkname>
+					</web_page>
+				</item>
+                <item id="taxxoreditorfilingbinary">
+					<web_page>
+						<path>/api/taxxoreditor/filing/data/binary</path>
+						<linkname>Streams a binary version of a file</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorcomposerdata">
+					<web_page>
+						<path>/api/taxxoreditor/filing/data/composer</path>
+						<linkname>Loads or saves data that the composer (editor) uses</linkname>
+					</web_page>
+				</item>
+                <item id="taxxoreditorcomposerdataextended">
+					<web_page>
+						<path>/api/taxxoreditor/filing/data/composer/extended</path>
+						<linkname>Extended route that deals with filing composer data</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorcomposerschema">
+					<web_page>
+						<path>/api/taxxoreditor/filing/data/composer/schema</path>
+						<linkname>Loads the schema that the composer (editor) uses</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorcomposerhierarchy">
+					<web_page>
+						<path>/api/taxxoreditor/filing/data/composer/hierarchy</path>
+						<linkname>Loads or saves hierarchy data that the composer (editor) uses</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorcomposerhierarchyimproved">
+					<web_page>
+						<path>/api/taxxoreditor/filing/data/composer/hierarchyimproved</path>
+						<linkname>Loads or saves hierarchy data that the composer (editor) uses (improved efficiency)</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorcontentlanguageclone">
+					<web_page>
+						<path>/api/hierarchymanager/tools/sectionlanguageclone</path>
+						<linkname>Clones the content of one language to another</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorcomposerdataoverview">
+					<web_page>
+						<path>/api/taxxoreditor/filing/data/overview</path>
+						<linkname>Renders an overview of all the filing content data fragments/sections</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorpdfdata">
+					<web_page>
+						<path>/api/taxxoreditor/filing/data/pdf</path>
+						<linkname>Retrieves the source data used for the PDF rendering</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorpdfhistoricaldata">
+					<web_page>
+						<path>/api/taxxoreditor/filing/data/pdf/historical</path>
+						<linkname>Retrieves the source data used for the PDF rendering from the version control history</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorprojectassetsinformation">
+					<web_page>
+						<path>/api/taxxoreditor/projectassets</path>
+						<linkname>Retrieve information about the images and downloads used in a project</linkname>
+					</web_page>
+				</item>
+				<!-- Comments -->
+				<item id="comment">
+					<web_page>
+						<path>/api/taxxoreditor/comments</path>
+						<linkname>CRUD individual comments</linkname>
+					</web_page>
+				</item>
+				<!-- Footnotes -->
+				<item id="footnote">
+					<web_page>
+						<path>/api/taxxoreditor/footnotes</path>
+						<linkname>CRUD individual footnotes</linkname>
+					</web_page>
+				</item>
+				<item id="listfootnotes">
+					<web_page>
+						<path>/api/taxxoreditor/footnotes/list</path>
+						<linkname>List footnotes for a document</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorsyncexternaltables">
+					<web_page>
+						<path>/api/taxxoreditor/sync/externaltables</path>
+						<linkname>Syncs external tables for a Taxxor Editor project</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorsyncstructureddatasnapshot">
+					<web_page>
+						<path>/api/taxxoreditor/sync/structureddatasnapshot</path>
+						<linkname>Syncs structured data elements from the Taxxor Structured Data Store for a Taxxor Editor project</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorsyncstructureddatasnapshotperdataref">
+					<web_page>
+						<path>/api/taxxoreditor/sync/structureddatasnapshotperdataref</path>
+						<linkname>Syncs structured data elements from the Taxxor Structured Data Store for a Taxxor Editor project - version that executes it per data reference (file)</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorcalendardata">
+					<web_page>
+						<path>/api/taxxoreditor/calendar/data</path>
+						<linkname>Retrieve or manipulate information for the calendar containing the filing dates based on the reporting requirements retrieved from the Taxxor Regulation Database Service</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorwebsitegeneratorexportassets">
+					<web_page>
+						<path>/api/taxxoreditor/websitegenerator/exportassets</path>
+						<linkname>Exports the assets for the website generator</linkname>
+					</web_page>
+				</item>
+				<item id="structureddataelementcachestate">
+					<web_page>
+						<path>/api/taxxoreditor/structureddataelements/cache/status</path>
+						<linkname>Update the status of a Structured Data Element cache item</linkname>
+					</web_page>
+				</item>
+				<!-- File operations -->
+				<item id="taxxoreditorfileexists">
+					<web_page>
+						<path>/api/taxxoreditor/filesystem/fileexist</path>
+						<linkname>Tests if a file exists in the project data store</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditordeltree">
+					<web_page>
+						<path>/api/taxxoreditor/filesystem/deltree</path>
+						<linkname>Removes a complete directory structure from the project data store</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorcopydirectory">
+					<web_page>
+						<path>/api/taxxoreditor/filesystem/copydirectory</path>
+						<linkname>Copies a complete directory and file structure</linkname>
+					</web_page>
+				</item>
+                <item id="taxxoreditorfileproperties">
+					<web_page>
+						<path>/api/taxxoreditor/filesystem/fileproperties</path>
+						<linkname>Retrieves the properties of a file</linkname>
+					</web_page>
+				</item>
+                <item id="taxxoreditordirectorycontents">
+					<web_page>
+						<path>/api/taxxoreditor/filesystem/listdirectorycontents</path>
+						<linkname>Retrieves files in a directory</linkname>
+					</web_page>
+				</item>
+                <item id="taxxoreditorfilecontents">
+					<web_page>
+						<path>/api/taxxoreditor/filesystem/filecontents</path>
+						<linkname>Retrieves files in a directory</linkname>
+					</web_page>
+				</item>
+				<!-- Image conversions -->
+				<item id="taxxoreditorimagerenditions">
+					<web_page>
+						<path>/api/taxxoreditor/imagegraphconversion/imagerenditions</path>
+						<linkname>Generates alternative image formats (renditions) such as thumbnails</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorremoveimagerenditions">
+					<web_page>
+						<path>/api/taxxoreditor/imagegraphconversion/imagerenditions/remove</path>
+						<linkname>Moves thumbnails and image renditions to a new location (same as originals)</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditormoveimagerenditions">
+					<web_page>
+						<path>/api/taxxoreditor/imagegraphconversion/imagerenditions/move</path>
+						<linkname>Moves thumbnails and image renditions to a new location (same as originals)</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorrendergraphs">
+					<web_page>
+						<path>/api/taxxoreditor/imagegraphconversion/graphrenditions</path>
+						<linkname>Renders the content of the graphs so that it can be used to render the renditions with it</linkname>
+					</web_page>
+				</item>
+				<!-- Taxxor Editor Content Analysis -->
+				<item id="taxxoreditorcontentanalysis">
+					<web_page>
+						<path>/api/taxxoreditor/filingcontent/analysis</path>
+						<linkname>Analyze the content used in a publication channel and report the results</linkname>
+					</web_page>
+				</item>
+				<item id="taxxoreditorallcontent">
+					<web_page>
+						<path>/api/taxxoreditor/filingcontent/all</path>
+						<linkname>Renders a complete XML document containing the complete content of the project</linkname>
+					</web_page>
+				</item>
+                <!-- Generated Reports Repository -->
+                <item id="generatedreportsrepository">
+					<web_page>
+						<path>/api/taxxoreditor/repository/generatedreports</path>
+						<linkname>CRUD routes for the generated reports repository</linkname>
+					</web_page>
+				</item>
+                <item id="generatedreportsrepositorycomment">
+					<web_page>
+						<path>/api/taxxoreditor/repository/generatedreports/comment</path>
+						<linkname>Stores a comment in the generated report repository item</linkname>
+					</web_page>
+				</item>
+
+				<!-- Utilities -->
+				<item id="clearcache">
+					<web_page>
+						<path>/api/taxxoreditor/cache/clear</path>
+						<linkname>Clears the internal in-memory cache</linkname>
+					</web_page>
+				</item>
+				<!-- Taxxor Data Service Tools -->
+				<item id="taxxoreditordataservicetools">
+					<web_page>
+						<path>/api/taxxoreditor/filingcontent/tools</path>
+						<linkname>Tools to maintain the Taxxor Data Service</linkname>
+					</web_page>
+				</item>
+				<!-- Find and replace in content -->
+				<item id="findreplace">
+					<web_page>
+						<path>/api/taxxoreditor/filingcontent/findreplace</path>
+						<linkname>Bulk find and replace content for a project</linkname>
+					</web_page>
+				</item>
+				<!-- File manager -->
+				<item id="filemanagerapi">
+					<web_page>
+						<path>/api/taxxoreditor/filemanager</path>
+						<linkname>File manager to enable file operations from the web-client</linkname>
+					</web_page>
+				</item>
+				<!-- GIT operations -->
+				<item id="gitpull">
+					<web_page>
+						<path>/api/git/pull</path>
+						<linkname>Pulls content from a remote GIT repository</linkname>
+					</web_page>
+				</item>
+				<item id="gitactive">
+					<web_page>
+						<path>/api/git/active</path>
+						<linkname>Tests if a location is an active GIT repository</linkname>
+					</web_page>
+				</item>
+				<item id="gitcommit">
+					<web_page>
+						<path>/api/git/commit</path>
+						<linkname>Creates a new GIT commit</linkname>
+					</web_page>
+				</item>
+				<item id="gitextractall">
+					<web_page>
+						<path>/api/git/extract/all</path>
+						<linkname>Extracts all files from a GIT commit</linkname>
+					</web_page>
+				</item>
+				<item id="gitextractsingle">
+					<web_page>
+						<path>/api/git/extract/single</path>
+						<linkname>Extracts a single file from a GIT commit</linkname>
+					</web_page>
+				</item>
+				<item id="gitdiff">
+					<web_page>
+						<path>/api/git/diff</path>
+						<linkname>Renders the difference between two GIT commits</linkname>
+					</web_page>
+				</item>
+				<item id="gitcommitinfo">
+					<web_page>
+						<path>/api/git/commitinfo</path>
+						<linkname>Retrieve all information of a commit</linkname>
+					</web_page>
+				</item>
+                <item id="gitcommitfiles">
+					<web_page>
+						<path>/api/git/commitfiles</path>
+						<linkname>Retrieve all the contents of a commit</linkname>
+					</web_page>
+				</item>
+				<!-- Sandbox routes -->
+				<item id="sandbox-root">
+					<web_page>
+						<path>/sandbox</path>
+						<linkname>Base sandbox route for testing controllers and scripts</linkname>
+					</web_page>
+				</item>
+				<item id="sandbox-requestok">
+					<web_page>
+						<path>/sandbox/remoterequest/ok</path>
+						<linkname>Test OK response from the webserver</linkname>
+					</web_page>
+				</item>
+				<item id="sandbox-requesterror">
+					<web_page>
+						<path>/sandbox/remoterequest/error</path>
+						<linkname>Test error response from the webserver</linkname>
+					</web_page>
+				</item>
+			</sub_items>
+		</item>
+	</structured>
+	<unstructured></unstructured>
+</items>

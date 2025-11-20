@@ -1,0 +1,57 @@
+<data>
+  <system>
+    <date_created>2021-09-20T12:33:19.7785158+00:00</date_created>
+    <date_modified>2022-07-06T08:26:51.8508512+00:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="company-profile" class="" data-guid="company-profile" data-articletype="greybackground" data-last-modified="2022-07-06T08:26:51.8508512+00:00" data-fact-id="company-profile" modified-by="renick.oosterbosch@tiekinetix.com">
+      <div data-type="one-column" class="pageblock">
+        <section class="content regular" data-name="default-content">
+          <h1>Company Profile</h1>
+          <p class="intro">TIE Kinetix N.V. is an international integration software company. The Company provides <strong>Software as a Service (SaaS) solutions</strong> to companies, governmental institutions, and their trading partners and suppliers, to help them exchange all business documents electronically and simplify supply chain processes as a result. The solutions are delivered through FLOW Partner Automation, its own software platform, and empowers users to engage in smart business exchanges and streamline communication through seamless integration with any existing system.</p>
+          <p class="tx-cb-b_arpdfen_undefined">In business since 1987, TIE Kinetix has supported all EDI and e-invoicing standards and communication methods worldwide. Today, its global team of over 125 experts share their knowledge with 2,500+ customers.</p>
+          <p class="">With all major ERP’s moving to the cloud, the digitalization of the supply chain is high growth market in the coming years. In addition, through offices in the Netherlands, France, Germany, and the United States, TIE Kinetix is well positioned to benefit from the strong growth of the e-invoicing market in continental Europe.</p>
+          <p>Our cloud-native FLOW Partner Automation platform is designed to completely eliminate paper from the supply chain, enabling our customers to focus on three corporate initiatives that drive true organizational change: business process efficiency, compliance, and corporate social responsibility (CSR).</p>
+          <p>We believe that digitalization (not digitization) is the future. We believe in conscious development, and we believe in moving ourselves and our customers forward.</p>
+          <div id="wrapper_voycxkcu" class="illustration">
+            <img class="tx-cb-b_arpdfen_undefined" src="/dataserviceassets/{projectid}/images/tie_kinetix-2020_rgb.svg" alt="Drawing" />
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+  <content lang="de">
+    <article id="company-profile" class="" data-guid="company-profile" data-articletype="greybackground" data-last-modified="2022-07-06T08:26:51.8508512+00:00" data-fact-id="company-profile" modified-by="renick.oosterbosch@tiekinetix.com">
+      <div data-type="one-column" class="pageblock">
+        <section class="content regular" data-name="default-content">
+          <h1>Company Profile</h1>
+          <p class="intro">TIE Kinetix N.V. is an international integration software company. The Company provides <strong>Software as a Service (SaaS) solutions</strong> to companies, governmental institutions, and their trading partners and suppliers, to help them exchange all business documents electronically and simplify supply chain processes as a result. The solutions are delivered through FLOW Partner Automation, its own software platform, and empowers users to engage in smart business exchanges and streamline communication through seamless integration with any existing system.</p>
+          <p class="tx-cb-b_arpdfen_undefined">In business since 1987, TIE Kinetix has supported all EDI and e-invoicing standards and communication methods worldwide. Today, its global team of over 125 experts share their knowledge with 2,500+ customers.</p>
+          <p class="">With all major ERP’s moving to the cloud, the digitalization of the supply chain is high growth market in the coming years. In addition, through offices in the Netherlands, France, Germany, and the United States, TIE Kinetix is well positioned to benefit from the strong growth of the e-invoicing market in continental Europe.</p>
+          <p>Our cloud-native FLOW Partner Automation platform is designed to completely eliminate paper from the supply chain, enabling our customers to focus on three corporate initiatives that drive true organizational change: business process efficiency, compliance, and corporate social responsibility (CSR).</p>
+          <p>We believe that digitalization (not digitization) is the future. We believe in conscious development, and we believe in moving ourselves and our customers forward.</p>
+          <div id="wrapper_voycxkcu" class="illustration">
+            <img class="tx-cb-b_arpdfen_undefined" src="/dataserviceassets/{projectid}/images/tie_kinetix-2020_rgb.svg" alt="Drawing" />
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+  <content lang="fr">
+    <article id="company-profile" class="" data-guid="company-profile" data-articletype="greybackground" data-last-modified="2022-07-06T08:26:51.8508512+00:00" data-fact-id="company-profile" modified-by="renick.oosterbosch@tiekinetix.com">
+      <div data-type="one-column" class="pageblock">
+        <section class="content regular" data-name="default-content">
+          <h1>Company Profile</h1>
+          <p class="intro">TIE Kinetix N.V. is an international integration software company. The Company provides <strong>Software as a Service (SaaS) solutions</strong> to companies, governmental institutions, and their trading partners and suppliers, to help them exchange all business documents electronically and simplify supply chain processes as a result. The solutions are delivered through FLOW Partner Automation, its own software platform, and empowers users to engage in smart business exchanges and streamline communication through seamless integration with any existing system.</p>
+          <p class="tx-cb-b_arpdfen_undefined">In business since 1987, TIE Kinetix has supported all EDI and e-invoicing standards and communication methods worldwide. Today, its global team of over 125 experts share their knowledge with 2,500+ customers.</p>
+          <p class="">With all major ERP’s moving to the cloud, the digitalization of the supply chain is high growth market in the coming years. In addition, through offices in the Netherlands, France, Germany, and the United States, TIE Kinetix is well positioned to benefit from the strong growth of the e-invoicing market in continental Europe.</p>
+          <p>Our cloud-native FLOW Partner Automation platform is designed to completely eliminate paper from the supply chain, enabling our customers to focus on three corporate initiatives that drive true organizational change: business process efficiency, compliance, and corporate social responsibility (CSR).</p>
+          <p>We believe that digitalization (not digitization) is the future. We believe in conscious development, and we believe in moving ourselves and our customers forward.</p>
+          <div id="wrapper_voycxkcu" class="illustration">
+            <img class="tx-cb-b_arpdfen_undefined" src="/dataserviceassets/{projectid}/images/tie_kinetix-2020_rgb.svg" alt="Drawing" />
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

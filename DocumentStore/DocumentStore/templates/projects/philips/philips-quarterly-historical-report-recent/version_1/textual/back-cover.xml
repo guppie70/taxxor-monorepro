@@ -1,0 +1,22 @@
+<data>
+  <system>
+    <date_created>2018-09-21T11:36:10.153+02:00</date_created>
+    <date_modified>2019-06-27T19:09:15.9366840+02:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="2201714-back-cover" data-fact-id="2201714-back-cover" data-tangeloid="12732613" data-guid="2201714-back-cover" data-last-modified="2019-06-27T19:09:15.9366840+02:00" data-description="back-cover" class="" modified-by="johan.thijs@philips.com">
+      <div class="pageblock back-cover" data-type="one-column">
+        <section class="content" data-name="main-content">
+          <div class="copyright">
+            <h1 guid="d7e6350">© 2019 Koninklijke Philips N.V. </h1>
+            <p guid="d7e6352">All rights reserved.</p>
+          </div>
+          <div class="website">https://www.philips.com/investorrelations</div>
+          <div class="image-wrapper" id="philips-shield">
+            <img src="/custom/philips/groupcontrol/images/6k/shield.png" alt="Philips shield" />
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

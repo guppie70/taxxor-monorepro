@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Google.Protobuf" Version="3.27.5" />
+        <PackageReference Include="Grpc.AspNetCore" Version="2.62.0" />
+        <PackageReference Include="Grpc.Tools" Version="2.62.0">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        
+
+        <!-- <Protobuf Include="Protos\**\*.proto" GrpcServices="Both" OutputDir="$(ProjectDir)GeneratedGrpcLogic" CompileOutputs="true" /> -->
+        <Protobuf Include="Protos\**\*.proto" GrpcServices="Both" CompileOutputs="true" />
+    </ItemGroup>
+
+</Project>

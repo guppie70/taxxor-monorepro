@@ -1,0 +1,49 @@
+/* Styles used for styling the drawings */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+
+.placeholder {
+    border: 1px solid rgba(255, 0, 0, .5);
+}
+
+.chart-content {
+    position: relative;
+    background-repeat: no-repeat;
+}
+
+.fallback:before,
+.placeholder:before {
+    content: 'Work in progress';
+    font-size: 20px;
+    font-family: arial;
+    bottom: 0;
+    position: absolute;
+    right: 5px;
+    color: #fff;
+    text-shadow: 2px 2px 10px #000;
+    transform: rotate(-45deg) translate(30%, -100%);
+    z-index: 10;
+}
+
+div.chart-wrapper table {
+    display: none;
+}
+
+body,
+div.table-wrapper {
+    margin: 0 !important;
+}
+
+div.illustration {
+    margin: 0 !important;
+}
+
+div.illustration div.tablegraph-header-wrapper {
+    display: none;
+}

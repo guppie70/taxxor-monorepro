@@ -1,0 +1,731 @@
+<xs:schema xmlns:xopus="http://www.xopus.com/xmlns/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="decimalType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute name="decimals" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="monetaryType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute name="decimals" type="xs:string" />
+        <xs:attribute name="currency" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="monetaryValue">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute name="decimals" type="xs:string" />
+          <xs:attribute name="currency" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="displayType">
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="table" />
+      <xs:enumeration value="paragraph" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Presentation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" ref="cbs-lr_Contact-information" />
+        <xs:element minOccurs="1" ref="cbs-lr_Investments" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-lr_Contact-information">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Contactinformation</xopus:name>
+          <xopus:name xml:lang="nl">Contactinformatie</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" ref="cbs-bedr-a_GlobalCommonDocumentTaxonomyCBS" />
+      </xs:sequence>
+      <xs:attribute name="displayMode" type="displayType" use="required" />
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-a_GlobalCommonDocumentTaxonomyCBS">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Container element contact information</xopus:name>
+          <xopus:name xml:lang="nl">Verzamelelement voor contactinformatie</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="cbs-bedr-items_EntityLegalName" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_EntityWebSite" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_CBSUserId" />
+        <xs:element minOccurs="0" ref="nl-cd_StartDateForFinancialPeriod" />
+        <xs:element minOccurs="0" ref="nl-cd_EndDateForFinancialPeriod" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cbs-bedr-tuples_ContactAddresses" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cbs-bedr-tuples_EntityEmailaddress" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_EntityLegalName">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Legal name entity</xopus:name>
+          <xopus:name xml:lang="nl">Bedrijfsnaam</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" name="value" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_EntityWebSite">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Website entity</xopus:name>
+          <xopus:name xml:lang="nl">Bedrijfswebsite</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" name="value" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_CBSUserId">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Statistics Netherlands user identificationnumber</xopus:name>
+          <xopus:name xml:lang="nl">CBS gebruikersnummer</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" name="value" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nl-cd_StartDateForFinancialPeriod">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Start date for financial period</xopus:name>
+          <xopus:name xml:lang="nl">Begindatum rapportageperiode</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" name="value" type="xs:date" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nl-cd_EndDateForFinancialPeriod">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">End date for financial period</xopus:name>
+          <xopus:name xml:lang="nl">Einddatum rapportageperiode</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" name="value" type="xs:date" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-tuples_ContactAddresses">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Contactperson addresses</xopus:name>
+          <xopus:name xml:lang="nl">Adresgegevens contactpersonen</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="cbs-bedr-items_ContactPersonSurname" />
+        <xs:element minOccurs="0" ref="nl-cd_TelephoneNumber" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cbs-bedr-tuples_DutchAddress" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_ContactPersonSurname">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Surname contactperson</xopus:name>
+          <xopus:name xml:lang="nl">Achternaam contactpersoon</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" name="value" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nl-cd_TelephoneNumber">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Telephone number</xopus:name>
+          <xopus:name xml:lang="nl">Telefoonnummer</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" name="value" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-tuples_DutchAddress">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Dutch address</xopus:name>
+          <xopus:name xml:lang="nl">Adres binnenland</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="nl-cd_StreetNameNL" />
+        <xs:element minOccurs="0" ref="nl-cd_HouseNumberNL" />
+        <xs:element minOccurs="0" ref="nl-cd_HouseNumberAddition" />
+        <xs:element minOccurs="0" ref="nl-cd_DescriptionLocationNL" />
+        <xs:element minOccurs="0" ref="nl-cd_PostalCodeNL" />
+        <xs:element minOccurs="0" ref="nl-cd_PlaceOfResidenceNL" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nl-cd_StreetNameNL">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Street name NL</xopus:name>
+          <xopus:name xml:lang="nl">Straatnaam NL</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" name="value" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nl-cd_HouseNumberNL">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">House number NL</xopus:name>
+          <xopus:name xml:lang="nl">Huisnummer NL</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" name="value" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nl-cd_HouseNumberAddition">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">House number addition</xopus:name>
+          <xopus:name xml:lang="nl">Huisnummer toevoeging</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" name="value" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nl-cd_DescriptionLocationNL">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Description location NL</xopus:name>
+          <xopus:name xml:lang="nl">Locatieomschrijving NL</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" name="value" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nl-cd_PostalCodeNL">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Postal code NL</xopus:name>
+          <xopus:name xml:lang="nl">Postcode NL</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" name="value" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nl-cd_PlaceOfResidenceNL">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Place of residence NL</xopus:name>
+          <xopus:name xml:lang="nl">Vestigingsplaats NL</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" name="value" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-tuples_EntityEmailaddress">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Emailaddress of entity</xopus:name>
+          <xopus:name xml:lang="nl">Emailadres bedrijf</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="nl-cd_EmailAddressDescription" />
+        <xs:element minOccurs="0" ref="nl-cd_EmailAddressFull" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nl-cd_EmailAddressDescription">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Email address, description</xopus:name>
+          <xopus:name xml:lang="nl">Email adres, beschrijving</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" name="value" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nl-cd_EmailAddressFull">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Email address, full</xopus:name>
+          <xopus:name xml:lang="nl">Email adres, volledig</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" name="value" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-lr_Investments">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments statistics</xopus:name>
+          <xopus:name xml:lang="nl">Statistiek van de Investeringen</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" ref="cbs-bedr-a_InvestmentsAndSalesofTangibleFixedAsstes" />
+      </xs:sequence>
+      <xs:attribute name="displayMode" type="displayType" use="required" />
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-a_InvestmentsAndSalesofTangibleFixedAsstes">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments and sales of tangible fixed assets</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen en desinvesteringen materiele vaste activa</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="cbs-bedr-items_TangibleFixedAssetsUnderConstructionPrepaymentsStart" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_PrepaymentsOnTangibleFixedAssetsUnderConstructionEnd" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_InvestmentsInTangibleFixedAssetsTotalNewAndExisting" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_SalesOfTangibleFixedAssetsTotal" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_TangibleFixedAssetsUnderConstructionPrepaymentsStart">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Prepayment on tangible fixed assets under construction at the start of the reporting period</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in materiële vaste activa in uitvoering totaal vooruitbetalingen aan begin verslagperiode </xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_PrepaymentsOnTangibleFixedAssetsUnderConstructionEnd">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Prepayment on tangible fixed assets under construction at the end of reporting period</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in materiële vaste activa in uitvoering totaal vooruitbetalingen aan eind verslagperiode</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_InvestmentsInTangibleFixedAssetsTotalNewAndExisting">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments in tangible fixed assets, total (new and existing)</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in materiële vaste activa totaal (nieuw en bestaand)</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_InvestmentsInTangibleFixedAssetsNewTotal" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_InvestmentsInUsedSecondhandTangibleFixedAssetsTotal" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_InvestmentsInTangibleFixedAssetsNewTotal">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments in new tangible fixed assets, total</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in nieuwe materiële vaste activa, Totaal</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_InvestmentsInNewTangibleFixedAssetsNewBuildings" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_InvestmentsInNewTangibleFixedAssetsNewCivilEngineeringWorks" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_InvestmentsInNewTangibleFixedAssetsNewTransportEquipment" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_InvestmentsInNewTangibleFixedAssetsNewComputers" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_InvestmentsInNewTangibleFixedAssetsOtherNewMachinesInstallationsAndEquipment" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_InvestmentsInNewTangibleFixedAssetsOtherNew" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_InvestmentsInNewTangibleFixedAssetsNewBuildings">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments in new tangible fixed assets, new buildings</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in materiële vaste activa gebouwen nieuw</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_InvestmentsInNewTangibleFixedAssetsNewCivilEngineeringWorks">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments in new tangible fixed assets, new civil engineering works</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in materiële vaste activa grond-, water- en wegenbouwkundige werken nieuw</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_InvestmentsInNewTangibleFixedAssetsNewTransportEquipment">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments in new tangible fixed assets, new transport equipment</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in nieuwe materiële vaste activa, Vervoermiddelen</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_InvestmentsInNewTangibleFixedAssetsNewComputers">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments in new tangible fixed assets, new computers</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in nieuwe materiële vaste activa, Computers</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_InvestmentsInNewTangibleFixedAssetsOtherNewMachinesInstallationsAndEquipment">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments in new tangible fixed assets, other new machines, installations and equipment</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in nieuwe materiële vaste activa, Andere machines, installaties en apparaten</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_InvestmentsInNewTangibleFixedAssetsOtherNew">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments in new tangible fixed assets, other new</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in nieuwe materiële vaste activa, Overige</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_InvestmentsInUsedSecondhandTangibleFixedAssetsTotal">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments in used (second-hand) tangible fixed assets, total</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in gebruikte (2e hands) materiële vaste activa, Totaal</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_InvestmentsInUsedSecondhandTangibleFixedAssetsLandAndSites" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_InvestmentsInTangibleFixedAssetsBuildingsExisting" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_InvestmentsInTangibleFixedAssetsCivilEngineeringExisting" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_InvestmentsInUsedSecondhandTangibleFixedAssetsTransportEquipment" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_InvestmentsInUsedSecondhandTangibleFixedAssetsComputers" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_InvestmentsInUsedSecondhandTangibleFixedAssetsOtherMachinesInstallationsAndEquipment" />
+        <xs:element minOccurs="0" ref="cbs-bedr-items_InvestmentsInUsedSecondhandTangibleFixedAssetsOther" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_InvestmentsInUsedSecondhandTangibleFixedAssetsLandAndSites">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments in used (second-hand) tangible fixed assets, land and sites</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in gebruikte (2e hands) materiële vaste activa, Grond</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_InvestmentsInTangibleFixedAssetsBuildingsExisting">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments in tangible fixed assets, existing buildings</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in materiële vaste activa gebouwen bestaand</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_InvestmentsInTangibleFixedAssetsCivilEngineeringExisting">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments in tangible fixed assets, existing civil engineering works</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in materiële vaste activa grond-, water- en wegenbouwkundige werken bestaand</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_InvestmentsInUsedSecondhandTangibleFixedAssetsTransportEquipment">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments in used (second-hand) tangible fixed assets, transport equipment</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in gebruikte (2e hands) materiële vaste activa, Vervoermiddelen</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_InvestmentsInUsedSecondhandTangibleFixedAssetsComputers">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments in used (second-hand) tangible fixed assets, computers</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in gebruikte (2e hands) materiële vaste activa, Computers</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_InvestmentsInUsedSecondhandTangibleFixedAssetsOtherMachinesInstallationsAndEquipment">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments in used (second-hand) tangible fixed assets, other machines, installations and equipment</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in gebruikte (2e hands) materiële vaste activa, Andere machines, installaties en apparaten</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_InvestmentsInUsedSecondhandTangibleFixedAssetsOther">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Investments in used (second-hand) tangible fixed assets, other</xopus:name>
+          <xopus:name xml:lang="nl">Investeringen in gebruikte (2e hands) materiële vaste activa, Overige</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cbs-bedr-items_SalesOfTangibleFixedAssetsTotal">
+    <xs:annotation>
+      <xs:appinfo>
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Sales of tangible fixed assets, total</xopus:name>
+          <xopus:name xml:lang="nl">Verkopen van materiële vaste activa totaal</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="20" ref="monetaryValue" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

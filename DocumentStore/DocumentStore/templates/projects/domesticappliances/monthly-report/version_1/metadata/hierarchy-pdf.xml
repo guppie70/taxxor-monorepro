@@ -1,0 +1,24 @@
+<items>
+  <structured>
+    <item id="document-root" level="0" data-ref="document-root.xml">
+      <web_page>
+        <path>/</path>
+        <linkname>Quarterly Report 20XX - QX</linkname>
+      </web_page>
+      <sub_items>
+        <item id="front-cover" level="1" data-ref="front-cover.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>cover</linkname>
+          </web_page>
+        </item>
+        <item id="back-cover" level="1" data-ref="back-cover.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>backcover</linkname>
+          </web_page>
+        </item>
+      </sub_items>
+    </item>
+  </structured>
+</items>

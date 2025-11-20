@@ -1,0 +1,26 @@
+<data>
+  <system>
+    <date_created>2021-01-20T17:57:16.7702040+01:00</date_created>
+    <date_modified>2021-01-20T17:57:16.7702040+01:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="participations" data-guid="participations" data-hierarchical-level="1" data-articletype="regular" data-last-modified="2021-01-20T17:57:16.7702040+01:00">
+      <div class="pageblock" data-type="one-column">
+        <section class="content regular" data-name="default-content">
+          <h1>List of participations</h1>
+          <p>[start typing the content here]</p>
+        </section>
+      </div>
+    </article>
+  </content>
+  <content lang="zh">
+    <article id="participations" data-guid="participations" data-hierarchical-level="1" data-articletype="regular" data-last-modified="2021-01-20T17:57:16.7702040+01:00">
+      <div class="pageblock" data-type="one-column">
+        <section class="content regular" data-name="default-content">
+          <h1>participations</h1>
+          <p>...</p>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

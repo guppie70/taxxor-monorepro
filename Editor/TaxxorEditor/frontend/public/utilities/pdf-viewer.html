@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Viewer with PDF.js</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #header {
+            background: #f0f0f0;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        #pageNumber {
+            width: 50px;
+            text-align: center;
+        }
+        #viewerContainer {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: auto;
+        }
+        #viewer {
+            margin: 0 auto;
+        }
+        .page {
+            position: relative;
+            margin: 10px auto;
+            border: 1px solid #ccc;
+            background: white;
+        }
+        canvas {
+            display: block;
+        }
+        .textLayer {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            opacity: 0.2;
+            line-height: 1;
+        }
+        .textLayer > span {
+            color: transparent;
+            position: absolute;
+            white-space: pre;
+            cursor: text;
+            transform-origin: 0% 0%;
+        }
+        .textLayer ::selection {
+            background: rgb(0, 0, 255);
+        }
+        #searchBox {
+            margin-left: 20px;
+        }
+        #searchInput {
+            padding: 5px;
+            width: 200px;
+        }
+        #searchButton {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .highlight {
+            background-color: yellow;
+            color: black !important;
+            opacity: 1 !important;
+        }
+        #loadingMessage {
+            text-align: center;
+            padding: 20px;
+            font-size: 18px;
+        }
+        #pageErrorMessage {
+            position: fixed;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff4444;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: none;
+        }
+    </style>
+    <script type="module">
+        import * as pdfjsLib from 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.3.93/pdf.min.mjs';
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.3.93/pdf.worker.min.mjs';
+        
+        // Make pdfjsLib available globally
+        window.pdfjsLib = pdfjsLib;
+
+        let pdfDoc = null;
+        let pageNum = 1;
+        let pageRendering = false;
+        let pageNumPending = null;
+        let scale = 1.5;
+        let isNavigatingFromHash = false;
+        
+        // Get device pixel ratio for high-DPI displays
+        const outputScale = window.devicePixelRatio || 1;
+
+        function showPageError(message) {
+            const errorDiv = document.getElementById('pageErrorMessage');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            setTimeout(() => {
+                errorDiv.style.display = 'none';
+            }, 3000);
+        }
+
+        function getPageFromHash() {
+            const hash = window.location.hash;
+            if (hash) {
+                const match = hash.match(/#page=(\d+)/);
+                if (match) {
+                    return parseInt(match[1]);
+                }
+            }
+            return null;
+        }
+
+        function updateHash(pageNumber) {
+            if (!isNavigatingFromHash) {
+                window.location.hash = `page=${pageNumber}`;
+            }
+        }
+
+        function navigateToPage(requestedPage) {
+            if (!pdfDoc) {
+                // PDF not loaded yet, wait and retry
+                setTimeout(() => navigateToPage(requestedPage), 100);
+                return;
+            }
+
+            if (requestedPage < 1) {
+                showPageError(`Page ${requestedPage} does not exist. Minimum page is 1.`);
+                pageNum = 1;
+                updateHash(1);
+                queueRenderPage(1);
+            } else if (requestedPage > pdfDoc.numPages) {
+                showPageError(`Page ${requestedPage} does not exist. This PDF has only ${pdfDoc.numPages} pages.`);
+                pageNum = pdfDoc.numPages;
+                updateHash(pdfDoc.numPages);
+                queueRenderPage(pdfDoc.numPages);
+            } else {
+                pageNum = requestedPage;
+                updateHash(requestedPage);
+                queueRenderPage(requestedPage);
+            }
+        }
+
+        function renderPage(num) {
+            pageRendering = true;
+            pdfDoc.getPage(num).then(function(page) {
+                const viewport = page.getViewport({ scale: scale });
+                
+                // Clear previous page
+                const container = document.getElementById('viewer');
+                container.innerHTML = '';
+                
+                // Create page div
+                const pageDiv = document.createElement('div');
+                pageDiv.className = 'page';
+                pageDiv.id = 'page-' + num;
+                container.appendChild(pageDiv);
+                
+                // Create canvas
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                // Set actual size in memory (scaled up for density)
+                canvas.width = Math.floor(viewport.width * outputScale);
+                canvas.height = Math.floor(viewport.height * outputScale);
+                
+                // Set display size (CSS pixels)
+                canvas.style.width = Math.floor(viewport.width) + 'px';
+                canvas.style.height = Math.floor(viewport.height) + 'px';
+                
+                pageDiv.appendChild(canvas);
+                pageDiv.style.width = viewport.width + 'px';
+                pageDiv.style.height = viewport.height + 'px';
+                
+                // Render PDF page into canvas
+                const renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport,
+                    transform: outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null
+                };
+                const renderTask = page.render(renderContext);
+                
+                renderTask.promise.then(function() {
+                    pageRendering = false;
+                    if (pageNumPending !== null) {
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+                
+                // Create text layer
+                const textLayerDiv = document.createElement('div');
+                textLayerDiv.className = 'textLayer';
+                pageDiv.appendChild(textLayerDiv);
+                
+                // Get text content
+                page.getTextContent().then(function(textContent) {
+                    // PDF.js v5 uses a different approach for text layer
+                    const textLayer = new pdfjsLib.TextLayer({
+                        textContentSource: textContent,
+                        container: textLayerDiv,
+                        viewport: viewport
+                    });
+                    textLayer.render();
+                });
+            });
+            
+            // Update page counters
+            document.getElementById('pageNumber').value = num;
+        }
+
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                renderPage(num);
+            }
+        }
+
+        function onPrevPage() {
+            if (pageNum <= 1) {
+                return;
+            }
+            pageNum--;
+            navigateToPage(pageNum);
+        }
+
+        function onNextPage() {
+            if (pageNum >= pdfDoc.numPages) {
+                return;
+            }
+            pageNum++;
+            navigateToPage(pageNum);
+        }
+
+        function onPageNumberChange(e) {
+            const num = parseInt(e.target.value);
+            if (!isNaN(num)) {
+                navigateToPage(num);
+            }
+        }
+
+        // Listen for hash changes
+        window.addEventListener('hashchange', function() {
+            const hashPage = getPageFromHash();
+            if (hashPage !== null && hashPage !== pageNum) {
+                isNavigatingFromHash = true;
+                navigateToPage(hashPage);
+                setTimeout(() => {
+                    isNavigatingFromHash = false;
+                }, 100);
+            }
+        });
+
+        function searchInPDF() {
+            const searchText = document.getElementById('searchInput').value.toLowerCase();
+            if (!searchText) return;
+            
+            // Search through all pages
+            let found = false;
+            let searchPage = 1;
+            
+            function searchNextPage() {
+                if (searchPage > pdfDoc.numPages) {
+                    if (!found) {
+                        alert('Text not found: ' + searchText);
+                    }
+                    return;
+                }
+                
+                pdfDoc.getPage(searchPage).then(function(page) {
+                    page.getTextContent().then(function(textContent) {
+                        let pageText = '';
+                        textContent.items.forEach(function(item) {
+                            pageText += item.str + ' ';
+                        });
+                        
+                        if (pageText.toLowerCase().includes(searchText)) {
+                            found = true;
+                            pageNum = searchPage;
+                            queueRenderPage(pageNum);
+                            
+                            // Highlight the found text after rendering
+                            setTimeout(() => {
+                                const textLayer = document.querySelector('.textLayer');
+                                if (textLayer) {
+                                    const spans = textLayer.querySelectorAll('span');
+                                    spans.forEach(span => {
+                                        if (span.textContent.toLowerCase().includes(searchText)) {
+                                            span.classList.add('highlight');
+                                        }
+                                    });
+                                }
+                            }, 500);
+                            return;
+                        }
+                        
+                        searchPage++;
+                        searchNextPage();
+                    });
+                });
+            }
+            
+            searchNextPage();
+        }
+
+        // Load PDF
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            const viewer = document.getElementById('viewer');
+            viewer.innerHTML = '<div id="loadingMessage">Loading PDF...</div>';
+            
+            // Get PDF URL from query string or use default
+            const urlParams = new URLSearchParams(window.location.search);
+            const pdfUrl = urlParams.get('pdf') || urlParams.get('url');
+            const originalUrl = pdfUrl || 'https://2024.havenstederjaarverslag.nl/wp-content/uploads/2025/06/14136_Havensteder_Jaarverslag-2024.pdf';
+            
+            // Determine if we need to use a proxy (only for HTTP/HTTPS URLs)
+            let finalUrl;
+            if (originalUrl.toLowerCase().startsWith('http://') || originalUrl.toLowerCase().startsWith('https://')) {
+                // Remote URL - use CORS proxy
+                finalUrl = 'https://corsproxy.io/?' + encodeURIComponent(originalUrl);
+            } else {
+                // Local path - use directly
+                finalUrl = originalUrl;
+            }
+            
+            pdfjsLib.getDocument(finalUrl).promise.then(function(pdfDoc_) {
+                pdfDoc = pdfDoc_;
+                document.getElementById('pageCount').textContent = pdfDoc.numPages;
+                
+                // Check if there's a page specified in the hash
+                const hashPage = getPageFromHash();
+                if (hashPage !== null) {
+                    // Navigate to the page specified in the hash
+                    navigateToPage(hashPage);
+                } else {
+                    // No hash page, render the first page
+                    renderPage(pageNum);
+                }
+            }).catch(function(error) {
+                console.error('Error loading PDF:', error);
+                viewer.innerHTML = '<div id="loadingMessage">Error loading PDF. Trying alternative method...</div>';
+                
+                // Try another proxy only for remote URLs
+                let altFinalUrl;
+                if (originalUrl.toLowerCase().startsWith('http://') || originalUrl.toLowerCase().startsWith('https://')) {
+                    // Remote URL - try alternative proxy
+                    altFinalUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(originalUrl);
+                } else {
+                    // Local path - already failed, don't retry
+                    console.error('Failed to load local PDF:', originalUrl);
+                    viewer.innerHTML = '<div id="loadingMessage">Unable to load local PDF file. Please check the path.</div>';
+                    return;
+                }
+                
+                pdfjsLib.getDocument(altFinalUrl).promise.then(function(pdfDoc_) {
+                    pdfDoc = pdfDoc_;
+                    document.getElementById('pageCount').textContent = pdfDoc.numPages;
+                    
+                    // Check if there's a page specified in the hash
+                    const hashPage = getPageFromHash();
+                    if (hashPage !== null) {
+                        // Navigate to the page specified in the hash
+                        navigateToPage(hashPage);
+                    } else {
+                        // No hash page, render the first page
+                        renderPage(pageNum);
+                    }
+                }).catch(function(error2) {
+                    console.error('Error with alternative proxy:', error2);
+                    viewer.innerHTML = '<div id="loadingMessage">Unable to load PDF due to CORS restrictions.</div>';
+                });
+            });
+        });
+        
+        // Make functions globally available for onclick handlers
+        window.onPrevPage = onPrevPage;
+        window.onNextPage = onNextPage;
+        window.onPageNumberChange = onPageNumberChange;
+        window.searchInPDF = searchInPDF;
+    </script>
+</head>
+<body>
+    <div id="pageErrorMessage"></div>
+    <div id="header">
+        <button id="prevButton" onclick="onPrevPage()">Previous</button>
+        <button id="nextButton" onclick="onNextPage()">Next</button>
+        <span>Page: <input type="number" id="pageNumber" value="1" onchange="onPageNumberChange(event)"> / <span id="pageCount">-</span></span>
+        <div id="searchBox">
+            <input type="text" id="searchInput" placeholder="Search in PDF..." onkeypress="if(event.key==='Enter') searchInPDF()">
+            <button id="searchButton" onclick="searchInPDF()">Search</button>
+        </div>
+    </div>
+    <div id="viewerContainer">
+        <div id="viewer"></div>
+    </div>
+</body>
+</html>

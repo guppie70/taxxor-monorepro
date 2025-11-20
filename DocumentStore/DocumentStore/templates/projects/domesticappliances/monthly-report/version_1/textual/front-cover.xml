@@ -1,0 +1,61 @@
+<data>
+  <system>
+    <date_created>2018-09-21T11:36:10.153+02:00</date_created>
+    <date_modified>2019-06-27T21:16:58.6230300+02:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="2201713-front-cover" data-fact-id="2201713-front-cover" data-tangeloid="12732536" data-guid="2201713-front-cover" data-last-modified="2019-06-27T21:16:58.6230300+02:00" data-description="front-cover" class="" modified-by="johan.thijs@philips.com">
+      <div class="pageblock head" data-type="one-column">
+        <section class="content" data-name="head-content">
+          <div id="header-logo">
+            <a href="http://www.philips.com/" data-link-type="external">
+              <!---->
+            </a>
+            <p class="brand-label-parent">
+              <a class="editable-link" href="#">Quarterly report</a>
+            </p>
+            <div class="brand-label">
+              <header>
+                <h1 class="">
+                  <a class="editable-link" href="#" id="#" title="Home">QX 20XX</a>
+                </h1>
+              </header>
+            </div>
+          </div>
+          <div class="image-wrapper" id="philips-shape">
+            <img src="/outputchannels/philips/pdf/images/philips_shape.png" alt="Philips shape" />
+          </div>
+        </section>
+      </div>
+      <div class="pageblock story" data-type="one-column">
+        <section class="content" data-name="story-content">
+          <h1>Lorem ipsum solum mid</h1>
+          <p class="blue">Amsterdam, April 29, 20XX</p>
+          <h2 id="quarter-header">XX-quarter highlights</h2>
+          <ul class="intro" id="perf-highlights">
+            <li>Highlights</li>
+          </ul>
+          <h4 style="font-size: 10.7px">XXX, CEO<br /></h4>
+          <div class="pageblock" id="ceo-message">
+            <p>“CEO message quote”</p>
+          </div>
+          <h2>Reporting segment performance</h2>
+          <p>Lorem ipsum<br /></p>
+          <ul class="mbot-1 spaced">
+            <li id="highlight1">Highlight 1</li>
+            <li id="highlight2">Highlight 2</li>
+            <li id="highlight3">Highlight 3</li>
+            <li id="highlight4">Highlight 4</li>
+            <li id="highlight5">Highlight 5</li>
+            <li id="highlight6">Highlight 6</li>
+            <li id="highlight7">Highlight 7</li>
+            <li id="highlight8">Highlight 8</li>
+            <li id="highlight9">Highlight 9</li>
+          </ul>
+          <h2>Conference call and audio webcast</h2>
+          <p class="pb-a">XXX, CEO, and XXX, CFO, will host a conference call for investors and analysts at 10:00 am CET today to discuss the results. A live audio webcast of the conference call will be available on the Philips Investor Relations website and can be accessed <a href="https://edge.media-server.com/m6/p/ja48h42a" data-link-type="external">here</a>. </p>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

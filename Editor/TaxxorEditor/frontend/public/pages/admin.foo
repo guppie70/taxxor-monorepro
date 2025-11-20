@@ -1,0 +1,187 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="LextraEditor.Project.PageRegular" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% WritePageHead(pageId); %>
+</head>
+<body class="page_<% =pageId %> system-page no-skin">
+    <% WritePageBodyStart(pageId); %>
+
+
+
+    <div class="main-container">
+        <% WritePageMainColumnStart(pageId); %>
+        <div class="page-header">
+            <h1><% =pageTitle %></h1>
+        </div>
+
+
+        <!-- Administrator Tools Content -->
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="header smaller lighter blue">Taxonomy support
+					<small>(taxonomies editable in this installation)</small>
+                </h3>
+            </div>
+            <div class="col-xs-12 col-sm-10 auditorview-content">
+
+                <div id="taxonomyoverviewresult">
+                    <% WriteTaxonomyOverview(false); %>
+                </div>
+
+            </div>
+        </div>
+        <% WritePageMainColumnEnd(pageId); %>
+    </div>
+
+    <!-- Large modal 
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+-->
+    <!-- Modal Add Support -->
+    <div class="modal fade" id="addTaxoSupportModal" tabindex="-1" role="dialog" aria-labelledby="myAddTaxonomySupportLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" onclick="setStandardModalDialogState('modal_generate-xbrl', 'content');"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myAddTaxonomySupportLabel">Add Taxonomy Support</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="content" style="display: block">
+                        <p>Use the form below to add support for the &quot;<span class="taxo_name"></span>&quot; taxonomy.</p>
+                        <div class="create_form">
+                            <form role="form" class="form-horizontal">
+                              <div class="form-group inputReportTypeId">
+                                <label class="col-lg-4 control-label" for="inputReportTypeId">Report Type ID</label>
+                                <div class="col-lg-6">
+                                  <input type="text" placeholder="Report type id" name="inputReportTypeId" class="form-control inputReportTypeId" disabled="disabled"/>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-lg-4 control-label" for="inputEditor">Taxxor editor to use</label>
+                                <div class="col-lg-6">
+                                  <select name="inputEditor" class="form-control inputEditor">
+                                    <option default="default" value="">-- Select an editor --</option>
+                                    <% RenderEditorOptionList(); %>
+                                  </select>
+                                </div>
+                              </div>
+                              <input type="hidden" value="" name="inputTaxonomyName" class="inputTaxonomyName"/>
+                            </form>
+                          </div>
+                    </div>
+                    <div class="spinner" style="display: none">
+                        <p>Adding taxonomy support...</p>
+                    </div>
+                    <div class="error" style="display: none">
+                        <div class="alert alert-danger">
+                            An error has occured, please contact the administrator.
+                        </div>
+                    </div>
+                    <div class="success" style="display: none">
+                        <p>Successfully added taxonomy support</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="setStandardModalDialogState('modal_generate-xbrl', 'content');">Close</button>
+                    <button type="button" class="btn btn-primary button-add" onclick="addNewTaxonomySupport();"> Add support</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Delete Support -->
+    <div class="modal fade" id="deleteTaxoSupportModal" tabindex="-1" role="dialog" aria-labelledby="myDeleteTaxoSupportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Remove Taxonomy Support</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="content" style="display: block">
+                        <p>You are about to delete support for the &quot;<span class="taxo_name"></span>&quot; taxonomy.</p>
+                        <p>As a result, it will not be possible anymore to create filings for this taxonomy.</p>
+                        <div class="project-data">...</div>
+                        <p>If you are sure that you like to proceed, use the delete button below.</p>
+                    </div>
+                    <div class="spinner" style="display: none">
+                        <p>Removing taxonomy support...</p>
+                    </div>
+                    <div class="error" style="display: none">
+                        <div class="alert alert-danger">
+                            An error has occured, please contact the administrator.
+                        </div>
+                    </div>
+                    <div class="success" style="display: none">
+                        <p>Successfully removed taxonomy support</p>
+                        <div class="result">  </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-sm btn-default" type="button">Discard</button>
+                    <button type="button" class="btn btn-sm btn-danger button-delete" onclick="removeTaxonomySupport()"><span class="glyphicon glyphicon-trash"></span> Remove support</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Taxonomy Support Properties -->
+     <div class="modal fade" id="propsTaxoSupportModal" tabindex="-1" role="dialog" aria-labelledby="myPropsTaxonomySupportLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" onclick="setStandardModalDialogState('modal_generate-xbrl', 'content');"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myPropsTaxonomySupportLabel">Taxonomy Support Properties</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="content" style="display: block">
+                        <div class="project-data">...</div>
+                        <hr />
+                        <p>Use the form below to change the properties of the support for the &quot;<span class="taxo_name"></span>&quot; taxonomy.</p>
+                        <div class="create_form">
+                            <form role="form" class="form-horizontal">
+                              <div class="form-group inputReportTypeId">
+                                <label class="col-lg-4 control-label" for="inputReportTypeId">Report Type ID</label>
+                                <div class="col-lg-6">
+                                  <input type="text" placeholder="Report type id" name="inputReportTypeId" class="form-control inputReportTypeId" disabled="disabled"/>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-lg-4 control-label" for="inputEditor">Taxxor editor</label>
+                                <div class="col-lg-6">
+                                  <select name="inputEditor" class="form-control inputEditor">
+                                    <% RenderEditorOptionList(); %>
+                                  </select>
+                                </div>
+                              </div>
+                              <input type="hidden" value="" name="inputTaxonomyName" class="inputTaxonomyName"/>
+                            </form>
+                          </div>
+                    </div>
+                    <div class="spinner" style="display: none">
+                        <p>Generating XBRL instance document...</p>
+                    </div>
+                    <div class="error" style="display: none">
+                        <div class="alert alert-danger">
+                            An error has occured, please contact the administrator.
+                        </div>
+                    </div>
+                    <div class="success" style="display: none">
+                        <p>Successfully changed taxonomy support properties</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="setStandardModalDialogState('modal_generate-xbrl', 'content');">Close</button>
+                    <button type="button" class="btn btn-primary button-save" onclick="changeTaxonomySupportProperties();"> Save properties</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <% WritePageBodyEnd(pageId); %>
+</body>
+</html>

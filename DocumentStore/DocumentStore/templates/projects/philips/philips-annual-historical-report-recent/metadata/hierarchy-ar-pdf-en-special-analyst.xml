@@ -1,0 +1,918 @@
+<items>
+  <structured>
+    <item id="1153521-annual-report-20181" level="0" data-ref="1153521-annual-report-20181.xml">
+      <web_page>
+        <path>/</path>
+        <linkname>Annual Report 2018</linkname>
+      </web_page>
+      <sub_items>
+        <item id="1201713-front-cover" level="1" data-ref="1201713-front-cover.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>cover</linkname>
+          </web_page>
+        </item>
+        <item id="toc-5kn58i308hklxkxk" level="1" data-ref="toc.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Contents</linkname>
+          </web_page>
+        </item>
+        <item id="1153794-message-from-the-ceo1" level="1" data-ref="1153794-message-from-the-ceo1.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Message from the CEO</linkname>
+          </web_page>
+        </item>
+        <item id="2045464-board-of-management-and-executive-committee" level="1" data-ref="2045464-board-of-management-and-executive-committee.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Board of Management and Executive Committee</linkname>
+          </web_page>
+        </item>
+        <item id="20644541-strategy-and-businesses" level="1" data-ref="20644541-strategy-and-businesses.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Strategy and Businesses</linkname>
+          </web_page>
+          <sub_items>
+            <item id="20572139-addressing-health-challenges-through-innovation" level="2" data-ref="20572139-addressing-health-challenges-through-innovation.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Transforming healthcare through innovation</linkname>
+              </web_page>
+            </item>
+            <item id="20572140-how-we-create-value" level="2" data-ref="20572140-how-we-create-value.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>How we create value</linkname>
+              </web_page>
+            </item>
+            <item id="2041643-our-businesses" level="2" data-ref="2041643-our-businesses.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Our businesses</linkname>
+              </web_page>
+              <sub_items>
+                <item id="1156524-diagnosis-treatment-businesses" level="3" data-ref="1156524-diagnosis-treatment-businesses.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Diagnosis &amp; Treatment businesses</linkname>
+                  </web_page>
+                  <sub_items>
+                    <item id="2040274-about-diagnosis-treatment-businesses" level="4" data-ref="2040274-about-diagnosis-treatment-businesses.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>About Diagnosis &amp; Treatment businesses in 2018</linkname>
+                      </web_page>
+                    </item>
+                    <item id="2040275-2017-business-highlights" level="4" data-ref="2040275-2017-business-highlights.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>2018 business highlights</linkname>
+                      </web_page>
+                    </item>
+                  </sub_items>
+                </item>
+                <item id="20471673-connected-care-health-informatics-businesses" level="3" data-ref="20471673-connected-care-health-informatics-businesses.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Connected Care &amp; Health Informatics businesses</linkname>
+                  </web_page>
+                  <sub_items>
+                    <item id="20471681-about-connected-care-health-informatics-businesses" level="4" data-ref="20471681-about-connected-care-health-informatics-businesses.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>About Connected Care &amp; Health Informatics businesses in 2018</linkname>
+                      </web_page>
+                    </item>
+                    <item id="20471682-2017-business-highlights" level="4" data-ref="20471682-2017-business-highlights.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>2018 business highlights</linkname>
+                      </web_page>
+                    </item>
+                  </sub_items>
+                </item>
+                <item id="1156888-personal-health-businesses" level="3" data-ref="1156888-personal-health-businesses.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Personal Health businesses</linkname>
+                  </web_page>
+                  <sub_items>
+                    <item id="2040261-about-personal-health-businesses" level="4" data-ref="2040261-about-personal-health-businesses.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>About Personal Health businesses in 2018</linkname>
+                      </web_page>
+                    </item>
+                    <item id="2040262-2017-business-highlights" level="4" data-ref="2040262-2017-business-highlights.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>2018 business highlights</linkname>
+                      </web_page>
+                    </item>
+                  </sub_items>
+                </item>
+                <item id="1157343-other" level="3" data-ref="1157343-other.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Other</linkname>
+                  </web_page>
+                  <sub_items>
+                    <item id="2044968-about-healthtech-other" level="4" data-ref="2044968-about-healthtech-other.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>About Other</linkname>
+                      </web_page>
+                    </item>
+                    <item id="20590208-real-estate" level="4" data-ref="20590208-real-estate.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Real estate </linkname>
+                      </web_page>
+                    </item>
+                  </sub_items>
+                </item>
+              </sub_items>
+            </item>
+            <item id="20592792-our-commitment-to-quality-and-integrity" level="2" data-ref="20592792-our-commitment-to-quality-and-integrity.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Our commitment to Quality, Regulatory Compliance and Integrity</linkname>
+              </web_page>
+              <sub_items>
+                <item id="consent-decree-p1973brvw4lp1231" level="3" data-ref="consent-decree.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Consent Decree</linkname>
+                  </web_page>
+                </item>
+              </sub_items>
+            </item>
+          </sub_items>
+        </item>
+        <item id="1154249-financial-performance" level="1" data-ref="1154249-financial-performance.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Financial performance</linkname>
+          </web_page>
+          <sub_items>
+            <item id="812515-financial-performance" level="2" data-ref="812515-financial-performance.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Performance review</linkname>
+              </web_page>
+              <sub_items>
+                <item id="20567555-results-of-operations" level="3" data-ref="20567555-results-of-operations.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Results of operations</linkname>
+                  </web_page>
+                </item>
+                <item id="20401723-pensions" level="3" data-ref="20401723-pensions.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Pensions</linkname>
+                  </web_page>
+                </item>
+                <item id="20401724-restructuring-and-acquisition-related-charges-and-goodwill-impairment-charges" level="3" data-ref="20401724-restructuring-and-acquisition-related-charges-and-goodwill-impairment-charges.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Restructuring and acquisition-related charges and goodwill impairment charges</linkname>
+                  </web_page>
+                </item>
+                <item id="2040300-acquisitions-and-divestments" level="3" data-ref="2040300-acquisitions-and-divestments.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Acquisitions and divestments</linkname>
+                  </web_page>
+                </item>
+                <item id="20401804-changes-in-cash-and-cash-equivalents-including-cash-flows" level="3" data-ref="20401804-changes-in-cash-and-cash-equivalents-including-cash-flows.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Changes in cash and cash equivalents, including cash flows</linkname>
+                  </web_page>
+                </item>
+                <item id="20401816-financing" level="3" data-ref="20401816-financing.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Financing</linkname>
+                  </web_page>
+                </item>
+                <item id="20401814-debt-position" level="3" data-ref="20401814-debt-position.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Debt position</linkname>
+                  </web_page>
+                </item>
+                <item id="20436677-liquidity-position" level="3" data-ref="20436677-liquidity-position.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Liquidity position</linkname>
+                  </web_page>
+                </item>
+                <item id="20401819-shareholders-equity" level="3" data-ref="20401819-shareholders-equity.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Shareholders’ equity</linkname>
+                  </web_page>
+                </item>
+                <item id="2040815-cash-obligations" level="3" data-ref="2040815-cash-obligations.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Cash obligations</linkname>
+                  </web_page>
+                </item>
+                <item id="20600670-philips-lighting-sell-down" level="3" data-ref="20600670-philips-lighting-sell-down.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Sell-down Signify shares (former Philips Lighting)</linkname>
+                  </web_page>
+                </item>
+                <item id="20406074-procurement" level="3" data-ref="20406074-procurement.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Procurement</linkname>
+                  </web_page>
+                </item>
+                <item id="20436683-analysis-of-2016-compared-to-2015" level="3" data-ref="20436683-analysis-of-2016-compared-to-2015.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Analysis of 2017 compared to 2016</linkname>
+                  </web_page>
+                </item>
+              </sub_items>
+            </item>
+            <item id="1167717-investor-information" level="2" data-ref="1167717-investor-information.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Investor information</linkname>
+              </web_page>
+              <sub_items>
+                <item id="2040331-dividend" level="3" data-ref="2040331-dividend.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname> Dividend</linkname>
+                  </web_page>
+                </item>
+                <item id="2040339-share-information" level="3" data-ref="2040339-share-information.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Share information</linkname>
+                  </web_page>
+                </item>
+                <item id="2040343-financial-calendar" level="3" data-ref="2040343-financial-calendar.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Financial calendar</linkname>
+                  </web_page>
+                </item>
+                <item id="2045467-investor-contact" level="3" data-ref="2045467-investor-contact.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Investor contact</linkname>
+                  </web_page>
+                </item>
+              </sub_items>
+            </item>
+          </sub_items>
+        </item>
+        <item id="2044979-risk-management" level="1" data-ref="2044979-risk-management.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Risk management</linkname>
+          </web_page>
+          <sub_items>
+            <item id="2044980-our-approach-to-risk-management" level="2" data-ref="2044980-our-approach-to-risk-management.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Our approach to risk management</linkname>
+              </web_page>
+            </item>
+            <item id="2044981-risk-categories-and-factors" level="2" data-ref="2044981-risk-categories-and-factors.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Risk categories and factors</linkname>
+              </web_page>
+            </item>
+            <item id="2044984-strategic-risks" level="2" data-ref="2044984-strategic-risks.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Strategic risks</linkname>
+              </web_page>
+            </item>
+            <item id="2044985-operational-risks" level="2" data-ref="2044985-operational-risks.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Operational risks</linkname>
+              </web_page>
+            </item>
+            <item id="2044986-compliance-risks" level="2" data-ref="2044986-compliance-risks.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Compliance risks</linkname>
+              </web_page>
+            </item>
+            <item id="2044988-financial-risks" level="2" data-ref="2044988-financial-risks.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Financial risks</linkname>
+              </web_page>
+            </item>
+          </sub_items>
+        </item>
+        <item id="2045466-supervisory-board" level="1" data-ref="2045466-supervisory-board.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Supervisory Board</linkname>
+          </web_page>
+        </item>
+        <item id="2041647-supervisory-board-report" level="1" data-ref="2041647-supervisory-board-report.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Supervisory Board report</linkname>
+          </web_page>
+          <sub_items>
+            <item id="2039298-report-of-the-corporate-governance-and-nomination-selection-committee" level="2" data-ref="2039298-report-of-the-corporate-governance-and-nomination-selection-committee.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Report of the Corporate Governance and Nomination &amp; Selection Committee</linkname>
+              </web_page>
+            </item>
+            <item id="2008342-report-of-the-remuneration-committee" level="2" data-ref="2008342-report-of-the-remuneration-committee.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Report of the Remuneration Committee</linkname>
+              </web_page>
+              <sub_items>
+                <item id="2039299-remuneration-policy" level="3" data-ref="2039299-remuneration-policy.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Remuneration policy</linkname>
+                  </web_page>
+                </item>
+                <item id="2039300-services-agreements" level="3" data-ref="2039300-services-agreements.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname> Services agreements</linkname>
+                  </web_page>
+                </item>
+                <item id="20405474-scenario-analysis" level="3" data-ref="20405474-scenario-analysis.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname> Scenario analysis</linkname>
+                  </web_page>
+                </item>
+                <item id="20588424-2017-internal-pay-ratios" level="3" data-ref="20588424-2017-internal-pay-ratios.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>2018 Internal pay ratios</linkname>
+                  </web_page>
+                </item>
+                <item id="2040237-remuneration-costs" level="3" data-ref="2040237-remuneration-costs.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Remuneration costs</linkname>
+                  </web_page>
+                </item>
+                <item id="2040236-annual-base-compensation" level="3" data-ref="2040236-annual-base-compensation.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Annual base compensation</linkname>
+                  </web_page>
+                </item>
+                <item id="2039301-2017-annual-incentive" level="3" data-ref="2039301-2017-annual-incentive.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>2018 Annual Incentive</linkname>
+                  </web_page>
+                </item>
+                <item id="2039302-2017-long-term-incentive-plan" level="3" data-ref="2039302-2017-long-term-incentive-plan.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>2018 Long-Term Incentive Plan</linkname>
+                  </web_page>
+                </item>
+                <item id="2039305-pensions" level="3" data-ref="2039305-pensions.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Pensions</linkname>
+                  </web_page>
+                </item>
+                <item id="2039306-additional-arrangements" level="3" data-ref="2039306-additional-arrangements.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Additional arrangements</linkname>
+                  </web_page>
+                </item>
+                <item id="2044884-remuneration-of-the-supervisory-board" level="3" data-ref="2044884-remuneration-of-the-supervisory-board.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Remuneration of the Supervisory Board</linkname>
+                  </web_page>
+                </item>
+                <item id="2039307-year-2018" level="3" data-ref="2039307-year-2018.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Year 2019</linkname>
+                  </web_page>
+                </item>
+              </sub_items>
+            </item>
+            <item id="2008343-report-of-the-audit-committee" level="2" data-ref="2008343-report-of-the-audit-committee.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Report of the Audit Committee</linkname>
+              </web_page>
+            </item>
+            <item id="20501704-report-of-the-quality-regulatory-committee" level="2" data-ref="20501704-report-of-the-quality-regulatory-committee.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Report of the Quality &amp; Regulatory Committee</linkname>
+              </web_page>
+            </item>
+          </sub_items>
+        </item>
+        <item id="1166989-corporate-governance" level="1" data-ref="1166989-corporate-governance.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Corporate governance</linkname>
+          </web_page>
+          <sub_items>
+            <item id="1167171-board-of-management-and-executive-committee" level="2" data-ref="1167171-board-of-management-and-executive-committee.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Board of Management and Executive Committee</linkname>
+              </web_page>
+            </item>
+            <item id="1167262-supervisory-board" level="2" data-ref="1167262-supervisory-board.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Supervisory Board</linkname>
+              </web_page>
+            </item>
+            <item id="1167353-general-meeting-of-shareholders" level="2" data-ref="1167353-general-meeting-of-shareholders.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>General Meeting of Shareholders</linkname>
+              </web_page>
+            </item>
+            <item id="1167444-meeting-logistics-and-other-information" level="2" data-ref="1167444-meeting-logistics-and-other-information.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Meeting logistics and other information</linkname>
+              </web_page>
+            </item>
+            <item id="1167535-investor-relations" level="2" data-ref="1167535-investor-relations.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Investor Relations</linkname>
+              </web_page>
+            </item>
+          </sub_items>
+        </item>
+        <item id="20644584-other-information" level="1" data-ref="20644584-other-information.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Other information</linkname>
+          </web_page>
+          <sub_items>
+            <item id="20476893-reconciliation-of-non-ifrs-information" level="2" data-ref="20476893-reconciliation-of-non-ifrs-information.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Reconciliation of non-IFRS information</linkname>
+              </web_page>
+            </item>
+            <item id="20396224-five-year-overview" level="2" data-ref="20396224-five-year-overview.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Five-year overview</linkname>
+              </web_page>
+            </item>
+            <item id="2040271-forward-looking-statements-and-other-information" level="2" data-ref="2040271-forward-looking-statements-and-other-information.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Forward-looking statements and other information</linkname>
+              </web_page>
+            </item>
+            <item id="20394619-definitions-and-abbreviations" level="2" data-ref="20394619-definitions-and-abbreviations.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Definitions and abbreviations</linkname>
+              </web_page>
+            </item>
+          </sub_items>
+        </item>
+        <item id="20644616-statements" level="1" data-ref="20644616-statements.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Statements</linkname>
+          </web_page>
+          <sub_items>
+            <item id="1162894-group-financial-statements" level="2" data-ref="1162894-group-financial-statements.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Group financial statements</linkname>
+              </web_page>
+              <sub_items>
+                <item id="2044880-management-s-report-on-internal-control" level="3" data-ref="2044880-management-s-report-on-internal-control.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Management’s report on internal control</linkname>
+                  </web_page>
+                  <sub_items>
+                    <item id="20587864-changes-in-internal-control-over-financial-reporting" level="4" data-ref="20587864-changes-in-internal-control-over-financial-reporting.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Changes in internal control over financial reporting</linkname>
+                      </web_page>
+                    </item>
+                  </sub_items>
+                </item>
+                <item id="20436694-report-of-the-independent-auditor" level="3" data-ref="20436694-report-of-the-independent-auditor.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Report of the independent auditor</linkname>
+                  </web_page>
+                </item>
+                <item id="2044931-independent-auditor-s-report-on-internal-control-over-financial-reporting" level="3" data-ref="2044931-independent-auditor-s-report-on-internal-control-over-financial-reporting.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Independent auditor’s report on internal control over financial reporting</linkname>
+                  </web_page>
+                </item>
+                <item id="2041649-consolidated-statements-of-income" level="3" data-ref="2041649-consolidated-statements-of-income.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Consolidated statements of income</linkname>
+                  </web_page>
+                </item>
+                <item id="2041651-consolidated-statements-of-comprehensive-income" level="3" data-ref="2041651-consolidated-statements-of-comprehensive-income.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Consolidated statements of comprehensive income</linkname>
+                  </web_page>
+                </item>
+                <item id="1151610-consolidated-balance-sheets" level="3" data-ref="1151610-consolidated-balance-sheets.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Consolidated balance sheets</linkname>
+                  </web_page>
+                </item>
+                <item id="20458158-consolidated-statements-of-cash-flows" level="3" data-ref="20458158-consolidated-statements-of-cash-flows.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Consolidated statements of cash flows</linkname>
+                  </web_page>
+                </item>
+                <item id="1151792-consolidated-statements-of-changes-in-equity" level="3" data-ref="1151792-consolidated-statements-of-changes-in-equity.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Consolidated statements of changes in equity</linkname>
+                  </web_page>
+                </item>
+                <item id="1152247-notes" level="3" data-ref="1152247-notes.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Notes</linkname>
+                  </web_page>
+                  <sub_items>
+                    <item id="1151974-significant-accounting-policies" level="4" data-ref="1151974-significant-accounting-policies.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Significant accounting policies</linkname>
+                      </web_page>
+                    </item>
+                    <item id="20420499-information-by-segment-and-main-country" level="4" data-ref="20420499-information-by-segment-and-main-country.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Information by segment and main country</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1152338-discontinued-operations-and-assets-classified-as-held-for-sale" level="4" data-ref="1152338-discontinued-operations-and-assets-classified-as-held-for-sale.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Discontinued operations and assets classified as held for sale</linkname>
+                      </web_page>
+                    </item>
+                    <item id="2-acquisitions-and-divestments" level="4" data-ref="2-acquisitions-and-divestments.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Acquisitions and divestments</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1152793-interests-in-entities" level="4" data-ref="1152793-interests-in-entities.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Interests in entities</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1152520-income-from-operations" level="4" data-ref="1152520-income-from-operations.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Income from operations</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1152611-financial-income-and-expenses" level="4" data-ref="1152611-financial-income-and-expenses.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Financial income and expenses</linkname>
+                      </web_page>
+                    </item>
+                    <item id="20437281-income-taxes" level="4" data-ref="20437281-income-taxes.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Income taxes</linkname>
+                      </web_page>
+                    </item>
+                    <item id="20399594-earnings-per-share" level="4" data-ref="20399594-earnings-per-share.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Earnings per share</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1163531-property-plant-and-equipment" level="4" data-ref="1163531-property-plant-and-equipment.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Property, plant and equipment</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1163713-goodwill" level="4" data-ref="1163713-goodwill.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Goodwill</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1163622-intangible-assets-excluding-goodwill" level="4" data-ref="1163622-intangible-assets-excluding-goodwill.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Intangible assets excluding goodwill</linkname>
+                      </web_page>
+                    </item>
+                    <item id="2001321-other-financial-assets" level="4" data-ref="2001321-other-financial-assets.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Other financial assets</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1163349-other-assets" level="4" data-ref="1163349-other-assets.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Other assets</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1159891-inventories" level="4" data-ref="1159891-inventories.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Inventories</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1159800-receivables" level="4" data-ref="1159800-receivables.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Receivables</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1161802-equity" level="4" data-ref="1161802-equity.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Equity</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1164168-debt" level="4" data-ref="1164168-debt.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Debt</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1163895-provisions" level="4" data-ref="1163895-provisions.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Provisions</linkname>
+                      </web_page>
+                    </item>
+                    <item id="20419779-post-employment-benefits" level="4" data-ref="20419779-post-employment-benefits.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Post-employment benefits</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1163804-accrued-liabilities" level="4" data-ref="1163804-accrued-liabilities.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Accrued liabilities</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1160983-other-liabilities" level="4" data-ref="1160983-other-liabilities.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Other liabilities</linkname>
+                      </web_page>
+                    </item>
+                    <item id="2008709-cash-flow-statement-supplementary-information" level="4" data-ref="2008709-cash-flow-statement-supplementary-information.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Cash flow statement supplementary information</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1161711-contingent-assets-and-liabilities" level="4" data-ref="1161711-contingent-assets-and-liabilities.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Contingent assets and liabilities</linkname>
+                      </web_page>
+                    </item>
+                    <item id="2008713-related-party-transactions" level="4" data-ref="2008713-related-party-transactions.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Related-party transactions</linkname>
+                      </web_page>
+                    </item>
+                    <item id="123465-share-based-compensation" level="4" data-ref="123465-share-based-compensation.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Share-based compensation</linkname>
+                      </web_page>
+                    </item>
+                    <item id="811542-information-on-remuneration" level="4" data-ref="811542-information-on-remuneration.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Information on remuneration</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1164532-fair-value-of-financial-assets-and-liabilities" level="4" data-ref="1164532-fair-value-of-financial-assets-and-liabilities.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Fair value of financial assets and liabilities</linkname>
+                      </web_page>
+                    </item>
+                    <item id="2044982-details-of-treasury-other-financial-risks" level="4" data-ref="2044982-details-of-treasury-other-financial-risks.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Details of treasury / other financial risks</linkname>
+                      </web_page>
+                    </item>
+                    <item id="20619141-subsequent-events" level="4" data-ref="20619141-subsequent-events.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Subsequent events</linkname>
+                      </web_page>
+                    </item>
+                  </sub_items>
+                </item>
+              </sub_items>
+            </item>
+            <item id="1164987-company-financial-statements" level="2" data-ref="1164987-company-financial-statements.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Company financial statements</linkname>
+              </web_page>
+              <sub_items>
+                <item id="812206-statements-of-income" level="3" data-ref="812206-statements-of-income.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Statements of income</linkname>
+                  </web_page>
+                </item>
+                <item id="1165078-balance-sheets-before-appropriation-of-results" level="3" data-ref="1165078-balance-sheets-before-appropriation-of-results.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Balance sheets before appropriation of results</linkname>
+                  </web_page>
+                </item>
+                <item id="1165169-statement-of-changes-in-equity" level="3" data-ref="1165169-statement-of-changes-in-equity.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Statement of changes in equity</linkname>
+                  </web_page>
+                </item>
+                <item id="1165533-notes" level="3" data-ref="1165533-notes.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Notes</linkname>
+                  </web_page>
+                  <sub_items>
+                    <item id="1166443-sales" level="4" data-ref="1166443-sales.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Sales</linkname>
+                      </web_page>
+                    </item>
+                    <item id="20489249-other-business-income" level="4" data-ref="20489249-other-business-income.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Other business income</linkname>
+                      </web_page>
+                    </item>
+                    <item id="20505144-sales-and-costs-by-nature" level="4" data-ref="20505144-sales-and-costs-by-nature.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Sales and costs by nature</linkname>
+                      </web_page>
+                    </item>
+                    <item id="20489250-financial-income-and-expense" level="4" data-ref="20489250-financial-income-and-expense.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Financial income and expense</linkname>
+                      </web_page>
+                    </item>
+                    <item id="20595838-income-tax" level="4" data-ref="20595838-income-tax.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Income tax</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1166534-employees" level="4" data-ref="1166534-employees.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Employees</linkname>
+                      </web_page>
+                    </item>
+                    <item id="20420520-intangible-assets" level="4" data-ref="20420520-intangible-assets.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Intangible assets</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1165715-financial-fixed-assets" level="4" data-ref="1165715-financial-fixed-assets.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Financial fixed assets</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1160073-other-financial-assets" level="4" data-ref="1160073-other-financial-assets.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Other financial assets</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1165624-receivables" level="4" data-ref="1165624-receivables.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Receivables</linkname>
+                      </web_page>
+                    </item>
+                    <item id="20505145-cash-and-cash-equivalents" level="4" data-ref="20505145-cash-and-cash-equivalents.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Cash and cash equivalents</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1166352-shareholders-equity" level="4" data-ref="1166352-shareholders-equity.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Shareholders’ equity</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1166261-debt" level="4" data-ref="1166261-debt.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Debt</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1166079-other-current-liabilities" level="4" data-ref="1166079-other-current-liabilities.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Other current liabilities</linkname>
+                      </web_page>
+                    </item>
+                    <item id="1166625-contractual-obligations-and-contingent-liabilities-not-appearing-in-the-balance" level="4" data-ref="1166625-contractual-obligations-and-contingent-liabilities-not-appearing-in-the-balance.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Contractual obligations and contingent liabilities not appearing in the balance sheet</linkname>
+                      </web_page>
+                    </item>
+                    <item id="20493072-appropriation-of-profits-and-profit-distributions" level="4" data-ref="20493072-appropriation-of-profits-and-profit-distributions.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Appropriation of profits and profit distributions</linkname>
+                      </web_page>
+                    </item>
+                    <item id="20619161-subsequent-events" level="4" data-ref="20619161-subsequent-events.xml">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Subsequent events</linkname>
+                      </web_page>
+                    </item>
+                  </sub_items>
+                </item>
+                <item id="1166807-independent-auditor-s-report" level="3" data-ref="1166807-independent-auditor-s-report.xml">
+                  <web_page>
+                    <path>/</path>
+                    <linkname> Independent auditor’s report</linkname>
+                  </web_page>
+                </item>
+              </sub_items>
+            </item>
+          </sub_items>
+        </item>
+        <item id="1201714-back-cover" level="1" data-ref="1201714-back-cover.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>backcover</linkname>
+          </web_page>
+        </item>
+      </sub_items>
+    </item>
+  </structured>
+</items>

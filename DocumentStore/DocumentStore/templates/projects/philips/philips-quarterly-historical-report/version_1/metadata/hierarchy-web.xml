@@ -1,0 +1,10 @@
+<items>
+  <structured>
+    <item id="website" level="0" data-ref="website.xml">
+      <web_page>
+        <path>/</path>
+        <linkname>Quarterly historical report (website)</linkname>
+      </web_page>
+    </item>
+  </structured>
+</items>

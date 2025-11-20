@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	[page-head-content]
+</head>
+<body class="page_[pageid] sitetype_[sitetype] system-page no-skin projectstatus_[projectstatus]">
+    [page-body-start]
+
+
+		<div class="main-container">
+			[page-maincolumn-start]
+			
+			<div class="page-header">
+				<h1>Version manager <small>[document-name]</small></h1>
+			</div>
+
+			<!-- buttons and actions -->
+			<form id="form-versionmanager-actions" class="form-inline">
+
+                <!-- Create new version button -->
+                [button-generate-version]
+				
+			</form>
+
+			<hr />
+
+			<div class="row">
+				<div class="col-md-10">
+
+                    <div id="versionmanagerresult">
+                        <!-- version timeline -->
+                        <div class="tx-loader-wrapper loading">
+                            <div class="tx-loader">
+                                <div class="item item-1">T</div>
+                                <div class="item item-2">/</div>
+                                <div class="item item-3">R</div>
+                                <div class="item item-4">\</div>
+                            </div>
+                        </div>
+                    </div>
+
+				</div>
+                <div class="col-md-2">
+                    <!--.-->
+                </div>
+
+			</div>
+
+			[page-maincolumn-end] 
+		</div>
+
+
+		
+		<!-- 1) Modal Create Version -->
+		<div class="modal fade bs-example-modal-lg" id="modal_create-version" tabindex="-1" role="dialog" aria-labelledby="createVersionLabel">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title" id="createVersionLabel">Project content version</h4>
+				</div>
+				<div class="modal-body">
+					<div class="content" style="display: block">
+						<h4>Create version of the project content</h4>
+						<p>Fill out the form below to generate your version.</p>
+
+						<div class="row">
+
+
+							<div class="col-xs-12 col-sm-12">
+								<form id="newversionform">
+								<div class="form-group">
+									<label for="form-field-username">Version type</label>
+
+									<div>
+										<label class="radio-inline">
+											<input type="radio" name="tagname" id="input-version-minor" value="." checked="checked"/> Minor version <code class="version-minor"></code>
+										</label>
+										<label class="radio-inline">
+											<input type="radio" name="tagname" id="input-version-major" value=".."/> Major version <code class="version-major"></code>
+										</label>
+									</div>
+								</div>
+
+								<div class="space-4"></div>
+
+								<div class="form-group">
+									<label for="form-field-first">Description</label>
+									<div>
+										<textarea id="message" name="message" class="form-control" rows="3" placeholder="Description of this version"></textarea>
+									</div>
+								</div>
+
+								</form>
+							</div>
+						</div>
+
+					</div>
+                    <div style="display: none" class="spinner">
+                        <div class="loading-icon-wrapper"> </div>
+                        <div class="progress-wrapper">
+                            <div class="spinnertitle">Generating version</div>
+                            <p>Progress:</p>
+                            <pre></pre>  
+                        </div>
+                    </div>
+                    <div style="display: none" class="error">
+                        <div class="alert alert-danger">
+                            An error has occured while creating your project content version, please contact the administrator.
+                            <div class="errorlog">...</div>
+                            <br/>
+                            <a href="javascript:generateVersionViewErrorLog()">view log</a>
+                            <div class="error-log"><pre></pre></div>
+                        </div>
+                    </div>
+
+					<div class="success" style="display: none">
+						<h4>Filing version successfully created</h4>
+						<div class="result alert alert-success">
+                            Your new filing content version has sucessfully been created.
+                            <br/>
+                            <a href="javascript:generateVersionViewSuccessLog()">view log</a>
+                            <div class="success-log"><pre></pre></div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default button-close" data-dismiss="modal" onclick="setStandardModalDialogState('modal_create-version', 'content');">Close</button>
+					<button type="button" class="btn btn-primary button-generate" onclick="createNewVersionExecute();">Generate</button>
+				</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- 2) Modal Compare -->
+		<div class="modal fade bs-example-modal-lg" id="compareDialogModal" tabindex="-1" role="dialog" aria-labelledby="compareDialogModalTitle">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&#215;</button>
+						<h4 class="modal-title" id="compareDialogModalTitle">Compare content versions</h4>
+					</div>
+					<div class="modal-body">
+						<div class="content" style="display: block">
+							<p>Compare project content against an older version to view the differences</p>
+							<table class="table table-condensed">
+								<thead>
+									<tr>
+										<th width="20%">Current version</th>
+										<th width="80%">Previous version</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="current-document">[first-outputchannel-name] ([latest])</td>
+										<td class="previous-document">
+											<select class="form-control">
+											  <option value="2.0" selected="selected">[first-outputchannel-name] (v2.0)</option>
+											  <option value="1.3">[first-outputchannel-name] (v1.3)</option>
+											  <option value="1.2">[first-outputchannel-name] (v1.2)</option>
+											  <option value="1.1">[first-outputchannel-name] (v1.1)</option>
+											  <option value="1.0">[first-outputchannel-name] (v1.0)</option>
+											</select>
+										</td>
+									</tr>
+                                    <tr class="tx-toolpdfgenerate">
+                                        <td colspan="2">
+                                            <div class="output-format form-horizontal form-group">
+                                                <label class="radio-inline label-only">Output format: </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="comparisonOutputFormat" id="comparisonOutputFormatPdf" value="pdf" checked="checked"/> PDF
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="comparisonOutputFormat" id="comparisonOutputFormatRaw" value="raw"/> Raw
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="tx-toolbulkgenerate">
+                                        <td colspan="2">
+                                            <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="tx-bulkgenerate" id="tx-bulkgenerate"/> Generate all output channel PDF documents at once
+                                                </label>
+                                              </div>
+                                        </td>
+                                    </tr>
+								</tbody>
+
+							</table>
+						</div>
+						<div style="display: none" class="spinner">
+							<div class="loading-icon-wrapper"> </div>
+							<div class="progress-wrapper">
+								<div class="spinnertitle">Generating comparison document</div>
+								<p>Progress:</p>
+								<pre></pre>  
+							</div>
+						</div>
+						<div style="display: none" class="error">
+							<div class="alert alert-danger">
+								An error has occured while generating your comparison document.
+								<br/>
+								Please contact the administrator.
+								<div class="errorlog">...</div>
+								<br/>
+								<a href="javascript:generatePdfViewErrorLog()">view log</a>
+								<div class="error-log"><pre></pre></div>
+							</div>
+						</div>
+						<div class="success" style="display: none">
+							<div class="alert alert-success">
+								<div class="successlog">The document was successfully generated</div>
+								<button class="btn btn-xs btn-primary download-pdf">
+									<i class="glyphicon glyphicon-download "></i>
+									Download
+								</button>
+								<br/>
+								<a href="javascript:generatePdfViewSuccessLog()">view log</a>
+                            	<div class="success-log"><pre></pre></div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary generate-pdf">
+						<i class="ace-icon fa fa-refresh bigger-110"></i> Generate document</button>
+					</div>
+				</div>
+			</div>
+        </div>
+        
+        <!-- 3) Modal View Sync Log -->
+        <div class="modal fade bs-example-modal-lg" id="modal_view-synclog" tabindex="-1" role="dialog" aria-labelledby="syncLogLabel">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="syncLogLabel">Synchronization log</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div style="display: none" class="spinner">
+							<div class="loading-icon-wrapper"> </div>
+							<div class="progress-wrapper">
+								<div class="spinnertitle">Retrieving sync log</div>
+							</div>
+						</div>
+						<div style="display: none" class="error">
+							<div class="alert alert-danger">
+								An error has occured while retrieving the sync log.
+								<br/>
+								Please contact the administrator.
+								<div class="error-log"><pre>...</pre></div>
+							</div>
+						</div>
+						<div class="success" style="display: none">
+							<div class="alert alert-success">
+								<div class="successlog">Sync log content</div>
+                            	<div class="success-log"><pre>....</pre></div>
+							</div>
+						</div>
+                            
+                    </div>
+				</div>
+			</div>
+		</div>
+
+        <!-- 4) Modal View Import Log -->
+        <div class="modal fade bs-example-modal-lg" id="modal_view-importlog" tabindex="-1" role="dialog" aria-labelledby="importLogLabel">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="importLogLabel">ERP import log</h4>
+                    </div>
+                    <div class="modal-body">
+						<div style="display: none" class="spinner">
+							<div class="loading-icon-wrapper"> </div>
+							<div class="progress-wrapper">
+								<div class="spinnertitle">Retrieving import log</div>
+							</div>
+						</div>
+						<div style="display: none" class="error">
+							<div class="alert alert-danger">
+								An error has occured while retrieving the import log.
+								<br/>
+								Please contact the administrator.
+								<div class="error-log"><pre>...</pre></div>
+							</div>
+						</div>
+						<div class="success" style="display: none">
+							<div class="alert alert-success">
+								<div class="successlog">Import log content</div>
+                            	<div class="success-log"><pre>....</pre></div>
+							</div>
+						</div>
+                    </div>
+				</div>
+			</div>
+		</div>
+
+
+		[page-body-end]
+	</body>
+</html>

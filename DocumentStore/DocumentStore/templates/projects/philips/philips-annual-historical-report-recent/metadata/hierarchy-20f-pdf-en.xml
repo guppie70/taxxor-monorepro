@@ -1,0 +1,1070 @@
+<items>
+  <structured>
+    <item id="1153521-annual-report-2018-20f" level="0" data-ref="1153521-annual-report-20181.xml">
+      <web_page>
+        <path>/</path>
+        <linkname>Annual Report 2019</linkname>
+      </web_page>
+      <sub_items>
+        <item id="1201713-front-cover1" level="1" data-ref="1201713-front-cover1.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>cover</linkname>
+          </web_page>
+        </item>
+        <item id="toc-z9mo7qkcnvcv8gur" level="1" data-ref="toc.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Contents</linkname>
+          </web_page>
+        </item>
+        <item id="20398940-introduction" level="1" data-ref="20398940-introduction.xml" data-tocstart="true" data-tocstyle="default" data-tocnumber="1">
+          <web_page>
+            <path>/</path>
+            <linkname>Introduction</linkname>
+          </web_page>
+        </item>
+        <item id="20398948-forward-looking-statements" level="1" data-ref="20398948-forward-looking-statements.xml" data-tocnumber="2">
+          <web_page>
+            <path>/</path>
+            <linkname> Forward-looking statements</linkname>
+          </web_page>
+        </item>
+        <item id="20399654-form-20-f-cross-reference-table" level="1" data-ref="20399654-form-20-f-cross-reference-table.xml" data-tocnumber="3">
+          <web_page>
+            <path>/</path>
+            <linkname>Form 20-F cross reference table</linkname>
+          </web_page>
+        </item>
+        <item id="1153794-message-from-the-ceo1" level="1" data-ref="1153794-message-from-the-ceo1.xml" data-tocnumber="4">
+          <web_page>
+            <path>/</path>
+            <linkname>Message from the CEO</linkname>
+          </web_page>
+        </item>
+        <item id="2045464-board-of-management-and-executive-committee" level="1" data-ref="2045464-board-of-management-and-executive-committee.xml" data-tocnumber="5">
+          <web_page>
+            <path>/</path>
+            <linkname>Board of Management and Executive Committee</linkname>
+          </web_page>
+        </item>
+        <item id="20644541-strategy-and-businesses" level="1" data-ref="20644541-strategy-and-businesses.xml" data-tocnumber="6">
+          <web_page>
+            <path>/</path>
+            <linkname>Strategy and Businesses</linkname>
+          </web_page>
+          <sub_items>
+            <item id="20572139-addressing-health-challenges-through-innovation" level="2" data-ref="20572139-addressing-health-challenges-through-innovation.xml" data-tocnumber="6.1">
+              <web_page>
+                <path>/</path>
+                <linkname>Innovating with purpose</linkname>
+              </web_page>
+            </item>
+            <item id="20572140-how-we-create-value" level="2" data-ref="20572140-how-we-create-value.xml" data-tocnumber="6.2">
+              <web_page>
+                <path>/</path>
+                <linkname>How we create value</linkname>
+              </web_page>
+            </item>
+            <item id="2041643-our-businesses" level="2" data-ref="2041643-our-businesses.xml" data-tocnumber="6.3">
+              <web_page>
+                <path>/</path>
+                <linkname>Our businesses</linkname>
+              </web_page>
+              <sub_items>
+                <item id="1156524-diagnosis-treatment-businesses" level="3" data-ref="1156524-diagnosis-treatment-businesses.xml" data-tocnumber="6.3.1">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Diagnosis &amp; Treatment businesses</linkname>
+                  </web_page>
+                  <sub_items>
+                    <item id="2040274-about-diagnosis-treatment-businesses" level="4" data-ref="2040274-about-diagnosis-treatment-businesses.xml" data-tocnumber="6.3.1.1">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>About Diagnosis &amp; Treatment businesses in 2019</linkname>
+                      </web_page>
+                    </item>
+                    <item id="2040275-2017-business-highlights" level="4" data-ref="2040275-2017-business-highlights.xml" data-tocnumber="6.3.1.2">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>2019 business highlights</linkname>
+                      </web_page>
+                    </item>
+                  </sub_items>
+                </item>
+                <item id="20471673-connected-care-health-informatics-businesses" level="3" data-ref="20471673-connected-care-health-informatics-businesses.xml" data-tocnumber="6.3.2">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Connected Care businesses</linkname>
+                  </web_page>
+                  <sub_items>
+                    <item id="20471681-about-connected-care-health-informatics-businesses" level="4" data-ref="20471681-about-connected-care-health-informatics-businesses.xml" data-tocnumber="6.3.2.1">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>About Connected Care businesses in 2019</linkname>
+                      </web_page>
+                    </item>
+                    <item id="20471682-2017-business-highlights" level="4" data-ref="20471682-2017-business-highlights.xml" data-tocnumber="6.3.2.2">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>2019 business highlights</linkname>
+                      </web_page>
+                    </item>
+                  </sub_items>
+                </item>
+                <item id="1156888-personal-health-businesses" level="3" data-ref="1156888-personal-health-businesses.xml" data-tocnumber="6.3.3">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Personal Health businesses</linkname>
+                  </web_page>
+                  <sub_items>
+                    <item id="2040261-about-personal-health-businesses" level="4" data-ref="2040261-about-personal-health-businesses.xml" data-tocnumber="6.3.3.1">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>About Personal Health businesses in 2019</linkname>
+                      </web_page>
+                    </item>
+                    <item id="2040262-2017-business-highlights" level="4" data-ref="2040262-2017-business-highlights.xml" data-tocnumber="6.3.3.2">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>2019 business highlights</linkname>
+                      </web_page>
+                    </item>
+                  </sub_items>
+                </item>
+                <item id="1157343-other" level="3" data-ref="1157343-other.xml" data-tocnumber="6.3.4">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Other</linkname>
+                  </web_page>
+                  <sub_items>
+                    <item id="2044968-about-healthtech-other" level="4" data-ref="2044968-about-healthtech-other.xml" data-tocnumber="6.3.4.1">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>About Other</linkname>
+                      </web_page>
+                    </item>
+                    <item id="20590208-real-estate" level="4" data-ref="20590208-real-estate.xml" data-tocnumber="6.3.4.2">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Real estate </linkname>
+                      </web_page>
+                    </item>
+                  </sub_items>
+                </item>
+              </sub_items>
+            </item>
+            <item id="our-geographies-w170hq6hg1d11s5x" level="2" data-ref="our-geographies.xml" data-tocnumber="6.4">
+              <web_page>
+                <path>/</path>
+                <linkname>Our geographies</linkname>
+              </web_page>
+              <sub_items>
+                <item id="our-markets-b4aix4lfb82yy86d" level="3" data-ref="our-markets.xml" data-tocnumber="6.4.1">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Our Markets</linkname>
+                  </web_page>
+                </item>
+                <item id="macro-economic-landscape-in-2019-yu75lzsilq9hf1h2" level="3" data-ref="macro-economic-landscape-in-2019.xml" data-tocnumber="6.4.2">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Macro-economic landscape in 2019</linkname>
+                  </web_page>
+                </item>
+                <item id="2019-highlights-from-our-geographies-dlqht1157q7z1ii3" level="3" data-ref="2019-highlights-from-our-geographies.xml" data-tocnumber="6.4.3">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>2019 highlights from our geographies</linkname>
+                  </web_page>
+                </item>
+              </sub_items>
+            </item>
+            <item id="supply-chain-ga2lnc45gn9kd4a0" level="2" data-ref="supply-chain.xml" data-tocnumber="6.5">
+              <web_page>
+                <path>/</path>
+                <linkname>Supply chain and procurement</linkname>
+              </web_page>
+              <sub_items>
+                <item id="supply-chain-1-nj7045zk29owl6zj" level="3" data-ref="supply-chain-1.xml" data-tocnumber="6.5.1">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Supply chain</linkname>
+                  </web_page>
+                </item>
+                <item id="procurement-es8pawy183k462s5" level="3" data-ref="procurement.xml" data-tocnumber="6.5.2">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Procurement</linkname>
+                  </web_page>
+                </item>
+                <item id="supplier-sustainability-1x3mb3srib8f9l61" level="3" data-ref="supplier-sustainability.xml" data-tocnumber="6.5.3">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Supplier sustainability</linkname>
+                  </web_page>
+                </item>
+              </sub_items>
+            </item>
+            <item id="20592792-our-commitment-to-quality-and-integrity" level="2" data-ref="20592792-our-commitment-to-quality-and-integrity.xml" data-tocnumber="6.6">
+              <web_page>
+                <path>/</path>
+                <linkname>Quality, Regulatory Compliance and Integrity</linkname>
+              </web_page>
+              <sub_items>
+                <item id="consent-decree-p1973brvw4lp1231" level="3" data-ref="consent-decree.xml" data-tocnumber="6.6.1">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Consent Decree</linkname>
+                  </web_page>
+                </item>
+                <item id="ethics-and-integrity-04vqt7ki666d3in8" level="3" data-ref="ethics-and-integrity.xml" data-tocnumber="6.6.2">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Ethics and Integrity</linkname>
+                  </web_page>
+                </item>
+              </sub_items>
+            </item>
+          </sub_items>
+        </item>
+        <item id="1154249-financial-performance" level="1" data-ref="1154249-financial-performance.xml" data-tocnumber="7">
+          <web_page>
+            <path>/</path>
+            <linkname>Financial performance</linkname>
+          </web_page>
+          <sub_items>
+            <item id="812515-financial-performance" level="2" data-ref="812515-financial-performance.xml" data-tocnumber="7.1">
+              <web_page>
+                <path>/</path>
+                <linkname>Performance review</linkname>
+              </web_page>
+              <sub_items>
+                <item id="20567555-results-of-operations" level="3" data-ref="20567555-results-of-operations.xml" data-tocnumber="7.1.1">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Results of operations</linkname>
+                  </web_page>
+                </item>
+                <item id="20401723-pensions" level="3" data-ref="20401723-pensions.xml" data-tocnumber="7.1.2">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Pensions</linkname>
+                  </web_page>
+                </item>
+                <item id="20401724-restructuring-and-acquisition-related-charges-and-goodwill-impairment-charges" level="3" data-ref="20401724-restructuring-and-acquisition-related-charges-and-goodwill-impairment-charges.xml" data-tocnumber="7.1.3">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Restructuring and acquisition-related charges and goodwill impairment charges</linkname>
+                  </web_page>
+                </item>
+                <item id="2040300-acquisitions-and-divestments" level="3" data-ref="2040300-acquisitions-and-divestments.xml" data-tocnumber="7.1.4">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Acquisitions and divestments</linkname>
+                  </web_page>
+                </item>
+                <item id="20401804-changes-in-cash-and-cash-equivalents-including-cash-flows" level="3" data-ref="20401804-changes-in-cash-and-cash-equivalents-including-cash-flows.xml" data-tocnumber="7.1.5">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Changes in cash and cash equivalents, including cash flows</linkname>
+                  </web_page>
+                </item>
+                <item id="20401816-financing" level="3" data-ref="20401816-financing.xml" data-tocnumber="7.1.6">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Financing</linkname>
+                  </web_page>
+                </item>
+                <item id="20401814-debt-position" level="3" data-ref="20401814-debt-position.xml" data-tocnumber="7.1.7">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Debt position</linkname>
+                  </web_page>
+                </item>
+                <item id="20436677-liquidity-position" level="3" data-ref="20436677-liquidity-position.xml" data-tocnumber="7.1.8">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Liquidity position</linkname>
+                  </web_page>
+                </item>
+                <item id="20401819-shareholders-equity" level="3" data-ref="20401819-shareholders-equity.xml" data-tocnumber="7.1.9">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Shareholders’ equity</linkname>
+                  </web_page>
+                </item>
+                <item id="2040815-cash-obligations" level="3" data-ref="2040815-cash-obligations.xml" data-tocnumber="7.1.10">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Cash obligations</linkname>
+                  </web_page>
+                </item>
+                <item id="2040331-dividend" level="3" data-ref="2040331-dividend.xml" data-tocnumber="7.1.11">
+                  <web_page>
+                    <path>/</path>
+                    <linkname> Dividend</linkname>
+                  </web_page>
+                </item>
+                <item id="20600670-philips-lighting-sell-down" level="3" data-ref="20600670-philips-lighting-sell-down.xml" data-tocnumber="7.1.12">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Sell-down Signify shares (former Philips Lighting)</linkname>
+                  </web_page>
+                </item>
+              </sub_items>
+            </item>
+            <item id="20399914-critical-accounting-policies" level="2" data-ref="20399914-critical-accounting-policies.xml" data-tocnumber="7.2">
+              <web_page>
+                <path>/</path>
+                <linkname>Critical accounting policies</linkname>
+              </web_page>
+            </item>
+            <item id="20399176-taxation" level="2" data-ref="20399176-taxation.xml" data-tocnumber="7.3">
+              <web_page>
+                <path>/</path>
+                <linkname>Taxation</linkname>
+              </web_page>
+            </item>
+          </sub_items>
+        </item>
+        <item id="20644577-societal-impact" level="1" data-ref="20644577-societal-impact.xml" data-tocnumber="8">
+          <web_page>
+            <path>/</path>
+            <linkname>Societal impact</linkname>
+          </web_page>
+          <sub_items>
+            <item id="2044903-social-performance" level="2" data-ref="2044903-social-performance.xml" data-tocnumber="8.1">
+              <web_page>
+                <path>/</path>
+                <linkname>Social performance</linkname>
+              </web_page>
+              <sub_items>
+                <item id="20404036-improving-people-s-lives" level="3" data-ref="20404036-improving-people-s-lives.xml" data-tocnumber="8.1.1">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Improving people’s lives</linkname>
+                  </web_page>
+                </item>
+                <item id="20577060-workforce-of-the-future" level="3" data-ref="20577060-workforce-of-the-future.xml" data-tocnumber="8.1.2">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Workforce of the Future</linkname>
+                  </web_page>
+                </item>
+                <item id="20404038-inclusion-diversity" level="3" data-ref="20404038-inclusion-diversity.xml" data-tocnumber="8.1.3">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Inclusion &amp; Diversity</linkname>
+                  </web_page>
+                </item>
+                <item id="20577079-culture-of-performance" level="3" data-ref="20577079-culture-of-performance.xml" data-tocnumber="8.1.4">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Our culture</linkname>
+                  </web_page>
+                </item>
+                <item id="20580518-employee-engagement" level="3" data-ref="20580518-employee-engagement.xml" data-tocnumber="8.1.5">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Employee engagement</linkname>
+                  </web_page>
+                </item>
+                <item id="20401783-employment" level="3" data-ref="20401783-employment.xml" data-tocnumber="8.1.6">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Employment</linkname>
+                  </web_page>
+                </item>
+                <item id="living-wage-b66ea0g8l0gq16sg" level="3" data-ref="living-wage.xml" data-tocnumber="8.1.7">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Living wage</linkname>
+                  </web_page>
+                </item>
+                <item id="total-tax-contribution-0wzr4q8kp5zu235r" level="3" data-ref="total-tax-contribution.xml" data-tocnumber="8.1.8">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Total tax contribution</linkname>
+                  </web_page>
+                </item>
+                <item id="20401503-general-business-principles" level="3" data-ref="20401503-general-business-principles.xml" data-tocnumber="8.1.9">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>General Business Principles</linkname>
+                  </web_page>
+                </item>
+                <item id="20404042-health-and-safety" level="3" data-ref="20404042-health-and-safety.xml" data-tocnumber="8.1.10">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Health and Safety</linkname>
+                  </web_page>
+                </item>
+                <item id="20405185-working-with-stakeholders" level="3" data-ref="20405185-working-with-stakeholders.xml" data-tocnumber="8.1.11">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Working with stakeholders</linkname>
+                  </web_page>
+                </item>
+              </sub_items>
+            </item>
+            <item id="1155341-environmental-performance" level="2" data-ref="1155341-environmental-performance.xml" data-tocnumber="8.2">
+              <web_page>
+                <path>/</path>
+                <linkname>Environmental performance</linkname>
+              </web_page>
+              <sub_items>
+                <item id="20404044-green-innovation" level="3" data-ref="20404044-green-innovation.xml" data-tocnumber="8.2.1">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Green Innovation</linkname>
+                  </web_page>
+                </item>
+                <item id="20404046-green-revenues" level="3" data-ref="20404046-green-revenues.xml" data-tocnumber="8.2.2">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Green Revenues</linkname>
+                  </web_page>
+                </item>
+                <item id="2044905-sustainable-operations" level="3" data-ref="2044905-sustainable-operations.xml" data-tocnumber="8.2.3">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Sustainable Operations</linkname>
+                  </web_page>
+                </item>
+                <item id="2039317-supplier-indicators-sp4bu84v9l8ge2k1" level="3" data-ref="2039317-supplier-indicators.xml" data-tocnumber="8.2.4">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Supplier indicators</linkname>
+                  </web_page>
+                </item>
+              </sub_items>
+            </item>
+          </sub_items>
+        </item>
+        <item id="2044979-risk-management" level="1" data-ref="2044979-risk-management.xml" data-tocnumber="9">
+          <web_page>
+            <path>/</path>
+            <linkname>Risk management</linkname>
+          </web_page>
+          <sub_items>
+            <item id="2044980-our-approach-to-risk-management" level="2" data-ref="2044980-our-approach-to-risk-management.xml" data-tocnumber="9.1">
+              <web_page>
+                <path>/</path>
+                <linkname>Our approach to risk management</linkname>
+              </web_page>
+            </item>
+            <item id="2044981-risk-categories-and-factors" level="2" data-ref="2044981-risk-categories-and-factors.xml" data-tocnumber="9.2">
+              <web_page>
+                <path>/</path>
+                <linkname>Risk factors</linkname>
+              </web_page>
+            </item>
+            <item id="2044984-strategic-risks" level="2" data-ref="2044984-strategic-risks.xml" data-tocnumber="9.3">
+              <web_page>
+                <path>/</path>
+                <linkname>Strategic risks</linkname>
+              </web_page>
+            </item>
+            <item id="2044985-operational-risks" level="2" data-ref="2044985-operational-risks.xml" data-tocnumber="9.4">
+              <web_page>
+                <path>/</path>
+                <linkname>Operational risks</linkname>
+              </web_page>
+            </item>
+            <item id="2044986-compliance-risks" level="2" data-ref="2044986-compliance-risks.xml" data-tocnumber="9.5">
+              <web_page>
+                <path>/</path>
+                <linkname>Compliance risks</linkname>
+              </web_page>
+            </item>
+            <item id="2044988-financial-risks" level="2" data-ref="2044988-financial-risks.xml" data-tocnumber="9.6">
+              <web_page>
+                <path>/</path>
+                <linkname>Financial risks</linkname>
+              </web_page>
+            </item>
+          </sub_items>
+        </item>
+        <item id="2045466-supervisory-board" level="1" data-ref="2045466-supervisory-board.xml" data-tocnumber="10">
+          <web_page>
+            <path>/</path>
+            <linkname>Supervisory Board</linkname>
+          </web_page>
+        </item>
+        <item id="2041647-supervisory-board-report" level="1" data-ref="2041647-supervisory-board-report.xml" data-tocnumber="11">
+          <web_page>
+            <path>/</path>
+            <linkname>Supervisory Board report</linkname>
+          </web_page>
+          <sub_items>
+            <item id="2039298-report-of-the-corporate-governance-and-nomination-selection-committee" level="2" data-ref="2039298-report-of-the-corporate-governance-and-nomination-selection-committee.xml" data-tocnumber="11.1">
+              <web_page>
+                <path>/</path>
+                <linkname>Report of the Corporate Governance and Nomination &amp; Selection Committee</linkname>
+              </web_page>
+            </item>
+            <item id="2008342-report-of-the-remuneration-committee" level="2" data-ref="2008342-report-of-the-remuneration-committee.xml" data-tocnumber="11.2">
+              <web_page>
+                <path>/</path>
+                <linkname>Report of the Remuneration Committee</linkname>
+              </web_page>
+              <sub_items>
+                <item id="letter-from-the-remuneration-committee-chair-u6hlvi8h033762hg" level="3" data-ref="letter-from-the-remuneration-committee-chair.xml" data-tocnumber="11.2.1">
+                  <web_page>
+                    <path></path>
+                    <linkname>Letter from the Remuneration Committee Chair</linkname>
+                  </web_page>
+                </item>
+                <item id="2017-remuneration-policy-1-f72xy9g8md971t20" level="3" data-ref="2017-remuneration-policy-1.xml" data-tocnumber="11.2.2">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Remuneration report 2019</linkname>
+                  </web_page>
+                </item>
+                <item id="implementation-of-the-remuneration-policy-for-the-board-of-management-in-2019-9m38e4593z446jqm" level="3" data-ref="implementation-of-the-remuneration-policy-for-the-board-of-management-in-2019.xml" data-tocnumber="11.2.3">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Remuneration of the Board of Management in 2019</linkname>
+                  </web_page>
+                  <sub_items>
+                    <item id="2040236-annual-base-compensation" level="4" data-ref="2040236-annual-base-compensation.xml" data-tocnumber="11.2.3.1">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Annual Base Compensation changes</linkname>
+                      </web_page>
+                    </item>
+                    <item id="2039301-2017-annual-incentive-rr9x56b7zf335e11" level="4" data-ref="2039301-2017-annual-incentive.xml" data-tocnumber="11.2.3.2">
+                      <web_page>
+                        <path></path>
+                        <linkname>2019 Annual Incentive</linkname>
+                      </web_page>
+                    </item>
+                    <item id="2039302-2017-long-term-incentive-plan" level="4" data-ref="2039302-2017-long-term-incentive-plan.xml" data-tocnumber="11.2.3.3">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>2017 Long-Term Incentive</linkname>
+                      </web_page>
+                    </item>
+                    <item id="2040237-remuneration-costs" level="4" data-ref="2040237-remuneration-costs.xml" data-tocnumber="11.2.3.4">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Total remuneration costs in 2019</linkname>
+                      </web_page>
+                    </item>
+                    <item id="further-details-on-historical-long-term-incentive-grants-and-holdings-y2l4jjpdf8p1x9nu" level="4" data-ref="further-details-on-historical-long-term-incentive-grants-and-holdings.xml" data-tocnumber="11.2.3.5">
+                      <web_page>
+                        <path></path>
+                        <linkname>Further details on historical Long-Term Incentive grants and holdings</linkname>
+                      </web_page>
+                    </item>
+                    <item id="comparison-of-change-in-ceo-and-bom-remuneration-costs-versus-average-employee-remuneration-costs-and-company-performance-yhb368dbxx7y222o" level="4" data-ref="comparison-of-change-in-ceo-and-bom-remuneration-costs-versus-average-employee-remuneration-costs-and-company-performance.xml" data-tocnumber="11.2.3.6">
+                      <web_page>
+                        <path></path>
+                        <linkname>Comparison of change in CEO and BoM remuneration costs versus average employee remuneration costs and company performance </linkname>
+                      </web_page>
+                    </item>
+                    <item id="2044884-remuneration-of-the-supervisory-board" level="4" data-ref="2044884-remuneration-of-the-supervisory-board.xml" data-tocnumber="11.2.3.7">
+                      <web_page>
+                        <path>/</path>
+                        <linkname>Remuneration of the Supervisory Board 2019</linkname>
+                      </web_page>
+                    </item>
+                  </sub_items>
+                </item>
+              </sub_items>
+            </item>
+            <item id="2008343-report-of-the-audit-committee" level="2" data-ref="2008343-report-of-the-audit-committee.xml" data-tocnumber="11.3">
+              <web_page>
+                <path>/</path>
+                <linkname>Report of the Audit Committee</linkname>
+              </web_page>
+            </item>
+            <item id="20501704-report-of-the-quality-regulatory-committee" level="2" data-ref="20501704-report-of-the-quality-regulatory-committee.xml" data-tocnumber="11.4">
+              <web_page>
+                <path>/</path>
+                <linkname>Report of the Quality &amp; Regulatory Committee</linkname>
+              </web_page>
+            </item>
+          </sub_items>
+        </item>
+        <item id="1166989-corporate-governance" level="1" data-ref="1166989-corporate-governance.xml" data-tocnumber="12">
+          <web_page>
+            <path>/</path>
+            <linkname>Corporate governance</linkname>
+          </web_page>
+          <sub_items>
+            <item id="introduction-x5oyi7026r3v2rqg" level="2" data-ref="introduction.xml" data-tocnumber="12.1">
+              <web_page>
+                <path>/</path>
+                <linkname>Introduction</linkname>
+              </web_page>
+            </item>
+            <item id="1167171-board-of-management-and-executive-committee" level="2" data-ref="1167171-board-of-management-and-executive-committee.xml" data-tocnumber="12.2">
+              <web_page>
+                <path>/</path>
+                <linkname>Board of Management and Executive Committee</linkname>
+              </web_page>
+            </item>
+            <item id="1167262-supervisory-board" level="2" data-ref="1167262-supervisory-board.xml" data-tocnumber="12.3">
+              <web_page>
+                <path>/</path>
+                <linkname>Supervisory Board</linkname>
+              </web_page>
+            </item>
+            <item id="other-board-related-matters-m094gmh5mbyi6cz3" level="2" data-ref="other-board-related-matters.xml" data-tocnumber="12.4">
+              <web_page>
+                <path>/</path>
+                <linkname>Other Board-related matters</linkname>
+              </web_page>
+            </item>
+            <item id="1167353-general-meeting-of-shareholders" level="2" data-ref="1167353-general-meeting-of-shareholders.xml" data-tocnumber="12.5">
+              <web_page>
+                <path>/</path>
+                <linkname>General Meeting of Shareholders</linkname>
+              </web_page>
+            </item>
+            <item id="risk-management-approach-c73b23t8318xw21u" level="2" data-ref="risk-management-approach.xml" data-tocnumber="12.6">
+              <web_page>
+                <path>/</path>
+                <linkname>Risk management approach</linkname>
+              </web_page>
+            </item>
+            <item id="annual-financial-statements-and-external-audit-2mp8645unf5w0b0p" level="2" data-ref="annual-financial-statements-and-external-audit.xml" data-tocnumber="12.7">
+              <web_page>
+                <path>/</path>
+                <linkname>Annual financial statements and external audit</linkname>
+              </web_page>
+            </item>
+            <item id="stichting-preferente-aandelen-philips-tv446s4aj6278a99" level="2" data-ref="stichting-preferente-aandelen-philips.xml" data-tocnumber="12.8">
+              <web_page>
+                <path>/</path>
+                <linkname>Stichting Preferente Aandelen Philips</linkname>
+              </web_page>
+            </item>
+            <item id="1167535-investor-relations" level="2" data-ref="1167535-investor-relations.xml" data-tocnumber="12.9">
+              <web_page>
+                <path>/</path>
+                <linkname>Investor Relations</linkname>
+              </web_page>
+            </item>
+            <item id="major-shareholders-9p33kw7zhu5svns4" level="2" data-ref="major-shareholders.xml" data-tocnumber="12.10">
+              <web_page>
+                <path>/</path>
+                <linkname>Major shareholders</linkname>
+              </web_page>
+            </item>
+            <item id="other-information-86ez152nvr52q6y1" level="2" data-ref="other-information.xml" data-tocnumber="12.11">
+              <web_page>
+                <path>/</path>
+                <linkname>Other information</linkname>
+              </web_page>
+            </item>
+            <item id="20398928-additional-information" level="2" data-ref="20398928-additional-information.xml" data-tocnumber="12.12">
+              <web_page>
+                <path>/</path>
+                <linkname>Additional information</linkname>
+              </web_page>
+            </item>
+          </sub_items>
+        </item>
+        <item id="1162894-group-financial-statements" level="1" data-ref="1162894-group-financial-statements.xml" data-tocnumber="13">
+          <web_page>
+            <path>/</path>
+            <linkname>Group financial statements</linkname>
+          </web_page>
+          <sub_items>
+            <item id="2044880-management-s-report-on-internal-control" level="2" data-ref="2044880-management-s-report-on-internal-control.xml" data-tocnumber="13.1">
+              <web_page>
+                <path>/</path>
+                <linkname>Management’s report on internal control</linkname>
+              </web_page>
+              <sub_items>
+                <item id="20399154-disclosure-controls-and-procedures" level="3" data-ref="20399154-disclosure-controls-and-procedures.xml" data-tocnumber="13.1.1">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Disclosure controls and procedures</linkname>
+                  </web_page>
+                </item>
+                <item id="20587864-changes-in-internal-control-over-financial-reporting" level="3" data-ref="20587864-changes-in-internal-control-over-financial-reporting.xml" data-tocnumber="13.1.2">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Changes in internal control over financial reporting</linkname>
+                  </web_page>
+                </item>
+              </sub_items>
+            </item>
+            <item id="2044881-report-of-the-independent-auditors" level="2" data-ref="2044881-report-of-the-independent-auditors.xml" data-tocnumber="13.2">
+              <web_page>
+                <path>/</path>
+                <linkname>Report of the independent auditors</linkname>
+              </web_page>
+            </item>
+            <item id="2044931-independent-auditor-s-report-on-internal-control-over-financial-reporting" level="2" data-ref="2044931-independent-auditor-s-report-on-internal-control-over-financial-reporting.xml" data-tocnumber="13.3">
+              <web_page>
+                <path>/</path>
+                <linkname>Independent auditor’s report on internal control over financial reporting</linkname>
+              </web_page>
+            </item>
+            <item id="20402016-independent-auditor-s-report-on-the-consolidated-financial-statements" level="2" data-ref="20402016-independent-auditor-s-report-on-the-consolidated-financial-statements.xml" data-tocnumber="13.4">
+              <web_page>
+                <path>/</path>
+                <linkname>Independent auditor’s report on the consolidated financial statements</linkname>
+              </web_page>
+            </item>
+            <item id="2041649-consolidated-statements-of-income" level="2" data-ref="2041649-consolidated-statements-of-income.xml" data-tocnumber="13.5">
+              <web_page>
+                <path>/</path>
+                <linkname>Consolidated statements of income</linkname>
+              </web_page>
+            </item>
+            <item id="2041651-consolidated-statements-of-comprehensive-income" level="2" data-ref="2041651-consolidated-statements-of-comprehensive-income.xml" data-tocnumber="13.6">
+              <web_page>
+                <path>/</path>
+                <linkname>Consolidated statements of comprehensive income</linkname>
+              </web_page>
+            </item>
+            <item id="1151610-consolidated-balance-sheets" level="2" data-ref="1151610-consolidated-balance-sheets.xml" data-tocnumber="13.7">
+              <web_page>
+                <path>/</path>
+                <linkname>Consolidated balance sheets</linkname>
+              </web_page>
+            </item>
+            <item id="20458158-consolidated-statements-of-cash-flows" level="2" data-ref="20458158-consolidated-statements-of-cash-flows.xml" data-tocnumber="13.8">
+              <web_page>
+                <path>/</path>
+                <linkname>Consolidated statements of cash flows</linkname>
+              </web_page>
+            </item>
+            <item id="1151792-consolidated-statements-of-changes-in-equity" level="2" data-ref="1151792-consolidated-statements-of-changes-in-equity.xml" data-tocnumber="13.9">
+              <web_page>
+                <path>/</path>
+                <linkname>Consolidated statements of changes in equity</linkname>
+              </web_page>
+            </item>
+            <item id="1152247-notes" level="2" data-ref="1152247-notes.xml" data-tocstyle="notes123" data-tocnumber="13.10">
+              <web_page>
+                <path>/</path>
+                <linkname>Notes</linkname>
+              </web_page>
+              <sub_items>
+                <item id="1151974-significant-accounting-policies" level="3" data-ref="1151974-significant-accounting-policies.xml" data-tocnumber="note 1">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Significant accounting policies</linkname>
+                  </web_page>
+                </item>
+                <item id="20420499-information-by-segment-and-main-country" level="3" data-ref="20420499-information-by-segment-and-main-country.xml" data-tocnumber="note 2">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Information by segment and main country</linkname>
+                  </web_page>
+                </item>
+                <item id="1152338-discontinued-operations-and-assets-classified-as-held-for-sale" level="3" data-ref="1152338-discontinued-operations-and-assets-classified-as-held-for-sale.xml" data-tocnumber="note 3">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Discontinued operations and assets classified as held for sale</linkname>
+                  </web_page>
+                </item>
+                <item id="2-acquisitions-and-divestments" level="3" data-ref="2-acquisitions-and-divestments.xml" data-tocnumber="note 4">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Acquisitions and divestments</linkname>
+                  </web_page>
+                </item>
+                <item id="1152793-interests-in-entities" level="3" data-ref="1152793-interests-in-entities.xml" data-tocnumber="note 5">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Interests in entities</linkname>
+                  </web_page>
+                </item>
+                <item id="1152520-income-from-operations" level="3" data-ref="1152520-income-from-operations.xml" data-tocnumber="note 6">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Income from operations</linkname>
+                  </web_page>
+                </item>
+                <item id="1152611-financial-income-and-expenses" level="3" data-ref="1152611-financial-income-and-expenses.xml" data-tocnumber="note 7">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Financial income and expenses</linkname>
+                  </web_page>
+                </item>
+                <item id="20437281-income-taxes" level="3" data-ref="20437281-income-taxes.xml" data-tocnumber="note 8">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Income taxes</linkname>
+                  </web_page>
+                </item>
+                <item id="20399594-earnings-per-share" level="3" data-ref="20399594-earnings-per-share.xml" data-tocnumber="note 9">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Earnings per share</linkname>
+                  </web_page>
+                </item>
+                <item id="1163531-property-plant-and-equipment" level="3" data-ref="1163531-property-plant-and-equipment.xml" data-tocnumber="note 10">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Property, plant and equipment</linkname>
+                  </web_page>
+                </item>
+                <item id="1163713-goodwill" level="3" data-ref="1163713-goodwill.xml" data-tocnumber="note 11">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Goodwill</linkname>
+                  </web_page>
+                </item>
+                <item id="1163622-intangible-assets-excluding-goodwill" level="3" data-ref="1163622-intangible-assets-excluding-goodwill.xml" data-tocnumber="note 12">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Intangible assets excluding goodwill</linkname>
+                  </web_page>
+                </item>
+                <item id="2001321-other-financial-assets" level="3" data-ref="2001321-other-financial-assets.xml" data-tocnumber="note 13">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Other financial assets</linkname>
+                  </web_page>
+                </item>
+                <item id="1163349-other-assets" level="3" data-ref="1163349-other-assets.xml" data-tocnumber="note 14">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Other assets</linkname>
+                  </web_page>
+                </item>
+                <item id="1159891-inventories" level="3" data-ref="1159891-inventories.xml" data-tocnumber="note 15">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Inventories</linkname>
+                  </web_page>
+                </item>
+                <item id="1159800-receivables" level="3" data-ref="1159800-receivables.xml" data-tocnumber="note 16">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Receivables</linkname>
+                  </web_page>
+                </item>
+                <item id="1161802-equity" level="3" data-ref="1161802-equity.xml" data-tocnumber="note 17">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Equity</linkname>
+                  </web_page>
+                </item>
+                <item id="1164168-debt" level="3" data-ref="1164168-debt.xml" data-tocnumber="note 18">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Debt</linkname>
+                  </web_page>
+                </item>
+                <item id="1163895-provisions" level="3" data-ref="1163895-provisions.xml" data-tocnumber="note 19">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Provisions</linkname>
+                  </web_page>
+                </item>
+                <item id="20419779-post-employment-benefits" level="3" data-ref="20419779-post-employment-benefits.xml" data-tocnumber="note 20">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Post-employment benefits</linkname>
+                  </web_page>
+                </item>
+                <item id="1163804-accrued-liabilities" level="3" data-ref="1163804-accrued-liabilities.xml" data-tocnumber="note 21">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Accrued liabilities</linkname>
+                  </web_page>
+                </item>
+                <item id="1160983-other-liabilities" level="3" data-ref="1160983-other-liabilities.xml" data-tocnumber="note 22">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Other liabilities</linkname>
+                  </web_page>
+                </item>
+                <item id="2008709-cash-flow-statement-supplementary-information" level="3" data-ref="2008709-cash-flow-statement-supplementary-information.xml" data-tocnumber="note 23">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Cash flow statement supplementary information</linkname>
+                  </web_page>
+                </item>
+                <item id="1161711-contingent-assets-and-liabilities" level="3" data-ref="1161711-contingent-assets-and-liabilities.xml" data-tocnumber="note 24">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Contingent assets and liabilities</linkname>
+                  </web_page>
+                </item>
+                <item id="2008713-related-party-transactions" level="3" data-ref="2008713-related-party-transactions.xml" data-tocnumber="note 25">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Related-party transactions</linkname>
+                  </web_page>
+                </item>
+                <item id="123465-share-based-compensation" level="3" data-ref="123465-share-based-compensation.xml" data-tocnumber="note 26">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Share-based compensation</linkname>
+                  </web_page>
+                </item>
+                <item id="811542-information-on-remuneration" level="3" data-ref="811542-information-on-remuneration.xml" data-tocnumber="note 27">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Information on remuneration</linkname>
+                  </web_page>
+                </item>
+                <item id="1164532-fair-value-of-financial-assets-and-liabilities" level="3" data-ref="1164532-fair-value-of-financial-assets-and-liabilities.xml" data-tocnumber="note 28">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Fair value of financial assets and liabilities</linkname>
+                  </web_page>
+                </item>
+                <item id="2044982-details-of-treasury-other-financial-risks" level="3" data-ref="2044982-details-of-treasury-other-financial-risks.xml" data-tocnumber="note 29">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Details of treasury / other financial risks</linkname>
+                  </web_page>
+                </item>
+                <item id="20619141-subsequent-events" level="3" data-ref="20619141-subsequent-events.xml" data-tocnumber="note 30">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Subsequent events</linkname>
+                  </web_page>
+                </item>
+              </sub_items>
+            </item>
+          </sub_items>
+        </item>
+        <item id="20644584-other-information" level="1" data-ref="20644584-other-information.xml" data-tocnumber="14">
+          <web_page>
+            <path>/</path>
+            <linkname>Other information</linkname>
+          </web_page>
+          <sub_items>
+            <item id="20476893-reconciliation-of-non-ifrs-information" level="2" data-ref="20476893-reconciliation-of-non-ifrs-information.xml" data-tocnumber="14.1">
+              <web_page>
+                <path>/</path>
+                <linkname>Reconciliation of non-IFRS information</linkname>
+              </web_page>
+            </item>
+            <item id="20396224-five-year-overview" level="2" data-ref="20396224-five-year-overview.xml" data-tocnumber="14.2">
+              <web_page>
+                <path>/</path>
+                <linkname>Five-year overview (condensed)</linkname>
+              </web_page>
+            </item>
+            <item id="1167717-investor-information" level="2" data-ref="1167717-investor-information.xml" data-tocnumber="14.3">
+              <web_page>
+                <path>/</path>
+                <linkname>Investor information</linkname>
+              </web_page>
+              <sub_items>
+                <item id="2040339-share-information" level="3" data-ref="2040339-share-information.xml" data-tocnumber="14.3.1">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Share information</linkname>
+                  </web_page>
+                </item>
+                <item id="2040343-financial-calendar" level="3" data-ref="2040343-financial-calendar.xml" data-tocnumber="14.3.2">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Financial calendar</linkname>
+                  </web_page>
+                </item>
+                <item id="2045467-investor-contact" level="3" data-ref="2045467-investor-contact.xml" data-tocnumber="14.3.3">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Investor contact</linkname>
+                  </web_page>
+                </item>
+                <item id="20398934-new-york-registry-shares" level="3" data-ref="20398934-new-york-registry-shares.xml" data-tocnumber="14.3.4">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>New York Registry Shares</linkname>
+                  </web_page>
+                </item>
+              </sub_items>
+            </item>
+            <item id="20394619-definitions-and-abbreviations" level="2" data-ref="20394619-definitions-and-abbreviations.xml" data-tocnumber="14.4">
+              <web_page>
+                <path>/</path>
+                <linkname>Definitions and abbreviations</linkname>
+              </web_page>
+            </item>
+          </sub_items>
+        </item>
+        <item id="20399056-exhibits" level="1" data-ref="20399056-exhibits.xml" data-tocend="true" data-tocnumber="15">
+          <web_page>
+            <path>/</path>
+            <linkname>Exhibits</linkname>
+          </web_page>
+          <sub_items>
+            <item id="20399057-index-of-exhibits" level="2" data-ref="20399057-index-of-exhibits.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Index of exhibits</linkname>
+              </web_page>
+            </item>
+            <item id="20399060-signatures" level="2" data-ref="20399060-signatures.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Signatures</linkname>
+              </web_page>
+            </item>
+            <item id="exhibit-2-89w8b523l173k308" level="2" data-ref="exhibit-2.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Exhibit 2</linkname>
+              </web_page>
+            </item>
+            <item id="exhibit-4-a--5dp040640ap5le3o" level="2" data-ref="exhibit-4-a-.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Exhibit 4 (a)</linkname>
+              </web_page>
+            </item>
+            <item id="exhibit-4-b--z2co154zw57wf3z8" level="2" data-ref="exhibit-4-b-.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Exhibit 4 (b)</linkname>
+              </web_page>
+            </item>
+            <item id="20399098-exhibit-8" level="2" data-ref="20399098-exhibit-8.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Exhibit 8</linkname>
+              </web_page>
+            </item>
+            <item id="20399102-exhibit-12-a" level="2" data-ref="20399102-exhibit-12-a.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Exhibit 12 (a) </linkname>
+              </web_page>
+            </item>
+            <item id="20399103-exhibit-12-b" level="2" data-ref="20399103-exhibit-12-b.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Exhibit 12 (b) </linkname>
+              </web_page>
+            </item>
+            <item id="20399107-exhibit-13-a" level="2" data-ref="20399107-exhibit-13-a.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Exhibit 13 (a)</linkname>
+              </web_page>
+            </item>
+            <item id="20399110-exhibit-13-b" level="2" data-ref="20399110-exhibit-13-b.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Exhibit 13 (b)</linkname>
+              </web_page>
+            </item>
+            <item id="20500317-exhibit-15-b" level="2" data-ref="20500317-exhibit-15-b.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Exhibit 15 (a)</linkname>
+              </web_page>
+            </item>
+          </sub_items>
+        </item>
+      </sub_items>
+    </item>
+  </structured>
+</items>

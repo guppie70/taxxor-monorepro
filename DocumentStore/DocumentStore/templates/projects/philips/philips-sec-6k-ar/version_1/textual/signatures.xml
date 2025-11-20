@@ -1,0 +1,20 @@
+<data>
+  <system>
+    <date_created>2019-06-13T15:41:12.5775720+02:00</date_created>
+    <date_modified>2019-08-09T13:36:10.4524490+02:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="signatures" data-guid="signatures" data-template="sec-signaturepage" data-last-modified="2019-08-09T13:36:10.4524490+02:00" modified-by="johan.thijs@philips.com">
+      <div class="pageblock" data-type="one-column">
+        <section class="content regular" data-name="default-content">
+          <p>This report comprises a copy of the following press release:</p>
+          <p id="press-release-summary">“<b data-elementlink="press-release-content.xml#document-title" data-transformto="i"><!-- . --></b>”, dated <b data-elementlink="press-release-content.xml#document-date" data-transformto="i"><!-- . --></b>.</p>
+          <p>Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf, by the undersigned, thereunto duly authorized at Amsterdam, on the <i class="as-regular" data-configurationlink="cms_project#@date-publication#writtendateformat"><!-- . --></i>.</p>
+          <p class="mbot-2">KONINKLIJKE PHILIPS N.V.</p>
+          <p class="signature">
+            <i>/s/</i> M.J. van Ginneken<br />(Chief Legal Officer)</p>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

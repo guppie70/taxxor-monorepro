@@ -1,0 +1,58 @@
+<data>
+  <system>
+    <date_created>2019-06-12T20:45:19.9536130+02:00</date_created>
+    <date_modified>2019-06-27T20:21:45.8189080+02:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="6-k-standard-cover-page" data-guid="6-k-standard-cover-page" data-template="sec-coverpage" data-last-modified="2019-06-27T20:21:45.8189080+02:00" modified-by="johan.thijs@philips.com">
+      <div class="pageblock cover" data-type="one-column">
+        <section class="content" data-name="cover-content">
+          <div class="block-wrapper top">
+            <h2>SECURITIES AND EXCHANGE COMMISSION</h2>
+            <h4>Washington, D.C. 20549</h4>
+            <hr />
+            <h2>FORM 6-K</h2>
+            <hr />
+            <h5>REPORT OF FOREIGN ISSUER</h5>
+            <p>
+              <b>Pursuant to Rule 13a-16 or 15d-16 of the Securities Exchange Act of 1934</b>
+            </p>
+            <p class="publishing-date">
+              <b class="as-regular" data-configurationlink="cms_project#@date-publication#dateformat:MMMM d, yyyy">
+                <!-- . -->
+              </b>
+            </p>
+            <hr />
+            <h1 class="mb0">KONINKLIJKE PHILIPS N.V.</h1>
+            <p>(Exact name of registrant as specified in its charter)</p>
+            <hr />
+            <h4 class="mb0">Royal Philips</h4>
+            <p>(Translation of registrant’s name into English)</p>
+            <h4 class="mb0">The Netherlands</h4>
+            <p>(Jurisdiction of incorporation or organization)</p>
+            <h4 class="mb0">Breitner Center, Amstelplein 2, 1096 BC Amsterdam, The Netherlands</h4>
+            <p>(Address of principal executive offices)</p>
+          </div>
+          <div class="block-wrapper middle">
+            <p class="mb0">Indicate by check mark whether the registrant files or will file annual reports under cover Form 20-F or Form 40-F.</p>
+            <p class="chkbox">
+              <i class="left">Form 20-F ☒</i>
+              <i class="right">Form 40-F ☐</i>
+            </p>
+            <p>Indicate by check mark if the registrant is submitting the Form 6-K in paper as permitted by Regulation S-T Rule101(b)(1): ☐</p>
+            <p>Indicate by check mark if the registrant is submitting the Form 6-K in paper as permitted by Regulation S-T Rule101(b)(7): ☐</p>
+            <p class="mb0">Indicate by check mark whether the registrant by furnishing the information contained in this Form is also thereby furnishing the information to the Commission pursuant to Rule 12g3-2(b) under the Securities Exchange Act of 1934.</p>
+            <p class="chkbox">
+              <i class="left">Yes ☐</i>
+              <i class="right">No ☒</i>
+            </p>
+          </div>
+          <div class="block-wrapper bottom">
+            <p class="mb0">Name and address of person authorized to receive notices and communications from the Securities and Exchange Commission:</p>
+            <p>M.J. van Ginneken<br />Koninklijke Philips N.V.<br />Amstelplein 2<br />1096 BC Amsterdam – The Netherlands</p>
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

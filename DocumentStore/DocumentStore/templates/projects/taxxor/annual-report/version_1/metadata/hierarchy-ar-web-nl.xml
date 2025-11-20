@@ -1,0 +1,24 @@
+<items>
+  <structured>
+    <item id="report-root" level="0" data-ref="report-root.xml">
+      <web_page>
+        <path>/</path>
+        <linkname>Annual Report 2019</linkname>
+      </web_page>
+      <sub_items>
+        <item id="homepagenl" level="1" data-ref="homepage.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Startpagina</linkname>
+          </web_page>
+        </item>
+        <item id="message-from-the-ceonl" level="1" data-ref="message-from-the-ceo.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Bericht van de CEO</linkname>
+          </web_page>
+        </item>
+      </sub_items>
+    </item>
+  </structured>
+</items>

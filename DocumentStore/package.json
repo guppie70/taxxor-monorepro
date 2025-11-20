@@ -1,0 +1,20 @@
+{
+  "name": "documentstore",
+  "version": "1.0.0",
+  "description": "Manages the project data for the Taxxor Disclosure Manager application",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start-local": "lsof -n -i4TCP:4813 | grep LISTEN | tr -s ' ' | cut -f 2 -d ' ' | xargs kill -9 & gulp & dotnet watch run --project DocumentStore",
+    "start": "gulp && docker logs -f --tail 500 tdm-documentstore-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git-codecommit.eu-west-1.amazonaws.com/v1/repos/taxxordocumentstore"
+  },
+  "author": "Johan Thijs",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/taxxor/taxxordataservice#readme",
+  "dependencies": {
+    "gulp": "^5.0.0"
+  }
+}

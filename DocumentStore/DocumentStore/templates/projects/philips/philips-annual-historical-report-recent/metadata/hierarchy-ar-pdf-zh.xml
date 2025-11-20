@@ -1,0 +1,308 @@
+<items>
+  <structured>
+    <item id="1153521-annual-report-2018-zh" level="0" data-ref="1153521-annual-report-20181.xml">
+      <web_page>
+        <path>/</path>
+        <linkname>2019 年报精简版</linkname>
+      </web_page>
+      <sub_items>
+        <item id="1201713-front-cover-zh" level="1" data-ref="1201713-front-cover.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>cover</linkname>
+          </web_page>
+        </item>
+        <item id="toc-5kn58i308hklxkxk-zh" level="1" data-ref="toc.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Contents</linkname>
+          </web_page>
+        </item>
+        <item id="1153794-message-from-the-ceo1-zh" level="1" data-ref="1153794-message-from-the-ceo1.xml" data-tocstart="true" data-tocstyle="default" data-tocnumber="1">
+          <web_page>
+            <path>/</path>
+            <linkname>Message from the CEO</linkname>
+          </web_page>
+        </item>
+        <item id="2045464-board-of-management-and-executive-committee-zh" level="1" data-ref="2045464-board-of-management-and-executive-committee.xml" data-tocnumber="2">
+          <web_page>
+            <path>/</path>
+            <linkname>Board of Management and Executive Committee</linkname>
+          </web_page>
+        </item>
+        <item id="20644541-strategy-and-businesses-zh" level="1" data-ref="20644541-strategy-and-businesses.xml" data-tocnumber="3">
+          <web_page>
+            <path>/</path>
+            <linkname>Strategy and Businesses</linkname>
+          </web_page>
+          <sub_items>
+            <item id="20572139-addressing-health-challenges-through-innovation-zh" level="2" data-ref="20572139-addressing-health-challenges-through-innovation.xml" data-tocnumber="3.1">
+              <web_page>
+                <path>/</path>
+                <linkname>Transforming healthcare through innovation</linkname>
+              </web_page>
+            </item>
+            <item id="20572140-how-we-create-value-zh" level="2" data-ref="20572140-how-we-create-value.xml" data-tocnumber="3.2">
+              <web_page>
+                <path>/</path>
+                <linkname>How we create value</linkname>
+              </web_page>
+            </item>
+          </sub_items>
+        </item>
+        <item id="1154249-financial-performance-zh" level="1" data-ref="1154249-financial-performance.xml" data-tocnumber="4">
+          <web_page>
+            <path>/</path>
+            <linkname>Financial performance</linkname>
+          </web_page>
+          <sub_items>
+            <item id="812515-financial-performance-zh" level="2" data-ref="812515-financial-performance.xml" data-tocnumber="4.1">
+              <web_page>
+                <path>/</path>
+                <linkname>Performance review</linkname>
+              </web_page>
+              <sub_items>
+                <item id="20567555-results-of-operations-zh" level="3" data-ref="20567555-results-of-operations.xml" data-tocnumber="4.1.1">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Results of operations</linkname>
+                  </web_page>
+                </item>
+                <item id="20401723-pensions-zh" level="3" data-ref="20401723-pensions.xml" data-tocnumber="4.1.2">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Pensions</linkname>
+                  </web_page>
+                </item>
+                <item id="20401724-restructuring-and-acquisition-related-charges-and-goodwill-impairment-charges-zh" level="3" data-ref="20401724-restructuring-and-acquisition-related-charges-and-goodwill-impairment-charges.xml" data-tocnumber="4.1.3">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Restructuring and acquisition-related charges and goodwill impairment charges</linkname>
+                  </web_page>
+                </item>
+                <item id="2040300-acquisitions-and-divestments-zh" level="3" data-ref="2040300-acquisitions-and-divestments.xml" data-tocnumber="4.1.4">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Acquisitions and divestments</linkname>
+                  </web_page>
+                </item>
+                <item id="20401804-changes-in-cash-and-cash-equivalents-including-cash-flows-zh" level="3" data-ref="20401804-changes-in-cash-and-cash-equivalents-including-cash-flows.xml" data-tocnumber="4.1.5">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Changes in cash and cash equivalents, including cash flows</linkname>
+                  </web_page>
+                </item>
+                <item id="20401816-financing-zh" level="3" data-ref="20401816-financing.xml" data-tocnumber="4.1.6">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Financing</linkname>
+                  </web_page>
+                </item>
+                <item id="20401814-debt-position-zh" level="3" data-ref="20401814-debt-position.xml" data-tocnumber="4.1.7">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Debt position</linkname>
+                  </web_page>
+                </item>
+                <item id="20436677-liquidity-position-zh" level="3" data-ref="20436677-liquidity-position.xml" data-tocnumber="4.1.8">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Liquidity position</linkname>
+                  </web_page>
+                </item>
+                <item id="20401819-shareholders-equity-zh" level="3" data-ref="20401819-shareholders-equity.xml" data-tocnumber="4.1.9">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Shareholders’ equity</linkname>
+                  </web_page>
+                </item>
+                <item id="2040815-cash-obligations-zh" level="3" data-ref="2040815-cash-obligations.xml" data-tocnumber="4.1.10">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Cash obligations</linkname>
+                  </web_page>
+                </item>
+                <item id="2040331-dividend-zh" level="3" data-ref="2040331-dividend.xml" data-tocnumber="4.1.11">
+                  <web_page>
+                    <path>/</path>
+                    <linkname> Dividend</linkname>
+                  </web_page>
+                </item>
+                <item id="20600670-philips-lighting-sell-down-zh" level="3" data-ref="20600670-philips-lighting-sell-down.xml" data-tocnumber="4.1.12">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Sell-down Signify shares (former Philips Lighting)</linkname>
+                  </web_page>
+                </item>
+                <item id="20436683-analysis-of-2016-compared-to-2015-zh" level="3" data-ref="20436683-analysis-of-2016-compared-to-2015.xml" data-tocnumber="4.1.13">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Analysis of 2018 compared to 2017</linkname>
+                  </web_page>
+                </item>
+              </sub_items>
+            </item>
+          </sub_items>
+        </item>
+        <item id="20644577-societal-impact-zh" level="1" data-ref="20644577-societal-impact.xml" data-tocnumber="5">
+          <web_page>
+            <path>/</path>
+            <linkname>Societal impact</linkname>
+          </web_page>
+          <sub_items>
+            <item id="2044903-social-performance-zh" level="2" data-ref="2044903-social-performance.xml" data-tocnumber="5.1">
+              <web_page>
+                <path>/</path>
+                <linkname>Social performance</linkname>
+              </web_page>
+              <sub_items>
+                <item id="20404036-improving-people-s-lives-zh" level="3" data-ref="20404036-improving-people-s-lives.xml" data-tocnumber="5.1.1">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Improving people’s lives</linkname>
+                  </web_page>
+                </item>
+                <item id="20577060-workforce-of-the-future-zh" level="3" data-ref="20577060-workforce-of-the-future.xml" data-tocnumber="5.1.2">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Workforce of the Future</linkname>
+                  </web_page>
+                </item>
+                <item id="20404038-inclusion-diversity-zh" level="3" data-ref="20404038-inclusion-diversity.xml" data-tocnumber="5.1.3">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Inclusion &amp; Diversity</linkname>
+                  </web_page>
+                </item>
+                <item id="20577079-culture-of-performance-zh" level="3" data-ref="20577079-culture-of-performance.xml" data-tocnumber="5.1.4">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Culture of Performance</linkname>
+                  </web_page>
+                </item>
+                <item id="20580518-employee-engagement-zh" level="3" data-ref="20580518-employee-engagement.xml" data-tocnumber="5.1.5">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Employee engagement</linkname>
+                  </web_page>
+                </item>
+                <item id="20401783-employment-zh" level="3" data-ref="20401783-employment.xml" data-tocnumber="5.1.6">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Employment</linkname>
+                  </web_page>
+                </item>
+                <item id="20596653-human-rights-zh" level="3" data-ref="20596653-human-rights.xml" data-tocnumber="5.1.7">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Human Rights</linkname>
+                  </web_page>
+                </item>
+                <item id="20401503-general-business-principles-zh" level="3" data-ref="20401503-general-business-principles.xml" data-tocnumber="5.1.8">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>General Business Principles</linkname>
+                  </web_page>
+                </item>
+                <item id="20404042-health-and-safety-zh" level="3" data-ref="20404042-health-and-safety.xml" data-tocnumber="5.1.9">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Health and Safety</linkname>
+                  </web_page>
+                </item>
+                <item id="20405185-working-with-stakeholders-zh" level="3" data-ref="20405185-working-with-stakeholders.xml" data-tocnumber="5.1.10">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Working with stakeholders</linkname>
+                  </web_page>
+                </item>
+              </sub_items>
+            </item>
+            <item id="1155341-environmental-performance-zh" level="2" data-ref="1155341-environmental-performance.xml" data-tocnumber="5.2">
+              <web_page>
+                <path>/</path>
+                <linkname>Environmental performance</linkname>
+              </web_page>
+              <sub_items>
+                <item id="20404044-green-innovation-zh" level="3" data-ref="20404044-green-innovation.xml" data-tocnumber="5.2.1">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Green Innovation</linkname>
+                  </web_page>
+                </item>
+                <item id="20404046-green-revenues-zh" level="3" data-ref="20404046-green-revenues.xml" data-tocnumber="5.2.2">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Green Revenues</linkname>
+                  </web_page>
+                </item>
+                <item id="2044905-sustainable-operations-zh" level="3" data-ref="2044905-sustainable-operations.xml" data-tocnumber="5.2.3">
+                  <web_page>
+                    <path>/</path>
+                    <linkname>Sustainable Operations</linkname>
+                  </web_page>
+                </item>
+              </sub_items>
+            </item>
+          </sub_items>
+        </item>
+        <item id="2045466-supervisory-board-zh" level="1" data-ref="2045466-supervisory-board.xml" data-tocnumber="6">
+          <web_page>
+            <path>/</path>
+            <linkname>Supervisory Board</linkname>
+          </web_page>
+        </item>
+        <item id="1162894-group-financial-statements-zh" level="1" data-ref="1162894-group-financial-statements.xml" data-tocnumber="7">
+          <web_page>
+            <path>/</path>
+            <linkname>Group financial statements</linkname>
+          </web_page>
+          <sub_items>
+            <item id="2041649-consolidated-statements-of-income-zh" level="2" data-ref="2041649-consolidated-statements-of-income.xml" data-tocnumber="7.1">
+              <web_page>
+                <path>/</path>
+                <linkname>Consolidated statements of income</linkname>
+              </web_page>
+            </item>
+            <item id="2041651-consolidated-statements-of-comprehensive-income-zh" level="2" data-ref="2041651-consolidated-statements-of-comprehensive-income.xml" data-tocnumber="7.2">
+              <web_page>
+                <path>/</path>
+                <linkname>Consolidated statements of comprehensive income</linkname>
+              </web_page>
+            </item>
+            <item id="1151610-consolidated-balance-sheets-zh" level="2" data-ref="1151610-consolidated-balance-sheets.xml" data-tocnumber="7.3">
+              <web_page>
+                <path>/</path>
+                <linkname>Consolidated balance sheets</linkname>
+              </web_page>
+            </item>
+            <item id="20458158-consolidated-statements-of-cash-flows-zh" level="2" data-ref="20458158-consolidated-statements-of-cash-flows.xml" data-tocnumber="7.4">
+              <web_page>
+                <path>/</path>
+                <linkname>Consolidated statements of cash flows</linkname>
+              </web_page>
+            </item>
+            <item id="1151792-consolidated-statements-of-changes-in-equity-zh" level="2" data-ref="1151792-consolidated-statements-of-changes-in-equity.xml" data-tocnumber="7.5">
+              <web_page>
+                <path>/</path>
+                <linkname>Consolidated statements of changes in equity</linkname>
+              </web_page>
+            </item>
+          </sub_items>
+        </item>
+        <item id="outlook-statement-and-other-information-zlc04uuu498cf99n-zh" level="1" data-ref="outlook-statement-and-other-information.xml" data-tocend="true" data-tocnumber="8">
+          <web_page>
+            <path>/</path>
+            <linkname>Outlook statement and other information</linkname>
+          </web_page>
+        </item>
+        <item id="1201714-back-cover-zh" level="1" data-ref="1201714-back-cover.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>backcover</linkname>
+          </web_page>
+        </item>
+      </sub_items>
+    </item>
+  </structured>
+</items>

@@ -1,0 +1,22 @@
+<data>
+  <system>
+    <date_created>2019-06-13T09:31:57.6075880+02:00</date_created>
+    <date_modified>2019-07-03T10:33:19.0664440+02:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="press-release-content" data-guid="press-release-content" data-last-modified="2019-07-03T10:33:19.0664440+02:00" modified-by="johan.thijs@philips.com">
+      <div class="pageblock" data-type="one-column">
+        <section class="content regular" data-name="default-content">
+          <div class="image-wrapper" id="philips-wordmark">
+            <img src="/outputchannels/philips/pdf/images/6k/wordmark.jpg" alt="Philips wordmark" />
+          </div>
+          <h1>Press information</h1>
+          <p id="document-date">May xx, 20xx</p>
+          <h2 id="document-title">[Press release title]</h2>
+          <p>
+            <b>Amsterdam, the Netherlands</b> – [Press release text].</p>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

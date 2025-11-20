@@ -1,0 +1,19 @@
+<data>
+  <system>
+    <date_created>2018-09-21T11:36:10.153+02:00</date_created>
+    <date_modified>2019-04-19T11:45:55.3543904+00:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="back-cover" data-guid="back-cover" data-last-modified="2019-04-19T11:45:55.3543904+00:00" data-description="back-cover" class="" modified-by="johan.thijs@philips.com">
+      <div class="pageblock back-cover" data-type="one-column">
+        <section class="content" data-name="main-content">
+          <div class="copyright">
+            <h1 guid="d7e6350">© 20xx Koninklijke Philips N.V. </h1>
+            <p guid="d7e6352">All rights reserved.</p>
+          </div>
+          <div class="website">https://www.philips.com/investorrelations</div>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

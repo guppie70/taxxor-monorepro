@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	[page-head-content]
+</head>
+<body class="page_[pageid] sitetype_[sitetype] system-page no-skin projectstatus_[projectstatus]">
+	[page-body-start]
+
+	<div class="main-container">
+		[page-maincolumn-start]
+		<div class="page-header">
+            <h1>Auditor view <small>[document-name]</small></h1>
+		</div>
+
+		<!-- Filter -->
+		<div class="row auditorview-filter">
+			<div class="col-xs-12 col-sm-10">
+				<div class="filter-auditor-view">
+					<form id="form-auditorview-filter" class="form-inline">
+
+					<!-- Date Range Filter -->
+					<div class="input-group filter-one">
+						<span class="input-group-addon btn-calendar">
+							<i class="fa fa-calendar bigger-110"></i>
+						</span>
+						<input name="filterdate" id="filterdate" type="text" id="id-date-range-picker-1" placeholder="Filter on date" name="date-range-picker" class="form-control input-large"/>
+						<span class="input-group-btn btn-clearfilterdaterange">
+							<button id="btn-clearfilterdaterange" type="button" class="btn btn-default btn-white btn-grey" title="Clear date range"><i class="fa fa-times-circle"></i></button>
+						</span>
+					</div>
+
+					<!-- User Filter -->
+					<div class="input-group filter-two">
+						<input name="filteruser" id="filteruser" type="text" placeholder="Filter on user" class="form-control input-xlarge"/>
+						<span class="input-group-btn btn-clearfilteruser">
+							<button id="btn-clearfilteruser" type="button" class="btn btn-default btn-white btn-grey" title="Clear user filter"><i class="fa fa-times-circle"></i></button>
+						</span>
+					</div>
+
+					<!-- Message Filter -->
+					<div class="input-group filter-three">
+						<input name="filtermessage" id="filtermessage" type="text" placeholder="Filter on message" class="form-control input-xlarge"/>
+						<span class="input-group-btn btn-clearfiltermessage">
+							<button id="btn-clearfiltermessage" type="button" class="btn btn-default btn-white btn-grey" title="Clear message filter"><i class="fa fa-times-circle"></i></button>
+						</span>
+                    </div>
+
+
+                    <!-- Apply filter 
+                    <div class="checkbox">
+                        <label>
+                            <input name="filterlatest" id="filterlatest" type="checkbox" checked="checked"/> Latest changes only
+                        </label>
+                    </div>
+					<button id="btn-apply-filter" class="btn btn-info btn-sm" type="button">
+					<i class="ace-icon fa fa-refresh bigger-110"></i>Apply filter
+					</button>
+					-->
+					</form>
+				</div>
+
+			</div>
+		</div>
+
+		<hr />
+
+		<!-- Auditor View Content -->
+		<div class="row">
+
+			<div class="col-xs-12 col-sm-10 auditorview-content">
+                <div class="tx-loader-wrapper loading hide">
+                    <div class="tx-loader">
+                        <div class="item item-1">T</div>
+                        <div class="item item-2">/</div>
+                        <div class="item item-3">R</div>
+                        <div class="item item-4">\</div>
+                    </div>
+                </div>
+				<div id="auditorviewresult">
+					
+				</div>
+
+			</div>
+		</div>
+        <div id="tx-postprocessing">...</div>
+		[page-maincolumn-end] 
+    </div>
+    
+    <!-- 1) Modal Restore Content -->
+    <div class="modal fade bs-example-modal-lg" id="modal_restore-content" tabindex="-1" role="dialog" aria-labelledby="restoreContentLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="restoreContentLabel">Restore content</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="content" style="display: block">
+
+                        <p>You have selected to restore section &quot;<span class="restore-item-linkname">..</span>&quot; from the history of this project.</p>
+                        <p>Please click on the &quot;Restore content&quot; button to proceed. Note that this will override the latest version of the section.</p>
+					</div>
+					<div class="spinner" style="display: none">
+                        <div class="loading-icon-wrapper-restore">
+                            <p>Restoring your content...</p>
+                        </div>
+                        <p>Progress:</p>
+                        <div class="restore-progress"><pre></pre></div>
+					</div>
+					<div class="error" style="display: none">
+						<div class="alert alert-danger">
+                            <p>An error has occured while restoring your content, please contact the administrator.</p>
+                            <p>Details:</p>
+                            <div class="restore-error-details"><pre></pre></div>
+						</div>
+					</div>
+					<div class="success" style="display: none">
+						<div class="alert alert-success">
+                            Your content has successfully been restored.
+                            <br/>
+                            <a href="javascript:restoreContentViewSuccessLog()">view log</a>
+                            <div class="restore-success-log"><pre></pre></div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-sm btn-default" type="button">Discard</button>
+                    <button id="btn-restorecontent" type="button" class="btn btn-sm btn-info btn-restorecontent" onclick="restoreContent()"><span class="glyphicon glyphicon-repeat"></span> Restore content</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2) Modal Compare Content -->
+    <div class="modal fade" id="modal_compare-content" tabindex="-1" role="dialog" aria-labelledby="compareContentLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="compareContentLabel">Compare content</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="content" style="display: block">
+                        <div class="loading-icon-wrapper-history">
+                            <p>Retrieving section history...</p>
+                        </div>
+
+                        <div class="history-content-wrapper">
+                            <p>Compare section &quot;<span class="compare-item-linkname">..</span>&quot; against an older version to view the differences.</p>
+                            
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th width="50%">Selected version</th>
+                                        <th width="50%">Previous version</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="current-section">...</td>
+                                        <td class="previous-section">
+                                            <select class="form-control">
+                                            <option selected="selected">Retrieving section history...</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="output-format form-horizontal form-group">
+                                <label class="radio-inline label-only">Output format: </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="comparisonOutputFormat" id="comparisonOutputFormatPdf" value="pdf" checked="checked"/> PDF
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="comparisonOutputFormat" id="comparisonOutputFormatRaw" value="raw"/> Raw
+                                </label>
+                            </div>    
+                        </div>
+					</div>
+					<div class="spinner" style="display: none">
+                        <div class="loading-icon-wrapper-progress">
+                            <p>Comparing your content...</p>
+                        </div>
+                        <p>Progress:</p>
+                        <div class="compare-progress"><pre></pre></div>
+					</div>
+					<div class="error" style="display: none">
+						<div class="alert alert-danger">
+                            <p>An error has occured while comparing your content, please contact the administrator.</p>
+                            <p>Details:</p>
+                            <div class="compare-error-details"><pre></pre></div>
+						</div>
+					</div>
+					<div class="success" style="display: none">
+						<div class="alert alert-success">
+                            <p>Comparison result is ready.</p>
+                            <button class="btn btn-xs btn-primary download-comparison-file">
+                                <i class="glyphicon glyphicon-download "></i>
+                                Download
+                            </button>
+                            
+                            <br/>
+                            <a href="javascript:compareContentViewSuccessLog()">view log</a>
+                            <div class="compare-success-log"><pre></pre></div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-sm btn-default" type="button">Discard</button>
+                    <button id="btn-comparecontent" type="button" class="btn btn-sm btn-primary btn-comparecontent" onclick="compareSectionContent()">Generate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3) Commit Information Modal -->
+    <div class="modal fade bs-example-modal" id="modal_commit-information" tabindex="-1" role="dialog" aria-labelledby="restoreContentLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="restoreContentLabel">Auditor view item details</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="commitdetails">...</div>
+				</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popover fade right in" id="commit-options" style="top: 0px; left: -1000px; display: none;">
+        <div class="arrow" style="top: 50%;"> </div>
+        <h3 class="popover-title">Options</h3>
+        <div class="popover-content">
+            <ul class="popup-options">
+                <li class="compare">
+                    <div class="mimic-link" onclick="openCompareModalDialog()">Compare with previous version</div>
+                </li>
+                <li class="restore">
+                    <div class="mimic-link" onclick="openRestoreModalDialog()">Restore this version</div>
+                </li>
+                <li class="commitinfo">
+                    <div class="mimic-link" onclick="openCommitInfoModalDialog()">Details</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+	[page-body-end]
+	</body>
+</html>

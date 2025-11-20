@@ -1,0 +1,30 @@
+<items>
+  <structured>
+    <item id="ar-root" level="0" data-ref="ar-root.xml">
+      <web_page>
+        <path>/</path>
+        <linkname>XXX 年报精简版</linkname>
+      </web_page>
+      <sub_items>
+        <item id="front-cover" level="1" data-ref="front-cover-ar.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>cover</linkname>
+          </web_page>
+        </item>
+        <item id="toc-ar" level="1" data-ref="toc.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Contents</linkname>
+          </web_page>
+        </item>
+        <item id="back-cover" level="1" data-ref="back-cover.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>backcover</linkname>
+          </web_page>
+        </item>
+      </sub_items>
+    </item>
+  </structured>
+</items>

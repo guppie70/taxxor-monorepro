@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<translations>
+  <textfragment id="cms_overview_page-top-header">
+    <value lang="en">XBRL Reports</value>
+    <value lang="nl">XBRL Rapportages</value>
+  </textfragment>
+
+  <textfragment id="label_filing">
+    <value lang="en">Report</value>
+    <value lang="nl">Rapport</value>
+  </textfragment>  
+  <textfragment id="label_existing-filings">
+    <value lang="en">Available projects</value>
+    <value lang="nl">Beschikbare projecten</value>
+  </textfragment>
+  <textfragment id="label_upcoming-filings">
+    <value lang="en">Upcoming Reporting Requirements</value>
+    <value lang="nl">Aanstaande Rapportage Verplichtingen</value>
+  </textfragment>
+  
+  <textfragment id="label_tools">
+    <value lang="en">Tools</value>
+    <value lang="nl">Gereedschappen</value>
+  </textfragment>
+  
+  
+  <!-- sets the label in the left manu for the report home page -->
+  <textfragment id="label_filing-portal">
+    <value lang="en">Report portal</value>
+    <value lang="nl">Rapportage portaal</value>
+  </textfragment>
+  
+  <textfragment id="label_taxonomy">
+    <value lang="en">Taxonomy</value>
+    <value lang="nl">Taxonomie</value>
+  </textfragment>
+  <textfragment id="label_editor">
+    <value lang="en">Editor</value>
+    <value lang="nl">Bewerker</value>
+  </textfragment>
+  <textfragment id="label_statistics">
+    <value lang="en">Statistics</value>
+    <value lang="nl">Statestieken</value>
+  </textfragment>
+  <textfragment id="warning">
+    <value lang="en">Warning</value>
+    <value lang="nl">Waarschuwing</value>
+  </textfragment>
+
+  <textfragment id="btn-text_add-support">
+    <value lang="en">Add support</value>
+    <value lang="nl">Voeg ondersteuning toe</value>
+  </textfragment>
+  <textfragment id="btn-text_remove-support">
+    <value lang="en">Remove support</value>
+    <value lang="nl">Verwijder ondersteuning</value>
+  </textfragment>
+  <textfragment id="btn-text_properties">
+    <value lang="en">Properties</value>
+    <value lang="nl">Eigenschappen</value>
+  </textfragment>
+
+  <textfragment id="frag_no-reporting-requirements-defined">
+    <value lang="en">There are no reporting requirements defined for this legal entity.</value>
+    <value lang="nl">Er zijn geen rapportage verplichtingen voor deze entiteit.</value>
+  </textfragment>
+  <textfragment id="frag_no-check-regulationdb-add-requirements">
+    <value lang="en">Please check the Taxxor Regulation Database and make sure that this legal entity is associated with the correct reporting requirements.</value>
+    <value lang="nl">Controleer de settings in de Regulation DB applicatie voor deze entiteit en associeer er rapportage verplichingen aan.</value>
+  </textfragment>
+  <textfragment id="frag_stats-not-in-use">
+    <value lang="en">Not in use</value>
+    <value lang="nl">Niet in gebruik</value>
+  </textfragment>
+  <textfragment id="frag_used-by">
+    <value lang="en">Used by</value>
+    <value lang="nl">Gebruikt door</value>
+  </textfragment>
+  <textfragment id="frag_filings">
+    <value lang="en">filings</value>
+    <value lang="nl">filings</value>
+  </textfragment>
+  <textfragment id="frag_filing">
+    <value lang="en">filing</value>
+    <value lang="nl">filing</value>
+  </textfragment>  
+</translations>

@@ -1,0 +1,431 @@
+<?xml version="1.0"?>
+<configuration>
+  <!-- generic information -->
+  <general>
+    <site_identifier>Taxxor Project Data Store</site_identifier>
+    <application_id>documentstore</application_id>
+    <default_document></default_document>
+
+    <settings>
+      <setting id="localization_mechanism">domain</setting>
+      <setting id="development_environment">
+        <domain type="local" />
+      </setting>
+      <!-- set this to true to avoid needing to login all the time during development -->
+      <setting id="bypass-security">false</setting>
+
+      <setting id="serve-static-files">false</setting>
+      <setting id="static-files-require-authentication">true</setting>
+
+      <!-- logging and debugging settings -->
+      <setting id="console-dump-requestvariables">false</setting>
+      <setting id="console-dump-projectvariables">false</setting> 
+      <setting id="store-inspector-files">true</setting>
+      <setting id="log-uris">false</setting>
+    </settings>
+
+    <!-- domains and locales (selection) -->
+    <domains>
+      <domain type="local" ssl="true" locale="global" locale-selector="domain" locale-match="*">localhost</domain>
+      <domain type="dev" ssl="true" locale="global" locale-selector="domain" locale-match="*">www.development.com</domain>
+      <domain type="prev" ssl="true" locale="global" locale-selector="domain" locale-match="*">pww.review.com</domain>
+      <domain type="prod" ssl="true" locale="global" locale-selector="domain" locale-match="*">www.production.com</domain>
+    </domains>
+
+    <!-- root locations -->
+    <locations>
+      <location id="dataroot" path-type="approot">/data</location>
+      <location id="configroot" path-type="approot">/config</location>
+      <location id="hierarchyroot" path-type="approot">/hierarchies</location>
+      <location id="xslroot" path-type="approot">/backend/views/xsl</location>
+      <location id="logroot" path-type="approot">/logs</location>
+
+      <!-- for taxxor data warehouse -->
+      <location id="webserverroot" path-type="approot">/frontend/public</location>  
+      <location id="cmstemplatesroot" path-type="approot">/templates</location>
+    </locations>
+
+    <!-- basic folder structure definition for exporting assets from the project data store -->
+    <filestructure>
+      <root>
+        <folder name="generic" content="generic" />
+        <folder name="publication" content="htmlfiles" />
+        <folder name="publication/imgs" content="images" />
+        <folder name="publication/data/[language]" content="data" />
+        <folder name="publication/downloads/files/[language]" content="downloads" />
+        <folder name="publication/downloads/pdf/[language]" content="pdf" />
+      </root>
+    </filestructure>
+
+  </general>
+
+  <!-- language country combinations -->
+  <locales>
+    <locale id="global" default="true">
+      <country code="US">Global</country>
+      <language code="en">English</language>
+    </locale>
+  </locales>
+
+  <!-- hierarchy of configuration documents and the way that they are being used -->
+  <configuration_system>
+    <config locale="*">
+      <location id="base_configuration" path-type="configroot">/base_configuration.xml</location>
+      <config locale="*" mode="merge">
+        <location id="project_configuration" path-type="dataroot">/config/project_configuration.xml</location>
+        <config locale="*" mode="merge">
+          <location id="data_configuration" path-type="dataroot">/config/data_configuration.xml</location>
+        </config>
+      </config>
+    </config>
+  </configuration_system>
+
+  <!-- the xml hierarchy files involved in the website -->
+  <hierarchy_system>
+    <hierarchy locale="*">
+      <location id="base_hierarchy" path-type="hierarchyroot" system_page_id="uload-complete-hierarchy">/base_structure.xml</location>
+    </hierarchy>
+  </hierarchy_system>
+
+  <!-- xml and html templates used to store data into also see base_config  -->
+  <templates>
+    <!-- error_xml is also used for json errors (conversion xml to json) -->
+    <template id="error_xml">
+      <error>
+        <message></message>
+        <debuginfo></debuginfo>
+      </error>
+    </template>
+    <template id="success_xml">
+      <result>
+        <message></message>
+        <debuginfo></debuginfo>
+      </result>
+    </template>
+    <template id="success_payload_xml">
+      <result>
+        <message></message>
+        <debuginfo></debuginfo>
+        <payload></payload>
+      </result>
+    </template>   
+    <template id="error_html">
+      <html>
+        <head>
+          <title>ERROR</title>
+        </head>
+        <body>
+          <div id="errorMessage">[message]</div>
+          <br/>
+          <br/>
+          <button onclick="window.history.back()">Back to previous page</button>
+        </body>
+      </html>
+    </template>
+    <template id="git-commit_message">
+      <commit>
+        <message></message>
+        <date epoch=""></date>
+        <author>
+          <id></id>
+          <name></name>
+          <ip></ip>
+        </author>
+      </commit>
+    </template>
+    <template id="git-data-save_message">
+      <root>
+        <crud/>
+        <linkname/>
+        <id/>
+      </root>
+    </template> 
+    <template id="git-tag_message">
+      <tag>
+        <message></message>
+        <date epoch=""></date>
+        <author>
+          <id></id>
+          <name></name>
+          <ip></ip>
+        </author>
+      </tag>
+    </template>
+
+    <template id="filingdata">
+      <data>
+        <system>
+          <date_created>
+          </date_created>
+          <date_modified>
+          </date_modified>
+        </system>
+        <content lang="en">
+          <article id="" data-guid="" data-hierarchical-level="1" data-last-modified="">
+            <div class="pageblock" data-type="one-column">
+              <section class="content regular" data-name="default-content">
+                <h1>
+                </h1>
+              </section>
+            </div>
+          </article>
+        </content>
+      </data>
+    </template>
+    
+  </templates>
+
+
+  <!-- special pages -->
+  <special_pages>
+    <page id="login_page" palette="orange">
+      <item type="root_page" id="ulogindotnet"/>
+    </page>
+    <page id="authenticate_user" palette="orange">
+      <item type="root_page" id="uauthenticateuserdotnet"/>
+    </page>
+  </special_pages>
+
+  <!-- locations -->
+  <locations>
+    <location id="xsl_merge" path-type="xslroot">/system/merge_xml.xslt</location>
+    <location id="xsl_merge_site_structure_1" path-type="xslroot">/system/merge_site_structure_update_slave_information.xsl</location>
+    <location id="xsl_merge_site_structure_2" path-type="xslroot">/system/merge_site_structure_new_slave_elements.xsl</location>
+    <location id="xsl_strip-processing-instructions" path-type="xslroot">/system/strip-processing-instructions.xsl</location>
+    <location id="xml_application_configuration_cache" path-type="logroot">/application_configuration_[lang]_merged.xml</location>
+    
+    <!-- webservice description (is hard coded in C#??) -->
+    <location id="xsl_service-description" path-type="approot">/backend/code/shared/xslt/service-description.xsl</location>
+    <location id="xsl_normalize-service-description" path-type="xslroot">/normalize-service-description.xsl</location>
+    
+    <!-- lextra begin -->
+    <location id="error_trace_log" path-type="logroot">/log/error_trace_[week]_[year].log</location>
+    <location id="xml_hierarchy_cache" path-type="logroot">/site_structure_dumped.xml</location>
+    
+    <!-- for lextra data warehouse -->
+    <location id="cmsprojectconfigroot" path-type="sitesroot">/data/config</location>
+    <location id="cmsdataconfigroot" path-type="dataroot">/config</location>
+    <!-- -> generated project content -->
+    <location id="cmscontentroot" path-type="cmsdatarootbase">/content</location>
+    <!-- -> generated project system content -->
+    <location id="cmssystemcontentroot" path-type="cmscontentroot">/system</location>
+    
+    <!-- prevalidation stylesheets -->
+    <location id="prevalidation_taxonomy_data" path-type="xslroot">/prevalidation/prevalidate_taxonomy_data.xsl</location>
+    <location id="taxxor_xsl_data-prepare" path-type="approot">/backend/code/shared/xslt/filingcomposer/prepare_taxxor-content.xsl</location>
+    
+    <!-- project templates -->
+    <location id="cms_config_project-templates" path-type="cmstemplatesroot">/config/project_templates.xml</location>
+    <location id="cms_data_git-templates" path-type="cmstemplatesroot">/git-repositories</location>
+    <location id="cms_data_project-templates" path-type="cmstemplatesroot">/projects/[taxxor-client-id]/[editor_id]</location>
+    <!-- lextra calendar data -->
+    <location id="calendar_data" path-type="cmsuserdataroot">/temp/calendar.xml</location>
+    <location id="lextra_cache" path-type="cmsuserdataroot">/temp/lextra_entity-requirements_complete.xml</location>
+    <!-- version manager -->
+    <location id="cms_xsl_version-manager-sort" path-type="xslroot">/cms_version-manager-sort.xsl</location>
+    <!-- lextra locking system -->
+    <location id="lextra_lock-folder" path-type="cmsdatarootbase">/locks</location>
+    
+    <location id="cms_xsl_vertabim" path-type="xslroot">/lextra-editor/xml_vertabim.xsl</location>
+    
+    <location id="cms_xsl_taxo-to-hierarchy" path-type="xslroot">/taxo-to-hierarchy.xsl</location>
+    <location id="cms_xsl_list-projects" path-type="xslroot">/cms_list-projects.xsl</location>
+    <location id="cms_hierarchy-add-sectionnumbers" path-type="xslroot">/add-sectionnumbers.xsl</location>
+        
+    <!-- utility files -->
+    <location id="xsl_remove-dynamic-date-wrappers" path-type="approot">/backend/code/shared/xslt/remove-dynamic-date-wrappers.xsl</location>
+    <location id="xsl_datareference-cleanup" path-type="xslroot">/datareference-cleanup.xsl</location>
+    <location id="xsl_sdecache-convert" path-type="xslroot">/sdecache-convert.xsl</location>
+    <!-- JT:This needs to change!!! -->
+    <location id="xsl_html-generator" path-type="projectroot">/assets/xsl/stylesheet.xsl</location>
+    
+    <location id="user_preferences_template" path-type="cmstemplatesroot">/users/user_settings.xml</location>
+    <location id="user_preferences" path-type="cmsuserdataroot">/user_settings.xml</location>
+    <location id="reportingrequirements_falover" path-type="dataroot">/failover/project_configuration.xml</location>
+    <location id="footnote_repository" path-type="cmsdataroot">/textual/_footnotes.xml</location>
+    <location id="comment_repository-location" path-type="cmsdataroot">/textual/</location>
+  </locations>
+
+  <!-- sub-applications within this application such as webservices -->
+  <applications>
+    <application id="asset_manager" enablelogging="false">
+      <log_path path-type="logroot">/asset_manager_logfile.txt</log_path>
+      <type name="projectimages">
+          <path path-type="cmsdatarootbase">/content/images</path>
+          <search_pattern>*.jpg,*.jpeg,*.gif,*.png,*.mp4,*.mov,*.mpeg,*.mpg,*.ogg,*.wmv,.tiff,.tif</search_pattern>
+          <location path-type="cmsdatarootbase">/content/asset-manager/images.xml</location>
+      </type>
+      <type name="projectdownloads">
+          <path path-type="cmsdatarootbase">/content/downloads</path>
+          <search_pattern>*.doc,*.docx,*.xls,*.xslx,*.ppt,*.pptx,*.pdf,*.zip,*.msg</search_pattern>
+          <location path-type="cmsdatarootbase">/content/asset-manager/downloads.xml</location>
+      </type>
+    </application>
+  </applications>
+
+  <!-- file type definitions -->
+  <file_definitions>
+    <images>
+      <file extension="jpg" mime-type="image/jpeg">JPG Image</file>
+      <file extension="jpeg" mime-type="image/jpeg">JPEG Image</file>
+      <file extension="gif" mime-type="image/gif">Gif Image</file>
+      <file extension="png" mime-type="image/png">Png Image</file>
+      <file extension="swf" mime-type="application/x-shockwave-flash">Macromedia flash file</file>
+      <file extension="svg" mime-type="image/svg+xml">SVG Drawing</file>
+      <file extension="tif" mime-type="image/tiff">TIFF Image</file>
+      <file extension="tiff" mime-type="image/tiff">TIFF Image</file>
+    </images>
+    <downloads>
+      <file extension="ppt" mime-type="application/vnd.ms-powerpoint">Microsoft Power Point Presentation</file>
+      <file extension="pptx" mime-type="application/vnd.openxmlformats-officedocument.presentationml.presentation">Microsoft Power Point Presentation</file>
+      <file extension="pdf" mime-type="application/pdf">Acrobat Reader Document</file>
+      <file extension="doc" mime-type="application/msword">Microsoft Word Document</file>
+      <file extension="docx" mime-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">Microsoft Word Document</file>
+      <file extention="rtf" mime-type="application/rtf">Rich Text File Document</file>
+      <file extension="xls" mime-type="application/vnd.ms-excel">Microsoft Excel Document</file>
+      <file extension="xlsx" mime-type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">Microsoft Excel Document</file>
+      <file extension="zip" mime-type="application/zip">Zip file</file>
+      <file extension="psd" mime-type="application/photoshop">Photoshop file</file>
+      <file extension="ai" mime-type="application/postscript">Adobe Illustrator file</file>
+      <file extension="ps" mime-type="application/postscript">PostScript file</file>
+      <file extension="mp4" mime-type="video/mp4">MP4 Video</file>
+    </downloads>
+    <executables>
+      <file extension="exe" mime-type="application/octet-stream">Executable file</file>
+      <file extension="php" mime-type="text/plain">Php file</file>
+      <file extension="cgi" mime-type="text/plain">CGI file</file>
+      <file extension="asp" mime-type="text/plain">Active Server Page file</file>
+      <file extension="vb" mime-type="text/plain">Visual Basic file</file>
+    </executables>
+    <text>
+      <file extension="txt" mime-type="text/plain">Text Files</file>
+      <file extension="log" mime-type="text/plain">Log Files</file>
+      <file extension="xml" mime-type="text/xml">XML Files</file>
+      <file extension="xsl" mime-type="text/xml">XSL Files</file>
+      <file extension="xsd" mime-type="text/xml">XSD Schema Files</file>      
+      <file extension="xslt" mime-type="text/xml">XSLT Files</file>  
+      <file extension="js" mime-type="text/javascript">JavaScript Files</file>
+      <file extension="css" mime-type="text/css">Cascading Style Sheets</file>
+      <file extension="less" mime-type="text/css">Cascading Style Sheets</file>
+      <file extension="json" mime-type="application/JSON">Json Files</file>
+      <file extension="html" mime-type="text/html">Hyper Text Markup Language</file>
+      <file extension="htm" mime-type="text/html">Hyper Text Markup Language</file>
+    </text>
+  </file_definitions>
+
+  <!-- interface elements -->
+  <page_elements>
+        
+  </page_elements>
+
+  <string_constants>
+    <!-- Errors below -->
+    <string_constant key="ErrorUnableToLoadHierarchy" value="Unable to load the hierarchy file" />
+    <string_constant key="ErrorValidationFailed" value="Validation failed" />
+    <string_constant key="CouldNotLoad" value="Could not load " />
+
+    <string_constant key="UnauthorizedAccessPlus" value="Unauthorized access. You do not have the proper access rights to view this page. Please contact your system administrator if you need access." />
+    <string_constant key="UnauthorizedAccess" value="Unauthorized access." />
+    <string_constant key="FailedToLoadMetadataFrom" value="Failed to load metadata from " />
+
+  </string_constants>
+
+  <repositories>
+    <taxxoreditor> </taxxoreditor>
+    <taxxordataservice>
+      <!-- C# logic for running the service -->
+      <repro id="root">
+        <name>Taxxor Datawarehouse Core</name>
+        <location id="application-root" path-type="solutionroot"/>
+        <submodules>
+          <location id="framework-core" path-type="approot">/backend/framework</location>
+          <location id="taxxor-shared-library" path-type="approot">/backend/code/shared</location>
+          <location id="data-templates" path-type="cmstemplatesroot"/>
+        </submodules>
+      </repro>
+      <!-- Basic data store -->
+      <repro id="warehouse-data">
+        <name>Taxxor Installation Data</name>
+        <location id="warehouse-data" path-type="dataroot"/>
+      </repro>
+      <repro id="project-data" hidefromui="true">
+        <name>Taxxor Project Data</name>
+        <location id="project-data" path-type="cmsdatarootbase"/>
+      </repro>
+      <repro id="project-content" hidefromui="true">
+        <name>Taxxor Project Content</name>
+        <location id="project-content" path-type="cmscontentroot"/>
+      </repro>
+    </taxxordataservice>
+  </repositories>
+
+
+  <taxxor>
+    
+    <!-- Overview of the Taxxor multi-tier setup -->
+    <components>
+      <service id="taxxorreverseproxy" status="">
+        <uri>
+          <domain type="local" path-type="http">http://localhost:4810</domain>
+          <domain type="dev" path-type="http">http://taxxorauthenticatedreverseproxydevelopment:4810</domain>
+          <domain type="prev" path-type="http">http://taxxorauthenticatedreverseproxystaging:4810</domain>
+          <domain type="prod" path-type="http">http://taxxorauthenticatedreverseproxyproduction:4810</domain>
+        </uri>
+        <!-- Applications that render an (HTML) user interface -->
+        <web-applications>
+          <web-application id="taxxoreditor" status="" role="core" name="Editor">
+            <uri path-type="http">https://editor:4812</uri>
+          </web-application>
+          <web-application id="taxxoradmin" status="" name="Administrator">
+            <uri path-type="http">https://admin:4818</uri>
+          </web-application>         
+        </web-applications>
+        <!-- Web Services (SOAP & REST) -->
+        <services>
+          <service id="documentstore" status="" role="core" name="Document Store">
+            <uri path-type="http">https://documentstore:4813</uri>
+          </service>
+          
+          <service id="taxxoraccesscontrolservice" status="" role="core" name="Access Control Service">
+            <uri path-type="http">http://accesscontrolservice:4814</uri>
+          </service>
+          
+          <service id="taxxorpdfservice" status="" role="core" name="PDF Generator">
+            <uri path-type="http">http://pdfservice:4825</uri>
+          </service>
+
+          <!-- The ID of this service needs to change to taxxorstructureddatastore -->
+          <service id="taxxordatastore" status="" name="Structured Data Store">
+            <uri path-type="http">https://structureddatastore:4807</uri>
+          </service>
+
+          <service id="taxxorgenericdataconnector" status="" name="Generic Data Connector">
+            <uri path-type="http">http://genericdataconnector:4823</uri>
+          </service>  
+
+          <service id="taxxormappingservice" status="" name="Mapping Service">
+            <uri path-type="http">https://mappingservice:4828</uri>
+          </service>  
+
+          <service id="conversionservice" status="" name="File Convertor Service">
+            <uri path-type="http">https://conversionservice:4824</uri>
+          </service>  
+
+          <service id="taxxorxbrlservice" status="" name="XBRL Render Service">
+            <uri path-type="http">http://xbrlservice:4816</uri>
+          </service>
+
+          <service id="taxxorassetcompiler" status="" name="Taxxor Developer Package Compilation Service">
+            <uri path-type="http">http://assetcompiler:4822</uri>
+          </service>
+
+          <service id="edgararelleservice" status="" servicedescription="false" name="Arelle XBRL Validation Service">
+            <uri path-type="http">https://arelle:4811</uri>
+          </service>  
+
+        </services>
+      </service>
+    </components>
+    
+  </taxxor>
+</configuration>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	[page-head-content]
+</head>
+<body class="page_[pageid] sitetype_[sitetype] system-page no-skin projectstatus_[projectstatus]">
+    [page-body-start]
+
+
+		<div class="main-container">
+			[page-maincolumn-start]
+			
+
+
+			<div id="tools" class="panel panel-default">
+				<div class="panel-heading">
+				  
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label for="select-htmldoc" class="col-sm-2 control-label">HTML Styler Document</label>
+							<div class="col-sm-5">
+								<select id="select-htmldoc" class="form-control">
+									[htmlstylerdocumentoptions]
+									<!-- 
+									<option value="fullar" selected="selected">Full HTML</option>
+									<option value="ixbrl">Inline XBRL</option>
+									-->
+									
+								</select>
+							</div>
+							<div class="col-sm-5">
+								<!--
+									<button class="btn btn-primary" id="btn-parentframe">Open full frame</button>
+								-->
+							</div>
+						</div>
+					</form>
+
+				</div>
+			  </div>
+
+			  <iframe id="iframedochtml" name="iframedochtml" src="[uri-staticassets]/utilities/blank.htm" frameborder="0" marginheight="0" marginwidth="0" height="1000" scrolling="auto"></iframe>
+			
+
+			[page-maincolumn-end] 
+		</div>
+
+
+		[page-body-end]
+	</body>
+</html>

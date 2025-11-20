@@ -1,0 +1,36 @@
+<items>
+  <structured>
+    <item id="report-root" level="0" data-ref="report-root.xml">
+      <web_page>
+        <path>/</path>
+        <linkname>Annual Report 2019</linkname>
+      </web_page>
+      <sub_items>
+        <item id="front-cover-nl" level="1" data-ref="front-cover.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>cover</linkname>
+          </web_page>
+        </item>
+        <item id="toc-nl" level="1" data-ref="toc.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Contents</linkname>
+          </web_page>
+        </item>
+        <item id="message-from-the-ceo-nl" level="1" data-ref="message-from-the-ceo.xml" data-tocstart="true" data-tocstyle="default" data-tocnumber="1">
+          <web_page>
+            <path>/</path>
+            <linkname>Message from the CEO</linkname>
+          </web_page>
+        </item>
+        <item id="back-cover-nl" level="1" data-ref="back-cover.xml" data-tocend="true">
+          <web_page>
+            <path>/</path>
+            <linkname>backcover</linkname>
+          </web_page>
+        </item>
+      </sub_items>
+    </item>
+  </structured>
+</items>

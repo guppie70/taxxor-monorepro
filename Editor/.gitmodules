@@ -1,0 +1,7 @@
+[submodule "TaxxorEditor/backend/code/shared"]
+	path = TaxxorEditor/backend/code/shared
+	url = ssh://git-codecommit.eu-west-1.amazonaws.com/v1/repos/taxxordotnetcoreshared
+	branch = master
+[submodule "TaxxorEditor/backend/framework"]
+	path = TaxxorEditor/backend/framework
+	url = ssh://git-codecommit.eu-west-1.amazonaws.com/v1/repos/dotnetcoreframework

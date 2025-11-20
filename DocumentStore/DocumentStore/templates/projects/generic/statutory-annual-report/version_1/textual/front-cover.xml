@@ -1,0 +1,32 @@
+<data>
+  <system>
+    <date_created>2018-10-12T15:22:44.901676+02:00</date_created>
+    <date_modified>2020-02-23T21:29:19.6996326+00:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="front-cover" data-guid="front-cover" data-last-modified="2019-01-16T14:37:58.7976229+00:00" data-description="front-cover" data-outputchannel="AR" data-articletype="regular" class="" modified-by="">
+      <div class="pageblock cover" data-type="one-column">
+        <section class="content" data-name="cover-content">
+          <div class="pageblock arcover" data-type="rtf-arcover">
+            <h1 class="cover-title">Annual Financial Report</h1>
+            
+            <h2 class="cover-subtitle">Comprehensive Financial Statements and Analysis</h2>
+            
+            <div class="cover-divider"></div>
+            
+            <p class="cover-description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            
+            <div class="cover-divider"></div>
+            
+            <div class="cover-meta">
+              <div class="cover-company">Lorem Ipsum Corporation</div>
+              <div class="cover-year">2024</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

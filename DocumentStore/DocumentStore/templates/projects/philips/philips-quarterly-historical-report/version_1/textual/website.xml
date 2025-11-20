@@ -1,0 +1,103 @@
+<!-- 
+Quarterly historical website (small)
+-->
+<data>
+  <system>
+    <date_created>2018-09-21T11:36:10.153+02:00</date_created>
+    <date_modified>2020-01-28T11:15:01.4245230+01:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="website" data-template="philips-results-hub">
+      <div class="l-container">
+        <div class="metadata" data-for="head">
+          <div class="content">
+            <div class="name">Philips {quarter-with-year} Quarterly Results</div>
+            <div class="description">Philips {quarter-with-year} financial performance and sustainability highlights. {quarter-character-proper} quarter {publishingyearfixed} results of Royal Philips in summary and PDF format.</div>
+            <div class="keywords">Philips {quarter} Report {publishingyearfixed}, Royal Philips {quarter-character} quarter results, Philips {quarter-with-year} financial performance summary, Philips {quarter-with-year} sustainability highlights</div>
+            <div class="image">{fulldomain}/images/shield-cropped.jpg</div>
+          </div>
+        </div>
+        <div class="c-tilegrid__grid c-tilegrid__grid--content">
+          <article class="c-tilecontent c-tilecontent--historical">
+            <div class="c-tilecontent__page">
+              <div class="c-tilecontent__block">
+                <h1>Philips’ {quarter-character-proper} Quarter Results {publishingyearfixed}</h1>
+                <p class="subtitle">Amsterdam, {publicationdate-formatted}</p>
+                <div class="c-downloadswrapper">
+                  <!-- Reports and presentations -->
+                  <div class="c-pagedownloads">
+                    <h5 class="c-pagedownloads__header">Report</h5>
+                    <ul class="c-pagedownloads__list">
+                      <li class="c-download">
+                        <a id="download-report-en" href="/publications/{siteid}/downloads/files/en/philips-{quarter-character}-quarter-results-{publishingyearfixed}-report.pdf?v={assetscachekey}">
+                          <div class="c-download__icon c-download__icon--download"/>
+                          <div class="c-download__title">{quarter-with-year} results</div>
+                          <div class="c-download__typesize">
+                            <span class="c-download__type">PDF</span>
+                            <span class="c-download__size">3 MB</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li class="c-download">
+                        <a id="download-presentation-en" href="/publications/{siteid}/downloads/files/en/philips-{quarter-character}-quarter-results-{publishingyearfixed}-presentation.pdf?v={assetscachekey}">
+                          <div class="c-download__icon c-download__icon--download"/>
+                          <div class="c-download__title">{quarter-with-year} presentation</div>
+                          <div class="c-download__typesize">
+                            <span class="c-download__type">PDF</span>
+                            <span class="c-download__size">3 MB</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li class="c-download">
+                        <a id="download-presentation-update-en" href="/publications/{siteid}/downloads/files/en/philips-{quarter-character}-quarter-results-{publishingyearfixed}-presentation-update.pdf?v={assetscachekey}">
+                          <div class="c-download__icon c-download__icon--download"/>
+                          <div class="c-download__title">{quarter-with-year} presentation<br/>(Update)</div>
+                          <div class="c-download__typesize">
+                            <span class="c-download__type">PDF</span>
+                            <span class="c-download__size">3 MB</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li class="c-download">
+                        <a id="download-presentation-en-press" href="/publications/{siteid}/downloads/files/en/philips-{quarter-character}-quarter-results-{publishingyearfixed}-presentation-press-kit.pdf?v={assetscachekey}">
+                          <div class="c-download__icon c-download__icon--download"/>
+                          <div class="c-download__title">{quarter-with-year} presentation (Press version)</div>
+                          <div class="c-download__typesize">
+                            <span class="c-download__type">PDF</span>
+                            <span class="c-download__size">3 MB</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Webcast -->
+                  <div class="c-pagedownloads">
+                    <h5 class="c-pagedownloads__header">Webcast</h5>
+                    <ul class="c-pagedownloads__list">
+                      <li class="c-download">
+                        <a id="download-webcast-en" href="/publications/{siteid}/downloads/files/en/philips-{quarter-character}-quarter-results-{publishingyearfixed}-transcript.pdf?v={assetscachekey}">
+                          <div class="c-download__icon c-download__icon--download"/>
+                          <div class="c-download__title">{quarter-with-year} webcast transcript</div>
+                          <div class="c-download__typesize">
+                            <span class="c-download__type">PDF</span>
+                            <span class="c-download__size">3 MB</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="c-tilecontent__block c-tilecontent__block--lightgrey">
+                <div>
+                  <h5 class="u-margin-bottom-small">Subscribe</h5>
+                  <p class="small">Make sure you receive the latest news from Philips and alerts for upcoming investor events by subscribing via the following link: <a class="c-link" href="http://www.feedback.philips.com/dedicated/investor-subscription/" target="_blank">Receive updates from Philips</a></p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </article>
+  </content>
+</data>

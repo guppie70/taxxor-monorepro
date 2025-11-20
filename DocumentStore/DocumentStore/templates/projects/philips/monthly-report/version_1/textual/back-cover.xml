@@ -1,0 +1,17 @@
+<data>
+  <system>
+    <date_created>2018-09-21T11:36:10.153+02:00</date_created>
+    <date_modified>2019-06-27T19:09:15.9366840+02:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="back-cover" data-guid="back-cover" data-template="6k-back-cover" data-last-modified="2019-06-27T19:09:15.9366840+02:00" data-description="back-cover" class="" modified-by="johan.thijs@philips.com">
+      <div class="pageblock back-cover" data-type="one-column">
+        <section class="content regular" data-name="default-content">
+          <div class="image-wrapper" id="philips-shield-6k-back-cover">
+            <img src="/outputchannels/philips/pdf/images/6k/shield.png" alt="Philips shield" />
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

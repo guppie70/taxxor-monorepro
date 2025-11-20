@@ -1,0 +1,8 @@
+<settings>
+	<setting id="language">
+		<value>en</value>
+	</setting>
+	<setting id="default_entity">
+		<value></value>
+	</setting>
+</settings>

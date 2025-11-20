@@ -1,0 +1,151 @@
+# Autosave files
+*~
+
+# build
+[Oo]bj/
+[Bb]in/
+packages/
+TestResults/
+
+# globs
+Makefile.in
+*.DS_Store
+*.sln.cache
+*.suo
+*.cache
+*.pidb
+*.userprefs
+*.usertasks
+config.log
+config.make
+config.status
+aclocal.m4
+install-sh
+autom4te.cache/
+*.user
+*.tar.gz
+tarballs/
+test-results/
+Thumbs.db
+
+
+# Mac bundle stuff
+*.dmg
+*.app
+
+# resharper
+*_Resharper.*
+*.Resharper
+
+# dotCover
+*.dotCover
+
+#
+# Editor configuration files
+#
+.vscode
+TaxxorEditor.xpr
+.vs/
+
+# Files in log directory
+TaxxorEditor/logs/**/*.xml
+TaxxorEditor/logs/**/*.txt
+TaxxorEditor/logs/**/*.json
+TaxxorEditor/logs/**/*.html
+TaxxorEditor/logs/**/*.log
+TaxxorEditor/logs/**/*.xhtml
+TaxxorEditor/logs/**/*.zip
+
+#
+# Nested GIT repositories
+#
+
+# a) Customizations
+TaxxorEditor/frontend/public/custom
+TaxxorEditor/backend/code/custom
+
+# b) Lextra Editors
+frontend/public/report_editors/_*
+
+#
+# Content
+#
+TaxxorEditor/frontend/public/backup
+TaxxorEditor/frontend/public/graphs
+TaxxorEditor/frontend/public/sandbox
+TaxxorEditor/frontend/public/utilities/**/js/*.js
+!TaxxorEditor/frontend/public/utilities/**/js/icons/**
+TaxxorEditor/frontend/public/frameworks/bootstrap
+TaxxorEditor/frontend/public/frameworks/jquery-ui/development-bundle
+TaxxorEditor/frontend/public/frameworks/themes/ace.zip
+TaxxorEditor/frontend/public/static
+TaxxorEditor/frontend/public/javascript/plugins
+TaxxorEditor/frontend/public/outputchannels
+TaxxorEditor/frontend/public/publications
+TaxxorEditor/frontend/public/validation
+
+#
+# Data
+#
+TaxxorEditor/_repro-info.xml
+TaxxorEditor/data/failover/*.xml
+TaxxorEditor/data/temp/**/*.pdf
+TaxxorEditor/data/temp/**/*.html
+TaxxorEditor/data/temp/**/*.docx
+TaxxorEditor/data/temp/**/*.svg
+TaxxorEditor/data/temp/**/*.zip
+TaxxorEditor/data/temp/**/*.pdf
+TaxxorEditor/data/temp/**/*.xml
+TaxxorEditor/data/temp/**/*.xsd
+TaxxorEditor/data/temp/**/*.htm
+TaxxorEditor/data/temp/**/*.json
+TaxxorEditor/data/temp/**/*.xslt
+TaxxorEditor/data/temp/**/*.css
+TaxxorEditor/data/temp/**/*.js
+TaxxorEditor/data/**/*.json
+TaxxorEditor/data/temp
+TaxxorEditor/data/sandbox
+
+
+#
+# Intermediate JS frontend files
+#
+TaxxorEditor/frontend/source/javascript/build
+
+#
+# Certificates
+#
+TaxxorEditor/editor.pfx
+TaxxorEditor/Taxxor_root.crt
+
+node_modules
+newfrontend.js
+newfrontend.min.js
+newfrontend.js.min.map
+main.css
+*.http
+test.sh
+*.map
+devpackages
+Syncfusion.Blazor
+txdm*.js
+TaxxorEditor/appsettings.Development.json
+msword.css
+taxespaidoverview.xml
+taxespaidmappinginfo.xml
+.idea/.idea.TaxxorEditor/.idea
+TaxxorEditor/backend/grpc/Protos
+global.json
+TaxxorEditor/secrets
+startup-profile.txt
+GrpcClient
+GrpcServices/GeneratedGrpcLogic
+GrpcServices/Protos
+PagedMediaContentCache.txt
+core_*
+TaxxorEditor/_claude-taxxoreditor-memory-findings.md
+TaxxorEditor/memory-optimization-guide.md
+*.code-workspace
+.claude
+CLAUDE.md
+docs

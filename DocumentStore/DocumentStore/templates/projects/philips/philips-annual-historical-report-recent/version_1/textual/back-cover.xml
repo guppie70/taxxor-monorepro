@@ -1,0 +1,32 @@
+<data>
+  <system>
+    <date_created>2018-10-12T15:22:44.901676+02:00</date_created>
+    <date_modified>2019-03-11T16:11:46.2870723+00:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="back-cover" data-guid="back-cover" data-last-modified="2019-01-15T22:43:43.2387630+00:00" data-description="back-cover" data-outputchannel="AR" data-articletype="regular" class="" modified-by="rutger.scheepens@philips.com">
+      <div class="pageblock back-cover" data-type="one-column">
+        <section class="content" data-name="main-content">
+          <div class="copyright">
+            <h1 guid="d26865e75617">© 20xx Koninklijke Philips N.V. </h1>
+            <p guid="d26865e75619"> All rights reserved</p>
+          </div>
+          <div class="website">www.philips.com/annualreport20xx</div>
+        </section>
+      </div>
+    </article>
+  </content>
+  <content lang="zh">
+    <article id="back-cover" data-guid="back-cover" data-last-modified="2019-01-15T22:43:43.2387630+00:00" data-description="back-cover" data-outputchannel="AR" data-articletype="regular" class="" modified-by="rutger.scheepens@philips.com">
+      <div class="pageblock back-cover" data-type="one-column">
+        <section class="content" data-name="main-content">
+          <div class="copyright">
+            <h1 guid="d26865e75617">© 20xx Koninklijke Philips N.V. </h1>
+            <p guid="d26865e75619"> All rights reserved</p>
+          </div>
+          <div class="website">www.philips.com.cn/annualreport20xx</div>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

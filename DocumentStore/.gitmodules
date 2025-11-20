@@ -1,0 +1,11 @@
+[submodule "DocumentStore/backend/code/shared"]
+	path = DocumentStore/backend/code/shared
+	url = ssh://git-codecommit.eu-west-1.amazonaws.com/v1/repos/taxxordotnetcoreshared
+	branch = master
+[submodule "DocumentStore/backend/framework"]
+	path = DocumentStore/backend/framework
+	url = ssh://git-codecommit.eu-west-1.amazonaws.com/v1/repos/dotnetcoreframework
+	branch = master
+[submodule "DocumentStore/templates"]
+	path = DocumentStore/templates
+	url = ssh://git-codecommit.eu-west-1.amazonaws.com/v1/repos/taxxorprojectdatastoretemplates

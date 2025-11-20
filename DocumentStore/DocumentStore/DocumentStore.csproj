@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <!--<Nullable>enable</Nullable>-->
+        <UseRazorBuildServer>false</UseRazorBuildServer>
+        <NoWarn>8981;NU1608;CS8632</NoWarn>
+
+        <!-- Garbage collection settings and tuning -->
+        <ServerGarbageCollection>true</ServerGarbageCollection>
+        <GCConcurrent>true</GCConcurrent>
+        <GCLargeObjectHeapCompactionMode>Default</GCLargeObjectHeapCompactionMode>
+        <RetainVMGarbageCollection>false</RetainVMGarbageCollection>
+
+        <DefaultItemExcludes>.git/**;backend/code/custom/.git/**;logs/**;frontend/**;node_modules/**;data/**;hierarchies/**;typings/**;$(DefaultItemExcludes)</DefaultItemExcludes>
+        <LangVersion>latest</LangVersion>
+        <NoWarn>NU1608</NoWarn>
+
+        <!-- Improve compilation times -->
+        <Optimize>false</Optimize>
+        <UseAppHost>false</UseAppHost>
+        <ParallelBuildProject>true</ParallelBuildProject>
+        <ParallelBuildToAllProjects>true</ParallelBuildToAllProjects>
+        <!--<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>-->
+
+        <!-- Protocol Buffer configuration -->
+        <Protobuf_ProjectType>Default</Protobuf_ProjectType>
+    </PropertyGroup>
+
+    <ItemGroup>
+
+        <!-- gRPC definitions -->
+        <Protobuf Include="Protos\*.proto" GrpcServices="Server">
+            <Generator>MSBuild:Compile</Generator>
+            <CompileOutputs>true</CompileOutputs>
+            <LinkBase>Protos</LinkBase>
+        </Protobuf>
+
+
+        <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="9.0.3" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.3" />
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.3" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="9.0.3" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="9.0.3" />
+        <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.3" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.0" />
+
+
+        <PackageReference Include="LibGit2Sharp" Version="0.31.0" />
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+        <PackageReference Include="SixLabors.ImageSharp" Version="3.1.7" />
+        <PackageReference Include="HtmlAgilityPack" Version="1.12.0" />
+        <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="18.4.0.33" />
+        <PackageReference Include="TableSpans.HtmlAgilityPack" Version="1.0.1" />
+
+        <!-- Security updates -->
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+
+        <!-- Controller-based API and gRPC packages 
+    <PackageReference Include="Grpc.AspNetCore" Version="2.62.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.62.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Google.Protobuf" Version="3.27.0" />
+    -->
+
+        <!-- DotNet Watcher configuration -->
+        <Watch Include="config\**\*.xml" />
+        <Watch Include="hierarchies\**\*.xml" />
+        <Watch Include="data\config\**\*.xml" Exclude="data\config\data_configuration.xml" />
+        <Watch Remove="logs\**\*" />
+        <Watch Include="../GrpcServices/Protos/**/*.proto" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\GrpcServices\GrpcServices.csproj" />
+    </ItemGroup>
+
+</Project>

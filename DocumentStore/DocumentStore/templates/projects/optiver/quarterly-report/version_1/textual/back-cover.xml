@@ -1,0 +1,19 @@
+<data>
+  <system>
+    <date_created>2018-09-21T11:36:10.153+02:00</date_created>
+    <date_modified>2019-06-27T19:09:15.9366840+02:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="back-cover" data-fact-id="back-cover" data-guid="back-cover" data-last-modified="2019-06-27T19:09:15.9366840+02:00" data-description="back-cover" class="" modified-by="">
+      <div class="pageblock back-cover" data-type="one-column">
+        <section class="content" data-name="main-content">
+          <div class="copyright">
+            <h1 guid="d7e6350">© 202x Company Name</h1>
+            <p guid="d7e6352">All rights reserved.</p>
+          </div>
+          <div class="website">https://www.company.com/quarterlyreports</div>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

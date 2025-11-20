@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	[page-head-content]
+</head>
+<body class="page_[pageid] sitetype_[sitetype] system-page no-skin projectstatus_[projectstatus]">
+	[page-body-start]
+
+	<div class="main-container">
+		[page-maincolumn-start]
+		<div class="page-header">
+            <h1>Access control manager <small>[document-name]</small></h1>
+		</div>
+
+		<!-- Access Control Content -->
+		<div class="row">
+            <div class="col-md-4 side">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="outputchannels">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                  <label for="select-output-channel" class="output-channel-label">Output channel: </label>
+                                  [outputchannel-links]
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <h4>Tools</h4>
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="select-users" class="output-channel-label">Simulate user: </label>
+                                [user-select-box]
+                            </div>
+                        </form>
+						<div class="user-details">&#160;</div>
+                        <h4>Legend</h4>
+                        <div class="legend">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    
+                                    <tr>
+                                        <td class="col1">
+                                            <div class="dd-content">
+                                                <span class="glyphicon glyphicon-check"><!-- . --></span>
+                                                <span class="linkname">Section name</span>
+                                            </div>
+                                        </td>
+                                        <td>Contains access control marker</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col2">
+                                            <div class="dd-content">
+                                                <span class="glyphicon glyphicon-check reset"><!-- . --></span>
+                                                <span class="linkname">Section name</span>
+                                            </div>
+                                        </td>
+                                        <td>Contains access control marker that resets interitance</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="dd-content">
+                                                <span class="glyphicon">&nbsp;</span>
+                                                <span class="linkname">Section name</span>
+                                            </div>
+                                        </td>
+                                        <td>Normal or editable section</td>
+                                    </tr>
+                                    <!--
+                                    <tr>
+                                        <td>
+                                            <div class="dd-content editpermissions">
+                                                <span class="glyphicon">&nbsp;</span>
+                                                <span class="linkname">Section name</span>
+                                            </div>
+                                        </td>
+                                        <td>Editable section</td>
+                                    </tr>
+                                    -->
+                                    <tr>
+                                        <td>
+                                            <div class="dd-content viewpermissions">
+                                                <span class="glyphicon">&nbsp;</span>
+                                                <span class="linkname">Section name</span>
+                                            </div>
+                                        </td>
+                                        <td>Read-only section</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="dd-content nopermissions">
+                                                <span class="glyphicon">&nbsp;</span>
+                                                <span class="linkname">Section name</span>
+                                            </div>
+                                        </td>
+                                        <td>No access</td>
+                                    </tr>                                                                    
+                                </tbody>
+                              </table>
+
+
+                        </div>
+                        <!--
+                            <button id="tx-testbutton" onclick="testRoutine()">Test</button>
+                         -->
+                    </div>
+                </div>
+            </div>
+           
+			<div class="col-md-7 maincontent">
+                <div class="tx-loader-wrapper loading hide">
+                    
+                </div>
+				<div class="hierarchyoverviewcontent">
+					ACL content to appear here...
+				</div>
+
+			</div>
+
+            <div class="col-md-1"><!--.--></div>
+		</div>
+		[page-maincolumn-end] 
+    </div>
+    
+    <!-- 1) Modal Access Control -->
+    <div class="modal fade bs-example-modal-lg" id="modal_accesscontrol" tabindex="-1" role="dialog" aria-labelledby="accessControlLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="accessControlLabel"><span class="section-title">..</span></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="content" style="display: block">
+                        <h5>Access control settings</h5>
+                        <div id="access-control-wrapper" class="accesscontrolcontent">...</div>
+                        <hr/>
+                        <h5>Replace role</h5>
+                        <div class="form-inline">
+                            <div class="form-group form-group-sm tx-rolereplace-search">
+                                <label for="tx-rolereplace-search">Search for: </label>
+                                [roleslist-search]
+                            </div>
+                            <div class="form-group form-group-sm tx-rolereplace-replace">
+                                <label for="tx-rolereplace-replace">Replace with: </label>
+                                [roleslist-replace]
+                            </div>
+                            <div class="form-group form-group-sm tx-rolereplace-state">
+                                <label for="tx-rolereplace-state">State: </label>
+                                <select class="form-control tx-rolereplace-state" name="tx-rolereplace-state">
+                                    <option value="nochange">same as current</option>
+                                    <option value="enable">force enable</option>
+                                    <option value="disable">force disable</option>
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="form-inline tx-chkbox">
+                            <label class="checkbox-inline text-muted">
+                                <input type="checkbox" class="tx-includechilditems"/> Include child sections
+                            </label>
+                            <button onclick="replaceRoles()" class="btn btn-primary btn-xs pull-right tx-btnreplace">Start</button>
+                        </div>
+					</div>
+					<div class="spinner" style="display: none">
+                        <div class="loading-icon-wrapper">
+                            <p>Storing access control information...</p>
+                        </div>
+                        <!--
+                        <p>Progress:</p>
+                        <div class="progress"><pre></pre></div>    
+                        -->
+					</div>
+					<div class="error" style="display: none">
+						<div class="alert alert-danger">
+                            <p>An error has occured while saving the access control settings on the server, please contact the administrator.</p>
+                            <div class="message">...</div>
+						</div>
+					</div>
+					<div class="success" style="display: none">
+						<div class="alert alert-success">
+                            Access control settings successfully stored on the server.
+                            <div class="message">...</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="modal-footer">
+                    <small>(id: <span class="section-id">.</span>)</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+	[page-body-end]
+	</body>
+</html>

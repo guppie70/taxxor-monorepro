@@ -1,0 +1,24 @@
+<data>
+  <system>
+    <date_created>2018-10-12T15:22:44.901676+02:00</date_created>
+    <date_modified>2021-07-26T05:44:51.8482866+00:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="front-cover" lang="en" data-guid="front-cover" data-description="front-cover" data-articletype="frontpage" data-ref="front-cover.xml" data-id="front-cover" data-page="nomargin" data-last-modified="2021-07-26T05:44:51.8482866+00:00" data-fact-id="front-cover" modified-by="johan@taxxor.com">
+      <section>
+        <p>
+          <img src="/dataserviceassets/{projectid}/images/front-cover.jpg" />
+        </p>
+        <div class="publicationyearwrapper" data-contenteditable="false">
+          <h3 data-contenteditable="true">TIE Kinetix N.V.</h3>
+          <h2 data-contenteditable="true">ANNUAL REPORT</h2>
+          <p data-contenteditable="true">
+            <span data-contenteditable="false">20</span>XX</p>
+        </div>
+        <div class="logowrapper">
+          <img src="/dataserviceassets/{projectid}/images/logo-footer.svg" />
+        </div>
+      </section>
+    </article>
+  </content>
+</data>

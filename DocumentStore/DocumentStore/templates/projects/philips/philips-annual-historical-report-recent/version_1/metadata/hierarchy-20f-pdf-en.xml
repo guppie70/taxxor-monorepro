@@ -1,0 +1,45 @@
+<items>
+  <structured>
+    <item id="ar-root-20f" level="0" data-ref="ar-root.xml">
+      <web_page>
+        <path>/</path>
+        <linkname>Annual Report XXX</linkname>
+      </web_page>
+      <sub_items>
+        <item id="front-cover-20f" level="1" data-ref="front-cover-20f.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>cover</linkname>
+          </web_page>
+        </item>
+        <item id="toc-20f" level="1" data-ref="toc.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Contents</linkname>
+          </web_page>
+        </item>
+        
+        <item id="exhibits" level="1" data-ref="exhibits.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Exhibits</linkname>
+          </web_page>
+          <sub_items>
+            <item id="exhibits-index" level="2" data-ref="exhibits-index.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Index of exhibits</linkname>
+              </web_page>
+            </item>
+            <item id="signatures" level="2" data-ref="signatures.xml">
+              <web_page>
+                <path>/</path>
+                <linkname>Signatures</linkname>
+              </web_page>
+            </item>
+          </sub_items>
+        </item>
+      </sub_items>
+    </item>
+  </structured>
+</items>

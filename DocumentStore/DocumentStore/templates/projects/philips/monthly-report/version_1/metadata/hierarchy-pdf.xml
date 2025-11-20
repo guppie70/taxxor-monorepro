@@ -1,0 +1,42 @@
+<items>
+  <structured>
+    <item id="document-root" level="0" data-ref="document-root.xml">
+      <web_page>
+        <path>/</path>
+        <linkname>Press Release</linkname>
+      </web_page>
+      <sub_items>
+        <item id="front-cover-5um2znjnwgcr89c8" level="1" data-ref="front-cover.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Cover</linkname>
+          </web_page>
+        </item>
+        <item id="in-the-month-79iu1e60q897qlw3" level="1" data-ref="in-the-month.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>In the month</linkname>
+          </web_page>
+        </item>
+        <item id="quarter-to-date-ac059or8bz2ai73k" level="1" data-ref="quarter-to-date.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Quarter to date</linkname>
+          </web_page>
+        </item>
+        <item id="year-to-date-1s5zhl8rv39l3087" level="1" data-ref="year-to-date.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Year to date</linkname>
+          </web_page>
+        </item>
+        <item id="back-cover-x59uge6t7d30872w" level="1" data-ref="back-cover.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Back cover</linkname>
+          </web_page>
+        </item>
+      </sub_items>
+    </item>
+  </structured>
+</items>

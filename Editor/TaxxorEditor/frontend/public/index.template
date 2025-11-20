@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    [page-head-content]
+</head>
+<body class="page_[pageid] sitetype_[sitetype] no-skin[class-browser-not-supported]">
+    [page-body-start]
+    <div class="main-container">
+        [page-maincolumn-start]
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        [cms-overview-body]
+                    </div>
+
+                    <div class="col-md-12 hide">
+                        <div class="widget-box">
+                            <div class="widget-header">
+                                <h5 class="widget-title">System status</h5>
+                        
+                                <div class="widget-toolbar hidden">
+                                    <span title="" class="badge badge-transparent tooltip-error" data-original-title="2 Important Events"><i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i></span>
+                                </div>
+                            </div>
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <ul class="list-unstyled spaced2">
+                                        <li class="status-xbrlengine"><i class="ace-icon fa fa-check green"></i>Taxxor XBRL Engine</li>
+                                        <li class="status-pdfgenerator"><i class="ace-icon fa fa-check green"></i>Taxxor PDF Generator</li>
+                                        <li class="status-regulationdb"><i class="ace-icon fa fa-check green"></i>Taxxor Regulation DB</li>
+                                        <li class="status-dataprovider"><i class="ace-icon fa fa-check green"></i>Taxxor Data Provider</li>
+                                        <li class="status-dataprovider"><i class="ace-icon fa fa-check green"></i>Taxxor Authentication Provider</li>
+                                    </ul>
+                                    <hr />
+                                    <p class="alert alert-info">All systems are running. </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-10"></div>
+
+                        <div class="widget-box">
+                            <div class="widget-header">
+                                <h5 class="widget-title">Taxxor components</h5>
+                        
+                                <div class="widget-toolbar hidden">
+                                    <span title="" class="badge badge-transparent tooltip-error" data-original-title="2 Important Events"><i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i></span>
+                                </div>
+                            </div>
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <ul class="list-unstyled spaced2">
+                                        [cms-gitrepository-status-overview]
+                                    </ul>
+                                    <hr />
+                                    <p class="alert alert-info">All components are up to date.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        [page-maincolumn-end] 
+    </div>
+    [page-body-end]
+    
+    <!-- Modal New Project -->
+    <div class="modal fade" id="addProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">New project</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="content" style="display: block">
+                        
+                        <form>
+                            <div class="form-group">
+                                <label for="input-newprojectname">Project name</label>
+                                <input type="email" class="form-control" name="input-newprojectname" id="input-newprojectname" placeholder="Project name"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="select-report-type" class="control-label">Report type</label>
+                                <select name="select-report-type" id="select-report-type" class="form-control" onchange="handleNewReportTypeChange()">
+                                    <option>No report type...</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group reporting-period">
+                                <label for="select-reportingperiod-new">Reporting period</label>
+                                [select-reporting-period-new]
+                            </div>
+
+                            <div class="form-group publication-date">
+                                <label for="input-publicationdate-new">Publication date</label>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon btn-calendar">
+                                        <i class="fa fa-calendar bigger-110"></i>
+                                    </span>
+                                    <input name="input-publicationdate-new" id="input-publicationdate-new" type="text" placeholder="Planned publication date" class="form-control input-large"/>
+                                </div>
+                                
+                            </div>
+                        </form>
+
+                        <p>If you are sure that you want to proceed, use the &quot;Create project&quot; button below.</p>
+                    </div>
+                    <div class="spinner" style="display: none">
+                        <p>Setting up your project...</p>
+                    </div>
+                    <div class="error" style="display: none">
+                        <div class="alert alert-danger">
+                            An error has occured while setting up your project, please contact the administrator.
+                        </div>
+                    </div>
+                    <div class="success" style="display: none">
+                        <div class="alert alert-success">
+                            Your project has successfully been setup.
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-sm btn-default" type="button">Discard</button>
+                    <button id="btn-newproject" type="button" class="btn btn-sm btn-info btn-newproject"><span class="glyphicon glyphicon-duplicate"></span> Create project</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Clone Project -->
+    <div class="modal fade" id="cloneModal" tabindex="-1" role="dialog" aria-labelledby="myCloneModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Clone Project</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="content" style="display: block">
+                        <h5>Project properties</h5>
+                        <p>You are about to clone the project named &quot;<span class="project_name"></span>&quot;.</p>
+                        <hr/>
+                        <p>Use the form below to define your cloned project properties</p>
+                        
+                        <form>
+                            <div class="form-group">
+                                <label for="input-clonedprojectname">Project name</label>
+                                <input type="email" class="form-control" id="input-clonedprojectname" placeholder="Project name">
+                            </div>
+                            <div class="form-group reporting-period">
+                                <label for="select-reportingperiod">Reporting period</label>
+                                [select-reporting-period-clone]
+                            </div>
+                            <div class="form-group publication-date">
+                                <label for="input-publicationdate-clone">Publication date</label>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon btn-calendar">
+                                        <i class="fa fa-calendar bigger-110"></i>
+                                    </span>
+                                    <input name="input-publicationdate-clone" id="input-publicationdate-clone" type="text" placeholder="Planned publication date" class="form-control input-large"/>
+                                </div>
+                                
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="chk-forwardsdesintext" checked="checked"> Carry forward SDE's used in running text
+                                </label>
+                                <br/>
+                                <label>
+                                    <input type="checkbox" id="chk-clonedprojectrights" checked="checked"> Clone all access rights
+                                </label>
+                                <br/>
+                                <label>
+                                    <input type="checkbox" id="chk-stripwhitespacemarkers"> Remove whitespace markers
+                                </label>
+                            </div>
+                        </form>
+
+                        <p>If you are sure that you want to proceed, use the &quot;Clone project&quot; button below.</p>
+
+                    </div>
+                    <div class="spinner" style="display: none">
+                        <div class="loading-icon-wrapper">
+                            <p>Cloning project...</p>
+                        </div>
+                        <div class="progress-wrapper">
+                            <p>Progress:</p>
+                            <div class="process-progress"><pre></pre></div>  
+                        </div>
+                    </div>
+                    <div class="error" style="display: none">
+                        <div class="alert alert-danger">
+                        An error has occured while cloning your project, please contact the administrator.
+                        <div class="details"> </div>
+                        </div>
+                    </div>
+                    <div class="success" style="display: none">
+                        <h5>Project successfully cloned</h5>
+                        <div class="result">
+                        Your new project has sucessfully been cloned.
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-sm btn-default" type="button">Discard</button>
+                    <button id="btn-cloneproject" type="button" class="btn btn-sm btn-info btn-clone"><span class="glyphicon glyphicon-duplicate"></span> Clone project</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Delete Project -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myDeleteModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Delete Project</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="content" style="display: block">
+                        <p>You are about to delete the project named &quot;<span class="project_name"></span>&quot;.</p>
+                        <p>If you are sure that you want to proceed, use the &quot;Delete project&quot; button below.</p>
+                        <div class="advanced-options"[delete-modal-advancedoptions]>
+                            <div class="checkbox">
+                                <label>
+                                  <input id="chk-deletemappings" name="deletemappings" type="checkbox" checked="checked"/> Delete Structured Data Element information
+                                </label>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="spinner" style="display: none">
+                        <p>Deleting project...</p>
+                    </div>
+                    <div class="error" style="display: none">
+                        <div class="alert alert-danger">
+                        An error has occured while deleting your project, please contact the administrator.
+                        <div class="details"> </div>
+                        </div>
+                    </div>
+                    <div class="success" style="display: none">
+                        <h5>Project successfully deleted</h5>
+                        <div class="result">
+                        Your project has sucessfully been deleted.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-sm btn-default" type="button">Discard</button>
+                    <button id="btn-deleteproject" type="button" class="btn btn-sm btn-danger btn-delete"><span class="glyphicon glyphicon-trash"></span> Delete project</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Project Properties -->
+    <div class="modal fade bs-example-modal-lg" id="propertiesModal" tabindex="-1" role="dialog" aria-labelledby="propertiesModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="propertiesModalLabel">Project Properties</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="content" style="display: block">
+                        <p>Loading project properties...</p>
+                    </div>
+                    <div class="spinner" style="display: none">
+                        <div class="loading-icon-wrapper">
+                            <p>Processing request...</p>
+                        </div>
+                        <div class="save-progress-wrapper">
+                            <p>Progress:</p>
+                            <div class="save-progress"><pre></pre></div>  
+                        </div>
+                    </div>
+                    <div class="error" style="display: none">
+                        <div class="alert alert-danger">
+                            <div class="title">An error has occured while processing your request on the server, please contact the administrator.</div>
+                            <div class="details"> </div>
+                            <br/>
+                            <a href="javascript:projectPropertiesViewErrorLog()">view log</a>
+                            <div class="error-log"><pre></pre></div>
+                        </div>
+                    </div>
+                    <div class="success" style="display: none">
+                        <h5>Done</h5>
+                        <div class="result">
+                        Your request was successfully processed.
+                        </div>
+                        <div class="details"> </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-sm btn-default" type="button">Discard</button>
+                    <!--
+                        <button id="btn-saveprojectproperties" type="button" class="btn btn-sm btn-info btn-saveprojectproperties"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>    
+
+
+    <!-- Modal Report Missing Requirement -->
+    <div class="modal fade" id="reportMissingRequirementModal" tabindex="-1" role="dialog" aria-labelledby="myReportMissingRequirementModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Report a missing requirement</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="content" style="display: block">
+                        <p>Use the form below to report a missing requirement to us.</p>
+                        <textarea placeholder="Detailed description of the requirement which is missing" id="txt_requirementmissing-description" class="form-control"></textarea>
+                    </div>
+                    <div class="spinner" style="display: none">
+                        <p>Sending your email to the administrator...</p>
+                    </div>
+                    <div class="error" style="display: none">
+                        <div class="alert alert-danger">
+                            An error has occured, please contact the administrator.
+                        </div>
+                    </div>
+                    <div class="success" style="display: none">
+                        <div class="alert alert-success">
+                            The email was successfully send to the administrator.
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-sm btn-default" type="button">Discard</button>
+                    <button class="btn btn-sm btn-primary" type="button" onclick="var strContent=document.getElementById('txt_requirementmissing-description').value;emailAdministrator({subject: 'Report missing requirement', body: strContent}, 'reportMissingRequirementModal');">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal synchronize structured data -->
+    <div class="modal fade bs-example-modal-lg" id="syncSdsModal" tabindex="-1" role="dialog" aria-labelledby="syncSdsModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 id="syncSdsModalLabel" class="modal-title">Synchronize structured data</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="content" style="display: block">
+                        <h5>Sync information</h5>
+                        <p>You are about to synchronize data for this project.</p>
+                        <p>Depending on the amount of data that needs to be imported, this process can take a while to complete. 
+                        <br/>
+                        While the synchronization process is running, an icon with a progress indicator is visible in the UI.
+                        </p>
+                        <h5>Options</h5>
+                        <div class="checkbox">
+                            <label>
+                                <input id="chk-importerpdata" type="checkbox"> Import ERP data before running the sync
+                            </label>
+                        </div>
+                        <div class="checkbox indent disabled">
+                            <label>
+                                <input id="chk-importerpdataforcefullupdate" type="checkbox"> Force full update
+                            </label>
+                        </div>
+                    </div>
+                    <div class="spinner" style="display: none">
+                        <div class="loading-icon-wrapper">
+                            <p>Data synchronization in progress...</p>
+                        </div>
+                        <div class="progresslog">
+                            <pre>...</pre>
+                        </div>
+                    </div>
+                    <div class="error" style="display: none">
+                        <div class="alert alert-danger">
+                            An error has occured, please contact the administrator.
+                            <div class="title">An error has occured while processing your request on the server, please contact the administrator.</div>
+                            <div class="details"> </div>
+                            <div class="errorlog">
+                                <pre>...</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="success" style="display: none">
+                        <div class="alert alert-success">
+                            Structured data synchronization completed successfully.
+                            <div class="successlog">
+                                <pre>...</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-info btn-syncsdsdata"><span class="glyphicon glyphicon-refresh"></span> Start sync</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Import ERP data -->
+    <div class="modal fade" id="importErpModal" tabindex="-1" role="dialog" aria-labelledby="importErpModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Import ERP data</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="content" style="display: block">
+                        <p>You are about to import fresh ERP data for this project.</p>
+                        <p>Depending on the amount of data that needs to be imported, this process can take a while (up to several hours) to complete. The import process runs in the background and you can continue to work in Taxxor DM.
+                        <br/>
+                        While the ERP import process is running, an icon with a progress indicator is visible in the UI.
+                        </p>
+                        <p>After the import has been completed, you can use the &quot;Sync&quot; button in the project properties panel to synchronize the fresh ERP data into your project.</p>
+                    </div>
+                    <div class="spinner" style="display: none">
+                        <div class="loading-icon-wrapper">
+                            <p>ERP data import in progress...</p>
+                        </div>
+                        <div class="progresslog">
+                            <pre>...</pre>
+                        </div>
+                    </div>
+                    <div class="error" style="display: none">
+                        <div class="alert alert-danger">
+                            An error has occured, please contact the administrator.
+                            <div class="title">An error has occured while processing your request on the server, please contact the administrator.</div>
+                            <div class="details"> </div>
+                            <div class="errorlog">
+                                <pre>...</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="success" style="display: none">
+                        <div class="alert alert-success">
+                            ERP data import completed successfully.
+                            <div class="successlog">
+                                <pre>...</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-info btn-importerpdata"><span class="glyphicon glyphicon-upload"></span> Import ERP data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

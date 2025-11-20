@@ -1,0 +1,80 @@
+# Autosave files
+*~
+
+# build
+[Oo]bj/
+[Bb]in/
+packages/
+TestResults/
+
+# globs
+Makefile.in
+*.DS_Store
+*.sln.cache
+*.suo
+*.cache
+*.pidb
+*.userprefs
+*.usertasks
+config.log
+config.make
+config.status
+aclocal.m4
+install-sh
+autom4te.cache/
+*.user
+*.tar.gz
+tarballs/
+test-results/
+Thumbs.db
+
+# Mac bundle stuff
+*.dmg
+*.app
+
+# resharper
+*_Resharper.*
+*.Resharper
+
+# dotCover
+*.dotCover
+
+#
+# Editor configuration files
+#
+.vscode
+DocumentStore.xpr
+.vs
+
+# Files in log directory
+DocumentStore/logs/**/*.xml
+DocumentStore/logs/**/*.txt
+DocumentStore/logs/**/*.log
+DocumentStore/logs/**/*.json
+
+# Content files
+DocumentStore/data
+
+
+_repro-info.xml
+q3.sh
+temp
+node_modules
+datastore.pfx
+Taxxor_root.crt
+appsettings.Development.json
+documentstore.pfx
+global.json
+claude-conversion-log.md
+claude-migration-summary.md
+CLAUDE.md
+manus-task-description.md
+taxxor_architecture.png
+manus-conversion-log.md
+migration-documentation.md
+todo.md
+claude-migration-status.md
+rsync-ssh-config
+*.code-workspace
+.claude
+docs/

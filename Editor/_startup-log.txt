@@ -1,0 +1,463 @@
+2025-03-29 14:58:32.175 [StartupProfiler] StartupHook.Initialize | Elapsed: 0ms | Delta: 0ms
+2025-03-29 14:58:32.185 [StartupProfiler] Assembly loaded: Microsoft.DotNet.Cli.Utils | Elapsed: 10ms | Delta: 10ms
+2025-03-29 14:58:32.185 [StartupProfiler] Assembly loaded: System.Diagnostics.Process | Elapsed: 10ms | Delta: 0ms
+2025-03-29 14:58:32.185 [StartupProfiler] Periodic checkpoint | Elapsed: 10ms | Delta: 0ms
+2025-03-29 14:58:32.185 [StartupProfiler] Assembly loaded: System.ComponentModel.Primitives | Elapsed: 10ms | Delta: 0ms
+2025-03-29 14:58:32.187 [StartupProfiler] Assembly loaded: System.Diagnostics.Tracing | Elapsed: 12ms | Delta: 2ms
+2025-03-29 14:58:32.189 [StartupProfiler] Assembly loaded: System.Text.Encoding.CodePages | Elapsed: 14ms | Delta: 2ms
+2025-03-29 14:58:32.195 [StartupProfiler] Assembly loaded: System.CommandLine | Elapsed: 20ms | Delta: 6ms
+2025-03-29 14:58:32.195 [StartupProfiler] Assembly loaded: Microsoft.DotNet.Configurer | Elapsed: 21ms | Delta: 1ms
+2025-03-29 14:58:32.196 [StartupProfiler] Assembly loaded: Microsoft.DotNet.InternalAbstractions | Elapsed: 21ms | Delta: 0ms
+2025-03-29 14:58:32.196 [StartupProfiler] Assembly loaded: netstandard | Elapsed: 21ms | Delta: 0ms
+2025-03-29 14:58:32.198 [StartupProfiler] Assembly loaded: Microsoft.TemplateEngine.Cli | Elapsed: 24ms | Delta: 3ms
+2025-03-29 14:58:32.201 [StartupProfiler] Assembly loaded: Microsoft.TemplateEngine.Edge | Elapsed: 26ms | Delta: 2ms
+2025-03-29 14:58:32.201 [StartupProfiler] Assembly loaded: Microsoft.TemplateEngine.Abstractions | Elapsed: 26ms | Delta: 0ms
+2025-03-29 14:58:32.201 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Logging.Abstractions | Elapsed: 26ms | Delta: 0ms
+2025-03-29 14:58:32.202 [StartupProfiler] Assembly loaded: Microsoft.TemplateSearch.Common | Elapsed: 27ms | Delta: 1ms
+2025-03-29 14:58:32.202 [StartupProfiler] Assembly loaded: System.Linq | Elapsed: 28ms | Delta: 1ms
+2025-03-29 14:58:32.204 [StartupProfiler] Assembly loaded: NuGet.CommandLine.XPlat | Elapsed: 29ms | Delta: 1ms
+2025-03-29 14:58:32.204 [StartupProfiler] Assembly loaded: NuGet.Common | Elapsed: 29ms | Delta: 0ms
+2025-03-29 14:58:32.213 [StartupProfiler] Assembly loaded: System.Security.Cryptography | Elapsed: 38ms | Delta: 9ms
+2025-03-29 14:58:32.213 [StartupProfiler] Assembly loaded: System.Collections.Concurrent | Elapsed: 38ms | Delta: 0ms
+2025-03-29 14:58:32.216 [StartupProfiler] Assembly loaded: NuGet.Frameworks | Elapsed: 42ms | Delta: 4ms
+2025-03-29 14:58:32.219 [StartupProfiler] Assembly loaded: System.IO.Pipes | Elapsed: 45ms | Delta: 3ms
+2025-03-29 14:58:32.220 [StartupProfiler] Assembly loaded: System.Threading.ThreadPool | Elapsed: 46ms | Delta: 1ms
+2025-03-29 14:58:32.243 [StartupProfiler] StartupHook.Initialize | Elapsed: 0ms | Delta: 0ms
+2025-03-29 14:58:32.254 [StartupProfiler] Assembly loaded: Microsoft.Build.Locator | Elapsed: 11ms | Delta: 11ms
+2025-03-29 14:58:32.254 [StartupProfiler] Periodic checkpoint | Elapsed: 11ms | Delta: 0ms
+2025-03-29 14:58:32.255 [StartupProfiler] Assembly loaded: System.Linq | Elapsed: 12ms | Delta: 1ms
+2025-03-29 14:58:32.255 [StartupProfiler] Assembly loaded: System.Runtime.Loader | Elapsed: 12ms | Delta: 0ms
+2025-03-29 14:58:32.258 [StartupProfiler] Assembly loaded: System.CommandLine | Elapsed: 15ms | Delta: 3ms
+2025-03-29 14:58:32.259 [StartupProfiler] Assembly loaded: dotnet | Elapsed: 16ms | Delta: 1ms
+2025-03-29 14:58:32.270 [StartupProfiler] Assembly loaded: Microsoft.TemplateEngine.Cli | Elapsed: 27ms | Delta: 11ms
+2025-03-29 14:58:32.278 [StartupProfiler] Assembly loaded: Microsoft.TemplateEngine.Edge | Elapsed: 35ms | Delta: 8ms
+2025-03-29 14:58:32.278 [StartupProfiler] Assembly loaded: Microsoft.TemplateEngine.Abstractions | Elapsed: 35ms | Delta: 0ms
+2025-03-29 14:58:32.278 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Logging.Abstractions | Elapsed: 35ms | Delta: 0ms
+2025-03-29 14:58:32.281 [StartupProfiler] Assembly loaded: Microsoft.TemplateSearch.Common | Elapsed: 38ms | Delta: 3ms
+2025-03-29 14:58:32.286 [StartupProfiler] Assembly loaded: NuGet.CommandLine.XPlat | Elapsed: 43ms | Delta: 5ms
+2025-03-29 14:58:32.288 [StartupProfiler] Assembly loaded: NuGet.Common | Elapsed: 45ms | Delta: 2ms
+2025-03-29 14:58:32.288 [StartupProfiler] Assembly loaded: netstandard | Elapsed: 45ms | Delta: 0ms
+2025-03-29 14:58:32.297 [StartupProfiler] Assembly loaded: Microsoft.DotNet.Cli.Utils | Elapsed: 54ms | Delta: 9ms
+dotnet watch ⌚ Working directory: '/app/TaxxorEditor'
+dotnet watch ⌚ Hot Reload disabled by command line switch.
+2025-03-29 14:58:32.313 [StartupProfiler] Assembly loaded: Microsoft.Build | Elapsed: 70ms | Delta: 16ms
+2025-03-29 14:58:32.321 [StartupProfiler] Assembly loaded: System.Collections.Immutable | Elapsed: 78ms | Delta: 8ms
+dotnet watch ⌚ Evaluating dotnet-watch file set.
+2025-03-29 14:58:32.324 [StartupProfiler] Assembly loaded: System.Text.Json | Elapsed: 81ms | Delta: 3ms
+dotnet watch ⌚ Running MSBuild target 'GenerateWatchList' on '/app/TaxxorEditor/TaxxorEditor.csproj'
+2025-03-29 14:58:32.325 [StartupProfiler] Assembly loaded: System.Diagnostics.Process | Elapsed: 82ms | Delta: 1ms
+2025-03-29 14:58:32.325 [StartupProfiler] Assembly loaded: System.ComponentModel.Primitives | Elapsed: 82ms | Delta: 0ms
+2025-03-29 14:58:32.327 [StartupProfiler] Assembly loaded: System.IO.Pipes | Elapsed: 84ms | Delta: 2ms
+2025-03-29 14:58:32.328 [StartupProfiler] Assembly loaded: System.Threading.ThreadPool | Elapsed: 85ms | Delta: 1ms
+2025-03-29 14:58:32.331 [StartupProfiler] Assembly loaded: System.Net.Primitives | Elapsed: 88ms | Delta: 3ms
+dotnet watch 🚀 Launched '/usr/share/dotnet/dotnet' with arguments 'msbuild /restore /nologo /v:m /app/TaxxorEditor/TaxxorEditor.csproj /t:GenerateWatchList /p:_DotNetWatchListFile=/tmp/tmpKT47VO.tmp /p:DotNetWatchBuild=true /p:DesignTimeBuild=true /p:CustomAfterMicrosoftCommonTargets=/usr/share/dotnet/sdk/9.0.201/DotnetTools/dotnet-watch/9.0.201-servicing.25113.29/tools/net9.0/any/DotNetWatch.targets /p:CustomAfterMicrosoftCommonCrossTargetingTargets=/usr/share/dotnet/sdk/9.0.201/DotnetTools/dotnet-watch/9.0.201-servicing.25113.29/tools/net9.0/any/DotNetWatch.targets': process id 1023
+2025-03-29 14:58:32.331 [StartupProfiler] Assembly loaded: System.Net.Sockets | Elapsed: 88ms | Delta: 0ms
+2025-03-29 14:58:32.331 [StartupProfiler] Assembly loaded: System.Threading.Thread | Elapsed: 88ms | Delta: 0ms
+2025-03-29 14:58:32.331 [StartupProfiler] Assembly loaded: System.Collections.Concurrent | Elapsed: 88ms | Delta: 0ms
+2025-03-29 14:58:32.333 [StartupProfiler] Assembly loaded: System.Diagnostics.Tracing | Elapsed: 90ms | Delta: 2ms
+2025-03-29 14:58:32.333 [StartupProfiler] Assembly loaded: System.Diagnostics.DiagnosticSource | Elapsed: 90ms | Delta: 0ms
+dotnet watch ⌚ Process id 1023 ran for 1053ms and exited with exit code 0.
+2025-03-29 14:58:33.382 [StartupProfiler] Assembly loaded: System.Text.RegularExpressions | Elapsed: 1139ms | Delta: 1049ms
+dotnet watch 🔨 2025-03-29 14:58:32.352 [StartupProfiler] StartupHook.Initialize | Elapsed: 0ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.362 [StartupProfiler] Assembly loaded: Microsoft.DotNet.Cli.Utils | Elapsed: 11ms | Delta: 11ms
+dotnet watch 🔨 2025-03-29 14:58:32.362 [StartupProfiler] Assembly loaded: System.Diagnostics.Process | Elapsed: 11ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.363 [StartupProfiler] Assembly loaded: System.ComponentModel.Primitives | Elapsed: 11ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.363 [StartupProfiler] Periodic checkpoint | Elapsed: 11ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.364 [StartupProfiler] Assembly loaded: System.Diagnostics.Tracing | Elapsed: 12ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:32.366 [StartupProfiler] Assembly loaded: System.Text.Encoding.CodePages | Elapsed: 15ms | Delta: 3ms
+dotnet watch 🔨 2025-03-29 14:58:32.373 [StartupProfiler] Assembly loaded: System.CommandLine | Elapsed: 21ms | Delta: 6ms
+dotnet watch 🔨 2025-03-29 14:58:32.373 [StartupProfiler] Assembly loaded: Microsoft.DotNet.Configurer | Elapsed: 22ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:32.373 [StartupProfiler] Assembly loaded: Microsoft.DotNet.InternalAbstractions | Elapsed: 22ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.373 [StartupProfiler] Assembly loaded: netstandard | Elapsed: 22ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.375 [StartupProfiler] Assembly loaded: Microsoft.TemplateEngine.Cli | Elapsed: 24ms | Delta: 2ms
+dotnet watch 🔨 2025-03-29 14:58:32.377 [StartupProfiler] Assembly loaded: Microsoft.TemplateEngine.Edge | Elapsed: 26ms | Delta: 2ms
+dotnet watch 🔨 2025-03-29 14:58:32.377 [StartupProfiler] Assembly loaded: Microsoft.TemplateEngine.Abstractions | Elapsed: 26ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.377 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Logging.Abstractions | Elapsed: 26ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.378 [StartupProfiler] Assembly loaded: Microsoft.TemplateSearch.Common | Elapsed: 27ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:32.378 [StartupProfiler] Assembly loaded: System.Linq | Elapsed: 27ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.380 [StartupProfiler] Assembly loaded: NuGet.CommandLine.XPlat | Elapsed: 29ms | Delta: 2ms
+dotnet watch 🔨 2025-03-29 14:58:32.380 [StartupProfiler] Assembly loaded: NuGet.Common | Elapsed: 29ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.389 [StartupProfiler] Assembly loaded: System.Security.Cryptography | Elapsed: 37ms | Delta: 8ms
+dotnet watch 🔨 2025-03-29 14:58:32.389 [StartupProfiler] Assembly loaded: System.Collections.Concurrent | Elapsed: 38ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:32.392 [StartupProfiler] Assembly loaded: Microsoft.Build.Framework | Elapsed: 41ms | Delta: 3ms
+dotnet watch 🔨 2025-03-29 14:58:32.393 [StartupProfiler] Assembly loaded: MSBuild | Elapsed: 42ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:32.393 [StartupProfiler] Assembly loaded: Microsoft.Build | Elapsed: 42ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.394 [StartupProfiler] Assembly loaded: System.Threading.Thread | Elapsed: 43ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:32.394 [StartupProfiler] Assembly loaded: System.Text.RegularExpressions | Elapsed: 43ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.406 [StartupProfiler] Assembly loaded: System.Collections.NonGeneric | Elapsed: 55ms | Delta: 12ms
+dotnet watch 🔨 2025-03-29 14:58:32.409 [StartupProfiler] Assembly loaded: System.Threading.Tasks.Dataflow | Elapsed: 57ms | Delta: 2ms
+dotnet watch 🔨 2025-03-29 14:58:32.433 [StartupProfiler] Assembly loaded: System.Xml.ReaderWriter | Elapsed: 81ms | Delta: 24ms
+dotnet watch 🔨 2025-03-29 14:58:32.433 [StartupProfiler] Assembly loaded: System.Private.Xml | Elapsed: 81ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.433 [StartupProfiler] Assembly loaded: System.Text.Encoding.Extensions | Elapsed: 82ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:32.434 [StartupProfiler] Assembly loaded: System.Private.Uri | Elapsed: 82ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.435 [StartupProfiler] Assembly loaded: Microsoft.NET.StringTools | Elapsed: 84ms | Delta: 2ms
+dotnet watch 🔨 2025-03-29 14:58:32.440 [StartupProfiler] Assembly loaded: System.Diagnostics.FileVersionInfo | Elapsed: 89ms | Delta: 5ms
+dotnet watch 🔨 2025-03-29 14:58:32.441 [StartupProfiler] Assembly loaded: System.Runtime.Loader | Elapsed: 89ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.441 [StartupProfiler] Assembly loaded: System.Reflection.Metadata | Elapsed: 89ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.441 [StartupProfiler] Assembly loaded: System.Collections.Immutable | Elapsed: 90ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:32.442 [StartupProfiler] Assembly loaded: System.IO.MemoryMappedFiles | Elapsed: 91ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:32.447 [StartupProfiler] Assembly loaded: Microsoft.Win32.Registry | Elapsed: 96ms | Delta: 5ms
+dotnet watch 🔨 2025-03-29 14:58:32.448 [StartupProfiler] Assembly loaded: NuGet.Frameworks | Elapsed: 96ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.462 [StartupProfiler] Assembly loaded: Microsoft.NET.Sdk.WorkloadMSBuildSdkResolver | Elapsed: 111ms | Delta: 15ms
+dotnet watch 🔨 2025-03-29 14:58:32.464 [StartupProfiler] Assembly loaded: Microsoft.Build.NuGetSdkResolver | Elapsed: 112ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:32.465 [StartupProfiler] Assembly loaded: NuGet.Common | Elapsed: 113ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:32.465 [StartupProfiler] Assembly loaded: Microsoft.DotNet.Cli.Utils | Elapsed: 114ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:32.465 [StartupProfiler] Assembly loaded: Microsoft.NET.Sdk.WorkloadManifestReader | Elapsed: 114ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.466 [StartupProfiler] Assembly loaded: Microsoft.Deployment.DotNet.Releases | Elapsed: 114ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.466 [StartupProfiler] Assembly loaded: System.Text.Json | Elapsed: 115ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:32.477 [StartupProfiler] Assembly loaded: System.Numerics.Vectors | Elapsed: 126ms | Delta: 11ms
+dotnet watch 🔨 2025-03-29 14:58:32.530 [StartupProfiler] Assembly loaded: Microsoft.Build.Utilities.Core | Elapsed: 179ms | Delta: 53ms
+dotnet watch 🔨 2025-03-29 14:58:32.547 [StartupProfiler] Assembly loaded: System.Threading.Tasks.Parallel | Elapsed: 195ms | Delta: 16ms
+dotnet watch 🔨 2025-03-29 14:58:32.586 [StartupProfiler] Assembly loaded: System.Reflection.Emit.Lightweight | Elapsed: 234ms | Delta: 39ms
+dotnet watch 🔨 2025-03-29 14:58:32.586 [StartupProfiler] Assembly loaded: System.Reflection.Emit.ILGeneration | Elapsed: 235ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:32.588 [StartupProfiler] Assembly loaded: System.Reflection.Primitives | Elapsed: 237ms | Delta: 2ms
+dotnet watch 🔨 2025-03-29 14:58:32.749 [StartupProfiler] Assembly loaded: Microsoft.Build.Tasks.Core | Elapsed: 397ms | Delta: 160ms
+dotnet watch 🔨 2025-03-29 14:58:32.752 [StartupProfiler] Assembly loaded: System.Threading.ThreadPool | Elapsed: 401ms | Delta: 4ms
+dotnet watch 🔨 2025-03-29 14:58:32.866 [StartupProfiler] Assembly loaded: NuGet.Build.Tasks | Elapsed: 515ms | Delta: 114ms
+dotnet watch 🔨 2025-03-29 14:58:32.866 [StartupProfiler] Assembly loaded: NuGet.Common | Elapsed: 515ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.866 [StartupProfiler] Assembly loaded: NuGet.Commands | Elapsed: 515ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.867 [StartupProfiler] Assembly loaded: NuGet.ProjectModel | Elapsed: 515ms | Delta: 0ms
+dotnet watch 🔨   Determining projects to restore...
+dotnet watch 🔨 2025-03-29 14:58:32.905 [StartupProfiler] Assembly loaded: Microsoft.NET.Build.Tasks | Elapsed: 554ms | Delta: 39ms
+dotnet watch 🔨 2025-03-29 14:58:32.912 [StartupProfiler] Assembly loaded: NuGet.Frameworks | Elapsed: 560ms | Delta: 6ms
+dotnet watch 🔨 2025-03-29 14:58:32.928 [StartupProfiler] Assembly loaded: Microsoft.Deployment.DotNet.Releases | Elapsed: 576ms | Delta: 16ms
+dotnet watch 🔨 2025-03-29 14:58:32.933 [StartupProfiler] Assembly loaded: NuGet.Configuration | Elapsed: 582ms | Delta: 6ms
+dotnet watch 🔨 2025-03-29 14:58:32.934 [StartupProfiler] Assembly loaded: System.Xml.XDocument | Elapsed: 583ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:32.934 [StartupProfiler] Assembly loaded: System.Private.Xml.Linq | Elapsed: 583ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.967 [StartupProfiler] Assembly loaded: NuGet.Packaging | Elapsed: 616ms | Delta: 33ms
+dotnet watch 🔨 2025-03-29 14:58:32.968 [StartupProfiler] Assembly loaded: NuGet.LibraryModel | Elapsed: 616ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.968 [StartupProfiler] Assembly loaded: NuGet.Versioning | Elapsed: 617ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:32.969 [StartupProfiler] Assembly loaded: NuGet.Frameworks | Elapsed: 618ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:32.984 [StartupProfiler] Assembly loaded: System.Buffers | Elapsed: 633ms | Delta: 15ms
+dotnet watch 🔨 2025-03-29 14:58:32.990 [StartupProfiler] Assembly loaded: NuGet.Protocol | Elapsed: 639ms | Delta: 6ms
+dotnet watch 🔨 2025-03-29 14:58:32.991 [StartupProfiler] Assembly loaded: NuGet.Credentials | Elapsed: 639ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:32.993 [StartupProfiler] Assembly loaded: System.Formats.Asn1 | Elapsed: 642ms | Delta: 3ms
+dotnet watch 🔨 2025-03-29 14:58:32.995 [StartupProfiler] Assembly loaded: System.Runtime.Numerics | Elapsed: 643ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:33.079 [StartupProfiler] Assembly loaded: NuGet.DependencyResolver.Core | Elapsed: 727ms | Delta: 84ms
+dotnet watch 🔨 2025-03-29 14:58:33.086 [StartupProfiler] Assembly loaded: System.Net.Primitives | Elapsed: 734ms | Delta: 7ms
+dotnet watch 🔨 2025-03-29 14:58:33.096 [StartupProfiler] Assembly loaded: Newtonsoft.Json | Elapsed: 745ms | Delta: 11ms
+dotnet watch 🔨 2025-03-29 14:58:33.098 [StartupProfiler] Assembly loaded: System.Runtime.Serialization.Primitives | Elapsed: 746ms | Delta: 1ms
+dotnet watch 🔨 2025-03-29 14:58:33.106 [StartupProfiler] Assembly loaded: System.Linq.Expressions | Elapsed: 755ms | Delta: 9ms
+dotnet watch 🔨 2025-03-29 14:58:33.106 [StartupProfiler] Assembly loaded: System.ComponentModel.TypeConverter | Elapsed: 755ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:33.106 [StartupProfiler] Assembly loaded: System.ObjectModel | Elapsed: 755ms | Delta: 0ms
+dotnet watch 🔨   All projects are up-to-date for restore.
+dotnet watch 🔨 2025-03-29 14:58:33.336 [StartupProfiler] Assembly loaded: DotNetWatchTasks | Elapsed: 985ms | Delta: 230ms
+dotnet watch 🔨 2025-03-29 14:58:33.336 [StartupProfiler] Assembly loaded: System.Runtime.Serialization.Json | Elapsed: 985ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:33.337 [StartupProfiler] Assembly loaded: System.Private.DataContractSerialization | Elapsed: 985ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:33.337 [StartupProfiler] Assembly loaded: System.Runtime.Serialization.Xml | Elapsed: 985ms | Delta: 0ms
+dotnet watch 🔨 2025-03-29 14:58:33.357 [StartupProfiler] Application exiting | Elapsed: 1006ms | Delta: 21ms
+2025-03-29 14:58:33.386 [StartupProfiler] Assembly loaded: System.Text.Encoding.Extensions | Elapsed: 1143ms | Delta: 4ms
+2025-03-29 14:58:33.387 [StartupProfiler] Assembly loaded: System.Text.Encodings.Web | Elapsed: 1144ms | Delta: 1ms
+2025-03-29 14:58:33.387 [StartupProfiler] Assembly loaded: System.Runtime.Intrinsics | Elapsed: 1144ms | Delta: 0ms
+2025-03-29 14:58:33.387 [StartupProfiler] Assembly loaded: System.Numerics.Vectors | Elapsed: 1144ms | Delta: 0ms
+2025-03-29 14:58:33.389 [StartupProfiler] Assembly loaded: System.Runtime.Serialization.Primitives | Elapsed: 1146ms | Delta: 2ms
+2025-03-29 14:58:33.391 [StartupProfiler] Assembly loaded: System.Private.Uri | Elapsed: 1148ms | Delta: 2ms
+2025-03-29 14:58:33.393 [StartupProfiler] Assembly loaded: System.Reflection.Emit.Lightweight | Elapsed: 1150ms | Delta: 2ms
+2025-03-29 14:58:33.393 [StartupProfiler] Assembly loaded: System.Reflection.Primitives | Elapsed: 1150ms | Delta: 0ms
+2025-03-29 14:58:33.394 [StartupProfiler] Assembly loaded: System.Reflection.Emit.ILGeneration | Elapsed: 1151ms | Delta: 1ms
+dotnet watch ⌚ Watching 226 file(s) for changes
+2025-03-29 14:58:33.407 [StartupProfiler] Assembly loaded: Microsoft.Build.Framework | Elapsed: 1164ms | Delta: 13ms
+2025-03-29 14:58:33.420 [StartupProfiler] Assembly loaded: System.Xml.ReaderWriter | Elapsed: 1177ms | Delta: 13ms
+2025-03-29 14:58:33.420 [StartupProfiler] Assembly loaded: System.Private.Xml | Elapsed: 1177ms | Delta: 0ms
+2025-03-29 14:58:33.421 [StartupProfiler] Assembly loaded: System.Text.Encoding.CodePages | Elapsed: 1178ms | Delta: 1ms
+2025-03-29 14:58:33.423 [StartupProfiler] Assembly loaded: Microsoft.NET.StringTools | Elapsed: 1180ms | Delta: 2ms
+2025-03-29 14:58:33.431 [StartupProfiler] Assembly loaded: System.Diagnostics.FileVersionInfo | Elapsed: 1188ms | Delta: 8ms
+2025-03-29 14:58:33.431 [StartupProfiler] Assembly loaded: System.Reflection.Metadata | Elapsed: 1188ms | Delta: 0ms
+2025-03-29 14:58:33.453 [StartupProfiler] Assembly loaded: System.IO.MemoryMappedFiles | Elapsed: 1210ms | Delta: 22ms
+2025-03-29 14:58:33.459 [StartupProfiler] Assembly loaded: Microsoft.Win32.Registry | Elapsed: 1216ms | Delta: 6ms
+2025-03-29 14:58:33.459 [StartupProfiler] Assembly loaded: NuGet.Frameworks | Elapsed: 1216ms | Delta: 0ms
+2025-03-29 14:58:33.471 [StartupProfiler] Assembly loaded: System.Threading.Tasks.Parallel | Elapsed: 1228ms | Delta: 12ms
+2025-03-29 14:58:33.482 [StartupProfiler] Assembly loaded: Microsoft.NET.Sdk.WorkloadMSBuildSdkResolver | Elapsed: 1239ms | Delta: 11ms
+2025-03-29 14:58:33.483 [StartupProfiler] Assembly loaded: Microsoft.Build.NuGetSdkResolver | Elapsed: 1240ms | Delta: 1ms
+2025-03-29 14:58:33.484 [StartupProfiler] Assembly loaded: NuGet.Common | Elapsed: 1241ms | Delta: 1ms
+2025-03-29 14:58:33.485 [StartupProfiler] Assembly loaded: Microsoft.DotNet.Cli.Utils | Elapsed: 1242ms | Delta: 1ms
+2025-03-29 14:58:33.485 [StartupProfiler] Assembly loaded: Microsoft.NET.Sdk.WorkloadManifestReader | Elapsed: 1242ms | Delta: 0ms
+2025-03-29 14:58:33.486 [StartupProfiler] Assembly loaded: Microsoft.Deployment.DotNet.Releases | Elapsed: 1243ms | Delta: 1ms
+2025-03-29 14:58:33.539 [StartupProfiler] Assembly loaded: Microsoft.Build.Utilities.Core | Elapsed: 1296ms | Delta: 53ms
+dotnet watch ⌚ Configuring the app to use browser-refresh middleware
+2025-03-29 14:58:33.803 [StartupProfiler] Assembly loaded: System.Security.Cryptography | Elapsed: 1560ms | Delta: 264ms
+dotnet watch ⌚ launchSettings does not allow launching browsers.
+2025-03-29 14:58:33.809 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Hosting | Elapsed: 1566ms | Delta: 6ms
+2025-03-29 14:58:33.809 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Hosting.Abstractions | Elapsed: 1566ms | Delta: 0ms
+2025-03-29 14:58:33.810 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Configuration.Abstractions | Elapsed: 1567ms | Delta: 1ms
+2025-03-29 14:58:33.810 [StartupProfiler] Assembly loaded: Microsoft.Extensions.DependencyInjection.Abstractions | Elapsed: 1567ms | Delta: 0ms
+2025-03-29 14:58:33.810 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Hosting.Abstractions | Elapsed: 1567ms | Delta: 0ms
+2025-03-29 14:58:33.810 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Hosting | Elapsed: 1567ms | Delta: 0ms
+2025-03-29 14:58:33.833 [StartupProfiler] StartupHook.Initialize | Elapsed: 0ms | Delta: 0ms
+2025-03-29 14:58:33.844 [StartupProfiler] Assembly loaded: Microsoft.DotNet.Cli.Utils | Elapsed: 11ms | Delta: 11ms
+2025-03-29 14:58:33.844 [StartupProfiler] Assembly loaded: System.Diagnostics.Process | Elapsed: 11ms | Delta: 0ms
+2025-03-29 14:58:33.845 [StartupProfiler] Periodic checkpoint | Elapsed: 11ms | Delta: 0ms
+2025-03-29 14:58:33.845 [StartupProfiler] Assembly loaded: System.ComponentModel.Primitives | Elapsed: 11ms | Delta: 0ms
+2025-03-29 14:58:33.846 [StartupProfiler] Assembly loaded: System.Diagnostics.Tracing | Elapsed: 13ms | Delta: 2ms
+2025-03-29 14:58:33.848 [StartupProfiler] Assembly loaded: System.Text.Encoding.CodePages | Elapsed: 15ms | Delta: 2ms
+2025-03-29 14:58:33.855 [StartupProfiler] Assembly loaded: System.CommandLine | Elapsed: 22ms | Delta: 7ms
+2025-03-29 14:58:33.855 [StartupProfiler] Assembly loaded: Microsoft.DotNet.Configurer | Elapsed: 22ms | Delta: 0ms
+2025-03-29 14:58:33.855 [StartupProfiler] Assembly loaded: Microsoft.DotNet.InternalAbstractions | Elapsed: 22ms | Delta: 0ms
+2025-03-29 14:58:33.856 [StartupProfiler] Assembly loaded: netstandard | Elapsed: 23ms | Delta: 1ms
+2025-03-29 14:58:33.858 [StartupProfiler] Assembly loaded: Microsoft.TemplateEngine.Cli | Elapsed: 25ms | Delta: 2ms
+2025-03-29 14:58:33.860 [StartupProfiler] Assembly loaded: Microsoft.TemplateEngine.Edge | Elapsed: 27ms | Delta: 2ms
+2025-03-29 14:58:33.860 [StartupProfiler] Assembly loaded: Microsoft.TemplateEngine.Abstractions | Elapsed: 27ms | Delta: 0ms
+2025-03-29 14:58:33.861 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Logging.Abstractions | Elapsed: 28ms | Delta: 1ms
+2025-03-29 14:58:33.862 [StartupProfiler] Assembly loaded: Microsoft.TemplateSearch.Common | Elapsed: 29ms | Delta: 1ms
+2025-03-29 14:58:33.862 [StartupProfiler] Assembly loaded: System.Linq | Elapsed: 29ms | Delta: 0ms
+2025-03-29 14:58:33.864 [StartupProfiler] Assembly loaded: NuGet.CommandLine.XPlat | Elapsed: 31ms | Delta: 2ms
+2025-03-29 14:58:33.864 [StartupProfiler] Assembly loaded: NuGet.Common | Elapsed: 31ms | Delta: 0ms
+2025-03-29 14:58:33.873 [StartupProfiler] Assembly loaded: System.Security.Cryptography | Elapsed: 40ms | Delta: 9ms
+2025-03-29 14:58:33.873 [StartupProfiler] Assembly loaded: System.Collections.Concurrent | Elapsed: 40ms | Delta: 0ms
+2025-03-29 14:58:33.879 [StartupProfiler] Assembly loaded: NuGet.Frameworks | Elapsed: 46ms | Delta: 6ms
+2025-03-29 14:58:33.883 [StartupProfiler] Assembly loaded: System.IO.Pipes | Elapsed: 49ms | Delta: 3ms
+2025-03-29 14:58:33.884 [StartupProfiler] Assembly loaded: System.Threading.ThreadPool | Elapsed: 51ms | Delta: 2ms
+2025-03-29 14:58:33.906 [StartupProfiler] StartupHook.Initialize | Elapsed: 0ms | Delta: 0ms
+2025-03-29 14:58:33.916 [StartupProfiler] Assembly loaded: System.Linq | Elapsed: 10ms | Delta: 10ms
+2025-03-29 14:58:33.916 [StartupProfiler] Periodic checkpoint | Elapsed: 11ms | Delta: 1ms
+2025-03-29 14:58:33.920 [StartupProfiler] Assembly loaded: System.Diagnostics.Tracing | Elapsed: 14ms | Delta: 3ms
+2025-03-29 14:58:33.921 [StartupProfiler] Assembly loaded: System.Security.Cryptography | Elapsed: 15ms | Delta: 1ms
+2025-03-29 14:58:33.925 [StartupProfiler] Assembly loaded: System.Collections.NonGeneric | Elapsed: 19ms | Delta: 4ms
+2025-03-29 14:58:33.927 [StartupProfiler] Application exiting | Elapsed: 21ms | Delta: 2ms
+2025-03-29 14:58:33.934 [StartupProfiler] Application exiting | Elapsed: 100ms | Delta: 49ms
+2025-03-29 14:58:33.943 [StartupProfiler] Assembly loaded: Microsoft.Extensions.DependencyInjection | Elapsed: 1700ms | Delta: 133ms
+2025-03-29 14:58:33.944 [StartupProfiler] Assembly loaded: System.ComponentModel | Elapsed: 1701ms | Delta: 1ms
+2025-03-29 14:58:33.944 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Configuration | Elapsed: 1701ms | Delta: 0ms
+2025-03-29 14:58:33.944 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Configuration.EnvironmentVariables | Elapsed: 1701ms | Delta: 0ms
+2025-03-29 14:58:33.944 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Primitives | Elapsed: 1701ms | Delta: 0ms
+2025-03-29 14:58:33.945 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Http.Abstractions | Elapsed: 1702ms | Delta: 1ms
+2025-03-29 14:58:33.945 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Server.Kestrel | Elapsed: 1702ms | Delta: 0ms
+2025-03-29 14:58:33.945 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Server.Kestrel.Transport.Quic | Elapsed: 1702ms | Delta: 0ms
+2025-03-29 14:58:33.946 [StartupProfiler] Assembly loaded: System.Net.Quic | Elapsed: 1703ms | Delta: 1ms
+2025-03-29 14:58:33.948 [StartupProfiler] Assembly loaded: Microsoft.Extensions.FileProviders.Abstractions | Elapsed: 1705ms | Delta: 2ms
+2025-03-29 14:58:33.948 [StartupProfiler] Assembly loaded: Microsoft.Extensions.FileProviders.Physical | Elapsed: 1705ms | Delta: 0ms
+2025-03-29 14:58:33.949 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Configuration.FileExtensions | Elapsed: 1706ms | Delta: 1ms
+2025-03-29 14:58:33.949 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Options | Elapsed: 1706ms | Delta: 0ms
+2025-03-29 14:58:33.950 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Logging | Elapsed: 1707ms | Delta: 1ms
+2025-03-29 14:58:33.950 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Diagnostics | Elapsed: 1707ms | Delta: 0ms
+2025-03-29 14:58:33.950 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Features | Elapsed: 1707ms | Delta: 0ms
+2025-03-29 14:58:33.950 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Http | Elapsed: 1707ms | Delta: 0ms
+2025-03-29 14:58:33.951 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Connections.Abstractions | Elapsed: 1708ms | Delta: 1ms
+2025-03-29 14:58:33.951 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets | Elapsed: 1708ms | Delta: 0ms
+2025-03-29 14:58:33.951 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Hosting.Server.Abstractions | Elapsed: 1708ms | Delta: 0ms
+2025-03-29 14:58:33.951 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Server.Kestrel.Core | Elapsed: 1708ms | Delta: 0ms
+2025-03-29 14:58:33.959 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Diagnostics.Abstractions | Elapsed: 1716ms | Delta: 8ms
+2025-03-29 14:58:33.961 [StartupProfiler] Assembly loaded: System.IO.Pipelines | Elapsed: 1718ms | Delta: 2ms
+2025-03-29 14:58:33.966 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.WebSockets | Elapsed: 1723ms | Delta: 5ms
+2025-03-29 14:58:33.968 [StartupProfiler] Assembly loaded: Microsoft.Net.Http.Headers | Elapsed: 1724ms | Delta: 1ms
+dotnet watch ⌚ Refresh server running at ws://localhost:35661.
+2025-03-29 14:58:34.138 [StartupProfiler] Assembly loaded: System.IO.FileSystem.Watcher | Elapsed: 1895ms | Delta: 171ms
+dotnet watch 🚀 Launched '/usr/share/dotnet/dotnet' with arguments 'run': process id 1091
+2025-03-29 14:58:34.416 [StartupProfiler] StartupHook.Initialize | Elapsed: 0ms | Delta: 0ms
+2025-03-29 14:58:34.426 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Watch.BrowserRefresh | Elapsed: 11ms | Delta: 11ms
+2025-03-29 14:58:34.426 [StartupProfiler] Assembly loaded: Microsoft.DotNet.Cli.Utils | Elapsed: 11ms | Delta: 0ms
+2025-03-29 14:58:34.427 [StartupProfiler] Assembly loaded: System.Diagnostics.Process | Elapsed: 11ms | Delta: 0ms
+2025-03-29 14:58:34.427 [StartupProfiler] Periodic checkpoint | Elapsed: 11ms | Delta: 0ms
+2025-03-29 14:58:34.427 [StartupProfiler] Assembly loaded: System.ComponentModel.Primitives | Elapsed: 12ms | Delta: 1ms
+2025-03-29 14:58:34.428 [StartupProfiler] Assembly loaded: System.Diagnostics.Tracing | Elapsed: 13ms | Delta: 1ms
+2025-03-29 14:58:34.430 [StartupProfiler] Assembly loaded: System.Text.Encoding.CodePages | Elapsed: 15ms | Delta: 2ms
+2025-03-29 14:58:34.437 [StartupProfiler] Assembly loaded: System.CommandLine | Elapsed: 22ms | Delta: 7ms
+2025-03-29 14:58:34.437 [StartupProfiler] Assembly loaded: Microsoft.DotNet.Configurer | Elapsed: 22ms | Delta: 0ms
+2025-03-29 14:58:34.438 [StartupProfiler] Assembly loaded: Microsoft.DotNet.InternalAbstractions | Elapsed: 22ms | Delta: 0ms
+2025-03-29 14:58:34.438 [StartupProfiler] Assembly loaded: netstandard | Elapsed: 23ms | Delta: 1ms
+2025-03-29 14:58:34.440 [StartupProfiler] Assembly loaded: Microsoft.TemplateEngine.Cli | Elapsed: 25ms | Delta: 2ms
+2025-03-29 14:58:34.442 [StartupProfiler] Assembly loaded: Microsoft.TemplateEngine.Edge | Elapsed: 27ms | Delta: 2ms
+2025-03-29 14:58:34.442 [StartupProfiler] Assembly loaded: Microsoft.TemplateEngine.Abstractions | Elapsed: 27ms | Delta: 0ms
+2025-03-29 14:58:34.443 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Logging.Abstractions | Elapsed: 27ms | Delta: 0ms
+2025-03-29 14:58:34.444 [StartupProfiler] Assembly loaded: Microsoft.TemplateSearch.Common | Elapsed: 28ms | Delta: 1ms
+2025-03-29 14:58:34.444 [StartupProfiler] Assembly loaded: System.Linq | Elapsed: 29ms | Delta: 1ms
+2025-03-29 14:58:34.446 [StartupProfiler] Assembly loaded: NuGet.CommandLine.XPlat | Elapsed: 30ms | Delta: 1ms
+2025-03-29 14:58:34.446 [StartupProfiler] Assembly loaded: NuGet.Common | Elapsed: 30ms | Delta: 0ms
+2025-03-29 14:58:34.454 [StartupProfiler] Assembly loaded: System.Security.Cryptography | Elapsed: 38ms | Delta: 8ms
+2025-03-29 14:58:34.454 [StartupProfiler] Assembly loaded: System.Collections.Concurrent | Elapsed: 39ms | Delta: 1ms
+2025-03-29 14:58:34.457 [StartupProfiler] Assembly loaded: System.Collections.Immutable | Elapsed: 42ms | Delta: 3ms
+2025-03-29 14:58:34.460 [StartupProfiler] Assembly loaded: Microsoft.Build | Elapsed: 44ms | Delta: 2ms
+2025-03-29 14:58:34.460 [StartupProfiler] Assembly loaded: Microsoft.Build.Framework | Elapsed: 45ms | Delta: 1ms
+Using launch settings from /app/TaxxorEditor/Properties/launchSettings.json...
+2025-03-29 14:58:34.461 [StartupProfiler] Assembly loaded: System.Text.Json | Elapsed: 46ms | Delta: 1ms
+2025-03-29 14:58:34.462 [StartupProfiler] Assembly loaded: System.Text.Encoding.Extensions | Elapsed: 46ms | Delta: 0ms
+2025-03-29 14:58:34.465 [StartupProfiler] Assembly loaded: Microsoft.DotNet.TemplateLocator | Elapsed: 49ms | Delta: 3ms
+2025-03-29 14:58:34.465 [StartupProfiler] Assembly loaded: MSBuild | Elapsed: 50ms | Delta: 1ms
+2025-03-29 14:58:34.466 [StartupProfiler] Assembly loaded: Microsoft.Deployment.DotNet.Releases | Elapsed: 50ms | Delta: 0ms
+2025-03-29 14:58:34.466 [StartupProfiler] Assembly loaded: System.Threading.Thread | Elapsed: 51ms | Delta: 1ms
+2025-03-29 14:58:34.467 [StartupProfiler] Assembly loaded: System.Text.RegularExpressions | Elapsed: 52ms | Delta: 1ms
+2025-03-29 14:58:34.471 [StartupProfiler] Assembly loaded: NuGet.Protocol | Elapsed: 55ms | Delta: 3ms
+2025-03-29 14:58:34.471 [StartupProfiler] Assembly loaded: NuGet.Configuration | Elapsed: 55ms | Delta: 0ms
+2025-03-29 14:58:34.471 [StartupProfiler] Assembly loaded: NuGet.Credentials | Elapsed: 56ms | Delta: 1ms
+2025-03-29 14:58:34.481 [StartupProfiler] Assembly loaded: System.Collections.NonGeneric | Elapsed: 66ms | Delta: 10ms
+2025-03-29 14:58:34.484 [StartupProfiler] Assembly loaded: System.Threading.Tasks.Dataflow | Elapsed: 68ms | Delta: 2ms
+2025-03-29 14:58:34.505 [StartupProfiler] Assembly loaded: System.Xml.ReaderWriter | Elapsed: 89ms | Delta: 21ms
+2025-03-29 14:58:34.505 [StartupProfiler] Assembly loaded: System.Private.Xml | Elapsed: 90ms | Delta: 1ms
+2025-03-29 14:58:34.506 [StartupProfiler] Assembly loaded: System.Private.Uri | Elapsed: 90ms | Delta: 0ms
+2025-03-29 14:58:34.507 [StartupProfiler] Assembly loaded: Microsoft.NET.StringTools | Elapsed: 92ms | Delta: 2ms
+2025-03-29 14:58:34.512 [StartupProfiler] Assembly loaded: System.Diagnostics.FileVersionInfo | Elapsed: 97ms | Delta: 5ms
+2025-03-29 14:58:34.512 [StartupProfiler] Assembly loaded: System.Runtime.Loader | Elapsed: 97ms | Delta: 0ms
+2025-03-29 14:58:34.513 [StartupProfiler] Assembly loaded: System.Reflection.Metadata | Elapsed: 97ms | Delta: 0ms
+2025-03-29 14:58:34.514 [StartupProfiler] Assembly loaded: System.IO.MemoryMappedFiles | Elapsed: 99ms | Delta: 2ms
+2025-03-29 14:58:34.520 [StartupProfiler] Assembly loaded: Microsoft.Win32.Registry | Elapsed: 104ms | Delta: 5ms
+2025-03-29 14:58:34.520 [StartupProfiler] Assembly loaded: NuGet.Frameworks | Elapsed: 105ms | Delta: 1ms
+2025-03-29 14:58:34.536 [StartupProfiler] Assembly loaded: Microsoft.NET.Sdk.WorkloadMSBuildSdkResolver | Elapsed: 121ms | Delta: 16ms
+2025-03-29 14:58:34.538 [StartupProfiler] Assembly loaded: Microsoft.Build.NuGetSdkResolver | Elapsed: 122ms | Delta: 1ms
+2025-03-29 14:58:34.539 [StartupProfiler] Assembly loaded: NuGet.Common | Elapsed: 123ms | Delta: 1ms
+2025-03-29 14:58:34.539 [StartupProfiler] Assembly loaded: Microsoft.DotNet.Cli.Utils | Elapsed: 124ms | Delta: 1ms
+2025-03-29 14:58:34.539 [StartupProfiler] Assembly loaded: Microsoft.NET.Sdk.WorkloadManifestReader | Elapsed: 124ms | Delta: 0ms
+2025-03-29 14:58:34.540 [StartupProfiler] Assembly loaded: Microsoft.Deployment.DotNet.Releases | Elapsed: 125ms | Delta: 1ms
+2025-03-29 14:58:34.553 [StartupProfiler] Assembly loaded: System.Numerics.Vectors | Elapsed: 138ms | Delta: 13ms
+2025-03-29 14:58:34.592 [StartupProfiler] Assembly loaded: Microsoft.Build.Utilities.Core | Elapsed: 176ms | Delta: 38ms
+2025-03-29 14:58:34.609 [StartupProfiler] Assembly loaded: System.Threading.Tasks.Parallel | Elapsed: 194ms | Delta: 18ms
+2025-03-29 14:58:34.653 [StartupProfiler] Assembly loaded: System.Reflection.Emit.Lightweight | Elapsed: 238ms | Delta: 44ms
+2025-03-29 14:58:34.654 [StartupProfiler] Assembly loaded: System.Reflection.Emit.ILGeneration | Elapsed: 238ms | Delta: 0ms
+2025-03-29 14:58:34.656 [StartupProfiler] Assembly loaded: System.Reflection.Primitives | Elapsed: 240ms | Delta: 2ms
+2025-03-29 14:58:34.839 [StartupProfiler] Assembly loaded: Microsoft.Build.Tasks.Core | Elapsed: 424ms | Delta: 184ms
+2025-03-29 14:58:34.844 [StartupProfiler] Assembly loaded: System.Threading.ThreadPool | Elapsed: 429ms | Delta: 5ms
+  /app/TaxxorEditor/TaxxorEditor.csproj                                                                  Restore (0.1s)
+2025-03-29 14:58:34.962 [StartupProfiler] Assembly loaded: NuGet.Build.Tasks | Elapsed: 547ms | Delta: 118ms     (0.1s)
+2025-03-29 14:58:34.962 [StartupProfiler] Assembly loaded: NuGet.Common | Elapsed: 547ms | Delta: 0ms
+2025-03-29 14:58:34.963 [StartupProfiler] Assembly loaded: NuGet.Commands | Elapsed: 547ms | Delta: 0ms
+2025-03-29 14:58:34.963 [StartupProfiler] Assembly loaded: NuGet.ProjectModel | Elapsed: 548ms | Delta: 1ms      (0.2s)
+2025-03-29 14:58:35.004 [StartupProfiler] Assembly loaded: Microsoft.NET.Build.Tasks | Elapsed: 589ms | Delta: 41ms
+2025-03-29 14:58:35.011 [StartupProfiler] Assembly loaded: NuGet.Frameworks | Elapsed: 595ms | Delta: 6ms
+2025-03-29 14:58:35.027 [StartupProfiler] Assembly loaded: Microsoft.Deployment.DotNet.Releases | Elapsed: 612ms (0.2s)a: 17ms
+2025-03-29 14:58:35.034 [StartupProfiler] Assembly loaded: NuGet.Configuration | Elapsed: 618ms | Delta: 6ms
+2025-03-29 14:58:35.036 [StartupProfiler] Assembly loaded: System.Xml.XDocument | Elapsed: 621ms | Delta: 3ms
+2025-03-29 14:58:35.036 [StartupProfiler] Assembly loaded: System.Private.Xml.Linq | Elapsed: 621ms | Delta: 0ms (0.2s)
+2025-03-29 14:58:35.076 [StartupProfiler] Assembly loaded: NuGet.Packaging | Elapsed: 660ms | Delta: 39ms
+2025-03-29 14:58:35.076 [StartupProfiler] Assembly loaded: NuGet.LibraryModel | Elapsed: 661ms | Delta: 1ms
+2025-03-29 14:58:35.076 [StartupProfiler] Assembly loaded: NuGet.Versioning | Elapsed: 661ms | Delta: 0ms
+2025-03-29 14:58:35.077 [StartupProfiler] Assembly loaded: NuGet.Frameworks | Elapsed: 662ms | Delta: 1ms
+2025-03-29 14:58:35.093 [StartupProfiler] Assembly loaded: System.Buffers | Elapsed: 678ms | Delta: 16ms         (0.3s)
+2025-03-29 14:58:35.099 [StartupProfiler] Assembly loaded: NuGet.Protocol | Elapsed: 684ms | Delta: 6ms
+2025-03-29 14:58:35.099 [StartupProfiler] Assembly loaded: NuGet.Credentials | Elapsed: 684ms | Delta: 0ms
+2025-03-29 14:58:35.102 [StartupProfiler] Assembly loaded: System.Formats.Asn1 | Elapsed: 687ms | Delta: 3ms
+2025-03-29 14:58:35.104 [StartupProfiler] Assembly loaded: System.Runtime.Numerics | Elapsed: 689ms | Delta: 2ms (0.3s)
+2025-03-29 14:58:35.195 [StartupProfiler] Assembly loaded: NuGet.DependencyResolver.Core | Elapsed: 780ms | Delta(0.4s)
+2025-03-29 14:58:35.207 [StartupProfiler] Assembly loaded: System.Net.Primitives | Elapsed: 791ms | Delta: 11ms
+2025-03-29 14:58:35.221 [StartupProfiler] Assembly loaded: Newtonsoft.Json | Elapsed: 806ms | Delta: 15ms
+2025-03-29 14:58:35.222 [StartupProfiler] Assembly loaded: System.Runtime.Serialization.Primitives | Elapsed: 807ms | Delta: 1ms
+2025-03-29 14:58:35.232 [StartupProfiler] Assembly loaded: System.Linq.Expressions | Elapsed: 817ms | Delta: 10ms
+2025-03-29 14:58:35.232 [StartupProfiler] Assembly loaded: System.ComponentModel.TypeConverter | Elapsed: 817ms | Delta: 0ms
+2025-03-29 14:58:35.232 [StartupProfiler] Assembly loaded: System.ObjectModel | Elapsed: 817ms | Delta: 0ms      (0.7s)
+2025-03-29 14:58:35.536 [StartupProfiler] Assembly loaded: NuGet.ProjectModel | Elapsed: 1121ms | Delta: 304ms
+2025-03-29 14:58:35.536 [StartupProfiler] Assembly loaded: NuGet.Packaging | Elapsed: 1121ms | Delta: 0ms        (0.7s)
+2025-03-29 14:58:35.550 [StartupProfiler] Assembly loaded: NuGet.Versioning | Elapsed: 1135ms | Delta: 14ms      (0.8s)
+2025-03-29 14:58:35.591 [StartupProfiler] Assembly loaded: Microsoft.Build.Tasks.CodeAnalysis | Elapsed: 1176ms | Delta: 41ms
+2025-03-29 14:58:35.596 [StartupProfiler] Assembly loaded: Microsoft.Build.Tasks.Git | Elapsed: 1181ms | Delta: 5(0.8s)
+2025-03-29 14:58:35.618 [StartupProfiler] Assembly loaded: Microsoft.SourceLink.Common | Elapsed: 1203ms | Delta: 22ms
+2025-03-29 14:58:35.620 [StartupProfiler] Assembly loaded: Microsoft.SourceLink.GitHub | Elapsed: 1204ms | Delta: 1ms
+2025-03-29 14:58:35.622 [StartupProfiler] Assembly loaded: Microsoft.SourceLink.GitLab | Elapsed: 1207ms | Delta: 3ms
+2025-03-29 14:58:35.624 [StartupProfiler] Assembly loaded: Microsoft.SourceLink.AzureRepos.Git | Elapsed: 1209ms | Delta: 2ms
+2025-03-29 14:58:35.627 [StartupProfiler] Assembly loaded: Microsoft.SourceLink.Bitbucket.Git | Elapsed: 1211ms |(0.9s): 2ms
+2025-03-29 14:58:35.750 [StartupProfiler] Assembly loaded: Microsoft.NET.Sdk.StaticWebAssets.Tasks | Elapsed: 1335ms | Delta: 124ms
+2025-03-29 14:58:35.753 [StartupProfiler] Assembly loaded: Microsoft.Extensions.FileSystemGlobbing | Elapsed: 133(1.0s)Delta: 2ms
+2025-03-29 14:58:35.805 [StartupProfiler] Assembly loaded: Microsoft.NET.Sdk.Razor.Tasks | Elapsed: 1390ms | Delta: 53ms
+2025-03-29 14:58:35.809 [StartupProfiler] Assembly loaded: Protobuf.MSBuild | Elapsed: 1393ms | Delta: 3ms
+2025-03-29 14:58:35.809 [StartupProfiler] Assembly loaded: System.Text.Encoding | Elapsed: 1393ms | Delta: 0ms
+2025-03-29 14:58:35.810 [StartupProfiler] Assembly loaded: System.Runtime.InteropServices.RuntimeInformation | Elapsed: 1394ms | Delta: 1ms
+2025-03-29 14:58:35.812 [StartupProfiler] Assembly loaded: System.Runtime.Extensions | Elapsed: 1397ms | Delta: 3ms
+2025-03-29 14:58:35.814 [StartupProfiler] Assembly loaded: System.Security.Cryptography.Algorithms | Elapsed: 1399ms | Delta: 2ms
+2025-03-29 14:58:35.814 [StartupProfiler] Assembly loaded: System.Security.Cryptography.Primitives | Elapsed: 1399ms | Delta: 0ms
+2025-03-29 14:58:35.815 [StartupProfiler] Assembly loaded: System.IO.FileSystem | Elapsed: 1400ms | Delta: 1ms   (1.1s)
+2025-03-29 14:58:35.889 [StartupProfiler] Assembly loaded: System.Text.Encodings.Web | Elapsed: 1474ms | Delta: 74ms
+2025-03-29 14:58:35.889 [StartupProfiler] Assembly loaded: System.Runtime.Intrinsics | Elapsed: 1474ms | Delta: 0ms
+2025-03-29 14:58:36.714 [StartupProfiler] Assembly loaded: System.Diagnostics.TraceSource | Elapsed: 2299ms | Delta: 810ms
+2025-03-29 14:58:37.184 [StartupProfiler] Periodic checkpoint | Elapsed: 5009ms | Delta: 4963ms
+2025-03-29 14:58:42.186 [StartupProfiler] Periodic checkpoint | Elapsed: 10011ms | Delta: 5002ms
+2025-03-29 14:58:47.184 [StartupProfiler] Periodic checkpoint | Elapsed: 15009ms | Delta: 4998ms
+2025-03-29 14:58:52.184 [StartupProfiler] Periodic checkpoint | Elapsed: 20009ms | Delta: 5000ms
+2025-03-29 14:58:57.186 [StartupProfiler] Periodic checkpoint | Elapsed: 25011ms | Delta: 5002ms
+2025-03-29 14:59:02.185 [StartupProfiler] Periodic checkpoint | Elapsed: 30010ms | Delta: 4999ms
+2025-03-29 14:59:07.186 [StartupProfiler] Periodic checkpoint | Elapsed: 35011ms | Delta: 5001ms
+2025-03-29 14:59:12.189 [StartupProfiler] Periodic checkpoint | Elapsed: 40014ms | Delta: 5003ms
+2025-03-29 14:59:17.203 [StartupProfiler] Periodic checkpoint | Elapsed: 45028ms | Delta: 5014ms
+2025-03-29 14:59:22.190 [StartupProfiler] Periodic checkpoint | Elapsed: 50015ms | Delta: 4987ms
+2025-03-29 14:59:22.222 [StartupProfiler] Assembly loaded: System.IO.Pipes | Elapsed: 47807ms | Delta: 45508ms
+2025-03-29 14:59:22.249 [StartupProfiler] StartupHook.Initialize | Elapsed: 0ms | Delta: 0ms
+2025-03-29 14:59:22.259 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Watch.BrowserRefresh | Elapsed: 11ms | Delta: 11ms
+2025-03-29 14:59:22.260 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Hosting | Elapsed: 12ms | Delta: 1ms
+2025-03-29 14:59:22.260 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Hosting.Abstractions | Elapsed: 12ms | Delta: 0ms
+2025-03-29 14:59:22.260 [StartupProfiler] Periodic checkpoint | Elapsed: 12ms | Delta: 0ms
+2025-03-29 14:59:22.261 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Logging.Abstractions | Elapsed: 12ms | Delta: 0ms
+2025-03-29 14:59:22.261 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Hosting.Abstractions | Elapsed: 12ms | Delta: 0ms
+2025-03-29 14:59:22.261 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore | Elapsed: 13ms | Delta: 1ms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+** 2025-03-29 14:59:22 - Starting Application **
+
+2025-03-29 14:59:22.261 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Configuration.Abstractions | Elapsed: 13ms | Delta: 0ms
+2025-03-29 14:59:22.261 [StartupProfiler] Assembly loaded: Microsoft.Extensions.DependencyInjection.Abstractions | Elapsed: 13ms | Delta: 0ms
+2025-03-29 14:59:22.262 [StartupProfiler] Assembly loaded: Microsoft.Extensions.DependencyInjection | Elapsed: 13ms | Delta: 0ms
+2025-03-29 14:59:22.262 [StartupProfiler] Assembly loaded: System.ComponentModel | Elapsed: 13ms | Delta: 0ms
+2025-03-29 14:59:22.263 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Hosting | Elapsed: 15ms | Delta: 2ms
+2025-03-29 14:59:22.263 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Configuration | Elapsed: 15ms | Delta: 0ms
+2025-03-29 14:59:22.263 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Configuration.EnvironmentVariables | Elapsed: 15ms | Delta: 0ms
+2025-03-29 14:59:22.264 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Primitives | Elapsed: 15ms | Delta: 0ms
+2025-03-29 14:59:22.264 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Server.Kestrel.Core | Elapsed: 16ms | Delta: 1ms
+2025-03-29 14:59:22.265 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Server.Kestrel | Elapsed: 16ms | Delta: 0ms
+2025-03-29 14:59:22.265 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Server.Kestrel.Transport.Quic | Elapsed: 16ms | Delta: 0ms
+2025-03-29 14:59:22.265 [StartupProfiler] Assembly loaded: System.Net.Quic | Elapsed: 17ms | Delta: 1ms
+2025-03-29 14:59:22.265 [StartupProfiler] Assembly loaded: System.Net.Sockets | Elapsed: 17ms | Delta: 0ms
+2025-03-29 14:59:22.265 [StartupProfiler] Assembly loaded: System.Net.Primitives | Elapsed: 17ms | Delta: 0ms
+2025-03-29 14:59:22.266 [StartupProfiler] Assembly loaded: System.Diagnostics.Tracing | Elapsed: 17ms | Delta: 0ms
+2025-03-29 14:59:22.267 [StartupProfiler] Assembly loaded: System.Diagnostics.DiagnosticSource | Elapsed: 19ms | Delta: 2ms
+2025-03-29 14:59:22.273 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Server.IIS | Elapsed: 24ms | Delta: 5ms
+2025-03-29 14:59:22.273 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Server.IISIntegration | Elapsed: 24ms | Delta: 0ms
+2025-03-29 14:59:22.273 [StartupProfiler] Assembly loaded: System.Security.Cryptography | Elapsed: 25ms | Delta: 1ms
+2025-03-29 14:59:22.274 [StartupProfiler] Assembly loaded: Microsoft.Extensions.FileProviders.Abstractions | Elapsed: 26ms | Delta: 1ms
+2025-03-29 14:59:22.274 [StartupProfiler] Assembly loaded: Microsoft.Extensions.FileProviders.Physical | Elapsed: 26ms | Delta: 0ms
+2025-03-29 14:59:22.275 [StartupProfiler] Assembly loaded: System.Linq | Elapsed: 26ms | Delta: 0ms
+2025-03-29 14:59:22.275 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Mvc.Core | Elapsed: 27ms | Delta: 1ms
+2025-03-29 14:59:22.276 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Http.Abstractions | Elapsed: 27ms | Delta: 0ms
+2025-03-29 14:59:22.276 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Configuration.FileExtensions | Elapsed: 28ms | Delta: 1ms
+2025-03-29 14:59:22.276 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Configuration.Binder | Elapsed: 28ms | Delta: 0ms
+2025-03-29 14:59:22.277 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Configuration.Json | Elapsed: 28ms | Delta: 0ms
+2025-03-29 14:59:22.277 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Configuration.UserSecrets | Elapsed: 29ms | Delta: 1ms
+2025-03-29 14:59:22.278 [StartupProfiler] Assembly loaded: System.IO.FileSystem.Watcher | Elapsed: 30ms | Delta: 1ms
+2025-03-29 14:59:22.278 [StartupProfiler] Assembly loaded: System.ComponentModel.Primitives | Elapsed: 30ms | Delta: 0ms
+2025-03-29 14:59:22.279 [StartupProfiler] Assembly loaded: System.Collections.Concurrent | Elapsed: 30ms | Delta: 0ms
+2025-03-29 14:59:22.582 [StartupProfiler] Assembly loaded: System.Threading.Thread | Elapsed: 334ms | Delta: 304ms
+2025-03-29 14:59:22.583 [StartupProfiler] Assembly loaded: System.Text.Json | Elapsed: 335ms | Delta: 1ms
+2025-03-29 14:59:22.584 [StartupProfiler] Assembly loaded: System.Text.Encoding.Extensions | Elapsed: 336ms | Delta: 1ms
+2025-03-29 14:59:22.587 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Options | Elapsed: 339ms | Delta: 3ms
+2025-03-29 14:59:22.587 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Logging | Elapsed: 339ms | Delta: 0ms
+2025-03-29 14:59:22.588 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Diagnostics | Elapsed: 339ms | Delta: 0ms
+2025-03-29 14:59:22.588 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Diagnostics.Abstractions | Elapsed: 340ms | Delta: 1ms
+2025-03-29 14:59:22.588 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Logging.Configuration | Elapsed: 340ms | Delta: 0ms
+2025-03-29 14:59:22.588 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Options.ConfigurationExtensions | Elapsed: 340ms | Delta: 0ms
+2025-03-29 14:59:22.589 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Logging.Console | Elapsed: 340ms | Delta: 0ms
+2025-03-29 14:59:22.589 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Logging.Debug | Elapsed: 341ms | Delta: 1ms
+2025-03-29 14:59:22.589 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Logging.EventSource | Elapsed: 341ms | Delta: 0ms
+2025-03-29 14:59:22.590 [StartupProfiler] Assembly loaded: Microsoft.Extensions.Features | Elapsed: 342ms | Delta: 1ms
+2025-03-29 14:59:22.590 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Http | Elapsed: 342ms | Delta: 0ms
+2025-03-29 14:59:22.590 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Connections.Abstractions | Elapsed: 342ms | Delta: 0ms
+2025-03-29 14:59:22.591 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets | Elapsed: 342ms | Delta: 0ms
+2025-03-29 14:59:22.591 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Hosting.Server.Abstractions | Elapsed: 342ms | Delta: 0ms
+2025-03-29 14:59:22.591 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.HostFiltering | Elapsed: 343ms | Delta: 1ms
+2025-03-29 14:59:22.591 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.HttpOverrides | Elapsed: 343ms | Delta: 0ms
+2025-03-29 14:59:22.591 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Routing | Elapsed: 343ms | Delta: 0ms
+2025-03-29 14:59:22.592 [StartupProfiler] Assembly loaded: Microsoft.AspNetCore.Routing.Abstractions | Elapsed: 343ms | Delta: 0ms
+2025-03-29 14:59:22.592 [StartupProfiler] Assembly loaded: Microsoft.Extensions.ObjectPool | Elapsed: 344ms | Delta: 1ms
+2025-03-29 14:59:22.592 [StartupProfiler] Assembly loaded: System.ObjectModel | Elapsed: 344ms | Delta: 0ms
+2025-03-29 14:59:22 - [trace] : Startup()
+------------------- config and environment -------------------
+2025-03-29 14:59:22.600 [StartupProfiler] Assembly loaded: System.Numerics.Vectors | Elapsed: 352ms | Delta: 8ms

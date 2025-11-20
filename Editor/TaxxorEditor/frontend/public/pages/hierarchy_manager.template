@@ -1,0 +1,464 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		[page-head-content]
+	</head>
+	<body class="page_[pageid] sitetype_[sitetype] system-page no-skin projectstatus_[projectstatus]">
+		[page-body-start]
+
+		<div class="main-container">
+			[page-maincolumn-start]
+			<div class="page-header">
+				<h1>Hierarchy Manager <small>[document-name]</small></h1>
+			</div>
+			<div class="row">
+				<div class="col-md-10">
+					[cms-hierarchy-manager-body]
+				</div>
+                <div class="col-md-2">
+                    <!--.-->
+                </div>
+			</div>
+			[page-maincolumn-end]
+		</div>
+
+        [page-body-end]
+        
+        <div aria-labelledby="sectionCreateLabel" role="dialog" tabindex="-1" id="modal_create-section" class="modal fade bs-example-modal-lg">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button data-dismiss="modal" class="close" type="button">
+                    <span>×</span>
+                    <span class="sr-only">Close</span>
+                  </button>
+                  <h4 id="sectionCreateLabel" class="modal-title">New section</h4>
+                </div>
+                <div class="modal-body">
+                  <div style="display: block" class="content">
+                    <form class="properties-hierarchyitem">
+                        <div class="form-group section-id">
+                            <label for="input-section-title">Section id</label>
+                            <input type="text" class="form-control" id="input-section-id" placeholder="ID for the new section" disabled="disabled"/>
+                          </div>                        
+                        <div class="form-group section-title">
+                          <label for="input-section-title-newsection">Section title</label>
+                          <input type="text" class="form-control" id="input-section-title-newsection" placeholder="Title for the new section"/>
+                        </div>
+                        <div class="form-group webpage-path">
+                            <label for="input-webpage-path-newsection">Webpage path</label>
+                            <input type="text" class="form-control" id="input-webpage-path-newsection" placeholder="URL path for the web page"/>
+                        </div>
+                    </form>
+                  </div>
+                  <div style="display: none" class="spinner">
+                    <p>Creating new section on the server...</p>
+                  </div>
+                  <div style="display: none" class="error">
+                    <div class="alert alert-danger">
+                        An error has occured while creating your new section, please contact the administrator.
+                    </div>
+                  </div>
+                  <div style="display: none" class="success">
+                    <h5>Successfully created new section</h5>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button data-dismiss="modal" class="btn btn-default" type="button">Discard</button>
+                  <button class="btn btn-primary btn-info button-execute" type="button">Create</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div aria-labelledby="sectionDeleteLabel" role="dialog" tabindex="-1" id="modal_delete-sections" class="modal fade bs-example-modal-lg">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button onclick="setStandardModalDialogState('modal_delete-sections', 'content');" data-dismiss="modal" class="close" type="button">
+                    <span>×</span>
+                    <span class="sr-only">Close</span>
+                  </button>
+                  <h4 id="sectionDeleteLabel" class="modal-title">Delete sections</h4>
+                </div>
+                <div class="modal-body">
+                  <div style="display: block" class="content">
+                    
+                  </div>
+                  <div style="display: none" class="spinner">
+                    <p>Removing section(s)...</p>
+                  </div>
+                  <div style="display: none" class="error">
+                    <div class="alert alert-danger">
+                        An error has occured while removing your sections, please contact the administrator.
+                    </div>
+                  </div>
+                  <div style="display: none" class="success">
+                    <h4>Successfully removed section(s)</h4>
+                  </div>
+                </div>
+                <!--
+                <div class="modal-footer">
+                  <button onclick="setStandardModalDialogState('modal_delete-sections', 'content');" data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                  <button class="btn btn-primary button-execute" type="button">Delete sections</button>
+                </div>
+                -->
+              </div>
+            </div>
+        </div>
+
+        <!-- Modal Section Details -->
+        <div aria-labelledby="sectionDetailsLabel" role="dialog" tabindex="-1" id="modal_section-details" class="modal fade bs-example-modal-lg">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title" id="sectionDetailsLabel"><span class="item-linkname">..</span> - item details</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="content" style="display: block">
+                    <div>
+
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab">Properties</a></li>
+                        <li role="presentation"><a href="#workflow" aria-controls="reportingrequirements" role="tab" data-toggle="tab">Status</a></li>
+                        <li role="presentation"><a href="#reportingrequirements" aria-controls="reportingrequirements" role="tab" data-toggle="tab">XBRL</a></li>
+                        <li role="presentation"><a href="#tools" aria-controls="tools" role="tab" data-toggle="tab">Tools</a></li>
+                        [translationtoolshidestart]
+                        <li role="presentation"><a href="#translationutils" aria-controls="translationutils" role="tab" data-toggle="tab">Translation utilities</a></li>
+                        [translationtoolshideend]
+                      </ul>
+                    
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+
+                        <!-- Properties panel -->
+                        <div role="tabpanel" class="tab-pane active" id="properties">
+                          <form class="properties-hierarchyitem" id="properties-hierarchyitem">                
+                            <div class="form-group section-title">
+                              <label for="input-section-title">Section title</label>
+                              <input type="text" class="form-control" id="input-section-title" placeholder="Title for the new section"/>
+                            </div>
+                            <div class="form-group webpage-path">
+                                <label for="input-webpage-path">Webpage path</label>
+                                <input type="text" class="form-control" id="input-webpage-path" placeholder="URL path for the web page"/>
+                            </div>
+                          </form>
+
+                          <hr class="properties-hierarchyitem"/>
+
+
+                          <form class="properties-section">
+                            <div class="section-tocproperties">
+                                <table class="tocproperties">
+                                    <tr>
+                                        <td class="first-column">
+                                            <label>TOC properties:</label>
+                                        </td>
+                                        <td class="form-inline">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" id="input-tocstart" /> Start
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"  id="input-tocend" /> End
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="select-tocstyle" class="label-normal">Style: </label>
+                                                <select name="tocstyle" id="select-tocstyle" class="select-tocstyle form-control input-sm">
+                                                    <option value="none">-- Select style --</option>
+                                                    <option value="default">1, 1.1, 1.1.1</option>
+                                                    <option value="notes123">Note 1, Note 2, Note 3</option>
+                                                    <option value="notesabc">Note a, Note b, Note c</option>
+                                                    <option value="nonumbering">No numbering</option>
+                                                </select>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" id="input-hidefromtoc" /> Hide from ToC
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                          </form>
+                        </div>
+
+                        <!-- Workflow Status -->
+                        <div role="tabpanel" class="tab-pane" id="workflow">
+                            <div class="workflow-wrapper">
+                                <h5>Content status</h5>
+                                <table class="table table-condensed workflow-controls">
+                                  <tr>
+                                      <td width="40%">
+                                        <select class="input-sm form-control" id="select-contentstatus">
+                                            <option value="notset">-- not set --</option>
+                                            <option value="inprogress">In progress</option>
+                                            <option value="completed">Completed</option>
+                                        </select>
+                                      </td>
+                                      <td width="45%">
+                                          <div class="checkbox">
+                                              <label>
+                                                  <input id="input-contentstatus-includechildren" type="checkbox" class="childsections" data-defaultchecked="false"/> Include child sections
+                                              </label>
+                                          </div>
+                                      </td>
+                                      <td width="15%">
+                                        <div class="pull-right">
+                                          <button id="btn-store-contentstatus" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-floppy-disk"> </span> Set status</button>
+                                        </div>
+                                      </td>
+                                  </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- XBRL -->
+                        <div role="tabpanel" class="tab-pane" id="reportingrequirements">
+                          <form class="properties-section">
+                            <div class="section-reportingrequirements">
+                                <table class="reporting-requirements">
+                                    <tr>
+                                        <td>
+                                            <label>Reporting requirements:</label>
+                                        </td>
+                                        <td>
+                                            [reporting-requirements-form-fields]
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                      <td><!--.--></td>
+                                      <td class="checkbox tools">
+                                        <button id="btn-setmetadata-includechildren" type="button" class="btn btn-primary btn-sm childsections"><span class="glyphicon glyphicon-check"> </span> Set child sections</button> <small>(Apply the reporting requirement setting to all child sections)</small>
+                                      </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                          </form>
+                        </div>
+
+                        <!-- Tools Panel -->
+                        <div role="tabpanel" class="tab-pane" id="tools">
+                          <div class="datasynchronozation-wrapper">
+                            <h5>Data synchronization</h5>
+                            <table class="table table-condensed">
+                              <tr>
+                                  <td width="40%"><label for="btn-start-sdesync">Structured data</label></td>
+                                  <td width="45%">
+                                      <div class="checkbox">
+                                          <label>
+                                              <input id="input-sdesync-includechildren" type="checkbox" class="childsections" data-defaultchecked="false"/> Include child sections
+                                          </label>
+                                      </div>
+                                  </td>
+                                  <td width="15%">
+                                    <div class="pull-right">
+                                      <button id="btn-start-sdesync" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"> </span> Sync</button>
+                                    </div>
+                                  </td>
+                              </tr>
+                            </table>
+                          </div>
+
+                          <div class="clone-section">
+                            <h5>Clone section</h5>
+                            <table class="table table-condensed">
+                              <thead>
+                                  <tr>
+                                      <th width="40%">Section name</th>
+                                      <th width="45%">Options</th>
+                                      <th width="15%"></th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>
+                                          <input type="text" class="form-control" name="input-clonedsectionname" id="input-clonedsectionname"/>
+                                      </td>
+                                      <td>
+                                          <div class="checkbox">
+                                              <label>
+                                                  <input id="input-sectionclone-includesdes" type="checkbox" checked="checked"/> Clone SDE's
+                                              </label>
+                                              <label>
+                                                <input id="input-sectionclone-includechildren" type="checkbox" checked="checked" class="childsections" data-defaultchecked="true"/> Include child sections
+                                            </label>
+                                          </div>
+                                          <a class="advanced-tool-toggle" href="javascript:showHideAdvancedToolOptions()">Show advanced options</a>
+                                          <div class="advanced-tools">
+                                            <div class="mapping-searchreplace">
+                                              <input type="text" class="form-control" id="input-mapping-search" placeholder="Search in ERP mapping"/>
+                                              <br/>
+                                              <input type="text" class="form-control" id="input-mapping-replace" placeholder="Replace in ERP mapping"/>
+                                            </div>
+                                          </div>
+                                      </td>
+                                      <td>
+                                          <div class="pull-right">
+                                            <button id="btn-clone-section" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-duplicate"> </span> Clone</button>
+                                          </div>
+                                      </td>
+                                  </tr>
+                              </tbody>
+                            </table>
+                          </div>
+
+                          <div class="import-exporthierarchy-wrapper [class-showhideimporthierarchy]">
+                            <h5>Import hierarchy</h5>
+                            <table class="table table-condensed">
+                              <tr>
+                                  <td width="40%"><label for="btn-start-hierarchtimport">Source hierarchy</label></td>
+                                  <td width="45%">
+                                    <select class="form-control" id="select-sourcehierarchy">
+                                      
+                                    </select>
+                                  </td>
+                                  <td width="15%">
+                                    <div class="pull-right">
+                                      <button id="btn-start-hierarchtimport" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-import"> </span> Import</button>
+                                    </div>
+                                  </td>
+                              </tr>
+                            </table>
+                          </div>
+
+                        </div>
+
+                        <!-- Translation Utilities -->
+                        [translationtoolshidestart]
+                        <div role="tabpanel" class="tab-pane" id="translationutils">
+                          
+                          <div class="import-export-wrapper">
+                            <h5>Import and export content</h5>
+                            <p>Selected section: &quot;<span class="section-title">.</span>&quot; <small>(id: <span class="section-id">.</span>)</small></p> 
+                            <table class="table table-condensed">
+                                <tr>
+                                    <td width="40%"><label for="btn-start-content-export">Export section content</label></td>
+                                    <td width="45%">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input id="input-export-includechildren" disabled="disabled" type="checkbox" class="childsections" data-defaultchecked="true"> Include child sections
+                                                <br/>
+                                                <input id="input-export-removebrokenlinks" type="checkbox" class="removebrokenlinks" data-defaultchecked="true"> Remove broken links
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td width="15%">
+                                      <div class="pull-right">
+                                        <button id="btn-start-content-export" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-export"> </span> Export</button>
+                                      </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="btn-start-content-import">Import section content</label></td>
+                                    <td>
+                                        <input type="file" id="input-content-import" />
+                                        <p class="help-block">Browse to the file you like to import.</p>
+                                    </td>
+                                    <td>
+                                      <div class="pull-right">
+                                        <button id="btn-start-content-import" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-import"> </span> Import</button>
+                                      </div>
+                                    </td>
+                                </tr>
+                            </table>
+                          </div>
+                          <div class="clone-content [class-showhidelanguageclone]">
+                            <h5>Clone content to another language</h5>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th width="20%">Source language</th>
+                                        <th width="20%">Target language</th>
+                                        <th width="45%">Options</th>
+                                        <th width="15%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <select class="form-control" id="sourcelanguage">
+                                                [clone-sourcelang]
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="targetlanguage">
+                                                [clone-targetlang]
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input id="input-langclone-includechildren" type="checkbox" class="childsections" data-defaultchecked="true"> Include child sections
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="pull-right">
+                                              <button id="btn-clone-content" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-duplicate"> </span> Clone</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        [translationtoolshideend]
+
+                      </div>
+                    
+                    </div>
+                  </div>
+                  <div class="spinner" style="display: none">
+                      <div class="loading-icon-wrapper"><!-- . --></div>
+                      <div class="progress-label">...</div>
+                      <p>Progress:</p>
+                      <div class="process-progress">
+                        <pre></pre>
+                      </div>
+                  </div>
+                  <div class="error" style="display: none">
+                      <div class="alert alert-danger">
+                        <div class="message">...</div>
+                        <p>Details:</p>
+                        <div class="error-log">
+                            <pre></pre>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="success" style="display: none">
+                      <div class="alert alert-success">
+                        <div class="message">...</div>
+                        <div class="download-panel">
+                          <button class="btn btn-xs btn-primary download-package">
+                              <i class="glyphicon glyphicon-download "></i>
+                              Download
+                          </button>
+                        </div>
+                        <div class="controls-log">
+                          <a href="javascript:showHideSectionDetailSuccessLog()">show log</a>
+                        </div>
+                        <div class="success-log">
+                            <pre></pre>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <small>(id: <span class="section-id">.</span>, ref: <span class="section-ref">.</span>)</small>
+                  <button data-dismiss="modal" class="btn btn-default" type="button">Done</button>
+                  
+                </div>
+            </div>
+          </div>
+        </div>
+
+	</body>
+</html>

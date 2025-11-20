@@ -1,0 +1,43 @@
+<data>
+  <system>
+    <date_created>2018-10-12T15:22:44.901676+02:00</date_created>
+    <date_modified>2019-02-22T14:31:01.0744535+00:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="front-cover" data-guid="front-cover" data-last-modified="2019-01-16T14:37:58.7976229+00:00" data-description="front-cover" data-outputchannel="AR" data-articletype="regular" class="" modified-by="anna.szafnicka@philips.com">
+      <div class="pageblock cover" data-type="one-column">
+        <section class="content" data-name="cover-content">
+          <div data-type="rtf-arcover" class="pageblock arcover">
+            <div class="coverpage-image">
+              <img src="/dataserviceassets/{projectid}/images/blue_cover_portrait.jpg" />
+              <img src="/dataserviceassets/{projectid}/images/cover-book.jpg" />
+            </div>
+            <h1>Annual Report 20xx</h1>
+            <h2>Innovating to address global health challenges</h2>
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+  <content lang="zh">
+    <article id="front-cover" data-guid="front-cover" data-last-modified="2019-02-22T14:31:01.0744535+00:00" data-description="front-cover" data-outputchannel="AR" data-articletype="regular" class="" modified-by="kenneth.gilbert@philips.com">
+      <div class="pageblock cover" data-type="one-column">
+        <section class="content" data-name="cover-content">
+          <div class="pageblock arcover" data-type="rtf-arcover">
+            <div class="coverpage-image">
+              <img src="/dataserviceassets/{siteid}/images/cover-book.jpg" alt="Philips Annual Report PDF cover page image" />
+            </div>
+            <div class="shape-content">
+              <div class="shape-title">20xx年报精简版</div>
+              <div class="shape-subtitle">财务、社会及环境绩效</div>
+            </div>
+            <div class="cover-content">
+              <div class="cover-title">推动创新，变革医疗</div>
+              <div class="cover-caption">皇家飞利浦集团</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

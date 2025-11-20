@@ -1,0 +1,128 @@
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using Taxxor.Project;
+using System.Xml;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
+using System;
+using DocumentStore.Controllers;
+
+namespace DocumentStore.Controllers
+{
+    [ApiController]
+    [Route("v2api/taxxoreditor/filemanagement")]
+    public class FileManagementController : ControllerBase
+    {
+        [HttpGet("exists")]
+        public async Task<IActionResult> FileExists([FromQuery] string locationid, [FromQuery] string path, [FromQuery] string relativeto)
+        {
+            // Access the current HTTP Context
+            var context = System.Web.Context.Current;
+            var reqVars = Framework.RetrieveRequestVariables(context);
+            var projectVars = ProjectLogic.RetrieveProjectVariables(context);
+            
+            // Call the core logic method directly
+            var result = await ProjectLogic.FileExistsCore(locationid, path, relativeto, reqVars);
+            
+            // Return the response
+            if (result.Success)
+            {
+                return Ok(result.Result);
+            }
+            else
+            {
+                return StatusCode(result.StatusCode, new { error = result.ErrorMessage, details = result.DebugInfo });
+            }
+        }
+        
+        [HttpGet("contents")]
+        public async Task<IActionResult> GetFileContents([FromQuery] string locationid, [FromQuery] string path, [FromQuery] string relativeto)
+        {
+            // Access the current HTTP Context
+            var context = System.Web.Context.Current;
+            var reqVars = Framework.RetrieveRequestVariables(context);
+            var projectVars = ProjectLogic.RetrieveProjectVariables(context);
+            
+            // Call the core logic method directly
+            var result = await ProjectLogic.RetrieveFileContentsCore(locationid, path, relativeto, projectVars, reqVars);
+            
+            // Return the response
+            if (result.Success)
+            {
+                return Ok(result.Result);
+            }
+            else
+            {
+                return StatusCode(result.StatusCode, new { error = result.ErrorMessage, details = result.DebugInfo });
+            }
+        }
+        
+        [HttpDelete("directory")]
+        public async Task<IActionResult> DeleteDirectory([FromQuery] string locationid, [FromQuery] string directorypath, [FromQuery] string relativeto, [FromQuery] bool leaverootfolder = false)
+        {
+            // Access the current HTTP Context
+            var context = System.Web.Context.Current;
+            var reqVars = Framework.RetrieveRequestVariables(context);
+            
+            // Use the existing implementation logic
+            var response = new MockHttpResponse(Response);
+            var routeData = new Microsoft.AspNetCore.Routing.RouteData();
+            await ProjectLogic.DelTree(Request, response, routeData);
+            
+            return new EmptyResult(); // Response already sent
+        }
+        
+        [HttpGet("directorycontents")]
+        public async Task<IActionResult> GetDirectoryContents([FromQuery] string locationid, [FromQuery] string path, [FromQuery] string relativeto)
+        {
+            // Access the current HTTP Context
+            var context = System.Web.Context.Current;
+            var reqVars = Framework.RetrieveRequestVariables(context);
+            
+            // Use the existing implementation logic
+            var response = new MockHttpResponse(Response);
+            var routeData = new Microsoft.AspNetCore.Routing.RouteData();
+            await ProjectLogic.DirectoryContents(Request, response, routeData);
+            
+            return new EmptyResult(); // Response already sent
+        }
+        
+        [HttpGet("properties")]
+        public async Task<IActionResult> GetFileProperties([FromQuery] string locationid, [FromQuery] string path, [FromQuery] string relativeto)
+        {
+            // Access the current HTTP Context
+            var context = System.Web.Context.Current;
+            var reqVars = Framework.RetrieveRequestVariables(context);
+            
+            // Use the existing implementation logic
+            var response = new MockHttpResponse(Response);
+            var routeData = new Microsoft.AspNetCore.Routing.RouteData();
+            await ProjectLogic.FileProperties(Request, response, routeData);
+            
+            return new EmptyResult(); // Response already sent
+        }
+        
+        [HttpPost("copydirectory")]
+        public async Task<IActionResult> CopyDirectory(
+            [FromQuery] string sourcelocationid, 
+            [FromQuery] string sourcepath, 
+            [FromQuery] string sourcerelativeto,
+            [FromQuery] string targetlocationid, 
+            [FromQuery] string targetpath, 
+            [FromQuery] string targetrelativeto,
+            [FromQuery] bool overridetargetfiles = false,
+            [FromQuery] bool createtargetdirectory = false)
+        {
+            // Access the current HTTP Context
+            var context = System.Web.Context.Current;
+            var reqVars = Framework.RetrieveRequestVariables(context);
+            
+            // Use the existing implementation logic
+            var response = new MockHttpResponse(Response);
+            var routeData = new Microsoft.AspNetCore.Routing.RouteData();
+            await ProjectLogic.CopyDirectory(Request, response, routeData);
+            
+            return new EmptyResult(); // Response already sent
+        }
+    }
+}

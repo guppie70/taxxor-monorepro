@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    [page-head-content]
+    
+
+    <!-- PDF Layout stylesheet -->
+    <style type="text/css">
+    iframe#iframepdfhtml
+    {
+        overflow: auto;
+        margin: 0px; 
+        padding: 0px;  
+        border: none;
+        display: block; 
+        width: 100%; 
+        border: none; 
+        overflow-y: auto; 
+        overflow-x: hidden;
+    }
+    </style>
+
+
+    <script type="text/javascript">
+      var projectId = '[projectid]';
+      var firstEditableSectionId = '[id-first-editable]';
+      var ownIp = '[own-ip]';
+    </script>
+
+    <!--
+    <script type="text/javascript" src="/scripts/default_scripts.js">//</script>
+    <script type="text/javascript" src="../scripts/previewpdf.js" type="text/javascript"></script>
+-->
+  </head>
+  <body class="page_[pageid] sitetype_[sitetype] no-skin projectstatus_[projectstatus]">
+  [page-body-start]
+
+  <div class="main-container">
+    <!-- Hide this in print layout - added to ease development and navigation -->
+    <div id="tools" class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Tools</h3>
+      </div>
+      <div class="panel-body">
+        <form class="form-inline">
+            <span id="dynamic-buttons">..</span>
+
+          <!-- Render PDF -->
+          <a class="btn btn-default" id="btn-renderpdf" href="#">Render PDF</a>
+          <a class="btn btn-default" id="btn-rendermsword" href="#">Render MS Word</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          [outputchannel-links]
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="input-group col-xs-1">
+            <span class="input-group-addon" id="basic-addon1">Base</span>
+            <input id="version-base" type="text" class="form-control" placeholder="Base version for diff" aria-describedby="basic-addon1" value="v0.0"/>
+          </div>
+          <div class="input-group col-xs-1">
+            <span class="input-group-addon" id="basic-addon2">Latest</span>
+            <input id="version-latest" type="text" class="form-control" placeholder="Latest version for diff" aria-describedby="basic-addon2" value="current"/>
+          </div>
+          <button type="button" class="btn btn-default" id="btn-rendertrackchangeshtml">Show Track Changes HTML</button>
+          <button type="button" class="btn btn-default" id="btn-rendertrackchangespdf">Generate Track Changes PDF</button>
+        </form>
+      </div>
+    </div>
+
+    <iframe id="iframepdfhtml" name="iframepdfhtml" src="[uri-staticassets]/utilities/blank.htm" frameborder="0" marginheight="0" marginwidth="0" height="1000" scrolling="auto"></iframe>
+
+
+  </div>
+  
+  [page-body-end]
+  </body>
+</html>
+

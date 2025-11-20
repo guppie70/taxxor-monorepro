@@ -1,0 +1,36 @@
+<items>
+  <structured>
+    <item id="document-root" level="0" data-ref="document-root.xml">
+      <web_page>
+        <path>/</path>
+        <linkname>Press Release</linkname>
+      </web_page>
+      <sub_items>
+        <item id="6-k-standard-cover-page-blh789ds8uw3b2zy" level="1" data-ref="6-k-standard-cover-page.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>6-K Standard Cover Page</linkname>
+          </web_page>
+        </item>
+        <item id="signatures-7e56gys09v8x39mz" level="1" data-ref="signatures.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Signatures</linkname>
+          </web_page>
+        </item>
+        <item id="press-release-content-273n1pc4ixug70ie" level="1" data-ref="press-release-content.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Press Release Content</linkname>
+          </web_page>
+        </item>
+        <item id="back-cover-x59uge6t7d30872w" level="1" data-ref="back-cover.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Back cover</linkname>
+          </web_page>
+        </item>
+      </sub_items>
+    </item>
+  </structured>
+</items>

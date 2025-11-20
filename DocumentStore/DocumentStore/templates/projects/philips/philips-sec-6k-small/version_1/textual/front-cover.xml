@@ -1,0 +1,40 @@
+<data>
+  <system>
+    <date_created>2018-09-21T11:36:10.153+02:00</date_created>
+    <date_modified>2019-03-29T15:56:53.8805764+00:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="front-cover" data-guid="front-cover" data-last-modified="2019-03-29T15:56:53.8805764+00:00" data-description="front-cover" class="" modified-by="rene.van.hoek@philips.com">
+      <div class="pageblock head" data-type="one-column">
+        <section class="content" data-name="head-content">
+          <div id="header-logo">
+            <a href="http://www.philips.com/" data-link-type="external">
+              <!---->
+            </a>
+            <p class="brand-label-parent">
+              <a class="editable-link" href="http://www.philips.com/" data-link-type="external">Investor update</a>
+            </p>
+            <div class="brand-label">
+              <header>
+                <h1 class="">
+                  <a class="editable-link" href="http://www.philips.com/" id="year" title="Home" data-link-type="external">2019</a>
+                </h1>
+              </header>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="pageblock introduction" data-type="one-column">
+        <section class="content" data-name="introduction-content">
+          <h1 class="selected">Main document title <br /><br /></h1>
+          <p class="blue">
+            <sub>Amsterdam, March XX, 20XX</sub>
+          </p>
+          <ul class="intro" data-share-id="perf-highlights">
+            <li class="selected">Item 1.</li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

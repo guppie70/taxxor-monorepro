@@ -1,0 +1,48 @@
+<items>
+  <structured>
+    <item id="report-root-de" level="0" data-ref="report-root.xml">
+      <web_page>
+        <path>/</path>
+        <linkname>ESG REPORT 2022</linkname>
+      </web_page>
+      <sub_items>
+        <item id="front-cover-de" level="1" data-ref="front-cover.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Cover</linkname>
+          </web_page>
+        </item>
+        <item id="toc-de" level="1" data-ref="toc.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Contents</linkname>
+          </web_page>
+        </item>
+        <item id="company-profile-de" level="1" data-ref="company-profile.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Company Profile</linkname>
+          </web_page>
+        </item>
+        <item id="important-information-de" level="1" data-ref="important-information.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Important Information</linkname>
+          </web_page>
+        </item>
+        <item id="contact-information-de" level="1" data-ref="contact-information.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Contact information</linkname>
+          </web_page>
+        </item>
+        <item id="back-cover-de" level="1" data-ref="back-cover.xml" data-tocend="true">
+          <web_page>
+            <path>/</path>
+            <linkname>Backcover</linkname>
+          </web_page>
+        </item>
+      </sub_items>
+    </item>
+  </structured>
+</items>

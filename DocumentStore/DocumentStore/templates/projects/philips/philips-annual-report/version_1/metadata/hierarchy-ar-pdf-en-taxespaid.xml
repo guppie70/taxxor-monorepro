@@ -1,0 +1,10 @@
+<items>
+  <structured>
+    <item id="taxespaid-root" level="0" data-ref="taxespaid-root.xml">
+      <web_page>
+        <path>/</path>
+        <linkname>Taxes Paid Report</linkname>
+      </web_page>
+    </item>
+  </structured>
+</items>

@@ -1,0 +1,108 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Xml;
+
+
+namespace Taxxor.Project
+{
+
+    public abstract partial class ProjectLogic : Framework
+    {
+        public class ProjectsManager
+        {
+
+            public ProjectsManager()
+            {
+            }
+
+            public async Task<List<GrpcServices.Frontend.Editor.Project>> GetProjects(RequestVariables reqVars, ProjectVariables projectVars)
+            {
+                var debugRoutine = siteType == "local";
+
+
+                Console.WriteLine($"!!!!!!!!!!!!!\n- reqVars.currentUser.Id: {projectVars.currentUser.Id}\n{reqVars.DebugVariables()}\n!!!!!!!!!!!!!");
+
+
+                var xmlProjects = await RenderProjectOverview(projectVars, debugRoutine);
+
+                // Console.WriteLine(xmlProjects.OuterXml);
+
+                List<GrpcServices.Frontend.Editor.Project> projectList = new();
+
+                var nodeListProjectsWithAccess = xmlProjects.SelectNodes("/configuration/cms_projects/cms_project[@access='true']");
+                var projectCounter = 1;
+                foreach (XmlNode nodeProject in nodeListProjectsWithAccess)
+                {
+                    // - Create a new project object
+                    var projectId = nodeProject.GetAttribute("id");
+                    var creationDate = DateTime.ParseExact(nodeProject.SelectSingleNode("versions[1]/version[1]/date_created")?.InnerText ?? "1970-01-01 00:00:01", "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+                    var publicationDate = DateTime.Parse(nodeProject.GetAttribute("date-publication")??"1970-01-01 00:00:01");
+
+                    GrpcServices.Frontend.Editor.Project grpcProject = new()
+                    {
+                        Id = projectCounter,
+                        Status = new()
+                        {
+                            Id = 1,
+                            Name = nodeProject.SelectSingleNode("versions[1]/version[1]/status")?.InnerText ?? "unknown"
+                        },
+                        Name = nodeProject.SelectSingleNode("name").InnerText,
+                        Creationdate = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTime(DateTime.SpecifyKind(creationDate, DateTimeKind.Utc)),
+                        Publicationdate = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTime(DateTime.SpecifyKind(publicationDate, DateTimeKind.Utc)),
+                        Reporttype = new()
+                        {
+                            Id = 1,
+                            Name = nodeProject.GetAttribute("report-type") ?? "unknown",
+                        },
+                        Version = "0.0"
+                    };
+
+
+                    var nodeListOutputChannelVariants = xmlProjects.SelectNodes($"/configuration/editors/editor[@id='{RetrieveEditorIdFromProjectId(projectId)}']/output_channels/output_channel/variants/variant");
+                    foreach (XmlNode nodeOutputChannelVariant in nodeListOutputChannelVariants)
+                    {
+                        var ocVariantId = nodeOutputChannelVariant.GetAttribute("id");
+                        var ocLanguage = nodeOutputChannelVariant.GetAttribute("lang");
+                        var ocType = nodeOutputChannelVariant.ParentNode.ParentNode.GetAttribute("type");
+                        GrpcServices.Frontend.Editor.OutputChannel oc = new()
+                        {
+                            Id = 1,
+                            Name = nodeOutputChannelVariant.SelectSingleNode("name")?.InnerText ?? "unknown"
+                        };
+
+                        grpcProject.Outputchannels.Add(oc);
+                    }
+
+                    var nodeListReportingRequirements = nodeProject.SelectNodes($"reporting_requirements/reporting_requirement");
+                    if (nodeListReportingRequirements.Count > 0)
+                    {
+                        foreach (XmlNode nodeRequirement in nodeListReportingRequirements)
+                        {
+                            var outputChannelVariantId = GetAttribute(nodeRequirement, "ref-outputchannelvariant");
+                            var scheme = GetAttribute(nodeRequirement, "ref-mappingservice");
+                                var name = nodeRequirement.SelectSingleNode("name").InnerText;
+                            GrpcServices.Frontend.Editor.ReportingRequirement r1 = new()
+                            {
+                                Id = 1,
+                                Name = name
+                            };
+
+
+                            grpcProject.Reportingrequirements.Add(r1);
+                        }
+                    }
+
+                    projectList.Add(grpcProject);
+
+                    projectCounter++;
+                }
+
+                return projectList;
+            }
+        }
+    }
+
+
+
+}

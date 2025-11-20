@@ -1,0 +1,60 @@
+using Grpc.Core;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+using GrpcServices.Frontend.Editor;
+using System;
+
+using System.Reflection;
+using System.Linq;
+
+using static Framework;
+using static Taxxor.Project.ProjectLogic;
+
+namespace Taxxor.Services
+{
+    public class ProjectService : Projects.ProjectsBase
+    {
+        private readonly ILogger<ProjectService> _logger;
+        private readonly ProjectsManager _projectsManager;
+        public ProjectService(ILogger<ProjectService> logger, ProjectsManager projectsManager) => (_logger, _projectsManager) = (logger, projectsManager);
+
+        [Taxxor.Project.AuthorizeAttribute(VirtualPath = "/hub/methods/editortools")]
+        public async override Task<AllProjectsReply> GetProjects(AllProjectsRequest request, ServerCallContext context)
+        {
+            _logger.LogInformation("Getting Projects");
+
+            //
+            // => Retrieve request and project variables
+            //
+            var contextNested = System.Web.Context.Current;
+            RequestVariables reqVars = RetrieveRequestVariables(contextNested);
+            ProjectVariables projectVars = RetrieveProjectVariables(contextNested);
+
+
+            //
+            // => Handle security
+            //
+            var securityCheckResult = await HandleMethodSecurity(
+                GetType().GetMethod(MethodBase.GetCurrentMethod().GetDeclaringName()).GetCustomAttributes(true).OfType<Taxxor.Project.AuthorizeAttribute>().FirstOrDefault(),
+                reqVars,
+                projectVars
+            );
+            if (!securityCheckResult.Success)
+            {
+                appLogger.LogError(securityCheckResult.ToString());
+                return null;
+            }
+
+            SetProjectVariables(contextNested, projectVars);
+
+
+            AllProjectsReply projectsReply = new AllProjectsReply();
+            projectsReply.Projects.Add(await _projectsManager.GetProjects(reqVars, projectVars));
+            return projectsReply;
+        }
+
+    }
+
+
+}
+

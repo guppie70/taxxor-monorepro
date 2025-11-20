@@ -1,0 +1,41 @@
+<data>
+  <system>
+    <date_created>2024-02-15T19:54:01.2609752+00:00</date_created>
+    <date_modified>2024-02-16T19:43:00.5601713+00:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="exhibit-index" data-guid="exhibit-index" data-articletype="regular" data-last-modified="2024-02-16T19:43:00.5601713+00:00" data-fact-id="exhibit-index" modified-by="johan.thijs@philips.com">
+      <div class="pageblock" data-type="one-column">
+        <section class="content regular" data-name="default-content">
+          <h1>Exhibit index</h1>
+          <div class="table-wrapper c-table text" id="tablewrapper_uid1708026892637">
+            <table id="table_uid1708026892637" class="textual">
+              <thead>
+                <tr>
+                  <th style="width: 15.6552%;">Exhibit number</th>
+                  <th style="width: 84.4413%;">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 15.6552%;">99.1</td>
+                  <td style="width: 84.4413%;">
+                    <a href="PhilipsFullAnnualReport2023-English.pdf" data-secexhibitmark="true">Philips' Annual Report 2023, dated February 20, 2024</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 15.6552%;">99.2</td>
+                  <td style="width: 84.4413%;">
+                    <a href="PhilipsFullAnnualReport2023-English.pdf" data-secexhibitmark="true" data-link-type="external">“Philips publishes its Annual Report 2023”, press release dated February 20, 2024</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="tablegraph-footer-wrapper">
+            </div>
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

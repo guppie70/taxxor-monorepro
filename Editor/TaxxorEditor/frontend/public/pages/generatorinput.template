@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    [page-head-content]
+    
+
+    <!-- PDF Layout stylesheet -->
+    <style type="text/css">
+    iframe#iframehtml
+    {
+        overflow: auto;
+        margin: 0px; 
+        padding: 0px;  
+        border: none;
+        display: block; 
+        width: 100%; 
+        border: none; 
+        overflow-y: auto; 
+        overflow-x: hidden;
+    }
+    </style>
+
+  </head>
+  <body class="page_[pageid] sitetype_[sitetype] no-skin projectstatus_[projectstatus]">
+  [page-body-start]
+
+  <div class="main-container">
+    <!-- Hide this in print layout - added to ease development and navigation -->
+    <div id="tools" class="panel panel-default">
+      <form>
+        <label class="radio-inline"><input type="radio" name="outputchanneltype" id="inlineRadio1" value="pdf" checked="checked"> PDF </label> 
+        <label class="radio-inline"> <input type="radio" name="outputchanneltype" id="inlineRadio2" value="word"> MS Word </label> 
+        <label class="radio-inline"> <input type="radio" name="outputchanneltype" id="inlineRadio3" value="drawinggenerator"> Drawing Generator </label> 
+        <label class="radio-inline"> <input type="radio" name="outputchanneltype" id="inlineRadio4" value="graphgenerator"> Graph Generator </label> 
+      </form>
+    </div>
+
+    <iframe id="iframehtml" name="iframehtml" src="[uri-staticassets]/utilities/blank.htm" frameborder="0" marginheight="0" marginwidth="0" height="1000" scrolling="auto"></iframe>
+  </div>
+  
+  [page-body-end]
+  </body>
+</html>
+

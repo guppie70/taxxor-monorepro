@@ -1,0 +1,48 @@
+<data>
+  <system>
+    <date_created>2018-10-12T15:22:44.901676+02:00</date_created>
+    <date_modified>2020-02-23T21:29:19.6996326+00:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="front-cover" data-guid="front-cover" data-last-modified="2019-01-16T14:37:58.7976229+00:00" data-description="front-cover" data-outputchannel="AR" data-articletype="regular" class="" modified-by="">
+      <div class="pageblock cover" data-type="one-column">
+        <section class="content" data-name="cover-content">
+          <div class="pageblock arcover" data-type="rtf-arcover">
+            <div class="coverpage-image">
+              --place cover page image here--
+            </div>
+            <div class="shape-content">
+              <div class="shape-title">Annual Report 20xx</div>
+              <div class="shape-subtitle">Sub title of report</div>
+            </div>
+            <div class="cover-content">
+              <div class="cover-title">Title for cover page</div>
+              <div class="cover-caption">Company name</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+  <content lang="nl">
+    <article id="front-cover" data-guid="front-cover" data-last-modified="2019-01-16T14:37:58.7976229+00:00" data-description="front-cover" data-outputchannel="AR" data-articletype="regular" class="" modified-by="">
+      <div class="pageblock cover" data-type="one-column">
+        <section class="content" data-name="cover-content">
+          <div class="pageblock arcover" data-type="rtf-arcover">
+            <div class="coverpage-image">
+              --plaats de cover foto hier--
+            </div>
+            <div class="shape-content">
+              <div class="shape-title">Annual Report 20xx</div>
+              <div class="shape-subtitle">Sub title of report</div>
+            </div>
+            <div class="cover-content">
+              <div class="cover-title">Title for cover page</div>
+              <div class="cover-caption">Company name</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

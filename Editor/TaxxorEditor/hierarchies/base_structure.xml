@@ -1,0 +1,1294 @@
+<?xml version="1.0" standalone="yes"?>
+<items membertest="roles">
+    <structured>
+        <item id="cms-overview">
+            <web_page>
+                <path>/</path>
+                <linkname>Control Panel</linkname>
+            </web_page>
+            <sub_items>
+                <item id="cms_project-details">
+                    <web_page>
+                        <path>[projectroot]/index.html</path>
+                        <linkname>Project details</linkname>
+                    </web_page>
+                    <sub_items>
+                        <!-- CMS -->
+                        <item id="cms_content-editor">
+                            <web_page>
+                                <path>[projectroot]/editor.html</path>
+                                <linkname>Editor</linkname>
+                            </web_page>
+                        </item>
+                        <item id="cms_hierarchy-manager">
+                            <web_page>
+                                <path>/pages/hierarchy_manager.aspx</path>
+                                <linkname>Hierarchies</linkname>
+                            </web_page>
+                            <special_permissions>
+                                <permission id="editfilinghierarchy" />
+                            </special_permissions>
+                        </item>
+                        <item id="cms_accesscontrolmanager">
+                            <web_page>
+                                <path>/pages/accesscontrol.html</path>
+                                <linkname>Access control</linkname>
+                            </web_page>
+                            <special_permissions>
+                                <permission id="manageacl" />
+                            </special_permissions>
+                        </item>
+                        <item id="cms_auditor-view">
+                            <web_page>
+                                <path>/pages/auditor.html</path>
+                                <linkname>Auditor view</linkname>
+                            </web_page>
+                            <special_permissions>
+                                <permission id="viewauditorinformation" />
+                            </special_permissions>
+                        </item>
+                        <item id="cms_version-manager">
+                            <web_page>
+                                <path>/pages/version_manager.html</path>
+                                <linkname>Versions</linkname>
+                            </web_page>
+                            <special_permissions>
+                                <permission id="generatetrackchanges" />
+                                <permission id="viewfilingversions" />
+                            </special_permissions>
+                        </item>
+                        <item id="cms_vscode-reportdesignpackages">
+                            <web_page>
+                                <path>/pages/vscode-reportdesignpackages.html</path>
+                                <linkname>Styles</linkname>
+                            </web_page>
+                            <special_permissions>
+                                <permission id="editreportdesignpackage" />
+                            </special_permissions>
+                        </item>
+                        <item id="output_submenu">
+                            <web_page>
+                                <path>#</path>
+                                <linkname>Output</linkname>
+                            </web_page>
+                            <special_permissions>
+                                <permission id="generateoutputchannels" />
+                            </special_permissions>
+                            <sub_items>
+                                <item id="cms_publicationvariants">
+                                    <web_page>
+                                        <path>/pages/publicationvariants.html</path>
+                                        <linkname>Output generator</linkname>
+                                    </web_page>
+                                    <special_permissions>
+                                        <permission id="generateoutputchannels" />
+                                    </special_permissions>
+                                </item>
+                                <item id="cms_preview-pdfdocument" data-addseperator="true">
+                                    <web_page>
+                                        <path>[projectroot]/assets/pages/preview_pdf.html</path>
+                                        <linkname>Preview PDF document</linkname>
+                                    </web_page>
+                                    <special_permissions>
+                                        <permission id="viewdevelopertools" />
+                                    </special_permissions>
+                                </item>
+                                <item id="cms_html-styler">
+                                    <web_page>
+                                        <path>/pages/htmlstyler.html</path>
+                                        <linkname>Style HTML docs</linkname>
+                                    </web_page>
+                                    <special_permissions>
+                                        <permission id="viewdevelopertools" />
+                                    </special_permissions>
+                                </item>
+                                <item id="cms_generatorinput">
+                                    <web_page>
+                                        <path>/pages/generatorinput.html</path>
+                                        <linkname>Latest generator HTML</linkname>
+                                    </web_page>
+                                    <special_permissions>
+                                        <permission id="viewdevelopertools" />
+                                    </special_permissions>
+                                </item>
+                            </sub_items>
+                        </item>
+                        <item id="cms_development-page">
+                            <web_page>
+                                <path>/pages/devpage.html</path>
+                                <linkname>Project admin</linkname>
+                            </web_page>
+                            <special_permissions>
+                                <permission id="viewdevelopertools" />
+                            </special_permissions>
+                        </item>
+                    </sub_items>
+                </item>
+                <item id="cms_administration-page">
+                    <web_page>
+                        <path>/pages/tooladministration.html</path>
+                        <linkname>CMS admin</linkname>
+                    </web_page>
+                    <special_permissions>
+                        <permission id="viewdevelopertools" />
+                        <permission id="editreportdesignpackage" />
+                    </special_permissions>
+                </item>
+
+                <item id="cms_user-settings">
+                    <web_page>
+                        <path>#</path>
+                        <linkname>User Settings</linkname>
+                    </web_page>
+                </item>
+                <item id="cms_user-profile">
+                    <web_page>
+                        <path>#</path>
+                        <linkname>User Profile</linkname>
+                    </web_page>
+                </item>
+
+
+                <!-- API routes -->
+                <item id="apiroot" hidefromui="true">
+                    <web_page>
+                        <path>#</path>
+                        <linkname>API Root Section</linkname>
+                    </web_page>
+                    <sub_items>
+                        <!-- Internal API routes that are required by the Taxxor system -->
+                        <item id="internalservicetools">
+                            <web_page>
+                                <path>#</path>
+                                <linkname>Routes that need to be requested by internal Taxxor
+                                    services</linkname>
+                            </web_page>
+                            <sub_items>
+                                <item id="serviceinformation">
+                                    <web_page>
+                                        <path>/api/configuration/serviceinformation</path>
+                                        <linkname>Retrieve this service description XML file in
+                                            hierarchical format</linkname>
+                                    </web_page>
+                                </item>
+                            </sub_items>
+                        </item>
+
+                        <!-- System state -->
+                        <item id="systemstate">
+                            <web_page>
+                                <path>/api/taxxoreditor/systemstate</path>
+                                <linkname>Retrieves information about the status of the editor</linkname>
+                            </web_page>
+                        </item>
+
+
+                        <!-- Data load utilities -->
+                        <item id="u-cms_data-retriever">
+                            <web_page>
+                                <path>/utilities/load_data.aspx</path>
+                                <linkname>CMS - Load XML data</linkname>
+                            </web_page>
+                        </item>
+                        <item id="u-cms_config-retriever">
+                            <web_page>
+                                <path>/utilities/load_config.aspx</path>
+                                <linkname>CMS - Load XML configuration file</linkname>
+                            </web_page>
+                        </item>
+                        <item id="u-cms_schema-retriever">
+                            <web_page>
+                                <path>/utilities/load_schema.aspx</path>
+                                <linkname>CMS - Load XML schema</linkname>
+                            </web_page>
+                        </item>
+                        <item id="cms_load-cache-files">
+                            <web_page>
+                                <path>/pages/load_cache_file.aspx</path>
+                                <linkname>Version Manager - Load Generated Cache File</linkname>
+                            </web_page>
+                        </item>
+
+                        <item id="taxxoreditorcomposerdata">
+                            <web_page>
+                                <path>/api/taxxoreditor/filing/data/composer</path>
+                                <linkname>Load save and create filing composer data</linkname>
+                            </web_page>
+                        </item>
+                        <item id="taxxoreditorcomposerdataclone">
+                            <web_page>
+                                <path>/api/taxxoreditor/filing/data/clone</path>
+                                <linkname>Clone the filing composer data section(s)</linkname>
+                            </web_page>
+                        </item>
+                        <item id="taxxoreditorfilingmetadata">
+                            <web_page>
+                                <path>/api/taxxoreditor/filing/data/metadata</path>
+                                <linkname>Retrieves metadata for the filingcontent of one or more
+                                    projects</linkname>
+                            </web_page>
+                        </item>
+
+
+                        <!-- Data save utilities -->
+                        <item id="u-cms_data-saver">
+                            <web_page>
+                                <path>/utilities/save_data.aspx</path>
+                                <linkname>CMS - Save XML data</linkname>
+                            </web_page>
+                        </item>
+                        <item id="u-cms_config-saver">
+                            <web_page>
+                                <path>/utilities/save_config.aspx</path>
+                                <linkname>CMS - Save Configuration data</linkname>
+                            </web_page>
+                        </item>
+                        <!-- x-includes -->
+                        <item id="uxinclude">
+                            <web_page>
+                                <path>/utilities/x-include_retrieve-asset.aspx</path>
+                                <linkname>X-Include Asset Resolver Utility</linkname>
+                            </web_page>
+                        </item>
+                        <item id="uxinclude-snaphot">
+                            <web_page>
+                                <path>/utilities/x-include_retrieve-snapshot.aspx</path>
+                                <linkname>X-Include Snaphot Resolver Utility</linkname>
+                            </web_page>
+                        </item>
+
+                        <item id="retrieveoutputchannelinfo">
+                            <web_page>
+                                <path>/utilities/retrieve/outputchannelinfo</path>
+                                <linkname>Retrieves the outputvariant id based on the data reference
+                                    and the project id</linkname>
+                            </web_page>
+                        </item>
+
+
+                        <!-- Managing projects/filings/documents -->
+                        <item id="project">
+                            <web_page>
+                                <path>/api/projects</path>
+                                <linkname>CRUD project</linkname>
+                            </web_page>
+                        </item>
+                        <item id="cloneproject">
+                            <web_page>
+                                <path>/api/projects/clone</path>
+                                <linkname>Clone project</linkname>
+                            </web_page>
+                        </item>
+                        <item id="listprojects">
+                            <web_page>
+                                <path>/api/projects/list</path>
+                                <linkname>List projects</linkname>
+                            </web_page>
+                        </item>
+                        <item id="availablereporttypes">
+                            <web_page>
+                                <path>/api/reporttypes/available</path>
+                                <linkname>List available report types</linkname>
+                            </web_page>
+                        </item>
+                        <item id="projectproperties">
+                            <web_page>
+                                <path>/api/projects/properties</path>
+                                <linkname>CRUD project properties</linkname>
+                            </web_page>
+                        </item>
+                        <item id="projectlanguages">
+                            <web_page>
+                                <path>/api/project/languages</path>
+                                <linkname>Retrieve languages used in a project</linkname>
+                            </web_page>
+                        </item>
+
+
+                        <!-- Sync tools -->
+                        <item id="syncexternaltables">
+                            <web_page>
+                                <path>/api/sync/externaltables</path>
+                                <linkname>Sync external tables for a project</linkname>
+                            </web_page>
+                        </item>
+                        <item id="structureddataelementcachestate">
+                            <web_page>
+                                <path>/api/structureddataelements/cache/status</path>
+                                <linkname>Update the status of a Structured Data Element cache item</linkname>
+                            </web_page>
+                        </item>
+                        <item id="syncstructureddatasnapshotdataref">
+                            <web_page>
+                                <path>/api/sync/structureddata/singledataref</path>
+                                <linkname>Rebuilds the structured data cache for a single data-reference</linkname>
+                            </web_page>
+                        </item>
+                        <item id="syncstructureddatasnapshotdatastart">
+                            <web_page>
+                                <path>/api/sync/structureddata/start</path>
+                                <linkname>Starts a structured data sync process and then updates the
+                                    client via websockets</linkname>
+                            </web_page>
+                        </item>
+                        <item id="structureddataelementvalue">
+                            <web_page>
+                                <path>/api/structureddataelements/value</path>
+                                <linkname>Retrieve the value of a single structured data element</linkname>
+                            </web_page>
+                        </item>
+
+                       
+
+                        <item id="contentversion">
+                            <web_page>
+                                <path>/api/content/version</path>
+                                <linkname>Retrieves the latest version of the content</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Table Picker - Integration with the Taxxor Generic Data Connector -->
+                        <item id="tablepicker">
+                            <web_page>
+                                <path>/api/tablepicker</path>
+                                <linkname>Retrieve a single table for the table picker</linkname>
+                            </web_page>
+                        </item>
+                        <item id="sdetablepicker">
+                            <web_page>
+                                <path>/api/tablepicker/sde</path>
+                                <linkname>Preview and create SDE tables for the table picker</linkname>
+                            </web_page>
+                        </item>
+                        <item id="tablepickerlist">
+                            <web_page>
+                                <path>/api/tablepicker/list</path>
+                                <linkname>Retrieve a list of tables from the Taxxor Generic Data
+                                    Connector that a user can choose to insert in a section</linkname>
+                            </web_page>
+                        </item>
+
+
+                        <!-- Comments -->
+                        <item id="comment">
+                            <web_page>
+                                <path>/api/comments</path>
+                                <linkname>CRUD individual comments</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Footnotes -->
+                        <item id="footnote">
+                            <web_page>
+                                <path>/api/footnotes</path>
+                                <linkname>CRUD individual footnotes</linkname>
+                            </web_page>
+                        </item>
+                        <item id="listfootnotes">
+                            <web_page>
+                                <path>/api/footnotes/list</path>
+                                <linkname>List footnotes for a document</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Support -->
+                        <item id="supportemail">
+                            <web_page>
+                                <path>/api/support/email</path>
+                                <linkname>Sends an email to the Taxxor Support Helpdesk</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Output channels -->
+                        <item id="importexportsectionxml">
+                            <web_page>
+                                <path>/api/outputchannels/section/xml</path>
+                                <linkname>Converts the internal data structures to XML format that
+                                    can be used for purposes such as translation im- and export</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- pdf generator -->
+                        <item id="pdfgenerator">
+                            <web_page>
+                                <path>/api/pdfgenerator</path>
+                                <linkname>Interacts with the PDF Generator Service</linkname>
+                            </web_page>
+                        </item>
+                        <item id="pdfgeneratorsourcenormal">
+                            <web_page>
+                                <path>/api/pdfgenerator/source/normal</path>
+                                <linkname>Retrieves the HTML for the PDF Generator Service</linkname>
+                            </web_page>
+                        </item>
+                        <item id="pdfgeneratorsourcediff">
+                            <web_page>
+                                <path>/api/pdfgenerator/source/diff</path>
+                                <linkname>Retrieves the track-changes HTML for the PDF Generator
+                                    Service</linkname>
+                            </web_page>
+                        </item>
+                        <item id="pagedmediasource">
+                            <web_page>
+                                <path>/api/pagedmedia/source</path>
+                                <linkname>Retrieves the HTML that acts as the source for paged media views</linkname>
+                            </web_page>
+                        </item>
+
+
+                        <!-- Pandoc service -->
+                        <item id="mswordgenerator">
+                            <web_page>
+                                <path>/api/conversion/msword</path>
+                                <linkname>Interacts with the Pandoc Service to render an MS Word file</linkname>
+                            </web_page>
+                        </item>
+                        <item id="msexcelgenerator">
+                            <web_page>
+                                <path>/api/conversion/msexcel</path>
+                                <linkname>Interacts with the Pandoc Service to render an MS Word file</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- XBRL servive -->
+                        <item id="xbrlgenerator">
+                            <web_page>
+                                <path>/api/xbrlgenerator/ixbrl</path>
+                                <linkname>Interacts with the Taxxor XBRL Service to generate iXBRL</linkname>
+                            </web_page>
+                        </item>
+                        <item id="datalineagegenerator">
+                            <web_page>
+                                <path>/api/datalineage/generate</path>
+                                <linkname>Interacts with the Pandoc Service to render an MS Word
+                                    file</linkname>
+                            </web_page>
+                        </item>
+
+
+                        <!-- Website generator -->
+                        <item id="websitegenerator">
+                            <web_page>
+                                <path>/api/websitegenerator</path>
+                                <linkname>Renders a website package that we can serve using a webserver</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websitegeneratorexport">
+                            <web_page>
+                                <path>/api/websitegenerator/export</path>
+                                <linkname>Renders a website and exports it to a custom location</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websitegeneratoreditor">
+                            <web_page>
+                                <path>/api/websitegenerator/editor</path>
+                                <linkname>Renders a single htmlsite section to use in the editor</linkname>
+                            </web_page>
+                        </item>
+
+
+                        <!-- Version manager -->
+                        <item id="versionmanager">
+                            <web_page>
+                                <path>/api/versionmanager</path>
+                                <linkname>Interaction with the version manager</linkname>
+                            </web_page>
+                        </item>
+                        <item id="versionmanagerdownload">
+                            <web_page>
+                                <path>/api/versionmanager/download</path>
+                                <linkname>Download files generated by the version manager</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Hierarchy manager -->
+                        <item id="hierarchymanagerhierarchy">
+                            <web_page>
+                                <path>/api/hierarchymanager/hierarchy</path>
+                                <linkname>Renders or stores an hierarchical tree of an outputchannel</linkname>
+                            </web_page>
+                        </item>
+                        <item id="hierarchymanagerhierarchyitem">
+                            <web_page>
+                                <path>/api/hierarchymanager/hierarchy/item</path>
+                                <linkname>Renders or stores an element from the hierarchical tree of
+                                    an outputchannel</linkname>
+                            </web_page>
+                        </item>
+                        <item id="hierarchymanagerhierarchydeletecheck">
+                            <web_page>
+                                <path>/api/hierarchymanager/hierarchy/check/delete</path>
+                                <linkname>Renders a report predicting the result of removing a
+                                    filing section from a document</linkname>
+                            </web_page>
+                        </item>
+                        <item id="hierarchymanageroutputchanneloverview">
+                            <web_page>
+                                <path>/api/hierarchymanager/hierarchy/outputchanneloverview</path>
+                                <linkname>Renders a list of available output channels</linkname>
+                            </web_page>
+                        </item>
+                        <item id="contentlanguageclone">
+                            <web_page>
+                                <path>/api/hierarchymanager/tools/sectionlanguageclone</path>
+                                <linkname>Clones the content of one language to another</linkname>
+                            </web_page>
+                        </item>
+                        <item id="importhierarchy">
+                            <web_page>
+                                <path>/api/hierarchymanager/tools/importhierarchy</path>
+                                <linkname>Imports the hierarchy of another output channel</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Access Control -->
+                        <item id="accesscontrol">
+                            <web_page>
+                                <path>/api/accesscontrol</path>
+                                <linkname>Interfaces with the access control service to list, set
+                                    edit and remove and show access control records from the RBAC
+                                    service</linkname>
+                            </web_page>
+                        </item>
+                        <item id="accesscontrol-resource">
+                            <web_page>
+                                <path>/api/accesscontrol/resource</path>
+                                <linkname>Interfaces with the access control service to set, remove
+                                    and show resource records from the RBAC service</linkname>
+                            </web_page>
+                        </item>
+                        <item id="accesscontrol-bulk">
+                            <web_page>
+                                <path>/api/accesscontrol/bulk</path>
+                                <linkname>Bulk operations with the RBAC service</linkname>
+                            </web_page>
+                        </item>
+                        <item id="accesscontrolmanager">
+                            <web_page>
+                                <path>/api/accesscontrol/manager</path>
+                                <linkname>Access Control Manager functions</linkname>
+                            </web_page>
+                        </item>
+                        <item id="usersectioninformation">
+                            <web_page>
+                                <path>/api/accesscontrol/usersectioninformation</path>
+                                <linkname>Retrieves information about the sections for the current user</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Structured data store -->
+                        <item id="structureddatastore-root">
+                            <web_page>
+                                <path>/api/structureddatastore</path>
+                                <linkname>Retrieves the root page of the structured data store</linkname>
+                            </web_page>
+                        </item>
+                        <item id="structureddatastore-addsnapshot">
+                            <web_page>
+                                <path>/api/structureddatastore/snapshot/add</path>
+                                <linkname>Adds a snapshot to the structured database</linkname>
+                            </web_page>
+                        </item>
+                        <item id="structureddatastore-deletesnapshot">
+                            <web_page>
+                                <path>/api/structureddatastore/snapshot/delete</path>
+                                <linkname>Deletes a snapshot from the structured database</linkname>
+                            </web_page>
+                        </item>
+                        <item id="structureddatastore-documentaddsnapshot">
+                            <web_page>
+                                <path>/api/structureddatastore/document/addsnapshot</path>
+                                <linkname>Adds a snapshot to a document data set</linkname>
+                            </web_page>
+                        </item>
+                        <item id="structureddatastore-documentremovesnapshot">
+                            <web_page>
+                                <path>/api/structureddatastore/document/removesnapshot</path>
+                                <linkname>Removes a snapshot from a document data set</linkname>
+                            </web_page>
+                        </item>
+                        <item id="structureddatastore-datapickergetdatasets">
+                            <web_page>
+                                <path>/api/structureddatastore/datapicker/getdatasets</path>
+                                <linkname>Get data sets assigned to a document</linkname>
+                            </web_page>
+                        </item>
+                        <item id="structureddatastore-datapickergetitems">
+                            <web_page>
+                                <path>/api/structureddatastore/datapicker/getitems</path>
+                                <linkname>Get items of a data set</linkname>
+                            </web_page>
+                        </item>
+                        <item id="structureddatastore-datapickergetdimensions">
+                            <web_page>
+                                <path>/api/structureddatastore/datapicker/getdimensions</path>
+                                <linkname>Get dimensions of a data set</linkname>
+                            </web_page>
+                        </item>
+                        <item id="structureddatastore-datapickergetitemvalue">
+                            <web_page>
+                                <path>/api/structureddatastore/datapicker/getitemvalue</path>
+                                <linkname>Get value for a chosen item</linkname>
+                            </web_page>
+                        </item>
+                        <item id="structureddatastore-getpivotdata">
+                            <web_page>
+                                <path>/api/structureddatastore/pivottable/getdata</path>
+                                <linkname>Get dataset for pivottable</linkname>
+                            </web_page>
+                        </item>
+
+                        <item id="proxy-sandbox">
+                            <web_page>
+                                <path>/api/proxy/sandbox</path>
+                                <linkname>Test routes for the build-in reverse proxy</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Proxy routes -->
+                        <item id="proxystructureddatastore">
+                            <web_page>
+                                <path>/proxy/structureddatastore/**/*</path>
+                                <linkname>Proxy routes to the Taxxor Structured Data Store</linkname>
+                            </web_page>
+                        </item>
+                        <item id="proxymappingservice">
+                            <web_page>
+                                <path>/proxy/mappingservice/**/*</path>
+                                <linkname>Proxy routes in the Taxxor Mapping Service</linkname>
+                            </web_page>
+                        </item>
+
+                        <item id="grpcprojects">
+                            <web_page>
+                                <path>/projects.Projects/**/*</path>
+                                <linkname>Proxy routes in the Taxxor Mapping Service</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- outputchannel templates -->
+                        <item id="templates">
+                            <web_page>
+                                <path>/outputchannels/**/*</path>
+                                <linkname>Outputchannel templates</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Filemanager -->
+                        <item id="blazorfilemanager">
+                            <web_page>
+                                <path>/filemanager/**/*</path>
+                                <linkname>Proxy routes in the Taxxor Mapping Service</linkname>
+                            </web_page>
+                        </item>
+                        <item id="filemanagerapi">
+                            <web_page>
+                                <path>/api/filemanager</path>
+                                <linkname>File Manager Controller</linkname>
+                            </web_page>
+                        </item>
+                        <item id="filemanagerinfoapi">
+                            <web_page>
+                                <path>/api/filemanager/info</path>
+                                <linkname>File Manager Controller</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Generated Reports Repository -->
+                        <item id="generatedreportsrepository">
+                            <web_page>
+                                <path>/api/repository/generatedreports</path>
+                                <linkname>CRUD routes for the generated reports repository</linkname>
+                            </web_page>
+                        </item>
+
+
+                        <!-- Websockets -->
+                        <item id="websocketshub">
+                            <web_page>
+                                <path>/hub</path>
+                                <linkname>Websockets routes</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshubnegotiate">
+                            <web_page>
+                                <path>/hub/negotiate</path>
+                                <linkname>Websockets negotiation</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshubrestorecontent">
+                            <web_page>
+                                <path>/hub/methods/restorecontent</path>
+                                <linkname>Restores content from the repository</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshubsyncstructureddatasnapshot">
+                            <web_page>
+                                <path>/hub/methods/syncstructureddatasnapshot</path>
+                                <linkname>Synchronizes structured data elements of a snapshot in the project data files</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshubsyncstructureddatabyreference">
+                            <web_page>
+                                <path>/hub/methods/syncstructureddatabyreference</path>
+                                <linkname>Synchronizes structured data elements of one or more project data files</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshublistprojects">
+                            <web_page>
+                                <path>/hub/methods/listprojects</path>
+                                <linkname>List projects available - optionally using a filter</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshublistdatareferences">
+                            <web_page>
+                                <path>/hub/methods/listdatareferences</path>
+                                <linkname>List available data references - optionally using a filter</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshubimportfilindataandmappings">
+                            <web_page>
+                                <path>/hub/methods/importfilingdataandmappings</path>
+                                <linkname>Import filing data from another project including the
+                                    mappings</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshublistsectionlocs">
+                            <web_page>
+                                <path>/hub/methods/listsectionlocks</path>
+                                <linkname>Lists the locks that are set on sections in an output
+                                    channel</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshubeditlocks">
+                            <web_page>
+                                <path>/hub/methods/editlocks</path>
+                                <linkname>Sets a lock on a section to prevent others from editing
+                                    the same content</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshubcustomreporthierarchy">
+                            <web_page>
+                                <path>/hub/methods/customreporthierarchy</path>
+                                <linkname>Retrieves the hierarchy to select the contents of a custom
+                                    PDF or Word report</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshubpdfgenerator">
+                            <web_page>
+                                <path>/hub/methods/pdfgenerator</path>
+                                <linkname>Renders a PDF document on the server</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshubimporterpdata-init">
+                            <web_page>
+                                <path>/hub/methods/importerpdata/init</path>
+                                <linkname>Initiates the import of fresh ERP data</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshubimporterpdata-progress">
+                            <web_page>
+                                <path>/hub/methods/importerpdata/progress</path>
+                                <linkname>Retrieves the progress of an ERP data import process</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshubrenderreportingperiods">
+                            <web_page>
+                                <path>/hub/methods/uicomponents/selectreportingperiods</path>
+                                <linkname>Renders a reporting periods select box</linkname>
+                            </web_page>
+                        </item>
+
+                        <item id="websocketshubadmintools">
+                            <web_page>
+                                <path>/hub/methods/admintools</path>
+                                <linkname>SignalR admin tools</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshubmanagertools">
+                            <web_page>
+                                <path>/hub/methods/managertools</path>
+                                <linkname>SignalR manager tools</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshubeditortools">
+                            <web_page>
+                                <path>/hub/methods/editortools</path>
+                                <linkname>SignalR editor tools</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Spellchecker -->
+                        <item id="spellchecker-root">
+                            <web_page>
+                                <path>/api/spellchecker</path>
+                                <linkname>Retrieves the root page of the spellchecker</linkname>
+                            </web_page>
+                        </item>
+                        <item id="spellchecker-ismisspelled">
+                            <web_page>
+                                <path>/api/spellchecker/ismisspelled</path>
+                                <linkname>Checks a word for correct spelling</linkname>
+                            </web_page>
+                        </item>
+                        <item id="spellchecker-checkspelling">
+                            <web_page>
+                                <path>/api/spellchecker/checkspelling</path>
+                                <linkname>Check text for misspelled words</linkname>
+                            </web_page>
+                        </item>
+                        <item id="spellchecker-checkspellingasync">
+                            <web_page>
+                                <path>/api/spellchecker/checkspellingasync</path>
+                                <linkname>Check text for misspelled words async</linkname>
+                            </web_page>
+                        </item>
+                        <item id="spellchecker-getcorrectionsformisspelling">
+                            <web_page>
+                                <path>/api/spellchecker/getcorrectionsformisspelling</path>
+                                <linkname>Get corrections for misspelled word</linkname>
+                            </web_page>
+                        </item>
+                        <item id="spellchecker-add">
+                            <web_page>
+                                <path>/api/spellchecker/add</path>
+                                <linkname>Add a word to ignore list</linkname>
+                            </web_page>
+                        </item>
+                        <item id="spellchecker-clear">
+                            <web_page>
+                                <path>/api/spellchecker/clear</path>
+                                <linkname>Clear word from ignore list</linkname>
+                            </web_page>
+                        </item>
+                        <item id="spellchecker-clearall">
+                            <web_page>
+                                <path>/api/spellchecker/clearall</path>
+                                <linkname>Clear complete ignore list</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- locking system -->
+                        <item id="filingeditorlock">
+                            <web_page>
+                                <path>/api/lockingsystem</path>
+                                <linkname>CRUD filing editor locks</linkname>
+                            </web_page>
+                        </item>
+                        <item id="filingeditorlistlocks">
+                            <web_page>
+                                <path>/api/lockingsystem/list</path>
+                                <linkname>Retrieve all locks for the current project</linkname>
+                            </web_page>
+                        </item>
+
+                        <item id="javascriptlogger">
+                            <web_page>
+                                <path>/api/js/log</path>
+                                <linkname>Logs client-side errors in the logs on the server</linkname>
+                            </web_page>
+                        </item>
+                        <item id="about">
+                            <web_page>
+                                <path>/api/info/about</path>
+                                <linkname>About Taxxor</linkname>
+                            </web_page>
+                        </item>
+                        <item id="connectedservices">
+                            <web_page>
+                                <path>/api/info/connectedservices</path>
+                                <linkname>Information about the Taxxor connected services</linkname>
+                            </web_page>
+                        </item>
+                        <item id="session">
+                            <web_page>
+                                <path>/api/session</path>
+                                <linkname>Routes that deal with server side session information</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Mapping service -->
+                        <item id="mappingservice">
+                            <web_page>
+                                <path>/api/mappingservice</path>
+                                <linkname>Interact with the Taxxor Mapping Service</linkname>
+                            </web_page>
+                        </item>
+                        <item id="mappingservicefilterentries">
+                            <web_page>
+                                <path>/api/mappingservice/entry/filter</path>
+                                <linkname>Filters a list of mapping entries (fact ID's)</linkname>
+                            </web_page>
+                        </item>
+                        <item id="mappingservicefiltertaxonomy">
+                            <web_page>
+                                <path>/api/mappingservice/filtertaxonomy</path>
+                                <linkname>Filters an XBRL taxonomy</linkname>
+                            </web_page>
+                        </item>
+                        <item id="mappingserviceclonemappingcluster">
+                            <web_page>
+                                <path>/api/mappingservice/clonemappingcluster</path>
+                                <linkname>Clones a mapping cluster in the Mapping Service</linkname>
+                            </web_page>
+                        </item>
+                        <item id="mappingservicesearchreplace">
+                            <web_page>
+                                <path>/api/mappingservice/searchreplace</path>
+                                <linkname>Search and replace in mapping clusters</linkname>
+                            </web_page>
+                        </item>
+                        <item id="sdereports">
+                            <web_page>
+                                <path>/api/sds/sdereport</path>
+                                <linkname>Reports on the status of the SDE's used in a project</linkname>
+                            </web_page>
+                        </item>
+
+
+                        <!-- Find and replace in content -->
+                        <item id="findreplace">
+                            <web_page>
+                                <path>/api/cms/findreplace</path>
+                                <linkname>Bulk find and replace content for a project</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Bulk data transformation tool -->
+                        <item id="datatransformation">
+                            <web_page>
+                                <path>/api/cms/datatransformation</path>
+                                <linkname>Transform the CMS content data files in bulk</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Static assets location switcher -->
+                        <item id="staticassetssource">
+                            <web_page>
+                                <path>/api/cms/staticassetssource</path>
+                                <linkname>Allows ability CRUD location of static assets</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Taxxor Editor Content Analysis -->
+                        <item id="taxxoreditorcontentanalysis">
+                            <web_page>
+                                <path>/api/cms/filingcontent/analysis</path>
+                                <linkname>Analyze the content used in a publication channel and
+                                    report the results</linkname>
+                            </web_page>
+                        </item>
+                        <item id="taxxoreditorcontentdownload">
+                            <web_page>
+                                <path>/api/cms/filingcontent/download</path>
+                                <linkname>Renders a complete XML document containing the al content
+                                    of the project as a download</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Data Service Tools -->
+                        <item id="taxxoreditordataservicetools">
+                            <web_page>
+                                <path>/api/cms/dataservice/tools</path>
+                                <linkname>Tools for maintaining the Taxxor Data Service</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Auditor view -->
+                        <item id="auditorviewcontent">
+                            <web_page>
+                                <path>/api/cms/auditorview/content</path>
+                                <linkname>Retrieves an optionally filtered list for the content of
+                                    the auditor view</linkname>
+                            </web_page>
+                        </item>
+                        <item id="auditorviewcomparisondownload">
+                            <web_page>
+                                <path>/api/cms/auditorview/download</path>
+                                <linkname>Download files generated by the version manager</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshub-retrievesectionhistory">
+                            <web_page>
+                                <path>/hub/methods/retrievefilingcontentversions</path>
+                                <linkname>Retrieves an optionally filtered list for the content of
+                                    the auditor view</linkname>
+                            </web_page>
+                        </item>
+                        <item id="websocketshub-comparesectioncontent">
+                            <web_page>
+                                <path>/hub/methods/comparefilingcontent</path>
+                                <linkname>Retrieves an optionally filtered list for the content of
+                                    the auditor view</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Images, drawings and graphs -->
+                        <item id="updateimagelibrary">
+                            <web_page>
+                                <path>/api/imagelibrary/update</path>
+                                <linkname>Updates or rebuilds the image library</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- GIT utilities -->
+                        <item id="gitpull">
+                            <web_page>
+                                <path>/api/dataservice/git/pull</path>
+                                <linkname>Pulls the content of a GIT repository</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Admin utilities -->
+                        <item id="listdatafiles">
+                            <web_page>
+                                <path>/api/dataservice/listdatafiles</path>
+                                <linkname>Lists all the files used in a project</linkname>
+                            </web_page>
+                        </item>
+                        <item id="dateshiftsinglesetwrappers">
+                            <web_page>
+                                <path>/api/dateshift/createwrappers</path>
+                                <linkname>Generates date wrappers for a single data file</linkname>
+                            </web_page>
+                        </item>
+                        <item id="dateshiftsinglemigrate">
+                            <web_page>
+                                <path>/api/dateshift/migrate</path>
+                                <linkname>Updates exising date-wrappers to reflect the reporting
+                                    period passed for a single file</linkname>
+                            </web_page>
+                        </item>
+                        <item id="dateshiftsdeperiod">
+                            <web_page>
+                                <path>/api/dateshift/structureddataelements</path>
+                                <linkname>Updates periods in existing structured data elements to
+                                    reflect the reporting period passed for a single file</linkname>
+                            </web_page>
+                        </item>
+                        <item id="quickpublishwebpage">
+                            <web_page>
+                                <path>/api/publish/quick/webpage</path>
+                                <linkname>Publishes a webpage directly from the editor to the
+                                    website hosting platform</linkname>
+                            </web_page>
+                        </item>
+                        <item id="quickpublishwebpageallprojects">
+                            <web_page>
+                                <path>/api/publish/quick/webpage/all</path>
+                                <linkname>Publishes all webpages hosted in this instance to a
+                                    hosting platform</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Plugins -->
+                        <item id="plugin-edgarfiler">
+                            <web_page>
+                                <path>/utilities/edgarfiler/**/*</path>
+                                <linkname>Edgar filer plugin proxy route</linkname>
+                            </web_page>
+                        </item>
+                        <item id="plugin-edgarfilerxhr">
+                            <web_page>
+                                <path>/utilities/xhr/edgarfiler/start</path>
+                                <linkname>Edgar filer XHR route</linkname>
+                            </web_page>
+                        </item>
+
+                        <item id="retrievehtmlstylerdocument">
+                            <web_page>
+                                <path>/utilities/htmlstyler/content</path>
+                                <linkname>XHTML styler content</linkname>
+                            </web_page>
+                        </item>
+                        <item id="retrievegeneratorinput">
+                            <web_page>
+                                <path>/utilities/generatorinput/content</path>
+                                <linkname>PDF/Graph/Drawing generator input file viewer</linkname>
+                            </web_page>
+                        </item>
+
+
+                        <!-- Iframe content for the editor -->
+                        <item id="cms-editor-iframecontent">
+                            <web_page>
+                                <path>/utilities/content/editor/iframe</path>
+                                <linkname>Renders the content for the editor iframe</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- generic utilities to serve content via the dispatcher -->
+                        <item id="udynamic_resources_utility">
+                            <web_page>
+                                <path>/utilities/tools/dynamic_resources.aspx</path>
+                                <linkname>Dynamic Resources</linkname>
+                            </web_page>
+                        </item>
+                        <item id="udynamic_resources_cached_utility">
+                            <web_page>
+                                <path>/utilities/tools/dynamic_resources_cached.aspx</path>
+                                <linkname>Dynamic Resources Cached</linkname>
+                            </web_page>
+                        </item>
+                        <item id="udynamic_resources_utility_closed">
+                            <web_page>
+                                <path>/utilities/tools/dynamic_resources_closed.aspx</path>
+                                <linkname>Dynamic Resources Closed</linkname>
+                            </web_page>
+                        </item>
+                        <item id="udynamic_resources_cached_utility_closed">
+                            <web_page>
+                                <path>/utilities/tools/dynamic_resources_cached_closed.aspx</path>
+                                <linkname>Dynamic Resources Cached Closed</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- Other utilities -->
+                        <item id="u-cms_upload-file">
+                            <web_page>
+                                <path>/utilities/upload_file.aspx</path>
+                                <linkname>File uploader</linkname>
+                            </web_page>
+                        </item>
+                        <item id="utangeloimport">
+                            <web_page>
+                                <path>[projectroot]/assets/pages/tangelo_data-importer.aspx</path>
+                                <linkname>Tangelo data import routine</linkname>
+                            </web_page>
+                        </item>
+
+                        <item id="u-cms_load-xopus-configuration">
+                            <web_page>
+                                <path>[projectroot]/assets/config/load_xopus_config.aspx</path>
+                                <linkname>Load the Xopus config file and apply specific project and
+                                    version settings</linkname>
+                            </web_page>
+                        </item>
+
+
+                        <!-- webservices -->
+                        <item id="u-cms_json_data">
+                            <web_page>
+                                <path>/utilities/retrieve_cms_data_json.aspx</path>
+                                <linkname>Retrieves client side data using JSON</linkname>
+                            </web_page>
+                        </item>
+                        <item id="u-lextra_status">
+                            <web_page>
+                                <path>/webservices/lextra.aspx</path>
+                                <linkname>SOAP webservice sender</linkname>
+                            </web_page>
+                        </item>
+
+
+                        <!-- Tools -->
+                        <item id="u-cms_tools-view-session">
+                            <web_page>
+                                <path>/tools/viewsession</path>
+                                <linkname>Load cache files</linkname>
+                            </web_page>
+                        </item>
+
+                        <!-- API -->
+                        <item id="u-cms_api-test">
+                            <web_page>
+                                <path>/api/test</path>
+                                <linkname>API Test Page</linkname>
+                            </web_page>
+                        </item>
+
+                    </sub_items>
+                </item>
+            </sub_items>
+        </item>
+    </structured>
+    <unstructured>
+        <!-- Sandbox testing routes -->
+        <item id="sandbox-generic">
+            <web_page>
+                <path>/sandbox</path>
+                <linkname>Sandbox Generic Code Test Page</linkname>
+            </web_page>
+        </item>
+        <item id="sandbox-rbac">
+            <web_page>
+                <path>/sandbox/rbac</path>
+                <linkname>Sandbox for testing the RBAC service</linkname>
+            </web_page>
+        </item>
+        <item id="sandbox-tool">
+            <web_page>
+                <path>/sandbox/tool</path>
+                <linkname>Easy way to launch a tool using a sandbox route</linkname>
+            </web_page>
+        </item>
+
+
+        <!-- Authentication and authorization -->
+        <item id="ulogindotnet">
+            <web_page>
+                <path>/login</path>
+                <linkname>Login Utility</linkname>
+            </web_page>
+        </item>
+        <item id="ulogout-dotnet">
+            <web_page>
+                <path>/logout</path>
+                <linkname>Logout</linkname>
+            </web_page>
+        </item>
+        <item id="ulogout-dotnet-final">
+            <web_page>
+                <path>/logoutfinal</path>
+                <linkname>Logout - Phase 2</linkname>
+            </web_page>
+        </item>
+        <item id="uloginas">
+            <web_page>
+                <path>/loginas</path>
+                <linkname>Login as another user</linkname>
+            </web_page>
+            <special_permissions>
+                <permission id="viewdevelopertools" />
+            </special_permissions>
+        </item>
+
+
+        <!-- HTML pages that need to pass through without any server-side controllers -->
+        <item id="results-hub-webpage">
+            <web_page>
+                <path>/custom/philips/resultshub/partials/nix.html</path>
+                <linkname>Dummy HTML page</linkname>
+            </web_page>
+        </item>
+        <item id="generatejsvars">
+            <web_page>
+                <path>/tools/generatejsvars</path>
+                <linkname>Generates JavaScript variables at the server</linkname>
+            </web_page>
+        </item>
+
+        <item id="taxonomyviewer">
+            <web_page>
+                <path>/tools/taxonomyviewer</path>
+                <linkname>Taxxor Taxonomy Viewer</linkname>
+            </web_page>
+        </item>
+
+        <item id="filingcomposer-redirect">
+            <web_page>
+                <path>[projectroot]/filingcomposer/redirect.html</path>
+                <linkname>Redirect the user to the filing composer with the correct querystring variables</linkname>
+            </web_page>
+        </item>
+
+        <!-- TODO: This needs to move to somewhere else as this is part of the website logic -->
+        <item id="results-hub-pagevars">
+            <web_page>
+                <path>/api/pagevars</path>
+                <linkname>Redirect the user to the filing composer with the correct querystring
+                    variables</linkname>
+            </web_page>
+        </item>
+    </unstructured>
+</items>

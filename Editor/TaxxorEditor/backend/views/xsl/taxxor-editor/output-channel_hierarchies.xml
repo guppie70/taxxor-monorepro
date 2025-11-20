@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hierarchies xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:linkbase="http://www.xbrl.org/2003/linkbase" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:lextr="http://lextr.net/alfa/20150401" xmlns:lextr-types="http://lextr.net/types/20150401">
+   <output_channel id="lextra_extranetPages" roleUri="http://lextr.net/alfa/20150401/linkroles/lextra_extranetPages">
+      <name>Extranet page collection</name>
+      <hierarchy>
+         <item id="lextr_ExtranetHomePage" labelId="lextr_ExtranetHomePage_loc" nodeName="ExtranetHomePage" dataType="htmlSectionItemType">
+            <linknames>
+               <linkname lang="en">Home Page [extranet]</linkname>
+               <linkname lang="nl">Startpagina [extranet]</linkname>
+            </linknames>
+            <sub_items>
+               <item id="lextr_ContactPage" labelId="lextr_ContactPage_loc" nodeName="ContactPage" dataType="htmlSectionItemType">
+                  <linknames>
+                     <linkname lang="en">Contact Page</linkname>
+                     <linkname lang="nl">Contactpagina</linkname>
+                  </linknames>
+               </item>
+            </sub_items>
+         </item>
+      </hierarchy>
+   </output_channel>
+   <output_channel id="lextra_intranetPages" roleUri="http://lextr.net/alfa/20150401/linkroles/lextra_intranetPages">
+      <name>Intranet page collection</name>
+      <hierarchy>
+         <item id="lextr_IntranetHomePage" labelId="lextr_IntranetHomePage_loc" nodeName="IntranetHomePage" dataType="htmlSectionItemType">
+            <linknames>
+               <linkname lang="en">Home Page [intranet]</linkname>
+               <linkname lang="nl">Startpagina [intranet]</linkname>
+            </linknames>
+            <sub_items>
+               <item id="lextr_PerformanceHighlightsPage" labelId="lextr_PerformanceHighlightsPage_loc" nodeName="PerformanceHighlightsPage" dataType="htmlSectionItemType">
+                  <linknames>
+                     <linkname>[PerformanceHighlightsPage]</linkname>
+                  </linknames>
+               </item>
+               <item id="lextr_MessageFromTheCeoPage" labelId="lextr_MessageFromTheCeoPage_loc" nodeName="MessageFromTheCeoPage" dataType="htmlSectionItemType">
+                  <linknames>
+                     <linkname>[MessageFromTheCeoPage]</linkname>
+                  </linknames>
+               </item>
+               <item id="lextr_StrategicFocusPage" labelId="lextr_StrategicFocusPage_loc" nodeName="StrategicFocusPage" dataType="htmlSectionItemType">
+                  <linknames>
+                     <linkname>[StrategicFocusPage]</linkname>
+                  </linknames>
+                  <sub_items>
+                     <item id="lextr_GlobalChallengsPage" labelId="lextr_GlobalChallengsPage_loc" nodeName="GlobalChallengsPage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[GlobalChallengsPage]</linkname>
+                        </linknames>
+                     </item>
+                     <item id="lextr_CreateValuePage" labelId="lextr_CreateValuePage_loc" nodeName="CreateValuePage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[CreateValuePage]</linkname>
+                        </linknames>
+                     </item>
+                  </sub_items>
+               </item>
+               <item id="lextr_GroupPerformancePage" labelId="lextr_GroupPerformancePage_loc" nodeName="GroupPerformancePage" dataType="htmlSectionItemType">
+                  <linknames>
+                     <linkname>[GroupPerformancePage]</linkname>
+                  </linknames>
+                  <sub_items>
+                     <item id="lextr_FinancialPerformancePage" labelId="lextr_FinancialPerformancePage_loc" nodeName="FinancialPerformancePage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[FinancialPerformancePage]</linkname>
+                        </linknames>
+                     </item>
+                     <item id="lextr_SocialPerformancePage" labelId="lextr_SocialPerformancePage_loc" nodeName="SocialPerformancePage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[SocialPerformancePage]</linkname>
+                        </linknames>
+                     </item>
+                  </sub_items>
+               </item>
+               <item id="lextr_SectorPerformancePage" labelId="lextr_SectorPerformancePage_loc" nodeName="SectorPerformancePage" dataType="htmlSectionItemType">
+                  <linknames>
+                     <linkname>[SectorPerformancePage]</linkname>
+                  </linknames>
+                  <sub_items>
+                     <item id="lextr_HealthcarePerformancePage" labelId="lextr_HealthcarePerformancePage_loc" nodeName="HealthcarePerformancePage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[HealthcarePerformancePage]</linkname>
+                        </linknames>
+                     </item>
+                     <item id="lextr_ConsumerLifestylePerformancePage" labelId="lextr_ConsumerLifestylePerformancePage_loc" nodeName="ConsumerLifestylePerformancePage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[ConsumerLifestylePerformancePage]</linkname>
+                        </linknames>
+                     </item>
+                     <item id="lextr_LightingPerformancePage" labelId="lextr_LightingPerformancePage_loc" nodeName="LightingPerformancePage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[LightingPerformancePage]</linkname>
+                        </linknames>
+                     </item>
+                     <item id="lextr_InnovationPerformancePage" labelId="lextr_InnovationPerformancePage_loc" nodeName="InnovationPerformancePage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[InnovationPerformancePage]</linkname>
+                        </linknames>
+                     </item>
+                  </sub_items>
+               </item>
+               <item id="lextr_GroupFinancialStatementPage" labelId="lextr_GroupFinancialStatementPage_loc" nodeName="GroupFinancialStatementPage" dataType="htmlSectionItemType">
+                  <linknames>
+                     <linkname>[GroupFinancialStatementPage]</linkname>
+                  </linknames>
+                  <sub_items>
+                     <item id="lextr_StatementOfIncomePage" labelId="lextr_StatementOfIncomePage_loc" nodeName="StatementOfIncomePage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[StatementOfIncomePage]</linkname>
+                        </linknames>
+                     </item>
+                     <item id="lextr_BalanceSheetPage" labelId="lextr_BalanceSheetPage_loc" nodeName="BalanceSheetPage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[BalanceSheetPage]</linkname>
+                        </linknames>
+                     </item>
+                     <item id="lextr_StatementOfCashFlowPage" labelId="lextr_StatementOfCashFlowPage_loc" nodeName="StatementOfCashFlowPage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[StatementOfCashFlowPage]</linkname>
+                        </linknames>
+                     </item>
+                  </sub_items>
+               </item>
+            </sub_items>
+         </item>
+      </hierarchy>
+   </output_channel>
+   <output_channel id="lextra_pdfPages" roleUri="http://lextr.net/alfa/20150401/linkroles/lextra_pdfPages">
+      <name>PDF page collection</name>
+      <hierarchy>
+         <item id="lextr_PdfCoverPage" labelId="lextr_PdfCoverPage_loc" nodeName="PdfCoverPage" dataType="htmlSectionItemType">
+            <linknames>
+               <linkname>[PdfCoverPage]</linkname>
+            </linknames>
+            <sub_items>
+               <item id="lextr_PdfTableOfContentsPage" labelId="lextr_PdfTableOfContentsPage_loc" nodeName="PdfTableOfContentsPage" dataType="htmlSectionItemType">
+                  <linknames>
+                     <linkname lang="nl">Inhoudsopgave</linkname>
+                     <linkname lang="en">Table of Contents</linkname>
+                  </linknames>
+               </item>
+               <item id="lextr_PerformanceHighlightsPage" labelId="lextr_PerformanceHighlightsPage_loc" nodeName="PerformanceHighlightsPage" dataType="htmlSectionItemType">
+                  <linknames>
+                     <linkname>[PerformanceHighlightsPage]</linkname>
+                  </linknames>
+               </item>
+               <item id="lextr_MessageFromTheCeoPage" labelId="lextr_MessageFromTheCeoPage_loc" nodeName="MessageFromTheCeoPage" dataType="htmlSectionItemType">
+                  <linknames>
+                     <linkname>[MessageFromTheCeoPage]</linkname>
+                  </linknames>
+               </item>
+               <item id="lextr_StrategicFocusPage" labelId="lextr_StrategicFocusPage_loc" nodeName="StrategicFocusPage" dataType="htmlSectionItemType">
+                  <linknames>
+                     <linkname>[StrategicFocusPage]</linkname>
+                  </linknames>
+                  <sub_items>
+                     <item id="lextr_GlobalChallengsPage" labelId="lextr_GlobalChallengsPage_loc" nodeName="GlobalChallengsPage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[GlobalChallengsPage]</linkname>
+                        </linknames>
+                     </item>
+                     <item id="lextr_CreateValuePage" labelId="lextr_CreateValuePage_loc" nodeName="CreateValuePage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[CreateValuePage]</linkname>
+                        </linknames>
+                     </item>
+                  </sub_items>
+               </item>
+               <item id="lextr_GroupPerformancePage" labelId="lextr_GroupPerformancePage_loc" nodeName="GroupPerformancePage" dataType="htmlSectionItemType">
+                  <linknames>
+                     <linkname>[GroupPerformancePage]</linkname>
+                  </linknames>
+                  <sub_items>
+                     <item id="lextr_FinancialPerformancePage" labelId="lextr_FinancialPerformancePage_loc" nodeName="FinancialPerformancePage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[FinancialPerformancePage]</linkname>
+                        </linknames>
+                     </item>
+                     <item id="lextr_SocialPerformancePage" labelId="lextr_SocialPerformancePage_loc" nodeName="SocialPerformancePage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[SocialPerformancePage]</linkname>
+                        </linknames>
+                     </item>
+                  </sub_items>
+               </item>
+               <item id="lextr_SectorPerformancePage" labelId="lextr_SectorPerformancePage_loc" nodeName="SectorPerformancePage" dataType="htmlSectionItemType">
+                  <linknames>
+                     <linkname>[SectorPerformancePage]</linkname>
+                  </linknames>
+                  <sub_items>
+                     <item id="lextr_HealthcarePerformancePage" labelId="lextr_HealthcarePerformancePage_loc" nodeName="HealthcarePerformancePage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[HealthcarePerformancePage]</linkname>
+                        </linknames>
+                     </item>
+                     <item id="lextr_ConsumerLifestylePerformancePage" labelId="lextr_ConsumerLifestylePerformancePage_loc" nodeName="ConsumerLifestylePerformancePage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[ConsumerLifestylePerformancePage]</linkname>
+                        </linknames>
+                     </item>
+                     <item id="lextr_LightingPerformancePage" labelId="lextr_LightingPerformancePage_loc" nodeName="LightingPerformancePage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[LightingPerformancePage]</linkname>
+                        </linknames>
+                     </item>
+                     <item id="lextr_InnovationPerformancePage" labelId="lextr_InnovationPerformancePage_loc" nodeName="InnovationPerformancePage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[InnovationPerformancePage]</linkname>
+                        </linknames>
+                     </item>
+                  </sub_items>
+               </item>
+               <item id="lextr_GroupFinancialStatementPage" labelId="lextr_GroupFinancialStatementPage_loc" nodeName="GroupFinancialStatementPage" dataType="htmlSectionItemType">
+                  <linknames>
+                     <linkname>[GroupFinancialStatementPage]</linkname>
+                  </linknames>
+                  <sub_items>
+                     <item id="lextr_StatementOfIncomePage" labelId="lextr_StatementOfIncomePage_loc" nodeName="StatementOfIncomePage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[StatementOfIncomePage]</linkname>
+                        </linknames>
+                     </item>
+                     <item id="lextr_BalanceSheetPage" labelId="lextr_BalanceSheetPage_loc" nodeName="BalanceSheetPage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[BalanceSheetPage]</linkname>
+                        </linknames>
+                     </item>
+                     <item id="lextr_StatementOfCashFlowPage" labelId="lextr_StatementOfCashFlowPage_loc" nodeName="StatementOfCashFlowPage" dataType="htmlSectionItemType">
+                        <linknames>
+                           <linkname>[StatementOfCashFlowPage]</linkname>
+                        </linknames>
+                     </item>
+                  </sub_items>
+               </item>
+            </sub_items>
+         </item>
+      </hierarchy>
+   </output_channel>
+   <facts>
+      <item id="lextr_IntranetHomePage" nodeName="IntranetHomePage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_ExtranetHomePage" nodeName="ExtranetHomePage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_PdfCoverPage" nodeName="PdfCoverPage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_ContactPage" nodeName="ContactPage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_PdfTableOfContentsPage" nodeName="PdfTableOfContentsPage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_MessageFromTheCeoPage" nodeName="MessageFromTheCeoPage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_PerformanceHighlightsPage" nodeName="PerformanceHighlightsPage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_StrategicFocusPage" nodeName="StrategicFocusPage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_GlobalChallengsPage" nodeName="GlobalChallengsPage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_CreateValuePage" nodeName="CreateValuePage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_GroupPerformancePage" nodeName="GroupPerformancePage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_FinancialPerformancePage" nodeName="FinancialPerformancePage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_SocialPerformancePage" nodeName="SocialPerformancePage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_SectorPerformancePage" nodeName="SectorPerformancePage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_HealthcarePerformancePage" nodeName="HealthcarePerformancePage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_ConsumerLifestylePerformancePage" nodeName="ConsumerLifestylePerformancePage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_LightingPerformancePage" nodeName="LightingPerformancePage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_InnovationPerformancePage" nodeName="InnovationPerformancePage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_GroupFinancialStatementPage" nodeName="GroupFinancialStatementPage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_StatementOfIncomePage" nodeName="StatementOfIncomePage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_BalanceSheetPage" nodeName="BalanceSheetPage" dataType="htmlSectionItemType" periodType="duration"/>
+      <item id="lextr_StatementOfCashFlowPage" nodeName="StatementOfCashFlowPage" dataType="htmlSectionItemType" periodType="duration"/>
+   </facts>
+</hierarchies>

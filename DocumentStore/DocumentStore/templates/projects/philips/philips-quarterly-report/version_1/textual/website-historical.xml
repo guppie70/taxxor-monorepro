@@ -1,0 +1,111 @@
+<data>
+  <system>
+    <date_created>2018-09-21T11:36:10.153+02:00</date_created>
+    <date_modified>2020-07-02T14:21:31.7298859+00:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="website" data-template="philips-results-hub" data-last-modified="2020-07-02T14:21:31.7298859+00:00" modified-by="johan.thijs@philips.com">
+      <div class="l-container">
+        <div class="metadata" data-for="head">
+          <div class="content">
+            <div class="name">Philips {quarter-with-year} Quarterly Results</div>
+            <div class="description">Philips {quarter-with-year} financial performance and sustainability highlights. {quarter-character-proper} quarter {publishingyearfixed} results of Royal Philips in summary and PDF format.</div>
+            <div class="keywords">Philips {quarter} Report {publishingyearfixed}, Royal Philips {quarter-character} quarter results, Philips {quarter-with-year} financial performance summary, Philips {quarter-with-year} sustainability highlights.</div>
+            <div class="image">{fulldomain}/images/shield-cropped.jpg</div>
+          </div>
+        </div>
+        <div class="c-tilegrid__grid c-tilegrid__grid--content">
+          <article class="c-tilecontent c-tilecontent--historicalxl">
+            <div class="c-tilecontent__page c-tilecontent__page--sidebar-med">
+              <div class="c-tilecontent__block">
+                <h1>{quarter-with-year} results</h1>
+                <p class="subtitle">Amsterdam, {publicationdate-formatted}</p>
+                <div class="tx-fixed" data-elementlink="front-cover.xml//section[@data-name='story-content']/h1" data-importtextonly="true" data-transformto="h2">
+                  <!-- . -->
+                </div>
+                <div class="c-accordion">
+                  <div class="c-accordion__item">
+                    <input type="checkbox" class="u-gone" id="financialsummary" />
+                    <label class="c-accordion__title" for="financialsummary">
+                      <h4 class="">Financial summary</h4>
+                    </label>
+                    <div class="c-accordion__content">
+                      <div class="tx-fixed" data-elementlink="front-cover.xml#company-update">
+                        <!-- . -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="c-accordion__item">
+                    <input type="checkbox" class="u-gone" id="sustainabilityhighlights" />
+                    <label class="c-accordion__title" for="sustainabilityhighlights">
+                      <h4 class="">Sustainability highlights</h4>
+                    </label>
+                    <div class="c-accordion__content">
+                      <div class="tx-fixed" data-elementlink="website.xml//div[contains(@class, 'c-tilecontent--socialhighlights')]/article[@class='c-tilecontent__page']//ul[@class='c-tilecontent__list']">
+                        <!-- . -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="c-accordion__item">
+                    <input type="checkbox" class="u-gone" id="businesshighlights" />
+                    <label class="c-accordion__title" for="businesshighlights">
+                      <h4 class="">Business highlights</h4>
+                    </label>
+                    <div class="c-accordion__content">
+                      <div class="tx-fixed" data-elementlink="website.xml//div[contains(@class, 'c-tilecontent--businesshighlights')]/article[@class='c-tilecontent__page']//div[@class='c-tilecontent__block']" data-removerootattr="class">
+                        <!-- . -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="c-downloadswrapper c-downloadswrapper--float">
+                  <!-- Reports and presentations -->
+                  <div class="c-pagedownloads">
+                    <h5 class="c-pagedownloads__header">Report</h5>
+                    <ul class="c-pagedownloads__list">
+                      <li class="c-download">
+                        <a id="download-report-en" href="/publications/{siteid}/downloads/pdf/en/philips-{quarter-character}-quarter-results-{publishingyearfixed}-report.pdf?v={assetscachekey}" class="c-link c-link--file">
+                          <div class="c-download__icon c-download__icon--download">
+                          </div>
+                          <div class="c-download__title">{quarter-with-year} results</div>
+                          <div class="c-download__typesize">
+                            <span class="c-download__type">PDF</span>
+                            <span class="c-download__size">211 kB</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li class="c-download">
+                        <a id="download-presentation-en" href="/publications/{siteid}/downloads/files/en/philips-{quarter-character}-quarter-results-{publishingyearfixed}-presentation.pdf?v={assetscachekey}" class="c-link c-link--file">
+                          <div class="c-download__icon c-download__icon--download">
+                          </div>
+                          <div class="c-download__title">{quarter-with-year} presentation</div>
+                          <div class="c-download__typesize">
+                            <span class="c-download__type">PDF</span>
+                            <span class="c-download__size">1.5 MB</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Webcast -->
+                  <div class="c-pagedownloads">
+                    <h5 class="c-pagedownloads__header">Webcast</h5>
+                    <div class="tx-fixed" data-elementlink="website.xml//ul[contains(@class, 'c-pagedownloads__list') and contains(*//a/@href, 'media-server.com')]">
+                      <!-- . -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="c-tilecontent__block c-tilecontent__block--lightgrey c-tilecontent__block--bottom-med">
+                <div>
+                  <h5 class="u-margin-bottom-small">Subscribe</h5>
+                  <p class="small">Make sure you receive the latest news from Philips and alerts for upcoming investor events by subscribing via the following link: <a class="c-link" href="https://www.philips.com/c-e/investor-relations.html">Receive updates from Philips</a></p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </article>
+  </content>
+</data>

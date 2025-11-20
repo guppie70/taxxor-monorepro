@@ -1,0 +1,63 @@
+<data>
+  <system>
+    <date_created>2018-10-12T15:22:44.901676+02:00</date_created>
+    <date_modified>2022-07-05T15:03:15.9203546+00:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="front-cover" lang="en" data-guid="front-cover" data-description="front-cover" data-outputchannel="AR" data-articletype="frontpage" data-ref="front-cover.xml" data-id="front-cover" data-page="nomargin" data-last-modified="2022-07-05T15:03:15.9203546+00:00" data-fact-id="front-cover" modified-by="rutger@taxxor.com">
+      <section data-ref="6b150d08-a98c-4105-8aec-79e8d1ec5ecc">
+        <p data-ref="cc54699a-f883-4768-a9bd-1f485df84e1c">
+          <img src="/dataserviceassets/{projectid}/images/frontcover.jpg" />
+        </p>
+        <div data-ref="52de9fd6-18ec-41d3-849d-ae1da8eb3998" class="publicationyearwrapper">
+          <h2 data-levelcalculated="2" data-leveloriginal="2" data-ref="3c6d617a-8e89-4375-9dbb-7c7898917bb0" data-break-after="avoid" data-previous-break-after="avoid">         ESG REPORT</h2>
+          <p data-ref="a6e96861-3df0-4535-bc32-f257e1b866fe" data-previous-break-after="avoid">
+            <span data-ref="40a2205d-2649-4570-b135-95c9b2b26cde">20</span>22</p>
+        </div>
+        <div data-ref="4158675e-4f6f-4fe2-9510-6e4b5da61153" class="logowrapper">
+          <div id="wrapper_ijjiybow" class="illustration" data-ref="b76e7a7a-c201-417d-b1f0-84ea011e450b" data-id="wrapper_ijjiybow">
+            <img src="/dataserviceassets/{projectid}/images/tie_kinetix-2020_rgb.svg" alt="Drawing" data-ref="3ff5c3d3-f009-4bde-848f-0bd9bd625a51" />
+          </div>
+        </div>
+      </section>
+    </article>
+  </content>
+  <content lang="de">
+    <article id="front-cover" lang="en" data-guid="front-cover" data-description="front-cover" data-outputchannel="AR" data-articletype="frontpage" data-ref="front-cover.xml" data-id="front-cover" data-page="nomargin" data-last-modified="2022-07-05T15:03:15.9203546+00:00" data-fact-id="front-cover" modified-by="rutger@taxxor.com">
+      <section data-ref="6b150d08-a98c-4105-8aec-79e8d1ec5ecc">
+        <p data-ref="cc54699a-f883-4768-a9bd-1f485df84e1c">
+          <img src="/dataserviceassets/{projectid}/images/frontcover.jpg" />
+        </p>
+        <div data-ref="52de9fd6-18ec-41d3-849d-ae1da8eb3998" class="publicationyearwrapper">
+          <h2 data-levelcalculated="2" data-leveloriginal="2" data-ref="3c6d617a-8e89-4375-9dbb-7c7898917bb0" data-break-after="avoid" data-previous-break-after="avoid">         ESG REPORT</h2>
+          <p data-ref="a6e96861-3df0-4535-bc32-f257e1b866fe" data-previous-break-after="avoid">
+            <span data-ref="40a2205d-2649-4570-b135-95c9b2b26cde">20</span>22</p>
+        </div>
+        <div data-ref="4158675e-4f6f-4fe2-9510-6e4b5da61153" class="logowrapper">
+          <div id="wrapper_ijjiybow" class="illustration" data-ref="b76e7a7a-c201-417d-b1f0-84ea011e450b" data-id="wrapper_ijjiybow">
+            <img src="/dataserviceassets/{projectid}/images/tie_kinetix-2020_rgb.svg" alt="Drawing" data-ref="3ff5c3d3-f009-4bde-848f-0bd9bd625a51" />
+          </div>
+        </div>
+      </section>
+    </article>
+  </content>
+  <content lang="fr">
+    <article id="front-cover" lang="en" data-guid="front-cover" data-description="front-cover" data-outputchannel="AR" data-articletype="frontpage" data-ref="front-cover.xml" data-id="front-cover" data-page="nomargin" data-last-modified="2022-07-05T15:03:15.9203546+00:00" data-fact-id="front-cover" modified-by="rutger@taxxor.com">
+      <section data-ref="6b150d08-a98c-4105-8aec-79e8d1ec5ecc">
+        <p data-ref="cc54699a-f883-4768-a9bd-1f485df84e1c">
+          <img src="/dataserviceassets/{projectid}/images/frontcover.jpg" />
+        </p>
+        <div data-ref="52de9fd6-18ec-41d3-849d-ae1da8eb3998" class="publicationyearwrapper">
+          <h2 data-levelcalculated="2" data-leveloriginal="2" data-ref="3c6d617a-8e89-4375-9dbb-7c7898917bb0" data-break-after="avoid" data-previous-break-after="avoid">         ESG REPORT</h2>
+          <p data-ref="a6e96861-3df0-4535-bc32-f257e1b866fe" data-previous-break-after="avoid">
+            <span data-ref="40a2205d-2649-4570-b135-95c9b2b26cde">20</span>22</p>
+        </div>
+        <div data-ref="4158675e-4f6f-4fe2-9510-6e4b5da61153" class="logowrapper">
+          <div id="wrapper_ijjiybow" class="illustration" data-ref="b76e7a7a-c201-417d-b1f0-84ea011e450b" data-id="wrapper_ijjiybow">
+            <img src="/dataserviceassets/{projectid}/images/tie_kinetix-2020_rgb.svg" alt="Drawing" data-ref="3ff5c3d3-f009-4bde-848f-0bd9bd625a51" />
+          </div>
+        </div>
+      </section>
+    </article>
+  </content>
+</data>

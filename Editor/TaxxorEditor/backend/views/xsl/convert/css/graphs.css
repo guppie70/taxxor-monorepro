@@ -1,0 +1,25 @@
+/* Styles used for styling the Highcharts graphs */
+.placeholder {
+	border: 1px solid rgba(255, 0, 0, .5);
+}
+.chart-content {
+	position: relative;
+	background-repeat: no-repeat;
+}
+.fallback:before, .placeholder:before {
+	content: 'Work in progress';
+    font-size: 20px;
+    font-family: arial;
+    bottom: 0;
+    position: absolute;
+    right: 5px;
+    color: #fff;
+    text-shadow: 2px 2px 10px #000;
+	transform: rotate(-45deg) translate(30%, -100%);
+	z-index: 10;
+}
+#graph_20404081 .highcharts-stack-labels text, 
+#graph_20455343 .highcharts-stack-labels text{
+    opacity: 1;
+    visibility: visible;
+}

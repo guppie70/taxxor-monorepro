@@ -1,0 +1,36 @@
+<items>
+  <structured>
+    <item id="qr-root" level="0" data-ref="qr-root.xml">
+      <web_page>
+        <path>/</path>
+        <linkname>Quarterly Report 20XX - QX</linkname>
+      </web_page>
+      <sub_items>
+        <item id="6-k-standard-cover-page" level="1" data-ref="6-k-standard-cover-page.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>SEC Cover Page</linkname>
+          </web_page>
+        </item>
+        <item id="signatures" level="1" data-ref="signatures.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>SEC Signatures Page</linkname>
+          </web_page>
+        </item>
+        <item id="front-cover-6k" level="1" data-ref="front-cover.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>cover</linkname>
+          </web_page>
+        </item>
+         <item id="back-cover-6k" level="1" data-ref="back-cover.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>backcover</linkname>
+          </web_page>
+        </item>
+      </sub_items>
+    </item>
+  </structured>
+</items>

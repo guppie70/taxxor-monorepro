@@ -1,0 +1,75 @@
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using System.Xml;
+using System.IO;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
+using Taxxor.Project;
+
+namespace DocumentStore.Controllers
+{
+    [ApiController]
+    [Route("v2api/taxxoreditor/filing")]
+    public class FilingDataController : ControllerBase
+    {
+        [HttpGet("data")]
+        public async Task<IActionResult> GetFilingData()
+        {
+            // Access the current HTTP Context
+            var context = System.Web.Context.Current;
+            var reqVars = Framework.RetrieveRequestVariables(context);
+            
+            // Use the existing implementation logic
+            var response = new MockHttpResponse(Response);
+            var routeData = new Microsoft.AspNetCore.Routing.RouteData();
+            await ProjectLogic.RetrieveFilingData(Request, response, routeData);
+            
+            return new EmptyResult(); // Response already sent
+        }
+
+        [HttpPut("data")]
+        public async Task<IActionResult> SetFilingData()
+        {
+            // Access the current HTTP Context
+            var context = System.Web.Context.Current;
+            var reqVars = Framework.RetrieveRequestVariables(context);
+            
+            // Use the existing implementation logic
+            var response = new MockHttpResponse(Response);
+            var routeData = new Microsoft.AspNetCore.Routing.RouteData();
+            await ProjectLogic.StoreFilingData(Request, response, routeData);
+            
+            return new EmptyResult(); // Response already sent
+        }
+
+        [HttpGet("image")]
+        public async Task<IActionResult> GetFilingImage()
+        {
+            // Access the current HTTP Context
+            var context = System.Web.Context.Current;
+            var reqVars = Framework.RetrieveRequestVariables(context);
+            
+            // Use the existing implementation logic
+            var response = new MockHttpResponse(Response);
+            var routeData = new Microsoft.AspNetCore.Routing.RouteData();
+            await ProjectLogic.RetrieveImageData(Request, response, routeData);
+            
+            return new EmptyResult(); // Response already sent
+        }
+
+        [HttpGet("binary")]
+        public async Task<IActionResult> GetFileBinary()
+        {
+            // Access the current HTTP Context
+            var context = System.Web.Context.Current;
+            var reqVars = Framework.RetrieveRequestVariables(context);
+            
+            // Use the existing implementation logic
+            var response = new MockHttpResponse(Response);
+            var routeData = new Microsoft.AspNetCore.Routing.RouteData();
+            await ProjectLogic.RetrieveFileBinary(Request, response, routeData);
+            
+            return new EmptyResult(); // Response already sent
+        }
+    }
+}

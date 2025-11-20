@@ -1,0 +1,410 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    [page-head-content]
+</head>
+<body class="page_[pageid] sitetype_[sitetype] no-skin projectstatus_[projectstatus]">
+    [page-body-start]
+
+    <div class="main-container">
+        [page-maincolumn-start]
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="row">
+                    <div class="col-xs-3 left-navbar">
+
+                        <div class="panel panel-default cms-left-navigation">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">[document-name] <small></small></h3>
+                                <label class="lblhideuneditable">
+                                    <a href="javascript:toggleEditorPreferences()" title="Toggle editor preferences">
+                                        <i class="glyphicon glyphicon-cog">
+                                        <!---->
+                                        </i>
+                                        <!--<b class="caret"> </b>-->
+                                    </a>
+                                </label>
+                                <div class="outputchannels">
+                                    [outputchannel-links]
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="sidebar-nav">
+                                    <div class="cms_classic-navigation">
+                                        [cms-editor-navigation]                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-xs-9 flip-panel">
+                        <input type="checkbox" class="hidden" id="cbxPdfViewer" />
+                        <div id="tx-viewer">
+                            <label for="cbxPdfViewer" class="showbtn">PDF</label>
+                            <iframe id="" name="tx-viewer" src=""></iframe>
+                            <label for="cbxPdfViewer" class="closebtn"></label>
+                            <div class="tx-loader">
+                                <div class="item item-1">T</div>
+                                <div class="item item-2">/</div>
+                                <div class="item item-3">R</div>
+                                <div class="item item-4">\</div>
+                            </div>
+                        </div>
+                        <div id="tx-editor"><textarea></textarea></div>
+                        
+                        <div id="editablecontent">        
+                            [cms-editor-content]
+                        </div>                 
+                    </div>    
+                                
+                </div>
+            
+            </div>
+        </div>
+        [page-maincolumn-end] 
+    </div>
+
+    [page-body-end]
+    
+    <!-- Modal Table Properties -->
+    <div class="modal fade" id="modal-tableproperties" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Table information</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="content" style="display: block">
+                        <h5>Properties</h5>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                              <label for="input-tableid" class="col-sm-4 control-label">Table ID</label>
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="input-tableid" name="input-tableid"/>
+                              </div>
+                            </div>
+                            
+                            [projectconfig:editor-tableproperties-extraoptions]
+
+                            <div class="modal-footer">
+                                <button class="btn btn-sm btn-primary btn-execute" type="button" onclick="changeTableProperties()">Save</button>
+                            </div>
+                          </form>
+                          <hr/>
+                          <h5>Tools</h5>
+                          <div>
+                            <form class="form-horizontal">
+                                <div class="form-group tx-tabletools-migratesdedisplayas" data-permission="useextratools">
+                                    <label class="col-sm-4 control-label">SDE display template</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="select-sdedisplayas" name="select-sdedisplayas" onchange="storeSdeDisplayTemplateSelection(this.value)">
+                                            <option value="none">No data received</option>
+                                        </select>
+                                        <span>
+                                            <button class="btn btn-sm btn-default pull-right" type="button" onclick="migrateSdeDisplayTemplates()">Migrate</button>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="btn-tabletoolsresetwidth" class="col-sm-4 control-label">Reset column widths</label>
+                                    <div class="col-sm-8">
+                                        <button data-dismiss="modal" id="btn-tabletoolsresetwidth" class="btn btn-sm btn-default pull-right" type="button" onclick="removeTableColumnStyles()">Execute</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="btn-tabletoolsclonesdes" class="col-sm-4 control-label">Clone SDE's</label>
+                                    <div class="col-sm-8">
+                                        <button id="btn-tabletoolsclonesdes" class="btn btn-sm btn-default pull-right" type="button" onclick="cloneMappingClustersInTable()">Execute</button>
+                                    </div>
+                                </div>
+                            </form>
+                            
+                          </div>
+                    </div>
+                    <div class="spinner" style="display: none">
+                        <div class="loading-icon-wrapper">
+                            <p class="spinnertitle">Processing your changes...</p>
+                        </div>
+                    </div>
+                    <div class="error" style="display: none">
+                        <div class="alert alert-danger">
+                            An error has occured, please contact the administrator.
+                            <div class="error-log">...</div>
+                        </div>
+                    </div>
+                    <div class="success" style="display: none">
+                        <div class="alert alert-success">
+                            Utility successfully completed
+                            <div class="success-log">...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sync SDE modal dialog-->
+    <div class="modal fade" id="modal-sdesync" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Sync structured data elements</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="content" style="display: block">
+
+                    </div>
+                    <div class="spinner" style="display: none">
+                        <div class="loading-icon-wrapper">
+                            <p class="spinnertitle">Synchronizing structured data elements...</p>
+                        </div>
+                    </div>
+                    <div class="error" style="display: none">
+                        <div class="alert alert-danger">
+                            An error has occured, please contact the administrator.
+                            <div class="error-log">...</div>
+                        </div>
+                    </div>
+                    <div class="success" style="display: none">
+                        <div class="alert alert-success">
+                            <p>Successfully updated the structured data element cache on the server.</p> 
+                            <p>To view the result of the synchronization, please do the following:</p>
+                            <ol>
+                                <li>Close this editor by clicking on the "X" icon in the editor top bar</li>
+                                <li>Navigate to another section using the left menu</li>
+                                <li>Open this section again</li>
+                            </ol>
+                            <p>Sync log:</p>
+                            <div class="success-log">...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal render section tools -->
+    <div class="modal fade" id="modal-sectiontools" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Section tools for &quot;<span></span>&quot;</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="content" style="display: block">
+                        <h5>Render section</h5>
+                        <table class="table table-condensed section-output">
+                            <thead>
+                                <tr>
+                                    <th class="col1">Format</th>
+                                    <th class="col2">Version latest</th>
+                                    <th class="col3">Version base</th>
+                                    <th class="col4"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>PDF</td>
+                                    <td>Current</td>
+                                    <td></td>
+                                    <td><button id="btn-rendersectionpdf">Render</button></td>
+                                </tr>
+                                <tr>
+                                    <td>PDF with track-changes</td>
+                                    <td><input type="text" class="tx-styleinvisible" id="input-rendersectionpdflatestversion" value="Current"/></td>
+                                    <td>
+                                        <select id="select-rendersectionpdfbaseversion">
+
+                                        </select>
+                                    </td>
+                                    <td><button id="btn-rendersectionpdftrackchanges">Render</button></td>
+                                </tr>
+                                <tr>
+                                    <td>MS Word</td>
+                                    <td>Current</td>
+                                    <td></td>
+                                    <td><button id="btn-rendersectionword">Render</button></td>
+                                </tr>
+                                <tr>
+                                    <td>MS Excel</td>
+                                    <td>Current</td>
+                                    <td></td>
+                                    <td><button id="btn-rendersectionexcel">Render</button></td>
+                                </tr>
+                                [datalineagerenderingbuttons]
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="spinner" style="display: none">
+                        <div class="loading-icon-wrapper"> </div>
+                        <div class="progress-wrapper">
+                            <div class="spinnertitle">Rendering your file</div>
+                            <p>Progress:</p>
+                            <pre></pre>  
+                        </div>
+                    </div>
+                    <div class="error" style="display: none">
+                        <h5>An error has occured while rendering your file.</h5>
+                        <div class="alert alert-danger">
+                            <div class="message">...</div>
+                            <a href="javascript:sectionToolsViewErrorLog()">view log</a>
+                            <div class="error-log"><pre></pre></div>
+                        </div>
+                    </div>
+                    <div class="success" style="display: none">
+                        <h5>Successfully rendered your file.</h5>
+                        <div class="alert alert-success">
+                            <div class="message">...</div>
+                            <button class="btn btn-xs btn-primary btn-downloadfile">
+                                <i class="glyphicon glyphicon-download"></i>
+                                Download
+                            </button>
+                            <br/>
+                            <a href="javascript:sectionToolsViewSuccessLog()">view log</a>
+                            <div class="success-log"><pre></pre></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer sectionpropertieswrapper">
+                    <small>(id: <a class="pdfbinarylink" href="javascript:void(0)" target="_blank"><span class="data-articleid">...</span></a> - ref: <span class="data-reference">...</span>)</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal editor preferences -->
+    <div class="modal fade" id="modal-editorpreferences" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Editor preferences</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="content" style="display: block">
+                        <h5>Editor and content rendering preferences</h5>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="cbxhideuneditable" class="col-sm-3 control-label">Left menu filter</label>
+                                <div class="col-sm-9">
+                                    <div class="checkbox">
+                                        <label>
+                                            [leftmenufiltercheckbox] Only show the items I am allowed to edit
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cbxhideuneditable" class="col-sm-3 control-label">Section numbers</label>
+                                <div class="col-sm-9">
+                                    <div class="checkbox">
+                                        <label>
+                                            [showsectionnumbersinmenucheckbox] Show section numbers in menu
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Layout variations available -->
+                            [layoutoptions]
+                        </form>                        
+                        
+                    </div>
+                    <div class="spinner" style="display: none">
+                        <div class="loading-icon-wrapper"> </div>
+                        <div class="progress-wrapper">
+                            <div class="spinnertitle">Saving preferences</div>
+                            <p>Progress:</p>
+                            <pre></pre>  
+                        </div>
+                    </div>
+                    <div class="error" style="display: none">
+                        <h5 class="message">An error has occured while processing your preferences.</h5>
+                        <div class="alert alert-danger">
+                            <a href="javascript:sectionToolsViewErrorLog()">view log</a>
+                            <div class="error-log"><pre></pre></div>
+                        </div>
+                    </div>
+                    <div class="success" style="display: none">
+                        <h5 class="message">Successfully stored your preferences.</h5>
+                        <div class="alert alert-success">
+                            <a href="javascript:editorPreferencesViewSuccessLog()">view log</a>
+                            <div class="success-log"><pre></pre></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Quick Publish Webpage -->
+    <div class="modal fade" id="modal-quickpublishwebpage" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Quick publish webpage</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="content" style="display: block">
+                        <p>Directly publish the current webpage to the hosting platform</p>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label">Target platform:</label>
+                              <div class="col-sm-9">
+                                <label class="radio-inline">
+                                    <input type="radio" name="radio-targetplatform" id="radio-targetplatformprod" value="production" checked="checked"/> PROD
+                                  </label>
+                                  <label class="radio-inline">
+                                    <input type="radio" name="radio-targetplatform" id="radio-targetplatformstaging" value="staging"/> STAGING
+                                  </label>
+                                  <label class="radio-inline">
+                                    <input type="radio" name="radio-targetplatform" id="radio-targetplatformdevelop" value="develop"/> DEVELOP
+                                  </label>
+                              </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="spinner" style="display: none">
+                        <div class="loading-icon-wrapper"> </div>
+                        <div class="progress-wrapper">
+                            <div class="spinnertitle">Publishing webpage on hosting platform</div>
+                            <p>Progress:</p>
+                            <pre></pre>  
+                        </div>
+                    </div>
+                    <div class="error" style="display: none">
+                        <h5 class="message">An error has occured while publishing your content.</h5>
+                        <div class="alert alert-danger">
+                            <div class="message">...</div>
+                            <a href="javascript:quickWebpagePublishViewErrorLog()">view log</a>
+                            <div class="error-log"><pre></pre></div>
+                        </div>
+                    </div>
+                    <div class="success" style="display: none">
+                        <h5 class="message">Successfully published web page on hosting platform.</h5>
+                        <div class="alert alert-success">
+                            <a href="javascript:quickWebpagePublishViewSuccessLog()">view log</a>
+                            <div class="success-log"><pre></pre></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-sm btn-default" type="button">Discard</button>
+                    <button class="btn btn-sm btn-primary btn-publish" type="button">Publish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

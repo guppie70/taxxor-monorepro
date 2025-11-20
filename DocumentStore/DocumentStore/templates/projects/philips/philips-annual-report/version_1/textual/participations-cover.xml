@@ -1,0 +1,26 @@
+<data>
+  <system>
+    <date_created>2021-01-20T21:19:13.2595670+01:00</date_created>
+    <date_modified>2021-01-20T21:20:20.0908650+01:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="participations-cover" data-guid="participations-cover" data-articletype="regular" data-last-modified="2021-01-20T21:20:20.0908650+01:00" modified-by="johan.thijs@philips.com">
+      <div class="pageblock" data-type="one-column">
+        <section class="content regular" data-name="default-content">
+          <h1>Cover page</h1>
+          <p>Cover page needs to be added.</p>
+        </section>
+      </div>
+    </article>
+  </content>
+  <content lang="zh">
+    <article id="participations-cover" data-guid="participations-cover" data-hierarchical-level="1" data-articletype="regular" data-last-modified="2021-01-20T21:19:13.2595670+01:00">
+      <div class="pageblock" data-type="one-column">
+        <section class="content regular" data-name="default-content">
+          <h1>participations cover</h1>
+          <p>...</p>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

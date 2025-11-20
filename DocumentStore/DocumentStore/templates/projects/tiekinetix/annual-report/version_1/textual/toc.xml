@@ -1,0 +1,21 @@
+<data>
+  <system>
+    <date_created>2018-10-12T15:22:44.901676+02:00</date_created>
+    <date_modified>2020-02-27T13:53:09.2409534+00:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="toc" class="" data-fact-id="toc" data-guid="toc" data-last-modified="2021-07-15T11:09:36.3719492+00:00" data-description="toc" data-articletype="toc" modified-by="rutger@taxxor.com">
+      <div class="pageblock toc" data-type="one-column">
+        <section class="content" data-name="toc-content">
+          <h1 class="tx-pb-b">Table of Contents</h1>
+          <p>
+            <img src="/dataserviceassets/{projectid}/images/covergrijs_tiek_2020.png" />
+          </p>
+          <ul class="toc-list">
+            <li class="">to be dynamically rendered</li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

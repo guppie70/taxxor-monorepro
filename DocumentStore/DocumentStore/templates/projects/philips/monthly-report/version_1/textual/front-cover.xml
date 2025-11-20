@@ -1,0 +1,38 @@
+<data>
+  <system>
+    <date_created>2018-09-21T11:36:10.153+02:00</date_created>
+    <date_modified>2022-06-23T10:41:48.9553100+02:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="front-cover" class="" data-guid="front-cover" data-last-modified="2022-06-23T10:41:48.9553100+02:00" data-description="front-cover" modified-by="johan@taxxor.com">
+      <div data-type="one-column" class="pageblock head">
+        <section class="content" data-name="head-content">
+          <div id="header-logo">
+            <a href="http://www.philips.com/" data-link-type="external">
+            </a>
+            <p class="brand-label-parent">
+              <a href="https://www.results.philips.com" data-link-type="external" class="editable-link">Monthly report</a>
+            </p>
+            <div class="brand-label">
+              <header>
+                <h1>
+                  <a href="https://www.results.philips.com" data-link-type="external" id="#" title="Home" class="editable-link">
+                    <span class="txdynamicdate" data-dateflexible="true" data-dateperiodtype="writtendate" data-dateformat="MMMM yyyy" data-dateoffset="-0m" data-dateday="30" data-datemonth="6" data-datequarter="1" data-dateyear="2022">June 2022</span>
+                  </a>
+                </h1>
+              </header>
+            </div>
+          </div>
+          <div id="philips-shape" class="image-wrapper">
+            <img src="/outputchannels/philips/pdf/images/philips_shape.png" alt="Philips shape" />
+          </div>
+        </section>
+      </div>
+      <div data-type="one-column" class="pageblock story">
+        <section class="content" data-name="story-content">
+          <h1 class="selected">Monthly report<br /><br /></h1>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

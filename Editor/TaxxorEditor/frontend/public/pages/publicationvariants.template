@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		[page-head-content]
+	</head>
+	<body class="page_[pageid] sitetype_[sitetype] system-page no-skin projectstatus_[projectstatus]">
+		[page-body-start]
+
+		<div class="main-container">
+			[page-maincolumn-start]
+			<div class="page-header">
+				<h1>Output generator <small>[document-name]</small></h1>
+			</div>
+			<div class="row">
+				<div class="col-md-10">
+
+                    [dynamic-publication-variants]
+                    
+
+                    
+
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+
+
+                </div>
+                <div class="col-md-2">
+                    <!--.-->
+                </div>
+			</div>
+			[page-maincolumn-end]
+		</div>
+
+        [page-body-end]
+
+        <div aria-labelledby="publicationRenderLabel" role="dialog" tabindex="-1" id="modal_render-outputchannel" class="modal fade bs-example-modal-lg">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button data-dismiss="modal" class="close" type="button">
+                    <span>×</span>
+                    <span class="sr-only">Close</span>
+                  </button>
+                  <h4 id="publicationRenderLabel" class="modal-title">Render publication</h4>
+                </div>
+                <div class="modal-body">
+                  <div style="display: block" class="content">
+                    
+                  </div>
+                  <div style="display: none" class="spinner">
+                    <div class="loading-icon-wrapper"> </div>
+                    <div class="progress-wrapper">
+                        <div class="spinnertitle">...</div>
+                        <p>Progress:</p>
+                        <pre></pre>  
+                    </div>
+                  </div>
+                  <div style="display: none" class="error">
+                    <div class="alert alert-danger">
+                        An error has occured while rendering your publication.
+                        <div class="errorlog">...</div>
+                        <br/>
+                        <a href="javascript:generateOutputChannelViewErrorLog()">view log</a>
+                        <div class="error-log"><pre></pre></div>
+                    </div>
+                  </div>
+                  <div style="display: none" class="success">
+                    <h4>Successfully rendered your publication</h4>
+                    <div class="alert alert-success">
+                        <div class="download-primarypackage">
+                          <button class="btn btn-xs btn-primary download-file">
+                              <i class="glyphicon glyphicon-download"></i>
+                              Download
+                          </button>
+                          <a href="" target="_blank" class="btn btn-xs btn-primary navigate">
+                            <i class="glyphicon glyphicon-share-alt"></i>
+                            Open site
+                          </a>
+                          <div class="additional-info">
+                            <div class="checksum">Checksum: <span></span><button class="btn btn-xs btn-primary copy-checksum" title="Copy checksum to clipboard"><i class="glyphicon glyphicon-copy"></i></button></div>
+                          </div>
+                        </div>
+                        <div class="additional-info">
+                            
+                        </div>
+
+                        <div class="repository-item-info">
+                            <h5>Comment for XBRL repository</h5>
+                            <div class="store-comment-success" role="alert"></div>
+                            <div class="store-comment-error alert alert-danger" role="alert"></div>
+                            <textarea class="form-control" rows="3" placeholder="Insert XBRL package comment here..." id="repository-item-content"></textarea>
+                            <input type="hidden" id="repository-item-id" value=""/>
+                            <button class="btn btn-primary btn-xs btn-save-repository-comment" type="submit"><span class="glyphicon glyphicon-floppy-disk">
+                                <!--.-->
+                              </span>Store</button>
+                        </div>
+
+                        <br/>
+                        <a href="javascript:generateOutputChannelViewSuccessLog()">view log</a>
+                        <div class="success-log"><pre></pre></div>
+                        <div class="filingsubmit">
+                            <div class="controls">
+                                <button class="btn btn-xs btn-primary filingcommit">
+                                    <i class="glyphicon glyphicon-upload"></i>
+                                    Submit this filing to regulator
+                                </button>
+                            </div>
+                            <div class="result">
+                                <iframe id="iframe-filingcommit" name="iframe-filingcommit" frameborder="no" width="100%" height="800" src="[uri-staticassets]/utilities/blank.htm"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="successlog">...</div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button data-dismiss="modal" class="btn btn-default" type="button">Dismiss</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+        <div aria-labelledby="customContentsLabel" role="dialog" tabindex="-1" id="modal_customcontents" class="modal fade modal-wide">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button data-dismiss="modal" class="close" type="button">
+                  <span>×</span>
+                  <span class="sr-only">Close</span>
+                </button>
+                <h4 id="customContentsLabel" class="modal-title">Select report sections</h4>
+              </div>
+              <div class="modal-body">
+                <div id="hierarchycontrols">
+                  <button class="btn btn-default btn-xs" onclick="selall(true)">Select all</button> <button class="btn btn-default btn-xs" onclick="selall(false)">Deselect all</button>
+                </div>
+                <div id="hierarchytree">
+                  Loading...
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">Discard</button>
+                <button class="btn btn-primary btn-info button-execute" type="button">Set selection</button>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div aria-labelledby="genneratedReportsLabel" role="dialog" tabindex="-1" id="modal_generatedreports" class="modal fade">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button data-dismiss="modal" class="close" type="button">
+                <span>×</span>
+                <span class="sr-only">Close</span>
+              </button>
+              <h4 id="genneratedReportsLabel" class="modal-title">Generated XBRL reports</h4>
+            </div>
+            <div class="modal-body">
+              <div style="display: block" class="content">
+                <div class="generatedreportscontent">
+                    <!--.-->
+                </div>
+              </div>
+              <div class="error" style="display: none">
+                <div class="alert alert-danger">
+                  <div class="message">...</div>
+                  <p>Details:</p>
+                  <div class="error-log">
+                      <pre></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+	</body>
+</html>

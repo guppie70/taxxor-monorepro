@@ -1,0 +1,48 @@
+<data>
+  <system>
+    <date_created>2018-10-12T15:22:44.901676+02:00</date_created>
+    <date_modified>2022-07-06T07:19:37.1119551+00:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="back-cover" data-fact-id="back-cover" data-guid="back-cover" data-last-modified="2022-07-06T07:19:37.1119551+00:00" data-description="back-cover" data-articletype="backcover" modified-by="rutger@taxxor.com">
+      <div data-type="one-column" class="pageblock back-cover">
+        <section>
+          <div data-ref="4158675e-4f6f-4fe2-9510-6e4b5da61153" class="logowrapper">
+            <img class="" src="/dataserviceassets/{projectid}/images/tie_kinetix-2020_rgb.svg" alt="Drawing" data-ref="3ff5c3d3-f009-4bde-848f-0bd9bd625a51" />
+          </div>
+          <img src="/dataserviceassets/{projectid}/images/backcover.jpg" />
+          <div data-ref="4158675e-4f6f-4fe2-9510-6e4b5da61153">
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+  <content lang="de">
+    <article id="back-cover" data-fact-id="back-cover" data-guid="back-cover" data-last-modified="2022-07-06T07:19:37.1119551+00:00" data-description="back-cover" data-articletype="backcover" modified-by="rutger@taxxor.com">
+      <div data-type="one-column" class="pageblock back-cover">
+        <section>
+          <div data-ref="4158675e-4f6f-4fe2-9510-6e4b5da61153" class="logowrapper">
+            <img class="" src="/dataserviceassets/{projectid}/images/tie_kinetix-2020_rgb.svg" alt="Drawing" data-ref="3ff5c3d3-f009-4bde-848f-0bd9bd625a51" />
+          </div>
+          <img src="/dataserviceassets/{projectid}/images/backcover.jpg" />
+          <div data-ref="4158675e-4f6f-4fe2-9510-6e4b5da61153">
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+  <content lang="fr">
+    <article id="back-cover" data-fact-id="back-cover" data-guid="back-cover" data-last-modified="2022-07-06T07:19:37.1119551+00:00" data-description="back-cover" data-articletype="backcover" modified-by="rutger@taxxor.com">
+      <div data-type="one-column" class="pageblock back-cover">
+        <section>
+          <div data-ref="4158675e-4f6f-4fe2-9510-6e4b5da61153" class="logowrapper">
+            <img class="" src="/dataserviceassets/{projectid}/images/tie_kinetix-2020_rgb.svg" alt="Drawing" data-ref="3ff5c3d3-f009-4bde-848f-0bd9bd625a51" />
+          </div>
+          <img src="/dataserviceassets/{projectid}/images/backcover.jpg" />
+          <div data-ref="4158675e-4f6f-4fe2-9510-6e4b5da61153">
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

@@ -1,0 +1,283 @@
+<data>
+  <system>
+    <date_created>2018-10-12T15:22:44.901676+02:00</date_created>
+    <date_modified>2019-02-23T14:52:59.1534600+01:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="toc-20f" data-fact-id="1201713-front-cover1" data-guid="toc-20f" data-last-modified="2019-02-23T14:52:59.1534600+01:00" data-description="front-cover-20f" data-outputchannel="20-F" data-articletype="regular" class="" modified-by="johan.thijs@philips.com" data-reportingrequirements="PHG2017">
+      <div class="pageblock cover" data-type="one-column">
+        <section class="content" data-name="cover-content">
+          <div class="pageblock 20fcover" data-type="rtf-20fcover">
+            <div id="document-metadata">
+              <h5>Metadata that applies to this filing</h5>
+              <ul>
+                <li>
+                  <div>Entity Central Index Key (CIK): <span class="fact-inline xbrl-level-0 bg-white bg-white" data-fact-id="covercik">0000313216</span></div>
+                </li>
+                <li>
+                  <div>Document Fiscal Period Focus: <span class="fact-inline xbrl-level-0 bg-white selected" data-fact-id="coverfiscalperiodfocus">FY</span></div>
+                </li>
+                <li>
+                  <div>Document Fiscal Year Focus: <span class="fact-inline xbrl-level-0 bg-white bg-white" data-fact-id="coverfiscalyearfocus">2018</span></div>
+                </li>
+                <li>
+                  <div>Current Fiscal Year End Date: <span class="fact-inline xbrl-level-0 bg-white bg-white" data-fact-id="covercurrentfiscalyearenadate">--12-31</span></div>
+                </li>
+                <li>
+                  <div>Amendment Flag: <span class="fact-inline xbrl-level-0 bg-white bg-white" data-fact-id="coveramendment">false</span></div>
+                </li>
+              </ul>
+            </div>
+            <div style="font-family:Times New Roman">
+              <p>As filed with the Securities and Exchange Commission on February 26, 2019</p>
+              <hr />
+              <p style="margin-top:12px;margin-bottom:0px;text-align:center;font-size:19px;font-weight:bold;">UNITED STATES</p>
+              <p style="margin-top:0px;margin-bottom:0px;text-align:center;font-size:19px;font-weight:bold;">SECURITIES AND EXCHANGE COMMISSION</p>
+              <p style="margin-top:0px;margin-bottom:0px;text-align: center;font-size:15px;font-weight:bold;">WASHINGTON, D.C. 20549</p>
+              <p style="margin-top:18px;margin-bottom:0px;text-align:center;font-size:19px;font-weight:bold;">Form <span class="fact-inline xbrl-level-0 bg-white bg-white" data-fact-id="coverdocumenttype">20-F</span></p>
+              <p style="margin-top:12px;margin-bottom:0px;font-size:13px;">(Mark one)</p>
+              <table border="0" cellpadding="0" cellspacing="0" class="tablewidth-100">
+                <tbody>
+                  <tr style="page-break-inside:avoid">
+                    <td style="width:10%" valign="top">
+                      <font size="2">☐</font>
+                    </td>
+                    <td style="width:90%" align="left" valign="top">
+                      <div style="text-align:center;font-size:13px;font-weight:bold;">REGISTRATION STATEMENT PURSUANT TO SECTION 12(b) <br />OR (g) OF THE SECURITIES EXCHANGE ACT OF 1934</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style="margin-top:6px;margin-bottom:0px;text-align:center;font-size:13px;font-weight:bold;">OR</p>
+              <table border="0" cellpadding="0" cellspacing="0" class="tablewidth-100">
+                <tbody>
+                  <tr style="page-break-inside:avoid">
+                    <td style="width:10%" valign="top" align="left">
+                      <font size="2">☒</font>
+                    </td>
+                    <td style="width:90%" align="left" valign="top">
+                      <div style="text-align:center;font-size:13px;font-weight:bold;">ANNUAL REPORT PURSUANT TO SECTION 13 <br />OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style="margin-top:6px;margin-bottom:0px;text-align:center;font-size:13px;font-weight:bold;">For the fiscal year ended <span class="fact-inline xbrl-level-0 bg-white bg-white" data-fact-id="coverfiscalyearenddate">December 31, 2018</span></p>
+              <p style="margin-top:6px;margin-bottom:0px;text-align:center;font-size:13px;font-weight:bold;">OR</p>
+              <table border="0" cellpadding="0" cellspacing="0" class="tablewidth-100">
+                <tbody>
+                  <tr style="page-break-inside:avoid">
+                    <td style="width:10%" valign="top" align="left">
+                      <font size="2">☐</font>
+                    </td>
+                    <td style="width:90%" align="left" valign="top">
+                      <div style="text-align:center;font-size:13px;font-weight:bold;">TRANSITION REPORT PURSUANT TO SECTION 13 <br />OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style="margin-top:6px;margin-bottom:0px;text-align:center;font-size:13px;font-weight:bold;">OR</p>
+              <table border="0" cellpadding="0" cellspacing="0" class="tablewidth-100">
+                <tbody>
+                  <tr style="page-break-inside:avoid">
+                    <td style="width:10%" valign="top" align="left">
+                      <font size="2">☐</font>
+                    </td>
+                    <td style="width:90%" align="left" valign="top">
+                      <div style="text-align:center;font-size:13px;font-weight:bold;">SHELL COMPANY REPORT PURSUANT TO SECTION 13 <br />OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style="margin-top:24px;margin-bottom:0px;text-align:center;font-size:13px;font-weight:bold;">Commission file number <font style="white-space:nowrap">001-05146-01</font></p>
+              <p style="margin-top:24px;margin-bottom:0px;text-align:center;font-size:21px;font-weight:bold;">
+                <span class="fact-inline xbrl-level-0 bg-white bg-white" data-fact-id="coverregistrantname">KONINKLIJKE PHILIPS NV</span>
+              </p>
+              <p style="margin-top:0px;margin-bottom:0px;text-align:center;font-size:13px;font-weight:bold;">(Exact name of Registrant as specified in charter)</p>
+              <p style="margin-top:24px;margin-bottom:0px;text-align:center;font-size:21px;font-weight:bold;">ROYAL PHILIPS</p>
+              <p style="margin-top:0px;margin-bottom:0px;text-align:center;font-size:13px;font-weight:bold;">(Translation of Registrants name into English)</p>
+              <p style="margin-top:24px;margin-bottom:0px;text-align:center;font-size:13px;font-weight:bold;">The Netherlands</p>
+              <p style="margin-top:0px;margin-bottom:0px;text-align:center;font-size:11px;font-weight:bold;">(Jurisdiction of incorporation or organization)</p>
+              <p style="margin-top:24px;margin-bottom:0px;text-align:center;font-size:13px;font-weight:bold;">Philips Center, Amstelplein 2, 1096 BC Amsterdam, The Netherlands</p>
+              <p style="margin-top:0px;margin-bottom:0px;text-align:center;font-size:11px;font-weight:bold;">(Address of principal executive office)</p>
+              <p style="margin-top:24px;margin-bottom:0px;text-align:center;font-size:13px;font-weight:bold;">Marnix van Ginneken, Chief Legal Officer</p>
+              <p style="margin-top:0px;margin-bottom:0px;text-align:center;font-size:13px;font-weight:bold;">+31 20 59 77232, marnix.van.ginneken@philips.com, Philips Center, Amstelplein 2, 1096 BC Amsterdam, The Netherlands</p>
+              <p style="margin-top:0px;margin-bottom:0px;text-align:center;font-size:11px;font-weight:bold;">(Name, Telephone, <font style="white-space:nowrap">E-mail</font> and/or Facsimile number and Address of Company Contact Person)</p>
+              <p style="margin-top:24px;margin-bottom:0px;text-align:center;font-size:13px;font-weight:bold;">Securities registered or to be registered pursuant to Section 12(b) of the Act:</p>
+              <table cellspacing="0" cellpadding="0" border="0" class="tablewidth-100">
+                <tbody>
+                  <tr style="page-break-inside:avoid">
+                    <td valign="bottom" align="center" style="border-bottom:1px solid #000000;width:48%">
+                      <div style="font-size:13px;font-weight:bold;">Title of each class</div>
+                    </td>
+                    <td style="width:1%" valign="bottom">
+                      <div class="" />
+                    </td>
+                    <td style="width:5%" valign="bottom">
+                      <div class="" />
+                    </td>
+                    <td valign="bottom" style="width:1%">
+                      <div class="" />
+                    </td>
+                    <td valign="bottom" align="center" style="border-bottom:1px solid #000000;width:45%">
+                      <div style="font-size:13px;font-weight:bold;">Name of each exchange on which registered</div>
+                    </td>
+                  </tr>
+                  <tr style="page-break-inside:avoid">
+                    <td valign="bottom" align="center">
+                      <div style="font-size:13px;">Common Shares - par value</div>
+                    </td>
+                    <td valign="bottom">
+                      <div class="" />
+                    </td>
+                    <td valign="bottom">
+                      <div class="" />
+                    </td>
+                    <td valign="bottom">
+                      <div class="" />
+                    </td>
+                    <td valign="bottom" align="center">
+                      <div style="font-size:13px;">New York Stock Exchange</div>
+                    </td>
+                  </tr>
+                  <tr style="font-size:1pt">
+                    <td colspan="5" style="height: 8px">
+                      <div class="" />
+                    </td>
+                  </tr>
+                  <tr style="page-break-inside:avoid">
+                    <td valign="bottom" align="center">
+                      <div style="font-size:13px;">Euro (EUR) 0.20 per share</div>
+                    </td>
+                    <td valign="bottom">
+                      <div class="" />
+                    </td>
+                    <td valign="bottom">
+                      <div class="" />
+                    </td>
+                    <td valign="bottom">
+                      <div class="" />
+                    </td>
+                    <td valign="bottom">
+                      <div class="" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style="margin-top:12px;margin-bottom:0px;text-align:center;font-size:13px;font-weight:bold;">Securities registered or to be registered pursuant to Section 12(g) of the Act:</p>
+              <p style="margin-top:0px;margin-bottom:0px;text-align:center;font-size:13px;font-weight:bold;">None</p>
+              <p style="margin-top:24px;margin-bottom:0px;text-align:center;font-size:13px;font-weight:bold;">Securities for which there is a reporting obligation pursuant to Section 15(d) of the Act:</p>
+              <p style="margin-top:0px;margin-bottom:0px;text-align:center;font-size:13px;font-weight:bold;">(Title of class)</p>
+              <p style="margin-top:0px;margin-bottom:0px;text-align:center;font-size:13px;font-weight:bold;">None</p>
+              <p style="margin-top:12px;margin-bottom:0px;font-size:13px;">Indicate the number of outstanding shares of each of the issuer's classes of capital or common stock as of the close of the period covered by the annual report:</p>
+              <table cellspacing="0" cellpadding="0" border="0" class="">
+                <tbody>
+                  <tr>
+                    <td style="width:51%">
+                      <div class="" />
+                    </td>
+                    <td style="width:2%" valign="bottom">
+                      <div class="" />
+                    </td>
+                    <td style="width:47%">
+                      <div class="" />
+                    </td>
+                  </tr>
+                  <tr style="page-break-inside:avoid">
+                    <td valign="top">
+                      <div style="font-size:13px;">Class</div>
+                    </td>
+                    <td valign="bottom">
+                      <div class="" />
+                    </td>
+                    <td valign="top" align="right">
+                      <div style="font-size:13px;">Outstanding at December 31, 2018</div>
+                    </td>
+                  </tr>
+                  <tr style="page-break-inside:avoid">
+                    <td valign="top">
+                      <div style="font-size:13px;">KONINKLIJKE PHILIPS NV</div>
+                    </td>
+                    <td valign="bottom">
+                      <div class="" />
+                    </td>
+                    <td valign="top" align="right">
+                      <div style="font-size:13px;">
+                        <span class="fact-inline xbrl-level-0 bg-white bg-white" data-fact-id="0003cover">914,184,087 shares</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr style="page-break-inside:avoid">
+                    <td valign="top">
+                      <div style="font-size:13px;">Common Shares par value <span class="fact-inline xbrl-level-0 bg-white bg-white" data-fact-id="0004cover">EUR 0.20 per share</span></div>
+                    </td>
+                    <td valign="bottom">
+                      <div class="" />
+                    </td>
+                    <td valign="top" align="right">
+                      <div class="" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style="margin-top:12px;margin-bottom:0px;font-size:13px;">Indicate by check mark if the registrant is a well-known seasoned issuer, as defined in Rule 405 of the Securities Act. <font size="2">☒</font><span class="fact-inline xbrl-level-0 bg-white bg-white" data-fact-id="coverseasonedissuer">Yes</span> No <font size="2">☐</font></p>
+              <p style="margin-top:12px;margin-bottom:0px;font-size:13px;">If this report is an annual or transition report, indicate by check mark if the registrant is not required to file reports pursuant to section 13 or 15(d) of the Securities Exchange Act of 1934. <font size="2">☐</font> Yes <font size="2">☒</font> No</p>
+              <p style="margin-top:2px;margin-bottom:0px;font-size:13px;">Note-Checking the box above will not relieve any registrant required to file reports pursuant to Section 13 or 15(d) of the Securities Exchange Act of 1934 from their obligations under those Sections. </p>
+              <p style="margin-top:12px;margin-bottom:0px;font-size:13px;">Indicate by check mark whether the registrant (1) has filed all reports required to be filed by Section 13 or 15(d) of the Securities Exchange Act of 1934 during the preceding 12 months (or for such shorter period that the registrant was required to file such reports), and (2) has been subject to such filing requirements for the past 90 days. <font size="2">☒</font><span class="fact-inline xbrl-level-0 bg-white bg-white" data-fact-id="coverreportingstatus">Yes</span><font size="2">☐</font> No</p>
+              <p style="margin-top:12px;margin-bottom:0px;font-size:13px;">Indicate by check mark whether the registrant has submitted electronically every Interactive Data File required to be submitted and posted pursuant to Rule 405 of Regulation S-T (§232.405 of this chapter) during the preceding 12 months (or for such shorter period that the registrant was required to submit and post such files). <font size="2">☒</font> Yes <font size="2">☐</font> No</p>
+              <p style="margin-top:12px;margin-bottom:0px;font-size:13px;">Indicate by check mark whether the registrant is a large accelerated filer, an accelerated filer, or a non-accelerated filer, or an emerging growth company. See definition of “large accelerated filer”, “accelerated filer” and “emerging growth company” in Rule 12b-2 of the Exchange Act. (Check one):</p>
+              <p style="margin-top:12px;margin-bottom:0px;text-align:center;font-size:13px;">
+                <span class="fact-inline xbrl-level-0 bg-white bg-white" data-fact-id="coverfilercategory">Large Accelerated Filer</span>
+                <font size="2">☒</font> Accelerated filer <font size="2">☐</font> Non-accelerated filer <font size="2">☐</font> Emerging growth company <font size="2">☐</font></p>
+              <p style="margin-top:12px;margin-bottom:0px;font-size:13px;">If an emerging growth company that prepares its ﬁnancial statements in accordance with U.S. GAAP, indicate by check mark if the registrant has elected not to use the extended transition period for complying with any new or revised ﬁnancial accounting standards† provided pursuant to Section 13(a) of the Exchange Act. <font size="2">☐</font></p>
+              <p style="margin-top:2px;margin-bottom:0px;font-size:13px;">† The term “new or revised ﬁnancial accounting standard” refers to any update issued by the Financial Accounting Standards Board to its Accounting Standards Codiﬁcation after April 5, 2012.</p>
+              <p style="margin-top:12px;margin-bottom:0px;font-size:13px;">Indicate by check mark which basis of accounting the registrant has used to prepare the financial statements included in this filing:</p>
+              <table cellspacing="0" cellpadding="0" border="0" class="">
+                <tbody>
+                  <tr>
+                    <td style="width:13%">
+                      <div class="" />
+                    </td>
+                    <td style="width:11%" valign="bottom">
+                      <div class="" />
+                    </td>
+                    <td style="width:66%">
+                      <div class="" />
+                    </td>
+                    <td style="width:2%" valign="bottom">
+                      <div class="" />
+                    </td>
+                    <td style="width:8%">
+                      <div class="" />
+                    </td>
+                  </tr>
+                  <tr style="page-break-inside:avoid">
+                    <td valign="top">
+                      <div style="font-size:13px;">U.S. GAAP <font size="2">☐</font></div>
+                    </td>
+                    <td valign="bottom">
+                      <div class="" />
+                    </td>
+                    <td valign="top">
+                      <div>
+                        <p style="margin-top:0px;margin-bottom:0px;font-size:13px;">International Financial Reporting Standards as issued by</p>
+                        <p style="margin-top:0px;margin-bottom:1px;font-size:13px;">by the International Accounting Standards Board <font size="2">☒</font></p>
+                      </div>
+                    </td>
+                    <td valign="bottom">
+                      <div class="" />
+                    </td>
+                    <td valign="top">
+                      <div style="font-size:13px;">Other <font size="2">☐</font></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style="margin-top:12px;margin-bottom:0px;font-size:13px;">If Other has been checked in response to the previous question, indicate by check mark which financial statement item the registrant has elected to follow. <font size="2">☐</font> Item 17 <font size="2">☐</font> Item 18</p>
+              <p style="margin-top:12px;margin-bottom:0px;font-size:13px;">If this is an annual report, indicate by check mark whether the registrant is a shell company (as defined in Rule 12b-2 of the Exchange Act). <font size="2">☐</font> Yes <font size="2">☒</font> No</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

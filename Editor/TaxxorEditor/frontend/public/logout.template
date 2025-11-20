@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    [page-head-content]
+</head>
+<body class="page_[pageid] sitetype_[sitetype] login-layout light-login">
+	[page-body-start]
+	<div class="main-container">
+      
+    
+			<div class="main-content">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+                        <div style="background-color: #cfcfcf">
+                            <h4 class="header blue lighter bigger">Logged out</h4>
+                            <a href="/">Login again</a>
+                        </div>
+
+						
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+			</div><!-- /.main-content -->
+
+
+
+
+	</div>
+	<!-- /container -->
+    [page-body-end]
+</body>
+</html>

@@ -1,0 +1,51 @@
+<data>
+  <system>
+    <date_created>2018-10-12T15:22:44.901676+02:00</date_created>
+    <date_modified>2022-07-05T14:41:09.5472822+00:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="toc" data-fact-id="toc" data-guid="toc" data-last-modified="2022-07-05T14:41:09.5472822+00:00" data-description="toc" data-articletype="toc" modified-by="renick.oosterbosch@tiekinetix.com">
+      <div data-type="one-column" class="pageblock toc">
+        <section class="content" data-name="toc-content">
+          <div data-contenteditable="false" class="disclaimer tx-hide-xbrl">
+            <h3 data-contenteditable="true"> </h3>
+          </div>
+          <h1 class="tx-pb-b" data-reporttitle="ANNUAL REPORT 2021">Table of Contents</h1>
+          <ul class="toc-list">
+            <li>to be dynamically rendered</li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </content>
+  <content lang="de">
+    <article id="toc" data-fact-id="toc" data-guid="toc" data-last-modified="2022-07-05T14:41:09.5472822+00:00" data-description="toc" data-articletype="toc" modified-by="renick.oosterbosch@tiekinetix.com">
+      <div data-type="one-column" class="pageblock toc">
+        <section class="content" data-name="toc-content">
+          <div data-contenteditable="false" class="disclaimer tx-hide-xbrl">
+            <h3 data-contenteditable="true"> </h3>
+          </div>
+          <h1 class="tx-pb-b" data-reporttitle="ANNUAL REPORT 2021">Table of Contents</h1>
+          <ul class="toc-list">
+            <li>to be dynamically rendered</li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </content>
+  <content lang="fr">
+    <article id="toc" data-fact-id="toc" data-guid="toc" data-last-modified="2022-07-05T14:41:09.5472822+00:00" data-description="toc" data-articletype="toc" modified-by="renick.oosterbosch@tiekinetix.com">
+      <div data-type="one-column" class="pageblock toc">
+        <section class="content" data-name="toc-content">
+          <div data-contenteditable="false" class="disclaimer tx-hide-xbrl">
+            <h3 data-contenteditable="true"> </h3>
+          </div>
+          <h1 class="tx-pb-b" data-reporttitle="ANNUAL REPORT 2021">Table of Contents</h1>
+          <ul class="toc-list">
+            <li>to be dynamically rendered</li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

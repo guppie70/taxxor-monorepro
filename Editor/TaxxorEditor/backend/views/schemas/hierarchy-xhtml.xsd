@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+
+  <!-- Global span element definition -->
+  <xs:element name="span">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element ref="input" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="a" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="span" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="class" type="xs:string" use="optional"/>
+      <xs:attribute name="draggable" type="xs:boolean" use="optional"/>
+      <xs:attribute name="tabindex" type="xs:string" use="optional"/>
+      <xs:attribute name="onclick" type="xs:string" use="optional"/>
+      <xs:attribute name="data-toggle" type="xs:string" use="optional"/>
+      <xs:attribute name="data-trigger" type="xs:string" use="optional"/>
+      <xs:attribute name="data-placement" type="xs:string" use="optional"/>
+      <xs:attribute name="data-showrestore" type="xs:string" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- Input element definition -->
+  <xs:element name="input">
+    <xs:complexType>
+      <xs:attribute name="type" type="xs:string" use="required"/>
+      <xs:attribute name="class" type="xs:string" use="optional"/>
+      <xs:attribute name="id" type="xs:string" use="optional"/>
+      <xs:attribute name="name" type="xs:string" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- Anchor (a) element definition -->
+  <xs:element name="a">
+    <xs:complexType mixed="true">
+      <xs:attribute name="class" type="xs:string" use="optional"/>
+      <xs:attribute name="tabindex" type="xs:string" use="optional"/>
+      <xs:attribute name="onclick" type="xs:string" use="optional"/>
+      <xs:attribute name="data-toggle" type="xs:string" use="optional"/>
+      <xs:attribute name="data-trigger" type="xs:string" use="optional"/>
+      <xs:attribute name="data-placement" type="xs:string" use="optional"/>
+      <xs:attribute name="data-showrestore" type="xs:string" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- li element -->
+  <xs:element name="li">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="div" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="span" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="class" type="xs:string" use="required"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ul" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="li" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="class" type="xs:string" use="optional"/>
+            <xs:attribute name="aria-dropeffect" type="xs:string" use="optional"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="aria-grabbed" type="xs:boolean"/>
+      <xs:attribute name="class"/>
+      <xs:attribute name="style"/>
+      <xs:attribute name="data-ref" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="data-tocend" type="xs:boolean"/>
+      <xs:attribute name="data-tocstart" type="xs:boolean"/>
+      <xs:attribute name="data-tochide" type="xs:boolean"/>
+      <xs:attribute name="data-tocstyle" type="xs:NCName"/>
+      <xs:attribute name="hierarchy-id" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="role" type="xs:NCName"/>
+      <xs:attribute name="data-foobar" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+ 
+  
+  
+  
+  <!-- element that contains hierarchy information about a single item 
+   <xs:element name="li">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="div" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="ul" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+      <xs:attribute name="aria-grabbed" type="xs:boolean"/>
+      <xs:attribute name="class"/>
+      <xs:attribute name="data-ref" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="data-tocend" type="xs:boolean"/>
+      <xs:attribute name="data-tocstart" type="xs:boolean"/>
+      <xs:attribute name="data-tocstyle" type="xs:NCName"/>
+      <xs:attribute name="hierarchy-id" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="role" type="xs:NCName"/>
+      <xs:attribute name="data-foobar" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>   
+    
+  <xs:element name="div">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="span"/>
+      </xs:sequence>
+      <xs:attribute name="class" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ul">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="li"/>
+      </xs:sequence>
+      <xs:attribute name="aria-dropeffect" use="required" type="xs:NCName"/>
+      <xs:attribute name="class" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="span">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="span"/>
+        <xs:element ref="a"/>
+        <xs:element ref="input"/>
+      </xs:choice>
+      <xs:attribute name="class" use="required"/>
+      <xs:attribute name="draggable" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="a">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:NMTOKEN">
+          <xs:attribute name="class" use="required"/>
+          <xs:attribute name="data-placement" use="required" type="xs:NCName"/>
+          <xs:attribute name="data-showrestore" use="required" type="xs:boolean"/>
+          <xs:attribute name="data-toggle" use="required" type="xs:NCName"/>
+          <xs:attribute name="data-trigger" use="required" type="xs:NCName"/>
+          <xs:attribute name="onclick" use="required"/>
+          <xs:attribute name="tabindex" use="required" type="xs:integer"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="input">
+    <xs:complexType>
+      <xs:attribute name="class" use="required" type="xs:NCName"/>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+      <xs:attribute name="type" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  -->
+</xs:schema>

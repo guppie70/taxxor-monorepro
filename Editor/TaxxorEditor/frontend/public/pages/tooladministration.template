@@ -1,0 +1,624 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    [page-head-content]
+</head>
+
+<body class="page_[pageid] sitetype_[sitetype] system-page no-skin projectstatus_[projectstatus]">
+    [page-body-start]
+
+    <div class="main-container">
+        [page-maincolumn-start]
+        <div class="page-header">
+            <h1>Taxxor CMS Administration <small>[document-name]</small></h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                
+                <div data-permissions="editreportdesignpackage">
+                    <h2>GIT repositories</h2>
+                    <div class="panel panel-default panel-gitpull">
+                        <div class="panel-heading">Pull repositories from their remote</div>
+                        <div class="panel-body">
+
+
+                            <div class="form-horizontal">
+
+                                <div class="form-group">
+                                    <label for="select-gitpull-repository" class="col-sm-3 control-label">Repository</label>
+                                    <div class="col-sm-9">
+                                        <select name="select-gitpull-repository" id="select-gitpull-repository" class="form-control">
+                                            <option>No repositories available...</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <button class="btn btn-default btn-pull">Pull</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <h4>Result</h4>
+                            <div class="result">...</div>
+                        </div>
+                        <div class="tx-loader-wrapper">
+                            <div class="tx-loader">
+                                <div class="item item-1">T</div>
+                                <div class="item item-2">/</div>
+                                <div class="item item-3">R</div>
+                                <div class="item item-4">\</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div data-permissions="viewdevelopertools">
+                    <h2>Static assets source</h2>
+                    <div class="panel panel-default panel-staticassets">
+                        <div class="panel-heading">Use an alternative static assets source for this session</div>
+                        <div class="panel-body">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="select-staticassets-source" class="col-sm-3 control-label">Repository</label>
+                                    <div class="col-sm-6">
+                                        <select name="select-staticassets-source" id="select-staticassets-source" class="form-control">
+                                            <option>No static assets sources available...</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <small>(browser reloads once you make a change)</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+
+                <div data-permissions="viewdevelopertools">
+                    <h2>Logging tools</h2>
+
+                    <div class="panel panel-default panel-applogfiles">
+                        <div class="panel-heading">App log files</div>
+                        <div class="panel-body">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <button class="btn btn-default btn-start" data-toggle="modal" data-target="#modal_logviewer">Open viewer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div data-permissions="viewdevelopertools">
+                    <h2>Taxxor Data Service Tools</h2>
+                    <div class="panel panel-default panel-dataservicetool">
+                        <div class="panel-heading">Tools for maintenance of the Taxxor Data Service</div>
+                        <div class="panel-body">
+
+
+                            <div class="form-horizontal">
+
+                                <div class="form-group">
+                                    <label for="select-dataservicetool-scenario" class="col-sm-3 control-label">Tool to execute</label>
+                                    <div class="col-sm-9">
+                                        <select name="select-dataservicetool-scenario" id="select-dataservicetool-scenario" class="form-control">
+                                            <option>No tools available...</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="dataservicetool-description" class="col-sm-3 control-label">Tool description</label>
+                                    <div class="col-sm-9">
+                                        <div class="dataservicetool-description" id="dataservicetool-description" role="alert">No tool description available</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="select-dataservicetool-scope" class="col-sm-3 control-label">Scope</label>
+                                    <div class="col-sm-9">
+                                        <select name="select-dataservicetool-scope" id="select-dataservicetool-scope" multiple="multiple" class="form-control projects-multiselect" title="Select projects" data-live-search="true" data-selected-text-format="count" data-width="75%">
+
+                                        </select>
+                                        <button class="btn btn-default btn-toggleprojectselection pull-right">Clear selection</button>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <button class="btn btn-default btn-execute">Run</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="data-servicetools-resultheader">
+                                <h4 class="pull-left">Result</h4>
+                                <div class="pull-right">
+                                    <button class="btn btn-default btn-xs" id="data-servicetools-resultdownload" onclick="downloadDatServiceToolResult()"><span class="glyphicon glyphicon-download-alt"> </span> Download result</button>
+                                </div>
+                            </div>
+
+                            <div class="result">...</div>
+                            <div class="hiddenresult" id="data-servicetools-hiddenresult">
+                                ...
+                            </div>
+                        </div>
+                        <div class="tx-loader-wrapper">
+                            <div class="tx-loader">
+                                <div class="item item-1">T</div>
+                                <div class="item item-2">/</div>
+                                <div class="item item-3">R</div>
+                                <div class="item item-4">\</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div data-permissions="loginas">
+                    <h2>Login as</h2>
+                    <div class="panel panel-default panel-loginas">
+                        <div class="panel-heading">Impersonate another user</div>
+                        <div class="panel-body">
+                            <form action="/loginas" method="get" class="form-horizontal">
+                                <div class="form-group">
+                                <label for="select-users" class="col-sm-3 control-label">User ID</label>
+                                    <div class="col-sm-9">
+                                        [user-select-box]
+                                        <br/>
+                                        <input class="btn btn-default" type="submit" value="Login as selected user">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div data-permissions="publishwebsite">
+                    <h2>Bulk publish website content</h2>
+                    <div class="panel panel-default panel-bulkpublishwebsitecontent">
+                        <div class="panel-heading">Publish all website content to a selected hosting platform</div>
+                        <div class="panel-body">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                <label for="select-users" class="col-sm-3 control-label">Launch &amp; select platform</label>
+                                    <div class="col-sm-9">
+                                        <button class="btn btn-default" onclick="openBulkPublishWebsiteContentModal()">Launch</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div data-permissions="viewdevelopertools">
+                    <h2>XHTML check</h2>
+                    <div class="panel panel-default panel-xhtmlcompliance">
+                        <div class="panel-heading">Check source content for XHTML compliance</div>
+                        <div class="panel-body">
+
+
+                            <div class="form-horizontal">
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <button class="btn btn-default btn-execute">Execute</button>&nbsp;&nbsp;<button class="btn btn-default btn-view">View <small>(last background job result)</small></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <h4>Result</h4>
+                            <div class="result">...</div>
+                        </div>
+                        <div class="tx-loader-wrapper">
+                            <div class="tx-loader">
+                                <div class="item item-1">T</div>
+                                <div class="item item-2">/</div>
+                                <div class="item item-3">R</div>
+                                <div class="item item-4">\</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-permissions="viewdevelopertools">
+                    <h2>User preferences</h2>
+                    <div class="panel panel-default panel-userpreferences">
+                        <div class="panel-heading">Custom user preferences</div>
+                        <div class="panel-body">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="input-legalentityfilter" class="col-sm-3 control-label">Legal entity filter</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="input-legalentityfilter" data-userpreferenceskey="legalentityfilter"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <button class="btn btn-default btn-store">Store</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <h4>Result</h4>
+                            <div class="result">...</div>
+                        </div>
+                        <div class="tx-loader-wrapper">
+                            <div class="tx-loader">
+                                <div class="item item-1">T</div>
+                                <div class="item item-2">/</div>
+                                <div class="item item-3">R</div>
+                                <div class="item item-4">\</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+
+            </div>
+            <div class="col-md-6">
+                <h2>Other Tools</h2>
+
+                <div class="panel panel-default panel-othertools" data-permissions="viewdevelopertools">
+                    <div class="panel-heading">Cache tools</div>
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="btn-clearcacheall" class="col-sm-3 control-label">Clear all in-memory cache</label>
+                                <div class="col-sm-9">
+                                    <button id="btn-clearcacheall" class="btn btn-default btn-clearcacheall">Start</button>
+                                </div>
+                            </div>                           
+                        </div>
+
+                        <table class="table">
+                            <tr>
+                                <td width="50%" class="col-md-6">
+                                    <div class="form-horizontal">                         
+                                        <div class="form-group">
+                                            <label for="btn-cleareditorsystemcache" class="col-sm-6 control-label">Clear Editor in-memory cache</label>
+                                            <div class="col-sm-6">
+                                                <button id="btn-cleareditorsystemcache" class="btn btn-default btn-cleareditorsystemcache">Start</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="btn-pagedmediacacherebuild" class="col-sm-6 control-label">Clear paged media content cache</label>
+                                            <div class="col-sm-6">
+                                                <button id="btn-pagedmediacacherebuild" class="btn btn-default btn-pagedmediacacherebuild">Start</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="btn-clearrbac" class="col-sm-6 control-label">Clear RBAC and hierarchy cache</label>
+                                            <div class="col-sm-6">
+                                                <button id="btn-clearrbac" class="btn btn-default btn-clearrbac">Start</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="btn-clearrbac" class="col-sm-6 control-label">Rebuild CMS Metadata</label>
+                                            <div class="col-sm-6">
+                                                <button id="btn-clearrbac" class="btn btn-default btn-rebuildcmsmetadata">Start</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="50%" class="col-md-6">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label for="btn-configrebuild" class="col-sm-6 control-label">Rebuild configuration cache</label>
+                                            <div class="col-sm-6">
+                                                <button id="btn-configrebuild" class="btn btn-default btn-configrebuild">Start</button>
+                                            </div>
+                                        </div>                      
+                                        <div class="form-group">
+                                            <label for="btn-cleardocumentstorecache" class="col-sm-6 control-label">Clear DocumentStore in-memory cache</label>
+                                            <div class="col-sm-6">
+                                                <button id="btn-cleardocumentstorecache" class="btn btn-default btn-cleardocumentstorecache">Start</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="btn-cleardocumentstorecache" class="col-sm-6 control-label">Clear XHTML check contents</label>
+                                            <div class="col-sm-6">
+                                                <button id="btn-cleardocumentstorecache" class="btn btn-default btn-cxhtmlcheckcache">Start</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <hr />
+                        <h4>Result</h4>
+                        <div class="result">...</div>
+                    </div>
+                    <div class="tx-loader-wrapper">
+                        <div class="tx-loader">
+                            <div class="item item-1">T</div>
+                            <div class="item item-2">/</div>
+                            <div class="item item-3">R</div>
+                            <div class="item item-4">\</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default panel-prod2staging" data-permissions="editreportdesignpackage">
+                    <div class="panel-heading">Data tools</div>
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="btn-prod2staging" class="col-sm-3 control-label">Prod 2 Staging</label>
+                                <div class="col-sm-9">
+                                    <button id="btn-prod2staging" class="btn btn-default btn-prod2staging">Start</button>
+                                </div>
+                            </div>                           
+                            <hr/>
+                        </div>
+                        <h4>Result</h4>
+                        <div class="result">...</div>
+                    </div>
+                    <div class="tx-loader-wrapper">
+                        <div class="tx-loader">
+                            <div class="item item-1">T</div>
+                            <div class="item item-2">/</div>
+                            <div class="item item-3">R</div>
+                            <div class="item item-4">\</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default panel-debugtools" data-permissions="viewdevelopertools">
+                    <div class="panel-heading">Debug tools</div>
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="btn-dumprbaccache" class="col-sm-3 control-label">Dump RBAC cache contents</label>
+                                <div class="col-sm-9">
+                                    <button id="btn-dumprbaccache" class="btn btn-default btn-dumprbaccache">Start</button>
+                                </div>
+                            </div>                           
+                            <hr/>
+                        </div>
+                        <h4>Result</h4>
+                        <div class="result">...</div>
+                    </div>
+                    <div class="tx-loader-wrapper">
+                        <div class="tx-loader">
+                            <div class="item item-1">T</div>
+                            <div class="item item-2">/</div>
+                            <div class="item item-3">R</div>
+                            <div class="item item-4">\</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default panel-lockingsystem" data-permissions="viewdevelopertools">
+                    <div class="panel-heading">Internal lock information</div>
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-default btn-view">View data</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <h4>Result</h4>
+                        <div class="result">...</div>
+                    </div>
+                    <div class="tx-loader-wrapper">
+                        <div class="tx-loader">
+                            <div class="item item-1">T</div>
+                            <div class="item item-2">/</div>
+                            <div class="item item-3">R</div>
+                            <div class="item item-4">\</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default panel-systemstate" data-permissions="viewdevelopertools">
+                    <div class="panel-heading">System state</div>
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-default btn-view">View data</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-default btn-reset">Reset state</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <h4>Result</h4>
+                        <div class="result">...</div>
+                    </div>
+                    <div class="tx-loader-wrapper">
+                        <div class="tx-loader">
+                            <div class="item item-1">T</div>
+                            <div class="item item-2">/</div>
+                            <div class="item item-3">R</div>
+                            <div class="item item-4">\</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default panel-urirecording" data-permissions="viewdevelopertools">
+                    <div class="panel-heading">Internal http trafic recording</div>
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-default btn-start">Start recording</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-default btn-showresults">Show results</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <h4>Result</h4>
+                        <div class="result">...</div>
+                    </div>
+                    <div class="tx-loader-wrapper">
+                        <div class="tx-loader">
+                            <div class="item item-1">T</div>
+                            <div class="item item-2">/</div>
+                            <div class="item item-3">R</div>
+                            <div class="item item-4">\</div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row" data-permissions="viewdevelopertools">
+            <div class="col-md-12">
+                <h2>Active users</h2>
+                <div class="alert alert-info tx-activeusers" role="alert">
+                    ...
+                </div>
+
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+        </div>
+
+        [page-maincolumn-end]
+    </div>
+
+    <div class="">
+
+    </div>
+
+    <!-- Modal Bulk Quick Publish Webpage -->
+	<div class="modal fade" id="modal-quickpublishwebpage" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Quick publish webpages</h4>
+				</div>
+				<div class="modal-body">
+					<div class="content" style="display: block">
+                        <p>Directly publish the webpages of selected projects to the hosting platform</p>
+						<form class="form-horizontal">
+                            <div class="form-group">
+                              <label for="radio-targetplatformprod" class="col-sm-3 control-label">Target platform:</label>
+                              <div class="col-sm-9">
+                                <label class="radio-inline">
+                                    <input type="radio" name="radio-targetplatform" id="radio-targetplatformprod" value="production" checked="checked"/> PROD
+                                  </label>
+                                  <label class="radio-inline">
+                                    <input type="radio" name="radio-targetplatform" id="radio-targetplatformstaging" value="staging"/> STAGING
+                                  </label>
+                                  <label class="radio-inline">
+                                    <input type="radio" name="radio-targetplatform" id="radio-targetplatformdevelop" value="develop"/> DEVELOP
+                                  </label>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="select-publishwebsite-scope" class="col-sm-3 control-label">Projects:</label>
+                                <div class="col-sm-9">
+                                    <select name="select-publishwebsite-scope" id="select-publishwebsite-scope" multiple="multiple" class="form-control projects-multiselect" data-live-search="true" data-selected-text-format="count" data-width="75%">
+
+                                    </select>
+
+                                    <button class="btn btn-default btn-togglewebsitepublishprojectselection pull-right">Clear</button>
+                                </div>
+                            </div>
+                        </form>
+					</div>
+					<div class="spinner" style="display: none">
+						<div class="loading-icon-wrapper"> </div>
+                        <div class="progress-wrapper">
+                            <div class="spinnertitle">Publishing webpages on hosting platform</div>
+                            <p>Progress:</p>
+                            <pre></pre>  
+                        </div>
+					</div>
+					<div class="error" style="display: none">
+                        <h5 class="message">An error has occured while publishing your content.</h5>
+                        <div class="alert alert-danger">
+                            <div class="message">...</div>
+                            <a href="javascript:quickWebpagePublishViewErrorLog()">view log</a>
+                            <div class="error-log"><pre></pre></div>
+                        </div>
+					</div>
+					<div class="success" style="display: none">
+                        <h5 class="message">Successfully published web page on hosting platform.</h5>
+                        <div class="alert alert-success">
+                            <div class="message">...</div>
+                            <a href="javascript:quickWebpagePublishViewSuccessLog()">view log</a>
+                            <div class="success-log"><pre></pre></div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button data-dismiss="modal" class="btn btn-sm btn-default" type="button">Discard</button>
+					<button class="btn btn-sm btn-primary btn-publish" type="button">Publish</button>
+				</div>
+			</div>
+		</div>
+    </div>
+
+    <div aria-labelledby="logViewerLabel" role="dialog" tabindex="-1" id="modal_logviewer" class="modal fade modal-wide">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button data-dismiss="modal" class="close" type="button">
+                <span>×</span>
+                <span class="sr-only">Close</span>
+              </button>
+              <h4 id="logViewerLabel" class="modal-title">View application log files</h4>
+            </div>
+            <div class="modal-body">
+              <div id="logcontrols">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Available log files</label>
+                      <div class="col-sm-9">
+
+                        <div class="input-group">
+                            <select name="select-app-logfiles" id="select-app-logfiles" class="form-control">
+                                <option value="none:none">-- Select a log file --</option>
+                            </select>
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary btn-refresh-log" type="button"><span class="glyphicon glyphicon-refresh"></span></button>
+                            </span>
+                          </div>
+                      </div>
+                    </div>
+                  </form>
+              </div>
+              <div id="logcontent">
+                <pre>...</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>    
+
+    [page-body-end]
+</body>
+
+</html>

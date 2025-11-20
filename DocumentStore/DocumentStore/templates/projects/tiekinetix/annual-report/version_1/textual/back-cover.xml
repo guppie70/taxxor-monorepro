@@ -1,0 +1,29 @@
+<data>
+  <system>
+    <date_created>2018-10-12T15:22:44.901676+02:00</date_created>
+    <date_modified>2020-03-05T18:40:31.6504150+00:00</date_modified>
+  </system>
+  <content lang="en">
+    <article id="back-cover" class="" data-fact-id="back-cover" data-guid="back-cover" data-last-modified="2021-07-16T08:52:31.3450244+00:00" data-description="back-cover" data-articletype="backcover" modified-by="rutger@taxxor.com">
+      <div class="pageblock back-cover" data-type="one-column">
+        <section>
+          <p>
+            <img src="/dataserviceassets/{projectid}/images/front-cover.jpg" />
+          </p>
+          <div class="contactinfo">
+            <p>
+              <strong>Chief Executive Officer</strong>
+              <br />Mr. Jan Sundelin<br />T: +31 88 369 8000<br />E: Jan.Sundelin@TIEKinetix.com</p>
+            <p>
+              <br />
+              <strong>Chief Financial Officer</strong>
+              <br />Dr. Michiel Wolfswinkel<br />T: +31 88 369 8000<br />E: Michiel.Wolfswinkel@TIEKinetix.com</p>
+          </div>
+          <div class="logowrapper">
+            <img src="/dataserviceassets/{projectid}/images/logo-footer.svg" />
+          </div>
+        </section>
+      </div>
+    </article>
+  </content>
+</data>

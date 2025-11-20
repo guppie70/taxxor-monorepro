@@ -1,0 +1,30 @@
+<items>
+  <structured>
+    <item id="document-root" level="0" data-ref="document-root.xml">
+      <web_page>
+        <path>/</path>
+        <linkname>Press Release</linkname>
+      </web_page>
+      <sub_items>
+        <item id="2201713-front-cover-8usg1z14w2xq0306" level="1" data-ref="front-cover.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Cover</linkname>
+          </web_page>
+        </item>
+        <item id="investor-update-content-xmg8ua20a628t15g" level="1" data-ref="investor-update-content.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Investor update content</linkname>
+          </web_page>
+        </item>
+        <item id="back-cover-x59uge6t7d30872w" level="1" data-ref="back-cover.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Back cover</linkname>
+          </web_page>
+        </item>
+      </sub_items>
+    </item>
+  </structured>
+</items>

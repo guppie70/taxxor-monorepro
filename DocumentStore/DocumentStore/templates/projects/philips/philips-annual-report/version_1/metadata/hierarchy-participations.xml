@@ -1,0 +1,24 @@
+<items>
+  <structured>
+    <item id="participationsroot" level="0" data-ref="participations-root.xml">
+      <web_page>
+        <path>/</path>
+        <linkname>List of participations</linkname>
+      </web_page>
+      <sub_items>
+        <item id="participations-cover-49rh1986f121bg0s" level="1" data-ref="participations-cover.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Cover</linkname>
+          </web_page>
+        </item>
+        <item id="participations" level="1" data-ref="participations.xml">
+          <web_page>
+            <path>/</path>
+            <linkname>Participations</linkname>
+          </web_page>
+        </item>
+      </sub_items>
+    </item>
+  </structured>
+</items>

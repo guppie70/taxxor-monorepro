@@ -1,0 +1,2212 @@
+<project_templates>
+  <!-- for each editor, there is a definition -->
+
+
+  <customer taxxorclientid="philips">
+
+    <cms_project id="" editorId="default_filing" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Belastingdienst Omzetbelasting 2013</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/xbrl_no-extensions</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+      </repositories>
+      <reporting_period>2014</reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2011-04-24</date_created>
+          <date_lastmodified>2011-04-24</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="main_hierarchy">
+          <name>Filing Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/cbs_dts_for_hierarchy.xml</location>
+          <operations>
+            <operation type="server-side_function">add_xpath_to_dts</operation>
+            <operation type="server-side_function">convert-taxonomy-to-hierarchy</operation>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/document.xml</xml>
+            <labels path-type="cmsdataroot">/textual/cbs_dts.xml</labels>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+            <xsd path-type="cmsdatarootbase">/xsd/schema.xsd</xsd>
+            <customvalues path-type="cmsdatarootbase">/custom_values.xml</customvalues>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+
+    <!-- 
+  Philips Quarterly Report 
+  -->
+    <cms_project id="" editorId="philips-quarterly-report" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Lorem ipsum</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/philips-quarterly-report/q119</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <!-- This needs to become editable -->
+        <reporting_requirement ref-mappingservice="SEC6K" ref-outputchannelvariant="qr6k" format="sechtml" regulator="sec">
+          <name>SEC 6-K HTML</name>
+        </reporting_requirement>
+      </reporting_requirements>
+      <reporting_period/>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2019-03-05 10:45:22</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-pdf-en">
+          <name>PDF Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-pdf.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-pdf-en-6k">
+          <name>6K Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-6k.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-web-en">
+          <name>Web Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-web.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-webhistorical-en">
+          <name>Web Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-webhistorical.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+
+    <cms_project id="" editorId="philips-quarterly-historical-report-recent" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Lorem ipsum</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/philips-quarterly-report/q119</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <!-- This needs to become editable -->
+        <reporting_requirement ref-mappingservice="SEC6K" ref-outputchannelvariant="qr6k" format="sechtml" regulator="sec">
+          <name>SEC 6-K HTML</name>
+        </reporting_requirement>
+      </reporting_requirements>
+      <reporting_period/>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2019-03-05 10:45:22</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-pdf-en">
+          <name>PDF Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-pdf.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-pdf-en-6k">
+          <name>6K Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-6k.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-web-en">
+          <name>Web Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-web.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+
+
+    <cms_project id="" editorId="philips-quarterly-historical-report" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Lorem ipsum</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/philips-quarterly-report/q119</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_period/>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2019-03-05 10:45:22</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-web-en">
+          <name>Web Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-web.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+
+    <!-- 
+    Philips Annual Report
+    -->
+    <cms_project id="" editorId="philips-annual-report" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Lorem ipsum</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/philips-quarterly-report/ar18</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <!-- This needs to become editable -->
+        <!--
+      <reporting_requirement ref-mappingservice="PHG2017" ref-outputchannelvariant="20fpdf" format="ixbrl" regulator="sec">
+        <name>SEC 20-F XBRL</name>
+      </reporting_requirement>
+      --> </reporting_requirements>
+      <reporting_period>ar18</reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2018-10-12 14:52:49</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-ar-pdf-en">
+          <name>PDF AR Hierarchy (EN)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-pdf-en.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-ar-pdf-zh">
+          <name>PDF AR Hierarchy (ZH)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-pdf-zh.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+
+        <metadata id="hierarchy-20f-pdf-en">
+          <name>PDF 20-F Hierarchy (EN)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-20f-pdf-en.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+
+        <metadata id="hierarchy-ar-pdf-en-taxespaid">
+          <name>Taxes Paid</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-pdf-en-taxespaid.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+
+        <metadata id="hierarchy-participations">
+          <name>List of participations</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-participations.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+
+        <metadata id="hierarchy-ar-web-en">
+          <name>Web Hierarchy (EN)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-web-en.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-ar-webhistorical-en">
+          <name>Web Historical Hierarchy (EN)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-webhistorical-en.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-ar-web-zh">
+          <name>Web Hierarchy (ZH)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-web-zh.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-ar-webhistorical-zh">
+          <name>Web Historical Hierarchy (ZH)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-webhistorical-zh.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+
+      </metadata_system>
+
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+
+    <cms_project id="" editorId="philips-annual-historical-report-recent" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Lorem ipsum</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/philips-quarterly-report/ar18</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <!-- This needs to become editable -->
+        <!--
+      <reporting_requirement ref-mappingservice="PHG2017" ref-outputchannelvariant="20fpdf" format="ixbrl" regulator="sec">
+        <name>SEC 20-F XBRL</name>
+      </reporting_requirement>
+      --> </reporting_requirements>
+      <reporting_period>ar18</reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2018-10-12 14:52:49</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-ar-pdf-en">
+          <name>PDF AR Hierarchy (EN)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-pdf-en.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-ar-pdf-zh">
+          <name>PDF AR Hierarchy (ZH)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-pdf-zh.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+
+        <metadata id="hierarchy-20f-pdf-en">
+          <name>PDF 20-F Hierarchy (EN)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-20f-pdf-en.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+
+        <metadata id="hierarchy-ar-pdf-en-special-sustainability">
+          <name>* Sustainability selection</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-pdf-en-special-sustainability.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-ar-pdf-en-special-employee">
+          <name>* Employee selection</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-pdf-en-special-employee.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+
+        <metadata id="hierarchy-ar-pdf-en-taxespaid">
+          <name>Taxes Paid</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-pdf-en-taxespaid.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+
+        <metadata id="hierarchy-ar-web-en">
+          <name>Web Hierarchy (EN)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-web-en.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-ar-web-zh">
+          <name>Web Hierarchy (ZH)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-web-zh.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+
+      </metadata_system>
+
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+
+
+
+    <cms_project id="" editorId="philips-annual-historical-report" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Lorem ipsum</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/philips-annual-report/ar00</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_period/>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2019-03-05 10:45:22</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-web-en">
+          <name>Web Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-web-en.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-web-zh">
+          <name>Web Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-web-zh.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+
+    <!-- 
+    Philips Investor Update
+    -->
+    <cms_project id="" editorId="philips-investor-update" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Investor Update - QX 20XX</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/philips-quarterly-report/investorupdate</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_period>q117</reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2019-03-03 19:08:14</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-pdf-en">
+          <name>PDF Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-pdf.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+
+    <!-- 
+    Philips Investor Update 6-K
+    -->
+    <cms_project id="" editorId="philips-investor-update-6k" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Investor Update - QX 20XX</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/philips-investor-update-6k/investor_2020-10-19</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets/>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <!-- This needs to become editable -->
+        <reporting_requirement ref-mappingservice="SEC6K" ref-outputchannelvariant="6kfiling" format="sechtml" regulator="sec">
+          <name>SEC 6-K HTML</name>
+        </reporting_requirement>
+      </reporting_requirements>
+      <reporting_period>none</reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2020-10-06 19:43:39</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-pdf-en">
+          <name>PDF Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-pdf.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-6k-en">
+          <name>6-K Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-6k.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+
+
+    <!-- 
+    Philips 6-K Small
+    -->
+    <cms_project id="" editorId="philips-sec-6k-small" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>SEC 6-K Small</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/philips-quarterly-report/investorupdate</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <!-- This needs to become editable -->
+        <reporting_requirement ref-mappingservice="SEC6K" ref-outputchannelvariant="6kfiling" format="sechtml" regulator="sec">
+          <name>SEC 6-K HTML</name>
+        </reporting_requirement>
+      </reporting_requirements>
+      <reporting_period/>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2019-03-03 19:08:14</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-pdf-en">
+          <name>PDF Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-pdf.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+
+
+
+    <!-- 
+    6-K Annual Report Filing
+    -->
+    <cms_project id="" editorId="philips-sec-6k-ar" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity="9226e0b9-e37c-4531-9d50-9a3b425246c7" />
+        </entities>
+      </system>
+      <name>6-K Annual Report Filing</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/philips-sec-6k-ar/6k_2024-02-16</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1" />
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets />
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <!-- This needs to become editable -->
+        <reporting_requirement ref-mappingservice="SEC6K" ref-outputchannelvariant="6ksecfiling" format="sechtml" regulator="sec">
+          <name>SEC 6-K HTML</name>
+        </reporting_requirement>
+      </reporting_requirements>
+      <reporting_period></reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2024-02-15 14:11:33</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-sec-en">
+          <name>SEC Filing Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-sec.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-pdf-en">
+          <name>PDF Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-pdf.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+
+
+
+    <!-- 
+    Philips Monthly Report
+    -->
+    <cms_project id="" editorId="monthly-report" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>SEC 6-K Small</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/philips-monthly-report/q119</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <!-- This needs to become editable -->
+        <reporting_requirement ref-mappingservice="SEC6K" ref-outputchannelvariant="6kfiling" format="sechtml" regulator="sec">
+          <name>SEC 6-K HTML</name>
+        </reporting_requirement>
+      </reporting_requirements>
+      <reporting_period/>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2019-03-03 19:08:14</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-pdf-en">
+          <name>PDF Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-pdf.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+      
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+
+
+  </customer>
+
+
+  <customer taxxorclientid="domesticappliances">
+
+
+    <!-- 
+    Domestic Appliances Quarterly Report 
+    -->
+    <cms_project id="" editorId="quarterly-report" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Lorem ipsum</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/quarterly-report/q119</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+      </reporting_requirements>
+      <reporting_period/>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2019-03-05 10:45:22</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-pdf-en">
+          <name>PDF Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-pdf.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+
+
+    <!-- 
+    Domestic Appliances Annual Report
+    -->
+    <cms_project id="" editorId="annual-report" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Lorem ipsum</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/annual-report/ar18</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <!-- This needs to become editable -->
+        <!--
+      <reporting_requirement ref-mappingservice="PHG2017" ref-outputchannelvariant="20fpdf" format="ixbrl" regulator="sec">
+        <name>SEC 20-F XBRL</name>
+      </reporting_requirement>
+      --> </reporting_requirements>
+      <reporting_period>ar18</reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2018-10-12 14:52:49</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-ar-pdf-en">
+          <name>PDF AR Hierarchy (EN)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-pdf-en.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+
+
+    <!-- 
+    Domestic Appliances Update 6-K
+    -->
+    <cms_project id="" editorId="investor-update-6k" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Investor Update - QX 20XX</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/investor-update-6k/investor_2020-10-19</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets/>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <!-- This needs to become editable -->
+        <reporting_requirement ref-mappingservice="SEC6K" ref-outputchannelvariant="6kfiling" format="sechtml" regulator="sec">
+          <name>SEC 6-K HTML</name>
+        </reporting_requirement>
+      </reporting_requirements>
+      <reporting_period>none</reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2020-10-06 19:43:39</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-pdf-en">
+          <name>PDF Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-pdf.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+
+  </customer>
+
+
+
+
+  <customer taxxorclientid="tiekinetix">
+
+    <cms_project id="" editorId="annual-report" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Annual Report</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/annual-report/ar19</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1" disablesync="false"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <reporting_requirement ref-mappingservice="ESMA" ref-outputchannelvariant="arpdfen" format="ixbrl" regulator="afm">
+          <name>ESMA XBRL</name>
+        </reporting_requirement>
+      </reporting_requirements>
+      <reporting_period>ar19</reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2019-10-06 19:13:33</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-ar-pdf-en">
+          <name>PDF AR Hierarchy (EN)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-pdf-en.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+
+
+    <cms_project id="" editorId="quarterly-report" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Quarterly Report</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/quarterly-report/q120</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <!-- This needs to become editable --> </reporting_requirements>
+      <reporting_period>q120</reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2020-03-10 13:41:59</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-pdf-en">
+          <name>PDF Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-pdf.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+    
+    
+    
+    <cms_project id="" editorId="esg-report" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity="tiekinetix_nl" />
+        </entities>
+      </system>
+      <name>ESG Report 2022</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/esg-report/esg22</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1" disablesync="false" />
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets>
+            <set id="none">
+              <name>financial-data</name>
+            </set>
+            <set id="esgreport-data">
+              <name>esg-data</name>
+            </set>
+          </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+      </reporting_requirements>
+      <reporting_period>
+      </reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2022-06-15 13:58:46</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-pdf-en">
+          <name>PDF Hierarchy (EN)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-pdf-en.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-pdf-de">
+          <name>PDF Hierarchy (DE)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-pdf-de.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>        
+        <metadata id="hierarchy-pdf-fr">
+          <name>PDF Hierarchy (FR)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-pdf-fr.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+    
+    
+    
+    
+    
+    
+
+  </customer>
+
+
+  <customer taxxorclientid="taxxor">
+    
+    <cms_project id="" editorId="annual-report" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Annual Report</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/annual-report/ar19</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1" disablesync="false"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <reporting_requirement ref-mappingservice="ESMA" ref-outputchannelvariant="arpdfen" format="ixbrl" regulator="afm">
+          <name>ESMA XBRL</name>
+        </reporting_requirement>
+      </reporting_requirements>
+      <reporting_period>ar19</reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2019-10-06 19:13:33</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-ar-pdf-en">
+          <name>PDF AR Hierarchy (EN)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-pdf-en.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-ar-pdf-nl">
+          <name>PDF AR Hierarchy (NL)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-pdf-nl.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+      
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+    
+    
+    <cms_project id="" editorId="quarterly-report" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Quarterly Report</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/quarterly-report/q120</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <!-- This needs to become editable --> </reporting_requirements>
+      <reporting_period>q120</reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2020-03-10 13:41:59</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-pdf">
+          <name>PDF Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-pdf.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+    
+  </customer>
+
+
+  <customer taxxorclientid="optiver">
+    
+    <cms_project id="" editorId="annual-report" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Annual Report</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/annual-report/ar19</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1" disablesync="false"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <reporting_requirement ref-mappingservice="ESMA" ref-outputchannelvariant="arpdfen" format="ixbrl" regulator="afm">
+          <name>ESMA XBRL</name>
+        </reporting_requirement>
+      </reporting_requirements>
+      <reporting_period>ar19</reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2019-10-06 19:13:33</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-ar-pdf-en">
+          <name>PDF AR Hierarchy (EN)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-pdf-en.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+        <metadata id="hierarchy-ar-pdf-foundation-en">
+          <name>PDF Foundation Hierarchy (EN)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-pdf-foundation-en.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+      
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+    
+    
+    <cms_project id="" editorId="quarterly-report" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Quarterly Report</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/quarterly-report/q120</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <!-- This needs to become editable --> </reporting_requirements>
+      <reporting_period>q120</reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2020-03-10 13:41:59</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-pdf-en">
+          <name>PDF Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-pdf.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+    
+  </customer>
+  
+
+
+  <customer taxxorclientid="generic">
+    
+    <cms_project id="" editorId="annual-report" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Annual Report</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/annual-report/ar19</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1" disablesync="false"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <reporting_requirement ref-mappingservice="ESMA" ref-outputchannelvariant="arpdfen" format="ixbrl" regulator="afm">
+          <name>ESMA XBRL</name>
+        </reporting_requirement>
+      </reporting_requirements>
+      <reporting_period>ar19</reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2019-10-06 19:13:33</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-ar-pdf-en">
+          <name>PDF AR Hierarchy (EN)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-pdf-en.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+      
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+    
+    <cms_project id="" editorId="statutory-annual-report" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Annual Report</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/annual-report/ar19</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1" disablesync="false"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+      </reporting_requirements>
+      <reporting_period>ar19</reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2019-10-06 19:13:33</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-ar-pdf-en">
+          <name>PDF AR Hierarchy (EN)</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-ar-pdf-en.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+      
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+    
+    
+    
+    <cms_project id="" editorId="quarterly-report" report-type="" guidCalendarEvent="">
+      <system>
+        <entities>
+          <entity guidLegalEntity=""/>
+        </entities>
+      </system>
+      <name>Quarterly Report</name>
+      <location id="reportdataroot" path-type="dataroot">/projects/quarterly-report/q120</location>
+      <repositories>
+        <assets>
+          <repository id="images">
+            <location id="filing_images" path-type="cmsdataroot">/content/images</location>
+          </repository>
+          <repository id="downloads">
+            <location id="filing_downloads" path-type="cmsdataroot">/content/downloads</location>
+          </repository>
+        </assets>
+        <financial_data>
+          <repository id="main">
+            <name>Mother Excel Data</name>
+            <location id="excel_main" path-type="cmsdataroot">/content/excel</location>
+          </repository>
+        </financial_data>
+        <structured_data>
+          <snapshots>
+            <snapshot id="1"/>
+          </snapshots>
+        </structured_data>
+        <external_data>
+          <sets> </sets>
+        </external_data>
+      </repositories>
+      <reporting_requirements>
+        <!-- This needs to become editable --> </reporting_requirements>
+      <reporting_period>q120</reporting_period>
+      <versions>
+        <version id="1">
+          <status>open</status>
+          <date_created>2020-03-10 13:41:59</date_created>
+          <date_lastmodified>2018-06-12</date_lastmodified>
+          <name>Initial version</name>
+          <path>/version_[versionid]</path>
+          <data>
+            <textual_data id="text" prevalidation-location-ref="prevalidation_taxonomy_data">
+              <path path-type="cmsdataroot">/textual</path>
+            </textual_data>
+            <meta_data id="metadata">
+              <path path-type="cmsdataroot">/metadata</path>
+            </meta_data>
+          </data>
+        </version>
+      </versions>
+      <!-- Fixed metadata structures -->
+      <metadata_system>
+        <metadata id="hierarchy-pdf-en">
+          <name>PDF Hierarchy</name>
+          <location type="file" path-type="cmsdataroot">/metadata/hierarchy-pdf.xml</location>
+          <operations>
+            <operation type="server-side_function">mark_edit_allowed</operation>
+          </operations>
+        </metadata>
+      </metadata_system>
+      <!-- textual content variations that a user can create -->
+      <content_types>
+        <content_management>
+          <type id="regular">
+            <name>Regular/Normal content</name>
+            <xml path-type="cmsdataroot">/textual/[did].xml</xml>
+            <xsl path-type="projectroot">/assets/xsl/stylesheet.xsl</xsl>
+          </type>
+        </content_management>
+      </content_types>
+    </cms_project>
+
+
+
+
+  </customer>
+
+</project_templates>

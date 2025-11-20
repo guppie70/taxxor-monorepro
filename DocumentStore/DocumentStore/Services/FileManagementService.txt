@@ -1,0 +1,298 @@
+using System.Threading.Tasks;
+using Grpc.Core;
+using Taxxor.Project;
+using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
+using Microsoft.Extensions.Primitives;
+using DocumentStore.Protos;
+
+namespace DocumentStore.Services
+{
+    public class FileManagementService : Protos.FileManagementService.FileManagementServiceBase
+    {
+        public override async Task<TaxxorGrpcResponseMessage> CheckFileExists(
+            FileExistsRequest request, ServerCallContext context)
+        {
+            try
+            {
+                // Get the current context variables
+                var reqVars = ProjectLogic.RetrieveRequestVariables(System.Web.Context.Current);
+                
+                // Call the core logic directly
+                var result = await ProjectLogic.FileExistsCore(
+                    locationId: request.LocationId,
+                    path: request.Path,
+                    relativeTo: request.RelativeTo,
+                    reqVars: reqVars);
+                
+                if (result.Success)
+                {
+                    return new TaxxorGrpcResponseMessage
+                    {
+                        Data = result.Result.Payload, // contains "True" or "False"
+                        Success = true,
+                        Message = result.Result.Message
+                    };
+                }
+                else
+                {
+                    return new TaxxorGrpcResponseMessage
+                    {
+                        Data = "False",
+                        Success = false,
+                        Message = result.ErrorMessage
+                    };
+                }
+            }
+            catch (System.Exception ex)
+            {
+                return new TaxxorGrpcResponseMessage
+                {
+                    Data = "False",
+                    Success = false,
+                    Message = $"Error checking if file exists: {ex.Message}",
+                    Debuginfo = $"Exception: {ex.ToString()}"
+                };
+            }
+        }
+        
+        public override async Task<TaxxorGrpcResponseMessage> GetFileContents(
+            FileContentsRequest request, ServerCallContext context)
+        {
+            try
+            {
+                // Get the current context variables
+                var reqVars = ProjectLogic.RetrieveRequestVariables(System.Web.Context.Current);
+                var projectVars = ProjectLogic.RetrieveProjectVariables(System.Web.Context.Current);
+                
+                // Call the core logic directly
+                var result = await ProjectLogic.RetrieveFileContentsCore(
+                    locationId: request.LocationId,
+                    path: request.Path,
+                    relativeTo: request.RelativeTo,
+                    projectVars: projectVars,
+                    reqVars: reqVars);
+                
+                if (result.Success)
+                {
+                    return new TaxxorGrpcResponseMessage
+                    {
+                        Data = result.Result.XmlPayload?.OuterXml ?? "",
+                        Success = true,
+                        Message = "File contents retrieved successfully"
+                    };
+                }
+                else
+                {
+                    return new TaxxorGrpcResponseMessage
+                    {
+                        Data = string.Empty,
+                        Success = false,
+                        Message = result.ErrorMessage
+                    };
+                }
+            }
+            catch (System.Exception ex)
+            {
+                return new TaxxorGrpcResponseMessage
+                {
+                    Data = string.Empty,
+                    Success = false,
+                    Message = $"Error retrieving file contents: {ex.Message}",
+                    Debuginfo = $"Exception: {ex.ToString()}"
+                };
+            }
+        }
+        
+        public override async Task<TaxxorGrpcResponseMessage> DeleteDirectory(
+            DeleteDirectoryRequest request, ServerCallContext context)
+        {
+            try
+            {
+                // Get the current context variables
+                var reqVars = ProjectLogic.RetrieveRequestVariables(System.Web.Context.Current);
+                
+                // Call the core logic directly
+                var result = await ProjectLogic.DelTreeCore(
+                    locationId: request.LocationId,
+                    directoryPath: request.DirectoryPath,
+                    relativeTo: request.RelativeTo,
+                    leaveRootFolder: request.LeaveRootFolder,
+                    reqVars: reqVars);
+                
+                if (result.Success)
+                {
+                    return new TaxxorGrpcResponseMessage
+                    {
+                        Data = result.Result.ToString(),
+                        Success = true,
+                        Message = "Directory deleted successfully"
+                    };
+                }
+                else
+                {
+                    return new TaxxorGrpcResponseMessage
+                    {
+                        Data = string.Empty,
+                        Success = false,
+                        Message = result.ErrorMessage
+                    };
+                }
+            }
+            catch (System.Exception ex)
+            {
+                return new TaxxorGrpcResponseMessage
+                {
+                    Data = string.Empty,
+                    Success = false,
+                    Message = $"Error deleting directory: {ex.Message}",
+                    Debuginfo = $"Exception: {ex.ToString()}"
+                };
+            }
+        }
+        
+        public override async Task<TaxxorGrpcResponseMessage> GetDirectoryContents(
+            DirectoryContentsRequest request, ServerCallContext context)
+        {
+            try
+            {
+                // Get the current context variables
+                var reqVars = ProjectLogic.RetrieveRequestVariables(System.Web.Context.Current);
+                
+                // Call the core logic directly
+                var result = await ProjectLogic.DirectoryContentsCore(
+                    locationId: request.LocationId,
+                    path: request.Path,
+                    relativeTo: request.RelativeTo,
+                    reqVars: reqVars);
+                
+                if (result.Success)
+                {
+                    return new TaxxorGrpcResponseMessage
+                    {
+                        Data = result.Result.XmlPayload?.OuterXml ?? "",
+                        Success = true,
+                        Message = "Directory contents retrieved successfully"
+                    };
+                }
+                else
+                {
+                    return new TaxxorGrpcResponseMessage
+                    {
+                        Data = string.Empty,
+                        Success = false,
+                        Message = result.ErrorMessage
+                    };
+                }
+            }
+            catch (System.Exception ex)
+            {
+                return new TaxxorGrpcResponseMessage
+                {
+                    Data = string.Empty,
+                    Success = false,
+                    Message = $"Error retrieving directory contents: {ex.Message}",
+                    Debuginfo = $"Exception: {ex.ToString()}"
+                };
+            }
+        }
+        
+        public override async Task<TaxxorGrpcResponseMessage> GetFileProperties(
+            FilePropertiesRequest request, ServerCallContext context)
+        {
+            try
+            {
+                // Get the current context variables
+                var reqVars = ProjectLogic.RetrieveRequestVariables(System.Web.Context.Current);
+                
+                // Call the core logic directly
+                var result = await ProjectLogic.FilePropertiesCore(
+                    locationId: request.LocationId,
+                    path: request.Path,
+                    relativeTo: request.RelativeTo,
+                    reqVars: reqVars);
+                
+                if (result.Success)
+                {
+                    return new TaxxorGrpcResponseMessage
+                    {
+                        Data = result.Result.XmlPayload?.OuterXml ?? "",
+                        Success = true,
+                        Message = "File properties retrieved successfully"
+                    };
+                }
+                else
+                {
+                    return new TaxxorGrpcResponseMessage
+                    {
+                        Data = string.Empty,
+                        Success = false,
+                        Message = result.ErrorMessage
+                    };
+                }
+            }
+            catch (System.Exception ex)
+            {
+                return new TaxxorGrpcResponseMessage
+                {
+                    Data = string.Empty,
+                    Success = false,
+                    Message = $"Error retrieving file properties: {ex.Message}",
+                    Debuginfo = $"Exception: {ex.ToString()}"
+                };
+            }
+        }
+        
+        public override async Task<TaxxorGrpcResponseMessage> CopyDirectory(
+            CopyDirectoryRequest request, ServerCallContext context)
+        {
+            try
+            {
+                // Get the current context variables
+                var reqVars = ProjectLogic.RetrieveRequestVariables(System.Web.Context.Current);
+                
+                // Call the core logic directly
+                var result = await ProjectLogic.CopyDirectoryCore(
+                    sourceLocationId: request.SourceLocationId,
+                    sourcePath: request.SourcePath,
+                    sourceRelativeTo: request.SourceRelativeTo,
+                    targetLocationId: request.TargetLocationId,
+                    targetPath: request.TargetPath,
+                    targetRelativeTo: request.TargetRelativeTo,
+                    overrideTargetFiles: request.OverrideTargetFiles,
+                    createTargetDirectory: request.CreateTargetDirectory,
+                    reqVars: reqVars);
+                
+                if (result.Success)
+                {
+                    return new TaxxorGrpcResponseMessage
+                    {
+                        Data = result.Result.ToString(),
+                        Success = true,
+                        Message = "Directory copied successfully"
+                    };
+                }
+                else
+                {
+                    return new TaxxorGrpcResponseMessage
+                    {
+                        Data = string.Empty,
+                        Success = false,
+                        Message = result.ErrorMessage
+                    };
+                }
+            }
+            catch (System.Exception ex)
+            {
+                return new TaxxorGrpcResponseMessage
+                {
+                    Data = string.Empty,
+                    Success = false,
+                    Message = $"Error copying directory: {ex.Message}",
+                    Debuginfo = $"Exception: {ex.ToString()}"
+                };
+            }
+        }
+    }
+}

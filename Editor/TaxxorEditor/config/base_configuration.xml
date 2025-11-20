@@ -1,0 +1,1041 @@
+<?xml version="1.0"?>
+<configuration>
+  <!-- generic information -->
+  <general>
+    <site_identifier>Taxxor Editor</site_identifier>
+    <application_id>taxxoreditor</application_id>
+    <default_document></default_document>
+
+    <settings>
+      <setting id="localization_mechanism">domain</setting>
+      <setting id="development_environment">
+        <domain type="local" />
+      </setting>
+      <setting id="lextra_api_key">872ebcf4-1a93-4a26-9786-a91b243036a7</setting>
+      <!-- set this to true to avoid needing to login all the time during development -->
+      <setting id="bypass-security">false</setting>
+      <setting id="enable-cross-site-request-forgery-check">false</setting>
+
+
+      <!-- Static files webserver settings -->
+      <setting id="serve-static-files">true</setting>
+      <setting id="static-files-require-authentication">true</setting>
+      <setting id="staticfiles-bypass-regex">^(.*\.ico|.*\.map|\/stylesheets\/\w+\.css.*|\/styles\/\w+\.css.*|\/javascript\/(\w|\-)+\.js|\/scripts\/(\w|\-)+\.(js|css|htm).*|\/custom\/.*|.*\.properties|.*\/fonts\/.*|\/images\/.*|\/static\/.*)$</setting>
+
+      <!-- logging and debugging settings -->
+      <setting id="console-dump-requestvariables">false</setting>
+      <setting id="console-dump-projectvariables">false</setting> 
+      <setting id="store-inspector-files">true</setting>
+      <setting id="debug-redirects">false</setting>
+      <setting id="log-uris">true</setting>
+
+      <setting id="sessioncookies">
+        <name type="applicationsession">sessionidtxeditor</name>
+      </setting>
+
+      <!-- Double session detection -->
+      <setting id="double_session_detection" timeout="30">
+        <!--
+            <domain type="local" />
+            <domain type="dev" />
+        -->
+      </setting>
+
+      <!-- HTTP response headers -->
+      <setting id="header_application_version">
+
+      </setting>
+
+      <setting id="mail-subscribers">
+        <xhtml-validation>
+            <!--
+            <subscriber email="johan@taxxor.com">Johan Thijs</subscriber>
+            <subscriber email="rutger@taxxor.com">Rutger Scheepens</subscriber>
+            -->
+            
+            <subscriber email="jthijs@joes.nl">Johan JOES</subscriber>
+
+            <!--
+            <subscriber email="johanwthijs@hotmail.com">Johan Hotmail</subscriber>
+            -->
+        </xhtml-validation>
+      </setting>
+  
+    </settings>
+
+
+
+    <!-- domains and locales (selection) -->
+    <domains>
+      <domain type="local" ssl="true" locale="global" locale-selector="domain" locale-match="*">localhost</domain>
+      <domain type="dev" ssl="true" locale="global" locale-selector="domain" locale-match="*">www.development.com</domain>
+      <domain type="prev" ssl="true" locale="global" locale-selector="domain" locale-match="*">pww.review.com</domain>
+      <domain type="prod" ssl="true" locale="global" locale-selector="domain" locale-match="*">www.production.com</domain>
+    </domains>
+
+    <!-- root locations -->
+    <locations>
+
+      <location id="dataroot" path-type="approot">/data</location>    
+      <location id="configroot" path-type="approot">/config</location>
+      <location id="hierarchyroot" path-type="approot">/hierarchies</location>
+      <location id="xslroot" path-type="approot">/backend/views/xsl</location>
+      <location id="logroot" path-type="approot">/logs</location>
+      <!-- for taxxor editor -->
+      <location id="webserverroot" path-type="approot">/frontend/public</location>      
+      <location id="cmsroot" path-type="webroot"></location>
+      <location id="cmscustomfrontendroot" path-type="cmsroot">/custom</location>
+    </locations>
+    
+    <!-- basic folder structure definition for exporting assets from the project data store -->
+    <filestructure>
+      <root>
+        <folder name="generic" content="generic" />
+        <folder name="publication" content="htmlfiles" />
+        <folder name="publication/imgs" content="images" />
+        <folder name="publication/data/[language]" content="data" />
+        <folder name="publication/downloads/files/[language]" content="downloads" />
+        <folder name="publication/downloads/pdf/[language]" content="pdf" />
+      </root>
+    </filestructure>
+
+  </general>
+
+    <!-- settings that are taxxor client specific -->
+    <taxxor_client>
+        <setting id="taxxor-client-name">Taxxor</setting>
+        <setting id="folder-pdf-frontend-code">/taxxor/pdf</setting>
+        <setting id="prefix">tx</setting>
+    </taxxor_client>
+
+  <!-- language country combinations -->
+  <locales>
+    <locale id="global" default="true">
+      <country code="US">Global</country>
+      <language code="en">English</language>
+    </locale>
+  </locales>
+
+  <!-- hierarchy of configuration documents and the way that they are being used -->
+  <configuration_system>
+    <config locale="*">
+      <location id="base_configuration" path-type="configroot">/base_configuration.xml</location>
+      <config locale="*" mode="merge">
+        <location id="project_configuration" path-type="http">https://documentstore:4813/api/configuration/project_configuration</location>
+        <config locale="*" mode="merge">
+          <location id="data_configuration" path-type="http">https://documentstore:4813/api/configuration/data_configuration</location>
+        </config>
+      </config>
+    </config>
+  </configuration_system>
+
+  <!-- the xml hierarchy files involved in the website -->
+  <hierarchy_system>
+    <hierarchy locale="*">
+      <location id="base_hierarchy" path-type="hierarchyroot" system_page_id="uload-complete-hierarchy">/base_structure.xml</location>
+    </hierarchy>
+  </hierarchy_system>
+
+
+  <!-- xml and html templates used to store data into also see base_config  -->
+  <templates>
+    <!-- error_xml is also used for json errors (conversion xml to json) -->
+    <template id="error_xml">
+      <error>
+        <message></message>
+        <debuginfo></debuginfo>
+      </error>
+    </template>
+    <template id="success_xml">
+      <result>
+        <message></message>
+        <debuginfo></debuginfo>
+      </result>
+    </template>
+    <template id="success_payload_xml">
+      <result>
+        <message></message>
+        <debuginfo></debuginfo>
+        <payload></payload>
+      </result>
+    </template> 
+    <template id="error_html">
+      <html>
+        <head>
+            <title>ERROR</title>
+            <link href="[uri-staticassets]/stylesheets/main.css" rel="stylesheet" type="text/css"/>
+            <style nonce="[nonce]">
+            body{
+                margin: 10px;
+            }            
+            </style>
+        </head>
+        <body>
+          <div id="errorMessage">[message]</div>
+          <br/>
+          <br/>
+          <button onclick="window.history.back()">Back to previous page</button>
+          <span> - </span>
+          <button onclick="location.reload()">Reload</button>
+        </body>
+      </html>
+    </template>
+    <template id="xbrlinfo_html">
+        <html>
+          <head>
+              <title>XBRL package information</title>
+              <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+              <style nonce="[nonce]">
+              body{
+                  margin: 10px;
+              }
+              h2 {
+                  font-size: 18px;
+              }
+              </style>
+          </head>
+          <body>
+            <h1>XBRL package information</h1>
+            <h2>Content</h2>
+            <p>This package contains the following files:</p>
+            <ul class="package-list">
+                <!-- . -->
+            </ul>
+            <h2>Viewer</h2>
+            <p>View the generated iXBRL file using the <a class="xbrlviewer-link" href="" target="_blank">Taxxor Inline XBRL viewer</a>.
+            <br/>
+            With the interactive viewer, you can inspect the XBRL details which have been applied to the filing document.
+            </p>
+            <h2>Validation results</h2>
+            <p>During the generation of the XBRL package, the result has been verfied by the Taxxor validation service.
+            <br/>
+            The validation service created the following reports:    
+            </p>
+            <ul class="validation-list">
+                <!-- . -->
+            </ul>
+            <small>Notes: 
+                <br/>
+                Interactive viewer and links to validation reports are available for a limited amount of time after the package has been generated.
+                <br/>
+                You need an active Taxxor DM session in order to load the interactive viewer and validation reports.
+            </small>
+            <h2>Other</h2>
+            <p>SHA1 hash of the filing package: <span class="package-hash"></span>
+            <br/>
+            Validation render ID: <span class="validation-id"></span></p>
+          </body>
+        </html>
+      </template>    
+    <template id="git-commit_message">
+      <commit>
+        <message></message>
+        <date epoch=""></date>
+        <author>
+          <id></id>
+          <name></name>
+          <ip></ip>
+        </author>
+      </commit>
+    </template>
+    <template id="git-data-save_message">
+      <root>
+        <crud/>
+        <linkname/>
+        <id/>
+      </root>
+    </template>
+    <template id="git-tag_message">
+      <tag>
+        <message></message>
+        <date epoch=""></date>
+        <author>
+          <id></id>
+          <name></name>
+          <ip></ip>
+        </author>
+      </tag>
+    </template>
+    <template id="lextra_website-content">
+      <content>
+        <!-- metadata for the content -->
+        <system>
+          <date_created></date_created>
+          <date_lastmodified></date_lastmodified>
+          <content_type>regular</content_type>
+          <source>
+            <path id="data" path-type="cmsdataroot">/version_1/textual/document.xml</path>
+          </source>
+          <metadata>
+          </metadata>
+          <access_control>
+            <edit>
+              <allowed>all</allowed>
+            </edit>
+            <view>
+              <allowed>all</allowed>
+            </view>
+          </access_control>
+        </system>
+        <text lang="en" status="published" pathWeb="">
+          <title>New page title</title>
+
+        </text>
+      </content>
+
+
+    </template>
+
+    <template id="inline-editor-content">
+        <data>
+            <system>
+                <date_created></date_created>
+                <date_modified></date_modified>
+            </system>
+            <content lang="en">
+                <article id="" data-guid="" data-hierarchical-level="1" data-articletype="regular" data-last-modified="">
+                    <div class="pageblock" data-type="one-column">
+                        <section class="content regular" data-name="default-content">
+                            <h1></h1>
+                            <p>...</p>
+                        </section>
+                    </div>
+                </article>
+            </content>
+        </data>
+    </template>
+
+    <!-- Old definition -->
+    <template id="filingdata">
+        <data>
+            <system>
+                <date_created></date_created>
+                <date_modified></date_modified>
+            </system>
+            <content lang="en">
+                <article id=""
+                data-guid=""
+                data-hierarchical-level="1"
+                data-last-modified="">
+                    <div class="pageblock" data-type="one-column">
+                        <section class="content regular" data-name="default-content">
+                            <h1></h1>
+                        </section>
+                    </div>
+                </article>
+            </content>
+        </data>
+    </template>
+
+    <template id="pdfgenerator_result">
+      <result>
+        <pdfpath></pdfpath>
+        <urlsource></urlsource>
+        <debuginfo></debuginfo>
+      </result>
+    </template>
+
+    <template id="mswordgenerator_result">
+      <result>
+        <mswordpath></mswordpath>
+        <urlsource></urlsource>
+        <debuginfo></debuginfo>
+      </result>
+    </template>
+
+    <template id="report-type_definition">
+      <report_type id="" editorId="">
+        <name></name>
+        <entry_points>
+          <uri></uri>
+        </entry_points>
+      </report_type>
+    </template>
+    
+  </templates>
+
+  <!-- include the translated text fragments -->
+  <localizations>
+    <xi:include href="common/localization.xml" xmlns:xi="http://www.w3.org/2003/XInclude" />
+  </localizations>
+
+  <!-- special pages -->
+  <special_pages>
+  </special_pages>
+
+  <!-- locations -->
+  <locations>
+    <location id="xsl_merge" path-type="xslroot">/system/merge_xml.xslt</location>
+    <location id="xsl_identity-transform" path-type="xslroot">/system/identity-transform.xsl</location>
+    <location id="xsl_merge_site_structure_1" path-type="xslroot">/system/merge_site_structure_update_slave_information.xsl</location>
+    <location id="xsl_merge_site_structure_2" path-type="xslroot">/system/merge_site_structure_new_slave_elements.xsl</location>
+    <location id="xsl_strip-processing-instructions" path-type="xslroot">/system/strip-processing-instructions.xsl</location>
+    <location id="xsl_attributes-to-nodes" path-type="xslroot">/system/attributes-to-nodes.xsl</location>
+    <location id="xml_application_configuration_cache" path-type="logroot">/application_configuration_[lang]_merged.xml</location>
+    <location id="xml_project_configuration_failover" path-type="dataroot">/failover/project_configuration.xml</location>
+    <location id="xml_data_configuration_failover" path-type="dataroot">/failover/data_configuration.xml</location>
+    <location id="xml_service_information_failover" path-type="dataroot">/failover/service_information.xml</location>
+      
+    <!-- lextra begin -->
+    <location id="ownaddress-ip" path-type="http">[http-protocol]://[local-ip]:[local-port-number]</location>
+    <location id="ownaddress-domain" path-type="http">[http-protocol]://[local-domain]:[local-port-number]</location>
+    <location id="xml_hierarchy_cache" path-type="logroot">/site_structure_dumped.xml</location>
+
+    <!-- for lextra data warehouse -->
+    <!-- -> generated project content -->
+    <location id="cmscontentroot" path-type="cmsdatarootbase">/content</location>
+    <!-- -> generated project system content -->
+    <location id="cmssystemcontentroot" path-type="cmscontentroot">/system</location>
+    
+    <!-- xslt transformation files for CMS -->
+    <location id="cms_xsl_left-navigation" path-type="xslroot">/taxxor-editor/left_menu.xsl</location>
+    <location id="cms_xsl_top-navigation" path-type="xslroot">/taxxor-editor/top-menu.xsl</location>
+    <location id="cms_xsl_generate-overview" path-type="xslroot">/taxxor-editor/cms_project-overview.xsl</location>
+    <location id="cms_xsl_generate-overview-api" path-type="xslroot">/taxxor-editor/project-overview-api.xsl</location>
+    <location id="cms_xsl_create-linklist" path-type="xslroot">/taxxor-editor/cms_create-linklist.xsl</location>
+    <location id="cms_xsl_hierarchy-to-html-list" path-type="xslroot">/taxxor-editor/hierarchy_to_html-list.xsl</location>
+    <location id="cms_xsl_hierarchy-to-input-list" path-type="xslroot">/taxxor-editor/hierarchy_to_input-list.xsl</location>
+    <location id="cms_xsl_hierarchy-to-js-array" path-type="xslroot">/taxxor-editor/hierarchy_to_javascript-array.xsl</location>
+    <location id="cms_xsl_hierarchy-api-to-js-object" path-type="xslroot">/taxxor-editor/hierarchy-api_to_javascript-object.xsl</location>
+    <location id="cms_xsl_generate-project-details" path-type="xslroot">/taxxor-editor/cms_project-details.xsl</location>
+    <location id="cms_xsl_version-manager" path-type="xslroot">/taxxor-editor/cms_version-manager.xsl</location>
+    <location id="cms_xsl_channels-to-list" path-type="xslroot">/taxxor-editor/output-channel-hierarchy_to_list.xsl</location>
+    <location id="cms_xsl_hierarchy-save" path-type="xslroot">/taxxor-editor/hierarchy_save-convert.xsl</location>
+    <location id="cms_xsl_auditor-view" path-type="xslroot">/taxxor-editor/cms_auditor-view.xsl</location>
+    <location id="cms_xsl_auditor-view-sort" path-type="xslroot">/taxxor-editor/cms_auditor-view-sort.xsl</location>
+    <location id="cms_xsl_taxonomy-support" path-type="xslroot">/taxxor-editor/cms_taxonomy-support-overview.xsl</location>
+    <location id="cms_xsl_hierarchymanager-save-1" path-type="xslroot">/taxxor-editor/hierarchy-manager-xhtml-2-sitestructure.xsl</location>
+    <location id="cms_xsl_delete-report" path-type="xslroot">/taxxor-editor/delete-report.xsl</location>
+    <location id="cms_xsl_filing-data-save-cleanup" path-type="xslroot">/taxxor-editor/filingdata-save-convert.xsl</location>
+    <location id="cms_xsl_project-properties" path-type="xslroot">/taxxor-editor/cms_project-properties.xsl</location>
+    <location id="cms_xsl_accesscontrol" path-type="xslroot">/taxxor-editor/cms_accesscontrol.xsl</location>
+    <location id="cms_xsl_outputchanneloverview" path-type="xslroot">/taxxor-editor/output-channel_overview.xsl</location>
+    <location id="cms_xsl_mappingclusterconvert" path-type="xslroot">/taxxor-editor/mappingcluster-convert.xsl</location>
+    <location id="cms_xsl_publication-variants" path-type="xslroot">/taxxor-editor/cms_publication-variants.xsl</location>
+    <location id="cms_xsl_hierarchymanager-reportingrequirements" path-type="xslroot">/taxxor-editor/cms_hierarchymanager-reportingrequirements.xsl</location>
+    <location id="cms_xsl_dts-resolve" path-type="xslroot">/taxxor-editor/dts-filter-resolve.xsl</location>
+    <location id="cms_git-repositories" path-type="xslroot">/taxxor-editor/git-repositories.xsl</location>
+    <location id="cms_available-report-types" path-type="xslroot">/taxxor-editor/available-report-types.xsl</location>
+    <location id="cms_sde-overview" path-type="xslroot">/taxxor-editor/sdeoverview.xsl</location>
+    <location id="cms_save-cleanup" path-type="xslroot">/taxxor-editor/save-cleanup.xsl</location>
+    
+    <location id="generated-reports" path-type="xslroot">/taxxor-editor/generated-reports.xsl</location>
+
+    <!-- Render Engine stylesheets -->
+    <location id="renderengine-loremipsum" path-type="xslroot">/renderengine/lorem_replace_text.xsl</location>
+    <location id="renderengine-test" path-type="xslroot">/renderengine/lorem_replace_text-xslt2.xsl</location>
+    <location id="renderengine-identitycopy" path-type="xslroot">/renderengine/identity-copy.xsl</location>
+
+    <!-- XBRL Generator Assets -->
+    <location id="generate-graphs-utility" path-type="xslroot">/convert/generate-graphs.xsl</location>
+    <location id="generate-drawings-utility" path-type="xslroot">/convert/generate-drawings.xsl</location>
+    <location id="used-tags-utility" path-type="xslroot">/system/used-tags.xsl</location>
+
+    <!-- Info modal -->
+    <location id="cms_xsl_taxxor-info" path-type="xslroot">/taxxor-editor/taxxor-info.xsl</location>
+
+    <!-- Conversion stylesheets for regulators -->
+    <location id="inlinecssprepare" path-type="xslroot">/taxxor-editor/inline_css_prepare.xsl</location>
+    
+    <!-- a) SEC iXBRL and EDGAR filings -->
+    <location id="sec_ixbrl" path-type="xslroot">/taxxor-editor/sec_ixbrl.xsl</location>
+    <location id="sec_edgar" path-type="xslroot">/taxxor-editor/sec_edgar.xsl</location>
+    <location id="sec_strip-attributes" path-type="xslroot">/taxxor-editor/sec_remove-attributes.xsl</location>
+
+    <!-- b) ESMA iXBRL filings -->
+    <location id="esma_ixbrl" path-type="xslroot">/taxxor-editor/esma_ixbrl.xsl</location>
+
+    <!-- Editor specific stylesheets -->
+    <location id="cms_xsl_filingcomposer-data-load" path-type="projectroot">/assets/xsl/data-load.xsl</location>
+    <location id="cms_xsl_pdfgenerator-postload" path-type="projectroot">/assets/xsl/pdfgenerator-preprocess-phase1.xsl</location>
+    <location id="cms_xsl_pdfgenerator-htmlchrome" path-type="projectroot">/assets/xsl/pdfgenerator-preprocess-phase2.xsl</location>
+    <location id="cms_xsl_dynamic-header-levels" path-type="xslroot">/taxxor-editor/dynamic-header-levels.xsl</location>
+    <location id="cms_xsl_flatten-pdf-content" path-type="xslroot">/taxxor-editor/flatten-pdf-content.xsl</location>
+
+    <!-- Taxxor services -->
+    <location id="lextra_reporting-overview_pre" path-type="xslroot">/taxxor-editor/lextra_soap_requirements-for-legal-entity_pre.xsl</location>
+    <location id="lextra_reporting-overview" path-type="xslroot">/taxxor-editor/lextra_report-overview.xsl</location>
+
+    <!-- editor specific files -->
+    <location id="taxxor_xsl_data-prepare" path-type="approot">/backend/code/shared/xslt/filingcomposer/prepare_taxxor-content.xsl</location>
+
+    <!-- data lineage -->
+    <location id="taxxor_xsl_datalineage-prepare" path-type="xslroot">/taxxor-editor/data-lineage_to_table.xsl</location>
+
+    <!-- conflict report -->
+    <location id="taxxor_xsl_xbrl-conflict-report" path-type="xslroot">/taxxor-editor/xbrl-conflict-report.xsl</location>
+
+    <!-- lookup utilities -->
+    <location id="cms_xsl_lookup-snapshot-value-interface" path-type="projectroot">/assets/xsl/lookup/lookup_snapshot-data-body.xsl</location>
+    <location id="cms_xsl_lookup-snapshot-value-content" path-type="projectroot">/assets/xsl/lookup/lookup_snapshot-data-content.xsl</location>
+    <location id="cms_xsl_lookup-snapshot-soap-locations" path-type="projectroot">/assets/xsl/lookup/lookup_snapshot-soap-locations.xsl</location>
+
+    <!-- export and import -->
+    <location id="cms_export-section-data" path-type="xslroot">/taxxor-editor/section-data-export.xsl</location>
+    <location id="cms_export-excel-tables" path-type="xslroot">/taxxor-editor/render-excel-basecontent.xsl</location>
+
+    <!-- taxxor locking system -->
+    <location id="editor_lock-folder" path-type="dataroot">/locks</location>
+    <location id="footnote_repository" path-type="cmsdataroot">/textual/_footnotes.xml</location>
+
+    <location id="cms_xsl_vertabim" path-type="xslroot">/taxxor-editor/xml_vertabim.xsl</location>
+    <!-- utility files -->
+    <location id="xsl_simplify-source-data" path-type="xslroot">/taxxor-editor/simplify-taxxor-html.xsl</location>
+    <location id="xsl_instance-data-convert" path-type="xslroot">/taxxor-editor/convert/convert.xsl</location>
+    <location id="xsl_outputchannel-tables-only" path-type="xslroot">/taxxor-editor/output-tables-only.xsl</location>
+    <location id="xsl_remove-dynamic-date-wrappers" path-type="approot">/backend/code/shared/xslt/remove-dynamic-date-wrappers.xsl</location>
+    <location id="xsl_arelle-logfile-parser" path-type="xslroot">/taxxor-editor/arelle_logfile-parser.xsl</location>
+    <location id="xsl_whitespace-markup-remover" path-type="xslroot">/taxxor-editor/whitespace-markup-remover.xsl</location>
+
+    <location id="pdfgenerator-dumpfile" path-type="logroot">/_pdf-generator.toservice.html</location>
+    <location id="wordgenerator-dumpfile" path-type="logroot">/_word-generator.toservice.html</location>
+    <location id="sandbox-fullarstyling" path-type="webroot">/custom/philips/develop/fullar/annualreport.html</location>
+    <location id="sandbox-ixbrlstyling" path-type="webroot">/custom/philips/develop/ixbrl/inline-xbrl-base.html</location>
+
+
+    <location id="xsd_validation" path-type="xslroot">/taxxor-editor/xsd_validation.xsl</location>
+    <location id="xhtml-validation-report" path-type="logroot">/xhtml-validation-report.html</location>
+        
+    <!-- JT:This needs to change!!! -->
+    <location id="xsl_html-generator" path-type="projectroot">/assets/xsl/stylesheet.xsl</location>
+
+    <location id="staticassets">
+        <domain type="local" path-type="http">https://editor</domain>
+        <domain type="dev" path-type="http">https://static.test.taxxordm.com/develop</domain>
+        <domain type="prev" path-type="http">https://static.test.taxxordm.com/develop</domain>
+        <domain type="prod" path-type="http">https://static.taxxordm.com</domain>
+    </location>
+
+    <!-- Client side assets for rendering diff HTML files -->
+    <location id="html-diff-js" path-type="http">https://cdnjs.cloudflare.com/ajax/libs/diff2html/2.11.3/diff2html.js</location>
+    <location id="html-diff-css" path-type="http">https://cdnjs.cloudflare.com/ajax/libs/diff2html/2.11.3/diff2html.css</location>
+  </locations>
+
+  <!-- sub-applications within this application such as webservices -->
+  <applications>
+
+    <application id="taxxor-spellchecker">
+      <name>Webservice that supplies the spelling checks</name>
+    </application>       
+  </applications>
+
+  <!-- file type definitions -->
+  <file_definitions>
+    <images>
+      <file extension="jpg" mime-type="image/jpeg">JPG Image</file>
+      <file extension="jpeg" mime-type="image/jpeg">JPEG Image</file>
+      <file extension="gif" mime-type="image/gif">Gif Image</file>
+      <file extension="png" mime-type="image/png">Png Image</file>
+      <file extension="swf" mime-type="application/x-shockwave-flash">Macromedia flash file</file>
+      <file extension="svg" mime-type="image/svg+xml">SVG Drawing</file>
+      <file extension="tif" mime-type="image/tiff">TIFF Image</file>
+      <file extension="tiff" mime-type="image/tiff">TIFF Image</file>
+    </images>
+    <downloads>
+      <file extension="ppt" mime-type="application/vnd.ms-powerpoint">Microsoft Power Point Presentation</file>
+      <file extension="pptx" mime-type="application/vnd.openxmlformats-officedocument.presentationml.presentation">Microsoft Power Point Presentation</file>
+      <file extension="pdf" mime-type="application/pdf">Acrobat Reader Document</file>
+      <file extension="doc" mime-type="application/msword">Microsoft Word Document</file>
+      <file extension="docx" mime-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">Microsoft Word Document</file>
+      <file extention="rtf" mime-type="application/rtf">Rich Text File Document</file>
+      <file extension="xls" mime-type="application/vnd.ms-excel">Microsoft Excel Document</file>
+      <file extension="xlsx" mime-type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">Microsoft Excel Document</file>
+      <file extension="zip" mime-type="application/zip">Zip file</file>
+      <file extension="psd" mime-type="application/photoshop">Photoshop file</file>
+      <file extension="ai" mime-type="application/postscript">Adobe Illustrator file</file>
+      <file extension="ps" mime-type="application/postscript">PostScript file</file>
+      <file extension="mp4" mime-type="video/mp4">MP4 Video</file>
+    </downloads>
+    <executables>
+      <file extension="exe" mime-type="application/octet-stream">Executable file</file>
+      <file extension="php" mime-type="text/plain">Php file</file>
+      <file extension="cgi" mime-type="text/plain">CGI file</file>
+      <file extension="asp" mime-type="text/plain">Active Server Page file</file>
+      <file extension="vb" mime-type="text/plain">Visual Basic file</file>
+    </executables>
+    <text>
+      <file extension="txt" mime-type="text/plain">Text Files</file>
+      <file extension="log" mime-type="text/plain">Log Files</file>
+      <file extension="xml" mime-type="text/xml">XML Files</file>
+      <file extension="xsl" mime-type="text/xml">XSL Files</file>
+      <file extension="xsd" mime-type="text/xml">XSD Schema Files</file> 
+      <file extension="xslt" mime-type="text/xml">XSLT Files</file>  
+      <file extension="js" mime-type="text/javascript">JavaScript Files</file>
+      <file extension="css" mime-type="text/css">Cascading Style Sheets</file>
+      <file extension="less" mime-type="text/css">Cascading Style Sheets</file>
+      <file extension="json" mime-type="application/JSON">Json Files</file>
+      <file extension="html" mime-type="text/html">Hyper Text Markup Language</file>
+      <file extension="htm" mime-type="text/html">Hyper Text Markup Language</file>
+
+    </text>
+  </file_definitions>
+
+  <!-- interface elements -->
+  <page_elements>
+    <element id="page-head_default">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="robots" content="noindex" />
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content="" />
+      <meta name="author" content="" />
+      <link rel="shortcut icon" href="[uri-staticassets]/frameworks/twbs/docs/assets/ico/favicon.ico" />
+      <title>[pagetitle]</title>
+
+      <!-- styles -->
+      <link href="[uri-staticassets]/stylesheets/fontawesome.css[querystringversion]" rel="stylesheet" type="text/css" />
+      <link href="[uri-staticassets]/stylesheets/main.css[querystringversion]" rel="stylesheet" type="text/css" />
+      [customization_css-head]
+
+      <!-- scripts -->
+      <script type="text/javascript" src="[cmsroot]/tools/generatejsvars[querystringversion]">//</script>
+      <script type="text/javascript" src="[uri-staticassets]/javascript/jquery/jquery.js[querystringversion]">//</script>
+      <script type="text/javascript" src="[uri-staticassets]/javascript/jquery/jquery.qubit.js[querystringversion]">//</script>
+      <script type="text/javascript" src="[uri-staticassets]/javascript/jquery/jquery.bonsai.js[querystringversion]">//</script>
+      <script type="text/javascript" src="[uri-staticassets]/javascript/helpers/moment.min.js[querystringversion]">//</script>
+      <script type="text/javascript" src="[uri-staticassets]/javascript/helpers/pivot.js[querystringversion]">//</script>
+      <script type="text/javascript" src="[uri-staticassets]/frameworks/twbs/dist/js/bootstrap.min.js[querystringversion]">//</script>
+      [customization_js-head]
+    </element>
+
+    <element id="page-head_logout">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="robots" content="noindex" />
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content="" />
+      <meta name="author" content="" />
+      <link rel="shortcut icon" href="[uri-staticassets]/frameworks/twbs/docs/assets/ico/favicon.ico" />
+      <title>[pagetitle]</title>
+
+      <!-- styles -->
+      <link href="[uri-staticassets]/stylesheets/fontawesome.css[querystringversion]" rel="stylesheet" type="text/css" />
+      <link href="[uri-staticassets]/stylesheets/main.css[querystringversion]" rel="stylesheet" type="text/css" />
+      [customization_css-head]
+
+      <!-- scripts -->
+      <script type="text/javascript" src="[uri-staticassets]/javascript/jquery/jquery.js[querystringversion]">//</script>
+      <script type="text/javascript" src="[uri-staticassets]/frameworks/twbs/dist/js/bootstrap.min.js[querystringversion]">//</script>
+      [customization_js-head]
+    </element>    
+   
+    <element id="page-body-end">    
+      <!-- [uri-staticassets]/javascript/txdm[minifiedsuffix].js[querystringversion] -->
+      <script type="text/javascript" src="[uri-staticassets]/javascript/txdm.js[querystringversion]">//</script>
+    </element>
+
+    <element id="page-body-end_content-tools-editor">
+      <!-- [uri-staticassets]/javascript/txdm[minifiedsuffix].js[querystringversion] -->
+      <script type="text/javascript" src="[uri-staticassets]/javascript/txdm.js[querystringversion]">//</script>
+    </element>
+
+    <element id="page-head_cms-overview">
+      <!-- calendar functionality -->
+      <script type="text/javascript" src="[uri-staticassets]/javascript/helpers/moment.min.js[querystringversion]">//</script>
+    </element>
+    
+    <element id="page-head_cms_project-details">
+      <style type="text/css" nonce="[nonce]">[inline_css]</style>
+    </element>
+    
+    <element id="page-head_cms_auditor-view">
+      <script type="text/javascript" src="[uri-staticassets]/javascript/helpers/moment.min.js[querystringversion]">//</script>
+      <style type="text/css" nonce="[nonce]">[inline_css]</style>
+    </element>
+
+    <element id="page-head_cms_hierarchy-manager">
+      
+      <script type="text/javascript" src="[uri-staticassets]/javascript/helpers/html5sortable.min.js[querystringversion]">//</script>
+      <style type="text/css" nonce="[nonce]">[inline_css]</style>
+    </element>
+
+    <element id="page-head_cms_administration-page">
+      <script type="text/javascript" src="[uri-staticassets]/javascript/helpers/bootstrap-select.min.js[querystringversion]">//</script>
+      <link href="[uri-staticassets]/stylesheets/bootstrap-select.min.css[querystringversion]" rel="stylesheet"></link>
+    </element>
+    
+
+    <element id="page-head_cms_version-manager">
+      <style type="text/css" nonce="[nonce]">[inline_css]</style>
+    </element>
+
+    <element id="page-head_cms-editor-inline">
+      <script type="text/javascript" src="[uri-staticassets]/javascript/helpers/html5sortable.min.js[querystringversion]">//</script>
+      <script type="text/javascript" nonce="[nonce]"> var strProjectId="[projectid]"; var strVersionId="[versionid]"; var strDataProxyUrl="[dataproxy]"; var strDataSaveUrl="[saveurl]"; </script>
+      <script type="text/javascript" nonce="[nonce]"> [inline_javascript] </script>
+      <style type="text/css" nonce="[nonce]">[inline_css]</style>
+    </element>
+
+
+
+    <element id="main-column_start">
+
+      <!-- #section:basics/sidebar -->
+      <div id="sidebar" class="sidebar responsive">
+
+        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+          <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+            <button class="btn btn-info" onclick="reloadPage(true)">
+              <i class="ace-icon fa fa-refresh"></i>
+            </button>
+            <span style="color:transparent">.</span>
+            <button class="btn btn-info">
+              <i class="ace-icon fa fa-question"></i>
+            </button>
+            <span style="color:transparent">.</span>
+            <button class="btn btn-success" onclick="setDebugMode(false)" id="btn-debugmode_off">
+              <i class="ace-icon fa fa-bug"></i>
+            </button>
+            <button class="btn btn-danger" onclick="setDebugMode(true)" id="btn-debugmode_on">
+              <i class="ace-icon fa fa-bug"></i>
+            </button>
+          </div>
+
+          <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+            <span class="btn btn-success"></span>
+            <span class="btn btn-info"></span>
+          </div>
+        </div>
+        <!-- /.sidebar-shortcuts -->
+
+        [left_navigation]
+
+
+        <!-- #section:basics/sidebar.layout.minimize -->
+        <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+          <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+        </div>
+
+      </div>
+
+      [div_content-wrapper_start]
+
+      <div id="breadcrumbs" class="breadcrumbs">
+        <ul class="breadcrumb"> [breadcrumb] </ul>
+      </div>
+
+      [div_content_start]
+      <!--
+            <div class="subnav-wrapper">
+                <div class="subnav">
+                    
+                </div>
+            </div>
+            <div class="page-header">
+                <h1>[pagetitle]</h1>
+            </div>
+            -->
+    </element>
+
+    <element id="main-column_end">
+      [div_content_end]
+      [div_content-wrapper_end]
+
+
+      <div class="footer">
+        <div class="tx-systemstatus"><span class="tx-userwrapper">Users: <span class="users">-</span></span><span class="tx-lockswrapper"> / Locks: <span class="locks">-</span></span></div>
+        <div class="footer-inner">
+          <div class="footer-content">
+            <span class="bigger-120">
+              <span class="dark bolder">Taxxor Disclosure Manager</span>
+              by <a href="https://www.taxxor.com/" target="_blank">taxxor.com</a> &#169; [currentyear]
+            </span>                       
+          </div>
+        </div>
+        <div class="tx-notifications-wrapper">
+            <span class="tx-importerpnotifier" title="Import status">
+                <span class="tx-importerpnotifier__count"><!--.--></span>
+                <i class="gg-spinner-two"><!--.--></i>
+            </span>          
+        </div>
+
+      </div>
+
+    </element>
+
+    <element id="dialog_saved">
+      <div class="modal fade" id="modaldialog-save">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&#215;</button>
+              <div class="title-spinner" style="display:inline">
+                <h4 class="modal-title">Saving</h4>
+              </div>              
+              <div class="title-success" style="display:none">
+                <h4 class="modal-title">Data saved</h4>
+              </div>
+              <div class="title-failure" style="display:none">
+                <h4 class="modal-title">Error</h4>
+              </div>
+            </div>
+            <div class="modal-body">
+              <div class="body-spinner" style="display:inline">
+                <p>Your data is being saved...</p>
+              </div>              
+              <div class="body-success" style="display:none">
+                <p>The data was successfully saved on the server</p>
+              </div>
+              <div class="body-failure" style="display:none">
+
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+    </element>
+
+    <element id="dialog_unsaved-changes">
+       <div aria-labelledby="unsavedChangesLabel" role="dialog" tabindex="-1" id="modal_unsaved-changes" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button onclick="setStandardModalDialogState('modal_unsaved-changes', 'content');" data-dismiss="modal" class="close" type="button">
+                <span>×</span>
+                <span class="sr-only">Close</span>
+              </button>
+              <h4 id="unsavedChangesLabel" class="modal-title">Warning</h4>
+            </div>
+            <div class="modal-body">
+              <div style="display: block" class="content">
+                <h4>Unsaved changes detected</h4>
+                <p>There are unsaved changes on the page that you probably want to save first...</p>
+                <p>Only click on the &#8243;Continue&#8243; button if the changes do not need to be stored on the server.</p>
+                <div class="more-info"></div>
+              </div>
+              <div style="display: none" class="spinner">
+                <p>Saving...</p>
+              </div>
+              <div style="display: none" class="error">
+                <div class="alert alert-danger">
+                  An error has occured, please contact the administrator.
+                </div>
+              </div>
+              <div style="display: none" class="success">
+                <h4>Successfully saved your data</h4>
+                <div class="result">
+                  <p>Continuing to next step</p>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button onclick="setStandardModalDialogState('modal_unsaved-changes', 'content');" data-dismiss="modal" class="btn btn-default button-stay" type="button">Stay</button>
+              <button class="btn btn-primary button-continue" type="button">Discard your changes &amp; continue</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </element>
+
+    <element id="dialog_warning">
+        <div aria-labelledby="warningLabel" role="dialog" tabindex="-1" id="modal_warning" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button data-dismiss="modal" class="close" type="button">
+                    <span>×</span>
+                    <span class="sr-only">Close</span>
+                  </button>
+                  <h4 id="warningLabel" class="modal-title">Warning</h4>
+                </div>
+                <div class="modal-body">
+                    <h4 class="modal-body-title">This action is not possible</h4>
+                    <div class="modal-body-content"></div>
+                </div>
+                <div class="modal-footer">
+                  <button data-dismiss="modal" class="btn btn-default button-ok" type="button">OK</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </element>
+    
+    <element id="dialog_info">
+      <div aria-labelledby="infoLabel" role="dialog" tabindex="-1" id="modal_info" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button data-dismiss="modal" class="close" type="button">
+                <span>×</span>
+                <span class="sr-only">Close</span>
+              </button>
+              <h4 id="infoLabel" class="modal-title">Info</h4>
+            </div>
+            <div class="modal-body">
+              <h4 class="modal-body-title">Information for the user</h4>
+              <div class="modal-body-content"></div>
+            </div>
+            <div class="modal-footer">
+              <button data-dismiss="modal" class="btn btn-default button-ok" type="button">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </element>
+
+    <element id="dialog_system-info">
+      <div class="modal fade" id="modaldialog-system-info">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&#215;</button>
+              <h4 class="modal-title">System information</h4>
+            </div>
+            <div class="modal-body">
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+    </element>
+    <element id="dialog_render-pdf">
+      <div aria-labelledby="generatePdfLabel" role="dialog" tabindex="-1" id="modal_generate-pdf" class="modal fade bs-example-modal-lg">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button onclick="setStandardModalDialogState('modal_generate-pdf', 'content');" data-dismiss="modal" class="close" type="button">
+                <span>×</span>
+                <span class="sr-only">Close</span>
+              </button>
+              <h4 id="generatePdfLabel" class="modal-title">PDF Generation</h4>
+            </div>
+            <div class="modal-body">
+              <div style="display: block" class="content">
+                <h4>Generate PDF</h4>
+                <p>Click on the generate button below to generate a PDF file</p>
+              </div>
+              <div style="display: none" class="spinner">
+                <p>Generating PDF file...</p>
+              </div>
+              <div style="display: none" class="error">
+                <div class="alert alert-danger">
+                  An error has occured, please contact the administrator.
+                </div>
+              </div>
+              <div style="display: none" class="success">
+                <h4>Your PDF file</h4>
+                <div class="result">
+                  <p>Your PDF file has finished generating and should be available in the downloads folder of your computer.</p>
+                  <p>If your PDF has not been automatically downloaded to your system, please use the button below to force the file to download again.</p>
+                </div>
+                <hr/>
+                <a id="btn-pdfgeneratordownload" class="btn btn-xs btn-primary" target="_blank" href="#">
+                  <i class="glyphicon glyphicon-download "></i>
+                  Download
+                </a>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button onclick="setStandardModalDialogState('modal_generate-pdf', 'content');" data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+              <button onclick="generatePdf();" class="btn btn-primary button-generate" type="button">Generate</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </element>
+
+    <element id="item_fragment">
+      <system>
+        <title />
+        <path path-type="cmsdataroot">/textual</path>
+        <date_created>2011-04-24</date_created>
+        <date_lastmodified>2011-04-24</date_lastmodified>
+        <content_type />
+        <metadata>
+        </metadata>
+        <access_control>
+          <edit>
+            <allowed>all</allowed>
+          </edit>
+          <view>
+            <allowed>all</allowed>
+          </view>
+        </access_control>
+      </system>
+    </element>
+
+    <element id="alert-closedproject-warning">
+        <div id="system-warning" class="alert alert-warning" role="alert">
+            <p><i class="glyphicon glyphicon-lock"></i> This project is closed and can only be used for reference. Changes in the content or hierarchy cannot be saved.</p>
+        </div>
+    </element>
+
+    <element id="alert-missingservices-warning">
+        <div id="system-warning" class="alert alert-warning" role="alert">
+            <p>One or more connected services are unavailable, please contact the system administrator.</p>
+        </div>
+    </element>
+
+    <element id="alert-missingservices-critical">
+        <div id="critical-system-warning" class="alert alert-danger" role="alert">
+            <strong>Warning!</strong>
+            <p>One or more connected critical services are unavailable...</p> 
+            <p>Unfortunately you will not be able to proceed until this issue has been resolved.</p> 
+            <p>Please contact the system administrator.</p>
+        </div>
+    </element>
+
+    <element id="default-tablegraph-header">
+        <div class="tablegraph-header-wrapper" data-contenteditable="false" contenteditable="false">
+            <div class="table-title" data-contenteditable="true" contenteditable="true">Title</div>
+            <div class="table-scale" data-contenteditable="true" contenteditable="true">Scale</div>
+        </div>
+    </element>
+    
+  </page_elements>
+
+  <users/>
+
+  <groups/>
+
+  <repositories>
+    <taxxoreditor>
+      <repro id="root">
+        <name>Taxxor Editor Core</name>
+        <location id="application-root" path-type="solutionroot"/>
+        <submodules>
+          <location id="framework-core" path-type="approot" name="Taxxor Code Framework">/backend/framework</location>
+          <location id="taxxor-shared-library" path-type="approot" name="Taxxor Shared Codebase">/backend/code/shared</location>
+        </submodules>
+      </repro>
+      <repro id="custom-backend-scripts">
+        <name>Customer specific Taxxor DM customizations (backend)</name>
+        <location id="custom-backend-scripts" path-type="approot">/backend/code/custom</location>
+      </repro>
+      <repro id="devpack-pdf">
+        <name>Report Design Package - PDF</name>
+        <location id="developer-pdf-package-root" path-type="approot">/frontend/devpackages/[taxxor-client-id]/pdf</location>
+      </repro>
+      <repro id="devpack-website">
+        <name>Report Design Package - Website</name>
+        <location id="developer-website-package-root" path-type="approot">/frontend/devpackages/[taxxor-client-id]/website</location>
+      </repro>
+      <repro id="devpack-htmlsite">
+        <name>Report Design Package - HTML website</name>
+        <location id="developer-htmlsite-package-root" path-type="approot">/frontend/devpackages/[taxxor-client-id]/htmlsite</location>
+      </repro>
+      <repro id="custom-frontend-scripts">
+        <name>Customer specific Taxxor DM customizations (frontend)</name>
+        <location id="custom-frontend-scripts" path-type="cmscustomfrontendroot"/>
+      </repro>      
+      <!--
+      <repro id="sandbox" hidefromui="true">
+        <name>Frontend Sandbox</name>
+        <location id="sandbox" path-type="webroot">/sandbox</location>
+      </repro>
+      -->
+    </taxxoreditor>
+  </repositories>
+</configuration>
