@@ -101,11 +101,14 @@ message CopyDirectoryRequest {
   bool create_target_directory = 8;
 }
 
-// Filing Composer Data Service
+// Filing Composer Data Service - Manages filing composer data (source data for filing sections)
 service FilingComposerDataService {
   rpc GetFilingComposerData (GetFilingComposerDataRequest) returns (TaxxorGrpcResponseMessage);
   rpc SetFilingComposerData (SetFilingComposerDataRequest) returns (TaxxorGrpcResponseMessage);
   rpc GetFilingComposerDataList (GetFilingComposerDataListRequest) returns (TaxxorGrpcResponseMessage);
+  rpc SaveSourceData (SaveSourceDataRequest) returns (TaxxorGrpcResponseMessage);
+  rpc DeleteSourceData (DeleteSourceDataRequest) returns (TaxxorGrpcResponseMessage);
+  rpc CreateSourceData (CreateSourceDataRequest) returns (TaxxorGrpcResponseMessage);
 }
 
 message GetFilingComposerDataRequest {
@@ -220,13 +223,6 @@ message StoreFileRequest {
   string fileName = 4;
   bytes fileData = 5;
   bool normalizeFilename = 6;
-}
-
-// Filing Data Service - Manages filing composer data (source data for filing sections)
-service FilingDataService {
-  rpc SaveSourceData (SaveSourceDataRequest) returns (TaxxorGrpcResponseMessage);
-  rpc DeleteSourceData (DeleteSourceDataRequest) returns (TaxxorGrpcResponseMessage);
-  rpc CreateSourceData (CreateSourceDataRequest) returns (TaxxorGrpcResponseMessage);
 }
 
 message SaveSourceDataRequest {

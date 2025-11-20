@@ -176,7 +176,7 @@ namespace Taxxor
                         if (ValidateCmsPostedParameters(projectVars.projectId, "latest", "text") && id != null)
                         {
                             // Get the gRPC client service
-                            FilingDataService.FilingDataServiceClient filingDataClient = context.RequestServices.GetRequiredService<FilingDataService.FilingDataServiceClient>();
+                            FilingComposerDataService.FilingComposerDataServiceClient filingDataClient = context.RequestServices.GetRequiredService<FilingComposerDataService.FilingComposerDataServiceClient>();
 
                             // Create the gRPC request
                             var grpcRequest = new SaveSourceDataRequest
@@ -256,7 +256,7 @@ namespace Taxxor
                         if (ValidateCmsPostedParameters(projectId, versionId, dataType))
                         {
                             // Get the gRPC client service
-                            FilingDataService.FilingDataServiceClient filingDataClient = context.RequestServices.GetRequiredService<FilingDataService.FilingDataServiceClient>();
+                            FilingComposerDataService.FilingComposerDataServiceClient filingDataClient = context.RequestServices.GetRequiredService<FilingComposerDataService.FilingComposerDataServiceClient>();
 
                             // Create the gRPC request
                             var grpcRequest = new DeleteSourceDataRequest
@@ -338,7 +338,7 @@ namespace Taxxor
                         if (ValidateCmsPostedParameters(projectId, versionId, dataType))
                         {
                             // Get the gRPC client service
-                            FilingDataService.FilingDataServiceClient filingDataClient = context.RequestServices.GetRequiredService<FilingDataService.FilingDataServiceClient>();
+                            FilingComposerDataService.FilingComposerDataServiceClient filingDataClient = context.RequestServices.GetRequiredService<FilingComposerDataService.FilingComposerDataServiceClient>();
 
                             // Create the gRPC request
                             var grpcRequest = new CreateSourceDataRequest

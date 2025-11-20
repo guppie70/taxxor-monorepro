@@ -71,6 +71,7 @@ RSYNC_OPTIONS=(
     --itemize-changes
     --exclude='.git'
     --exclude='.git/'
+    --exclude='.gitignore'
     --exclude='node_modules'
     --exclude='node_modules/'
     --exclude='.DS_Store'
