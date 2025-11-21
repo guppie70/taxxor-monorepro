@@ -4,6 +4,63 @@
 
 This is a temporary monorepo combining **Editor** and **DocumentStore** services from the Taxxor Document Management (TDM) stack to migrate REST API communications to gRPC.
 
+## 🤖 Automatic Debugging Skill Invocation
+
+**CRITICAL: When you report issues, errors, or bugs, Claude Code MUST automatically use the `superpowers:systematic-debugging` skill.**
+
+### Automatic Trigger Conditions
+
+Claude Code will automatically invoke the systematic-debugging skill when you report ANY of these patterns:
+
+- **"I'm testing batch X and getting an error..."**
+- **"SaveHierarchy is causing issues..."**
+- **"There's a problem with..."**
+- **"Error in [feature]..."**
+- **"Docker logs show..."**
+- **"Test failed because..."**
+- **Any report of unexpected behavior during development**
+
+### Expected Workflow
+
+When you report an issue:
+
+1. **Recognition** - Claude Code recognizes the issue report
+2. **Skill Invocation** - Announces: "I'm using the systematic-debugging skill to investigate [issue]"
+3. **Skill Execution** - Loads and runs `superpowers:systematic-debugging`
+4. **Investigation** - Follows the skill's 5-phase debugging process:
+   - Phase 1: Root cause investigation
+   - Phase 2: Pattern analysis
+   - Phase 3: Hypothesis testing
+   - Phase 4: Implementation of fix
+   - Phase 5: Verification of solution
+5. **Reporting** - Returns findings and fixed code
+
+### Example
+
+```
+YOU: "I'm testing batch 3 and SaveHierarchy is causing issues. Can you investigate?"
+
+CLAUDE (immediately):
+"I'm using the systematic-debugging skill to investigate the SaveHierarchy issue."
+
+[Skill runs investigation process]
+
+CLAUDE (after investigation):
+"Found the issue: [root cause]. Applied fix: [solution]. Verification: [test results]"
+```
+
+### Why This Matters
+
+- ✅ Prevents manual trial-and-error investigation
+- ✅ Ensures systematic problem-solving with proven methodology
+- ✅ Catches environment issues (like "Docker didn't rebuild") automatically
+- ✅ Includes verification steps to confirm fixes work
+- ✅ Saves time by following a structured process
+
+### Note
+
+You should NOT need to ask "use the debugging skill" - just report the issue naturally and Claude Code will handle skill invocation automatically.
+
 ## ⚠️ CRITICAL: Publishing Changes to Docker-Mounted Directories
 
 **The Docker containers mount the SEPARATE Editor and DocumentStore directories, NOT this monorepo.**
