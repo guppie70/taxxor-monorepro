@@ -369,6 +369,60 @@ await CallTaxxorConnectedService<XmlDocument>(
 );
 ```
 
+## Code Quality Guidelines for Migration
+
+### Eliminate Ambient Context Pattern
+
+During migration, **actively refactor** methods to remove dependencies on `System.Web.Context.Current`. This modernizes the codebase and aligns with industry best practices.
+
+**❌ Avoid (Service Locator / Ambient Context):**
+```csharp
+public static async Task<XmlDocument> MyMethod(string projectId, string versionId)
+{
+    // Hidden dependency on static context - implicit coupling
+    var context = System.Web.Context.Current;
+    RequestVariables reqVars = RetrieveRequestVariables(context);  // Often unused
+    ProjectVariables projectVars = RetrieveProjectVariables(context);
+    // ... uses projectVars but it's a hidden dependency
+}
+```
+
+**✅ Prefer (Explicit Dependency Injection):**
+```csharp
+public static async Task<XmlDocument> MyMethod(ProjectVariables projectVars)
+{
+    // Explicit dependency - clear what the method needs
+    // No hidden coupling to HTTP context
+    var context = System.Web.Context.Current;  // Only if truly needed for DI
+    // ...
+}
+```
+
+**Benefits:**
+- **Explicit contracts** - Method signatures reveal all dependencies
+- **Improved testability** - Easy to test without mocking HTTP infrastructure
+- **Loose coupling** - Business logic independent of ASP.NET framework
+- **Better maintainability** - Dependencies are visible and traceable
+- **Thread-safety** - No reliance on ambient static context in async scenarios
+
+**Migration Checklist:**
+
+When migrating a method:
+1. ✅ Check if it retrieves `ProjectVariables` or `RequestVariables` from context
+2. ✅ If it only uses `ProjectVariables`, change signature to accept it as a parameter
+3. ✅ Remove unused `RequestVariables reqVars = RetrieveRequestVariables(context);` lines
+4. ✅ Update all call sites to pass `projectVars` explicitly
+5. ✅ Remove unused parameter variables (e.g., `projectId`, `versionId` if getting from context)
+
+**Professional Context:**
+
+This refactoring represents a shift from:
+- **Service Locator anti-pattern** → **Dependency Injection pattern**
+- **Ambient context** → **Explicit dependencies**
+- **Implicit coupling** → **Dependency Inversion Principle (SOLID)**
+
+Modern .NET development emphasizes Dependency Injection as a first-class pattern (built into ASP.NET Core), pure functions that depend only on their inputs, and framework-independent business logic.
+
 ## Example: Already Migrated Method
 
 See `LoadSourceData` in `Editor/TaxxorEditor/backend/code/TaxxorServicesFilingData.cs`:
