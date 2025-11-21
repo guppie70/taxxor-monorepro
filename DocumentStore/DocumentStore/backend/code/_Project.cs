@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Xsl;
+using AutoMapper;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
@@ -760,6 +761,60 @@ namespace Taxxor.Project
             }
         }
 
+        /// <summary>
+        /// Centralized helper method to initialize ProjectVariables for gRPC requests.
+        ///
+        /// This method replicates the behavior of the ProjectVariables middleware (ProjectVariablesMiddleware.cs)
+        /// for gRPC handlers, ensuring backward compatibility with REST API behavior.
+        ///
+        /// The method performs two key operations:
+        /// 1. Uses AutoMapper to map from GrpcProjectVariables (or any request containing them) to ProjectVariables
+        /// 2. Calls FillCorePathsInProjectVariables to calculate all derived path properties
+        ///
+        /// Path properties calculated by FillCorePathsInProjectVariables include:
+        /// - cmsDataRootPath: Web path to project data root
+        /// - cmsDataRootBasePathOs: OS path to project data root base
+        /// - cmsDataRootPathOs: Full OS path including project ID and version (e.g., /mnt/data/projects/project-name/ar24/version_1)
+        /// - cmsContentRootPathOs: OS path to content folder
+        /// - reportingPeriod: Project reporting period
+        /// - outputChannelDefaultLanguage: Default output channel language
+        ///
+        /// Usage in gRPC handlers:
+        /// <code>
+        /// var projectVars = InitializeProjectVariablesForGrpc(mapper, request);
+        /// </code>
+        ///
+        /// This replaces the previous pattern of:
+        /// <code>
+        /// var projectVars = mapper.Map&lt;ProjectVariables&gt;(request);
+        /// FillCorePathsInProjectVariables(ref projectVars);
+        /// </code>
+        /// </summary>
+        /// <param name="mapper">AutoMapper instance for mapping GrpcProjectVariables to ProjectVariables</param>
+        /// <param name="source">Source object containing GrpcProjectVariables (can be any gRPC request type)</param>
+        /// <returns>Fully initialized ProjectVariables with all paths and properties calculated</returns>
+        /// <remarks>
+        /// This method is essential for maintaining consistency between REST and gRPC endpoints.
+        /// The REST middleware automatically initializes these properties for every request,
+        /// and this method ensures gRPC handlers have the same initialized state.
+        ///
+        /// The AutoMapper configuration (AutoMapper.cs) handles mapping from various request types:
+        /// - GetFilingComposerDataRequest → ProjectVariables
+        /// - SaveSourceDataRequest → ProjectVariables
+        /// - GrpcProjectVariables → ProjectVariables (direct)
+        /// - object → ProjectVariables (generic, extracts nested GrpcProjectVariables)
+        /// </remarks>
+        public static ProjectVariables InitializeProjectVariablesForGrpc(IMapper mapper, object source)
+        {
+            // Use AutoMapper to map from the source object to ProjectVariables
+            var projectVars = mapper.Map<ProjectVariables>(source);
+
+            // Calculate all derived path properties (cmsDataRootPathOs, cmsContentRootPathOs, etc.)
+            // This replicates what the REST middleware does
+            FillCorePathsInProjectVariables(ref projectVars);
+
+            return projectVars;
+        }
 
         /// <summary>
         /// Placeholder class

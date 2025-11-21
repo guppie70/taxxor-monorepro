@@ -388,90 +388,98 @@ namespace Taxxor
                 /// <summary>
                 /// Renders an overview of all the available section XHTML files if this specific project
                 /// </summary>
-                /// <param name="projectId"></param>
-                /// <param name="versionId"></param>
+                /// <param name="projectVars"></param>
                 /// <param name="debugRoutine"></param>
                 /// <returns></returns>
-                public static async Task<XmlDocument> SourceDataOverview(string projectId, string versionId, bool debugRoutine = false)
+                public static async Task<XmlDocument> SourceDataOverview(ProjectVariables projectVars, bool debugRoutine = false)
                 {
-                    var context = System.Web.Context.Current;
-                    RequestVariables reqVars = RetrieveRequestVariables(context);
-                    ProjectVariables projectVars = RetrieveProjectVariables(context);
-
-                    var dataToPost = new Dictionary<string, string>();
-                    dataToPost.Add("pid", projectId);
-                    dataToPost.Add("vid", versionId);
-
-                    XmlDocument responseXml = await CallTaxxorConnectedService<XmlDocument>(ConnectedServiceEnum.DocumentStore, RequestMethodEnum.Get, "taxxoreditorcomposerdataoverview", dataToPost, debugRoutine);
-
-                    // Handle error
-                    if (XmlContainsError(responseXml)) return responseXml;
-
-                    // The XML content that we are looking for is in decoded form available in the message node
-                    var xml = HttpUtility.HtmlDecode(responseXml.SelectSingleNode("/result/payload").InnerText);
-
                     try
                     {
-                        var xmlSourceDataOverview = new XmlDocument();
-                        xmlSourceDataOverview.LoadXml(xml);
-                        return xmlSourceDataOverview;
+                        var context = System.Web.Context.Current;
+
+                        // Get the gRPC client service via DI
+                        var client = context.RequestServices.GetRequiredService<FilingComposerDataService.FilingComposerDataServiceClient>();
+
+                        // Create the request
+                        var grpcRequest = new GetSourceDataOverviewRequest
+                        {
+                            GrpcProjectVariables = ConvertToGrpcProjectVariables(projectVars)
+                        };
+
+                        // Call the gRPC service
+                        var grpcResponse = await client.GetSourceDataOverviewAsync(grpcRequest);
+
+                        if (grpcResponse.Success)
+                        {
+                            // Parse the XML data from the response
+                            var xmlSourceDataOverview = new XmlDocument();
+                            xmlSourceDataOverview.LoadXml(grpcResponse.Data);
+                            return xmlSourceDataOverview;
+                        }
+                        else
+                        {
+                            // Handle error
+                            return GenerateErrorXml(grpcResponse.Message, $"debuginfo: {grpcResponse.Debuginfo}");
+                        }
                     }
                     catch (Exception ex)
                     {
-                        appLogger.LogError(ex, "Could not load the source data");
-                        return GenerateErrorXml("Could not load the source data", $"error: {ex}, xml: {TruncateString(xml, 100)}, {_generateStandardDebugString(dataToPost)}, stack-trace: {GetStackTrace()}");
+                        appLogger.LogError(ex, "Error in SourceDataOverview");
+                        return GenerateErrorXml($"Error in SourceDataOverview: {ex.Message}", $"stack-trace: {GetStackTrace()}");
                     }
-
                 }
 
                 /// <summary>
                 /// Clone the content of one language to another in the same data reference
                 /// </summary>
-                /// <param name="projectId"></param>
-                /// <param name="did"></param>
+                /// <param name="projectVars"></param>
                 /// <param name="sourceLang"></param>
                 /// <param name="targetLang"></param>
                 /// <param name="includeChildren"></param>
                 /// <param name="debugRoutine"></param>
                 /// <returns></returns>
-                public static async Task<XmlDocument> CloneSectionLanguageData(string projectId, string did, string sourceLang, string targetLang, bool includeChildren, bool debugRoutine = false)
+                public static async Task<XmlDocument> CloneSectionLanguageData(ProjectVariables projectVars, string sourceLang, string targetLang, bool includeChildren, bool debugRoutine = false)
                 {
-                    var context = System.Web.Context.Current;
-                    RequestVariables reqVars = RetrieveRequestVariables(context);
-                    ProjectVariables projectVars = RetrieveProjectVariables(context);
-
-                    // The filing source data
-                    var dataToPost = new Dictionary<string, string>();
-                    if (ValidateCmsPostedParameters(projectId, "latest", "text") && did != null)
+                    try
                     {
-                        /*
-                         * Call the Taxxor Document Store to retrieve the data
-                         */
+                        var context = System.Web.Context.Current;
 
-                        dataToPost.Add("pid", projectId);
-                        dataToPost.Add("vid", "latest");
-                        dataToPost.Add("sourcelang", sourceLang);
-                        dataToPost.Add("targetlang", targetLang);
-                        dataToPost.Add("includechildren", includeChildren.ToString().ToLower());
+                        if (!ValidateCmsPostedParameters(projectVars.projectId, "latest", "text") || projectVars.did == null)
+                        {
+                            return GenerateErrorXml("Did not supply enough input to clone section language data", $"stack-trace: {GetStackTrace()}");
+                        }
 
-                        // Data types supported are "text", "config" - but since we need the content for the editor we will fix it to "text"
-                        dataToPost.Add("type", "text");
-                        dataToPost.Add("did", did);
-                        dataToPost.Add("ctype", projectVars.editorContentType);
-                        dataToPost.Add("rtype", projectVars.reportTypeId);
-                        dataToPost.Add("octype", projectVars.outputChannelType);
-                        dataToPost.Add("ocvariantid", projectVars.outputChannelVariantId);
-                        dataToPost.Add("oclang", projectVars.outputChannelVariantLanguage);
+                        // Get the gRPC client service via DI
+                        var client = context.RequestServices.GetRequiredService<FilingComposerDataService.FilingComposerDataServiceClient>();
 
-                        return await CallTaxxorConnectedService<XmlDocument>(ConnectedServiceEnum.DocumentStore, RequestMethodEnum.Get, "taxxoreditorcontentlanguageclone", dataToPost, debugRoutine);
+                        // Create the request
+                        var grpcRequest = new CloneSectionLanguageDataRequest
+                        {
+                            GrpcProjectVariables = ConvertToGrpcProjectVariables(projectVars),
+                            SourceLang = sourceLang,
+                            TargetLang = targetLang,
+                            IncludeChildren = includeChildren
+                        };
 
+                        // Call the gRPC service
+                        var grpcResponse = await client.CloneSectionLanguageDataAsync(grpcRequest);
 
+                        if (grpcResponse.Success)
+                        {
+                            // Return success XML
+                            return GenerateSuccessXml(grpcResponse.Message, grpcResponse.Debuginfo);
+                        }
+                        else
+                        {
+                            // Handle error
+                            return GenerateErrorXml(grpcResponse.Message, $"debuginfo: {grpcResponse.Debuginfo}");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        return GenerateErrorXml("Did not supply enough input to load the source data", $"{_generateStandardDebugString(dataToPost)}, stack-trace: {GetStackTrace()}");
+                        appLogger.LogError(ex, "Error in CloneSectionLanguageData");
+                        return GenerateErrorXml($"Error in CloneSectionLanguageData: {ex.Message}", $"stack-trace: {GetStackTrace()}");
                     }
-
                 }
 
                 /// <summary>

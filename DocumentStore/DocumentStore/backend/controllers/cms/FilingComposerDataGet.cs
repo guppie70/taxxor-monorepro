@@ -270,8 +270,12 @@ namespace Taxxor.Project
         {
             // Calculate the base path to the xml file that contains the section XML file
             var nodeSourceDataLocation = xmlApplicationConfiguration.SelectSingleNode("/configuration/cms_projects/cms_project[@id=" + GenerateEscapedXPathString(projectVars.projectId) + "]/content_types/content_management/type[@id=" + GenerateEscapedXPathString(contentType) + "]/xml");
+            appLogger.LogInformation($"RetrieveInlineFilingComposerXmlRootFolderPathOs - nodeSourceDataLocation: '{nodeSourceDataLocation?.OuterXml ?? "NULL"}', projectId: '{projectVars.projectId}', contentType: '{contentType}'");
             var dataFilePathOs = CalculateFullPathOs(nodeSourceDataLocation, reqVars, projectVars, true);
-            return Path.GetDirectoryName(dataFilePathOs);
+            appLogger.LogInformation($"RetrieveInlineFilingComposerXmlRootFolderPathOs - dataFilePathOs after CalculateFullPathOs: '{dataFilePathOs}'");
+            var result = Path.GetDirectoryName(dataFilePathOs);
+            appLogger.LogInformation($"RetrieveInlineFilingComposerXmlRootFolderPathOs - returning: '{result}'");
+            return result;
         }
 
         /// <summary>

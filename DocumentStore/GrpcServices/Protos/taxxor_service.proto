@@ -109,6 +109,8 @@ service FilingComposerDataService {
   rpc SaveSourceData (SaveSourceDataRequest) returns (TaxxorGrpcResponseMessage);
   rpc DeleteSourceData (DeleteSourceDataRequest) returns (TaxxorGrpcResponseMessage);
   rpc CreateSourceData (CreateSourceDataRequest) returns (TaxxorGrpcResponseMessage);
+  rpc GetSourceDataOverview (GetSourceDataOverviewRequest) returns (TaxxorGrpcResponseMessage);
+  rpc CloneSectionLanguageData (CloneSectionLanguageDataRequest) returns (TaxxorGrpcResponseMessage);
 }
 
 message GetFilingComposerDataRequest {
@@ -243,4 +245,15 @@ message CreateSourceDataRequest {
   string sectionId = 2;
   string data = 3;
   string dataType = 4;
+}
+
+message GetSourceDataOverviewRequest {
+  GrpcProjectVariables grpcProjectVariables = 1;
+}
+
+message CloneSectionLanguageDataRequest {
+  GrpcProjectVariables grpcProjectVariables = 1;
+  string sourceLang = 2;
+  string targetLang = 3;
+  bool includeChildren = 4;
 }

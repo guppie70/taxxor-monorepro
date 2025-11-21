@@ -436,11 +436,13 @@ namespace Taxxor.Project
                         path = "/";
                         nodePath.InnerText = path;
                     }
-                };
-                if(string.IsNullOrEmpty(linkName)){
-                    appLogger.LogWarning($"Detected item without linkname: {nodeIncomingItem.SelectSingleNode("div")?.OuterXml??""}");
+                }
+                ;
+                if (string.IsNullOrEmpty(linkName))
+                {
+                    appLogger.LogWarning($"Detected item without linkname: {nodeIncomingItem.SelectSingleNode("div")?.OuterXml ?? ""}");
                     var nodeLinkName = nodeIncomingItem.SelectSingleNode("div//span[contains(@class, 'linkname')]");
-                    if (nodeLinkName!= null)
+                    if (nodeLinkName != null)
                     {
                         linkName = "Unnamed";
                         nodeLinkName.InnerText = linkName;
@@ -449,7 +451,8 @@ namespace Taxxor.Project
                 if (string.IsNullOrEmpty(linkName) || string.IsNullOrEmpty(path))
                 {
                     validationErrorDetailsList.Add(nodeIncomingItem.SelectSingleNode("div").OuterXml);
-                };
+                }
+                ;
             }
             if (validationErrorDetailsList.Count > 0)
             {
@@ -462,8 +465,9 @@ namespace Taxxor.Project
             // Retrieve the hierarchy from the Taxxor Data Store
             XmlDocument outputChannelHierarchy = await DocumentStoreService.FilingData.LoadHierarchy(projectVars.projectId, projectVars.versionId, projectVars.editorId, projectVars.outputChannelType, projectVars.outputChannelVariantId, projectVars.outputChannelVariantLanguage);
 
-            // Retrieve the overview of all the available sections from the Taxxor Data Store 
-            XmlDocument xmlSourceDataOverview = await DocumentStoreService.FilingData.SourceDataOverview(projectVars.projectId, projectVars.versionId, true);
+            // Retrieve the overview of all the available sections from the Taxxor Data Store
+            XmlDocument xmlSourceDataOverview = await DocumentStoreService.FilingData.SourceDataOverview(projectVars, true);
+            if (XmlContainsError(xmlSourceDataOverview)) HandleError(xmlSourceDataOverview);
 
             // Render a new hierarchy file based on the combination of the data we have saved and the data that was already present in the Taxxor Data Store
             XsltArgumentList xsltArgs = new XsltArgumentList();
@@ -1169,7 +1173,7 @@ namespace Taxxor.Project
             var includeChildrenString = request.RetrievePostedValue("includechildren", @"^(true|false)$", false, ReturnTypeEnum.Json, "false");
             var includeChildren = (includeChildrenString == "true");
 
-            var xmlCloneLangResult = await DocumentStoreService.FilingData.CloneSectionLanguageData(projectVars.projectId, projectVars.did, sourceLang, targetLang, includeChildren, true);
+            var xmlCloneLangResult = await DocumentStoreService.FilingData.CloneSectionLanguageData(projectVars, sourceLang, targetLang, includeChildren, true);
 
             if (XmlContainsError(xmlCloneLangResult))
             {

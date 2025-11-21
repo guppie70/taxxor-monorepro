@@ -898,7 +898,7 @@ namespace Taxxor.Project
             {
                 // Add all the section elements to the overview
                 var outputAllItems = xmlOutputChannelHierarchies.CreateElement("item_overview");
-                XmlDocument xmlSourceDataOverview = await FilingData.SourceDataOverview(projectVars.projectId, projectVars.versionId, true);
+                XmlDocument xmlSourceDataOverview = await FilingData.SourceDataOverview(projectVars, true);
                 var nodeSourceDataImported = xmlOutputChannelHierarchies.ImportNode(xmlSourceDataOverview.DocumentElement, true);
                 outputAllItems.AppendChild(nodeSourceDataImported);
                 xmlOutputChannelHierarchies.DocumentElement.AppendChild(outputAllItems);
@@ -2234,15 +2234,15 @@ namespace Taxxor.Project
             return new GrpcProjectVariables
             {
                 UserId = projectVars.currentUser?.Id ?? "",
-                ProjectId = projectVars.projectId,
-                VersionId = projectVars.versionId,
+                ProjectId = projectVars.projectId ?? "",
+                VersionId = projectVars.versionId ?? "",
                 Did = projectVars.did ?? "",
-                EditorId = projectVars.editorId,
-                EditorContentType = projectVars.editorContentType,
-                ReportTypeId = projectVars.reportTypeId,
-                OutputChannelType = projectVars.outputChannelType,
-                OutputChannelVariantId = projectVars.outputChannelVariantId,
-                OutputChannelVariantLanguage = projectVars.outputChannelVariantLanguage,
+                EditorId = projectVars.editorId ?? "",
+                EditorContentType = projectVars.editorContentType ?? "",
+                ReportTypeId = projectVars.reportTypeId ?? "",
+                OutputChannelType = projectVars.outputChannelType ?? "",
+                OutputChannelVariantId = projectVars.outputChannelVariantId ?? "",
+                OutputChannelVariantLanguage = projectVars.outputChannelVariantLanguage ?? "",
                 // User information for Git commits and audit trails
                 UserFirstName = projectVars.currentUser?.FirstName ?? "",
                 UserLastName = projectVars.currentUser?.LastName ?? "",

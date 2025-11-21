@@ -29,7 +29,6 @@ namespace DocumentStore.Services
             _mapper = mapper;
         }
 
-
         /// <summary>
         /// Retrieves filing composer data (to use in the editor UI for example)
         /// </summary>
@@ -60,8 +59,7 @@ namespace DocumentStore.Services
                 // FillCorePathsInProjectVariables(ref projectVarsForDataRetrieval);
 
                 // Create a project variables object from the request
-                var projectVarsForDataRetrieval = _mapper.Map<ProjectVariables>(request);
-                FillCorePathsInProjectVariables(ref projectVarsForDataRetrieval);
+                var projectVarsForDataRetrieval = InitializeProjectVariablesForGrpc(_mapper, request);
 
                 baseDebugInfo = $"projectId: '{projectVarsForDataRetrieval.projectId}', versionId: '{projectVarsForDataRetrieval.versionId}', dataType: '{request.DataType}', id (section): '{request.Did}', projectVars.editorContentType: '{projectVarsForDataRetrieval.editorContentType}', projectVars.reportTypeId: '{projectVarsForDataRetrieval.reportTypeId}'";
 
@@ -230,8 +228,7 @@ namespace DocumentStore.Services
             try
             {
                 // Map gRPC request to ProjectVariables (including user info from GrpcProjectVariables)
-                var projectVars = _mapper.Map<ProjectVariables>(request);
-                FillCorePathsInProjectVariables(ref projectVars);
+                var projectVars = InitializeProjectVariablesForGrpc(_mapper, request);
 
                 baseDebugInfo = $"projectId: '{projectVars.projectId}', versionId: '{projectVars.versionId}', did: '{request.Did}', contentLanguage: '{request.ContentLanguage}'";
 
@@ -292,6 +289,7 @@ namespace DocumentStore.Services
                 var saveResult = await SaveXmlInlineFilingComposerData(xmlDocument, xmlFilePathOs, projectVars);
                 if (!saveResult.Success)
                 {
+                    appLogger.LogError($"Failed to save XML data: {saveResult.Message}, debugInfo: {saveResult.DebugInfo}");
                     return new TaxxorGrpcResponseMessage
                     {
                         Success = false,
@@ -354,8 +352,7 @@ namespace DocumentStore.Services
             try
             {
                 // Map gRPC request to ProjectVariables (including user info from GrpcProjectVariables)
-                var projectVars = _mapper.Map<ProjectVariables>(request);
-                FillCorePathsInProjectVariables(ref projectVars);
+                var projectVars = InitializeProjectVariablesForGrpc(_mapper, request);
 
                 baseDebugInfo = $"projectId: '{projectVars.projectId}', versionId: '{projectVars.versionId}', dataType: '{request.DataType}'";
 
@@ -449,7 +446,7 @@ namespace DocumentStore.Services
                                 };
                             }
 
-                            var hierarchyFilePathOs = CalculateFullPathOs(hierarchyLocationNode, reqVars);
+                            var hierarchyFilePathOs = CalculateFullPathOs(hierarchyLocationNode, reqVars, projectVars);
                             var xmlOutputChannelHierarchy = new XmlDocument();
                             xmlOutputChannelHierarchy.Load(hierarchyFilePathOs);
 
@@ -580,8 +577,7 @@ namespace DocumentStore.Services
             try
             {
                 // Map gRPC request to ProjectVariables (including user info from GrpcProjectVariables)
-                var projectVars = _mapper.Map<ProjectVariables>(request);
-                FillCorePathsInProjectVariables(ref projectVars);
+                var projectVars = InitializeProjectVariablesForGrpc(_mapper, request);
 
                 baseDebugInfo = $"projectId: '{projectVars.projectId}', versionId: '{projectVars.versionId}', sectionId: '{request.SectionId}', dataType: '{request.DataType}'";
 
@@ -714,6 +710,234 @@ namespace DocumentStore.Services
                 {
                     Success = false,
                     Message = $"Error creating source data: {ex.Message}",
+                    Debuginfo = $"Exception: {ex}"
+                };
+            }
+        }
+
+        public override async Task<TaxxorGrpcResponseMessage> GetSourceDataOverview(
+            GetSourceDataOverviewRequest request, ServerCallContext context)
+        {
+            try
+            {
+                // Map to ProjectVariables using centralized helper
+                var projectVars = InitializeProjectVariablesForGrpc(_mapper, request);
+
+                var baseDebugInfo = $"projectId: {projectVars.projectId}, versionId: {projectVars.versionId}";
+                appLogger.LogDebug($"GetSourceDataOverview called - {baseDebugInfo}");
+
+                if (string.IsNullOrEmpty(projectVars.projectId))
+                {
+                    return new TaxxorGrpcResponseMessage
+                    {
+                        Success = false,
+                        Message = "Could not compile overview",
+                        Debuginfo = "Not enough information supplied - project ID is empty"
+                    };
+                }
+
+                var dataFolderPathOs = RetrieveFilingDataFolderPathOs(projectVars.projectId);
+                var overviewResult = RetrieveFilingDataOverview(dataFolderPathOs);
+
+                if (overviewResult.Success)
+                {
+                    return new TaxxorGrpcResponseMessage
+                    {
+                        Success = true,
+                        Message = overviewResult.Message,
+                        Debuginfo = overviewResult.DebugInfo,
+                        Data = overviewResult.XmlPayload.OuterXml
+                    };
+                }
+                else
+                {
+                    return new TaxxorGrpcResponseMessage
+                    {
+                        Success = false,
+                        Message = "Could not compile overview",
+                        Debuginfo = overviewResult.DebugInfo
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                appLogger.LogError(ex, "Error in GetSourceDataOverview");
+                return new TaxxorGrpcResponseMessage
+                {
+                    Success = false,
+                    Message = $"Error retrieving source data overview: {ex.Message}",
+                    Debuginfo = $"Exception: {ex}"
+                };
+            }
+        }
+
+        public override async Task<TaxxorGrpcResponseMessage> CloneSectionLanguageData(
+            CloneSectionLanguageDataRequest request, ServerCallContext context)
+        {
+            try
+            {
+                // Map to ProjectVariables using centralized helper
+                var projectVars = InitializeProjectVariablesForGrpc(_mapper, request);
+
+                var baseDebugInfo = $"projectId: {projectVars.projectId}, did: {projectVars.did}, sourceLang: {request.SourceLang}, targetLang: {request.TargetLang}, includeChildren: {request.IncludeChildren}";
+                appLogger.LogInformation($"CloneSectionLanguageData called - {baseDebugInfo}");
+                appLogger.LogInformation($"ProjectVars details - versionId: '{projectVars.versionId}', editorId: '{projectVars.editorId}', editorContentType: '{projectVars.editorContentType}', outputChannelType: '{projectVars.outputChannelType}', outputChannelVariantId: '{projectVars.outputChannelVariantId}', outputChannelVariantLanguage: '{projectVars.outputChannelVariantLanguage}'");
+
+                // Create a RequestVariables object for the helper methods
+                var reqVars = new RequestVariables();
+
+                // Load hierarchy
+                var xmlFilingHierarchyPathOs = CalculateHierarchyPathOs(reqVars, projectVars);
+
+                if (string.IsNullOrEmpty(xmlFilingHierarchyPathOs))
+                {
+                    appLogger.LogError("CalculateHierarchyPathOs returned null or empty");
+                    return new TaxxorGrpcResponseMessage
+                    {
+                        Success = false,
+                        Message = "Could not calculate hierarchy path",
+                        Debuginfo = $"CalculateHierarchyPathOs returned null or empty. {baseDebugInfo}"
+                    };
+                }
+
+                var xmlFilingHierarchy = new XmlDocument();
+                xmlFilingHierarchy.Load(xmlFilingHierarchyPathOs);
+
+                // Select the references that we need to work with
+                var dataReferences = new List<string>();
+                var subItemSelector = request.IncludeChildren
+                    ? $"ancestor-or-self::item/@id={GenerateEscapedXPathString(projectVars.did)}"
+                    : $"@id={GenerateEscapedXPathString(projectVars.did)}";
+
+                var xPath = $"/items/structured//item[{subItemSelector}]";
+                appLogger.LogDebug($"- xPath: {xPath}");
+                var nodeListItems = xmlFilingHierarchy.SelectNodes(xPath);
+
+                if (nodeListItems.Count == 0)
+                {
+                    return new TaxxorGrpcResponseMessage
+                    {
+                        Success = false,
+                        Message = "Could not locate filing hierarchy items to clone the language for",
+                        Debuginfo = $"xPath: {xPath}, {baseDebugInfo}"
+                    };
+                }
+
+                foreach (XmlNode nodeItem in nodeListItems)
+                {
+                    var dataReference = GetAttribute(nodeItem, "data-ref");
+                    if (string.IsNullOrEmpty(dataReference))
+                    {
+                        return new TaxxorGrpcResponseMessage
+                        {
+                            Success = false,
+                            Message = "Could not locate the data reference from the filing hierarchy item",
+                            Debuginfo = baseDebugInfo
+                        };
+                    }
+                    if (!dataReferences.Contains(dataReference)) dataReferences.Add(dataReference);
+                }
+
+                // Perform the language clone
+                foreach (var dataReference in dataReferences)
+                {
+                    var rootFolderPath = RetrieveInlineFilingComposerXmlRootFolderPathOs(reqVars, projectVars);
+                    appLogger.LogInformation($"Root folder path: '{rootFolderPath}', dataReference: '{dataReference}'");
+
+                    var dataFilePathOs = rootFolderPath + "/" + dataReference;
+
+                    if (!File.Exists(dataFilePathOs))
+                    {
+                        appLogger.LogError($"Unable to clone section content - unable to find the section xml data file at: {dataFilePathOs}");
+                        return new TaxxorGrpcResponseMessage
+                        {
+                            Success = false,
+                            Message = "Could not find the section data content",
+                            Debuginfo = $"dataFilePathOs: {dataFilePathOs}"
+                        };
+                    }
+
+                    var xmlSection = new XmlDocument();
+                    xmlSection.Load(dataFilePathOs);
+
+                    var xpath = $"/data/content[@lang='{request.SourceLang}']/article";
+                    var nodeSourceArticle = xmlSection.SelectSingleNode(xpath);
+                    if (nodeSourceArticle == null)
+                    {
+                        return new TaxxorGrpcResponseMessage
+                        {
+                            Success = false,
+                            Message = "Could not find source content data",
+                            Debuginfo = $"xpath: {xpath}, dataFilePathOs: {dataFilePathOs}"
+                        };
+                    }
+
+                    var nodeTargetContent = xmlSection.SelectSingleNode($"/data/content[@lang='{request.TargetLang}']");
+                    if (nodeTargetContent == null)
+                    {
+                        nodeTargetContent = xmlSection.CreateElement("content");
+                        SetAttribute(nodeTargetContent, "lang", request.TargetLang);
+                        var nodeData = xmlSection.SelectSingleNode("/data");
+                        if (nodeData == null)
+                        {
+                            return new TaxxorGrpcResponseMessage
+                            {
+                                Success = false,
+                                Message = "Could not retrieve data node",
+                                Debuginfo = $"dataFilePathOs: {dataFilePathOs}"
+                            };
+                        }
+                        nodeTargetContent = nodeData.AppendChild(nodeTargetContent);
+                    }
+
+                    // Custom post-process logic
+                    nodeSourceArticle = CustomFPostProcessLangClone(nodeSourceArticle, projectVars);
+
+                    nodeTargetContent.InnerXml = nodeSourceArticle.OuterXml;
+                    xmlSection.Save(dataFilePathOs);
+
+                    // Commit to Git
+                    var linkname = nodeSourceArticle.SelectSingleNode("//*[local-name()='h1' or local-name()='h2' or local-name()='h3']")?.InnerText ?? Path.GetFileName(dataReference);
+
+                    XmlDocument xmlCommitMessage = RetrieveTemplate("git-data-save_message");
+                    if (xmlCommitMessage != null && xmlCommitMessage.SelectSingleNode("/root/crud") != null)
+                    {
+                        xmlCommitMessage.SelectSingleNode("/root/crud").InnerText = "clonelanguage";
+                        if (xmlCommitMessage.SelectSingleNode("/root/linkname") != null)
+                        {
+                            xmlCommitMessage.SelectSingleNode("/root/linkname").InnerText = string.IsNullOrEmpty(linkname) ? "" : linkname;
+                            xmlCommitMessage.SelectSingleNode("/root/linkname").SetAttribute("lang", request.TargetLang);
+                        }
+                        if (xmlCommitMessage.SelectSingleNode("/root/dataref") != null)
+                            xmlCommitMessage.SelectSingleNode("/root/dataref").InnerText = dataReference;
+                        if (xmlCommitMessage.SelectSingleNode("/root/sourcelang") != null)
+                            xmlCommitMessage.SelectSingleNode("/root/sourcelang").InnerText = request.SourceLang;
+                        if (xmlCommitMessage.SelectSingleNode("/root/targetlang") != null)
+                            xmlCommitMessage.SelectSingleNode("/root/targetlang").InnerText = request.TargetLang;
+                    }
+
+                    var committed = CommitFilingDataCore(xmlCommitMessage.OuterXml, projectVars, ReturnTypeEnum.Xml, false);
+
+                    if (!committed)
+                    {
+                        appLogger.LogWarning("Unable to commit the language clone to version control");
+                    }
+                }
+
+                return new TaxxorGrpcResponseMessage
+                {
+                    Success = true,
+                    Message = $"Successfully cloned {dataReferences.Count} section(s) from {request.SourceLang} to {request.TargetLang}",
+                    Debuginfo = baseDebugInfo
+                };
+            }
+            catch (Exception ex)
+            {
+                appLogger.LogError(ex, "Error in CloneSectionLanguageData");
+                return new TaxxorGrpcResponseMessage
+                {
+                    Success = false,
+                    Message = $"Error cloning section language data: {ex.Message}",
                     Debuginfo = $"Exception: {ex}"
                 };
             }

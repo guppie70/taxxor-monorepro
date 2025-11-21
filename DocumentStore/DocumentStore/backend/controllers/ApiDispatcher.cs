@@ -421,19 +421,6 @@ namespace Taxxor.Project
                         }
                         break;
 
-                    case "taxxoreditorcontentlanguageclone":
-                        switch (reqVars.method)
-                        {
-                            case RequestMethodEnum.Get:
-                                await CloneSectionContentLanguage(request, response, routeData);
-                                break;
-
-                            default:
-                                _handleMethodNotSupported(reqVars);
-                                break;
-                        }
-                        break;
-
                     case "taxxoreditorpdfdata":
                         switch (reqVars.method)
                         {
@@ -482,19 +469,6 @@ namespace Taxxor.Project
                         {
                             case RequestMethodEnum.Get:
                                 await RetrieveAllSourceData(request, response, routeData);
-                                break;
-
-                            default:
-                                _handleMethodNotSupported(reqVars);
-                                break;
-                        }
-                        break;
-
-                    case "taxxoreditorcomposerdataoverview":
-                        switch (reqVars.method)
-                        {
-                            case RequestMethodEnum.Get:
-                                await RetrieveFilingDataOverview(request, response, routeData);
                                 break;
 
                             default:

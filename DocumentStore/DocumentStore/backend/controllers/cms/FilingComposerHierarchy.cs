@@ -253,7 +253,7 @@ namespace Taxxor.Project
         /// <returns></returns>
         public static string? CalculateHierarchyPathOs(RequestVariables reqVars, ProjectVariables projectVars)
         {
-            return CalculateHierarchyPathOs(reqVars, projectVars.projectId, projectVars.versionId, projectVars.editorId, projectVars.editorContentType, projectVars.reportTypeId, projectVars.outputChannelType, projectVars.outputChannelVariantId, projectVars.outputChannelVariantLanguage);
+            return CalculateHierarchyPathOs(reqVars, projectVars.projectId, projectVars.versionId, projectVars.editorId, projectVars.editorContentType, projectVars.reportTypeId, projectVars.outputChannelType, projectVars.outputChannelVariantId, projectVars.outputChannelVariantLanguage, projectVars);
         }
 
         /// <summary>
@@ -269,7 +269,7 @@ namespace Taxxor.Project
         /// <param name="outputChannelVariantId"></param>
         /// <param name="outputChannelVariantLanguage"></param>
         /// <returns></returns>
-        public static string? CalculateHierarchyPathOs(RequestVariables reqVars, string? projectId, string? versionId, string? editorId, string? editorContentType, string? reportTypeId, string? outputChannelType, string? outputChannelVariantId, string? outputChannelVariantLanguage)
+        public static string? CalculateHierarchyPathOs(RequestVariables reqVars, string? projectId, string? versionId, string? editorId, string? editorContentType, string? reportTypeId, string? outputChannelType, string? outputChannelVariantId, string? outputChannelVariantLanguage, ProjectVariables? projectVars = null)
         {
             var baseDebugInfo = $"projectId: '{projectId}', " +
                 $"versionId: '{versionId}', " +
@@ -284,7 +284,7 @@ namespace Taxxor.Project
             var hierarchyMetadataId = RetrieveOutputChannelHierarchyMetadataId(editorId, outputChannelType, outputChannelVariantId, outputChannelVariantLanguage);
             if (string.IsNullOrEmpty(hierarchyMetadataId)) HandleError("Could not find metadata id for hierarchy", $"{baseDebugInfo}, stack-trace: {GetStackTrace()}");
 
-            return CalculateHierarchyPathOs(projectId, hierarchyMetadataId, reqVars, baseDebugInfo);
+            return CalculateHierarchyPathOs(projectId, hierarchyMetadataId, reqVars, baseDebugInfo, projectVars);
         }
 
 
@@ -296,9 +296,9 @@ namespace Taxxor.Project
         /// <param name="hierarchyMetadataId"></param>
         /// <param name="baseDebugInfo"></param>
         /// <returns></returns>
-        public static string? CalculateHierarchyPathOs(string projectId, string hierarchyMetadataId, RequestVariables? reqVars = null, string? baseDebugInfo = null)
+        public static string? CalculateHierarchyPathOs(string projectId, string hierarchyMetadataId, RequestVariables? reqVars = null, string? baseDebugInfo = null, ProjectVariables? projectVars = null)
         {
-            return CalculateHierarchyPathOs(projectId, hierarchyMetadataId, true, reqVars, baseDebugInfo);
+            return CalculateHierarchyPathOs(projectId, hierarchyMetadataId, true, reqVars, baseDebugInfo, projectVars);
         }
 
 
@@ -311,7 +311,7 @@ namespace Taxxor.Project
         /// <param name="reqVars"></param>
         /// <param name="baseDebugInfo"></param>
         /// <returns></returns>
-        public static string? CalculateHierarchyPathOs(string projectId, string hierarchyMetadataId, bool stopOnError, RequestVariables? reqVars = null, string? baseDebugInfo = null)
+        public static string? CalculateHierarchyPathOs(string projectId, string hierarchyMetadataId, bool stopOnError, RequestVariables? reqVars = null, string? baseDebugInfo = null, ProjectVariables? projectVars = null)
         {
             var xpath = $"/configuration/cms_projects/cms_project[@id='{projectId}']/metadata_system/metadata[@id='{hierarchyMetadataId}']/location";
             // Console.WriteLine("****");
@@ -338,7 +338,7 @@ namespace Taxxor.Project
             }
             else
             {
-                return CalculateFullPathOs(nodeHierarchyLocation, reqVars);
+                return CalculateFullPathOs(nodeHierarchyLocation, reqVars, projectVars);
             }
         }
 

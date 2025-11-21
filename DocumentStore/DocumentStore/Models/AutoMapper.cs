@@ -12,6 +12,7 @@ public class ProjectMappingProfile : Profile
         CreateMap<GetFilingComposerDataRequest, ProjectVariables>()
             .ForMember(dest => dest.projectId, opt => opt.MapFrom(src => src.GrpcProjectVariables.ProjectId))
             .ForMember(dest => dest.versionId, opt => opt.MapFrom(src => src.GrpcProjectVariables.VersionId))
+            .ForMember(dest => dest.did, opt => opt.MapFrom(src => src.GrpcProjectVariables.Did))
             .ForMember(dest => dest.editorId, opt => opt.MapFrom(src => src.GrpcProjectVariables.EditorId))
             .ForMember(dest => dest.outputChannelType, opt => opt.MapFrom(src => src.GrpcProjectVariables.OutputChannelType))
             .ForMember(dest => dest.outputChannelVariantId, opt => opt.MapFrom(src => src.GrpcProjectVariables.OutputChannelVariantId))
@@ -23,6 +24,7 @@ public class ProjectMappingProfile : Profile
         CreateMap<StoreFileRequest, ProjectVariables>()
             .ForMember(dest => dest.projectId, opt => opt.MapFrom(src => src.GrpcProjectVariables.ProjectId))
             .ForMember(dest => dest.versionId, opt => opt.MapFrom(src => src.GrpcProjectVariables.VersionId))
+            .ForMember(dest => dest.did, opt => opt.MapFrom(src => src.GrpcProjectVariables.Did))
             .ForMember(dest => dest.editorId, opt => opt.MapFrom(src => src.GrpcProjectVariables.EditorId))
             .ForMember(dest => dest.outputChannelType, opt => opt.MapFrom(src => src.GrpcProjectVariables.OutputChannelType))
             .ForMember(dest => dest.outputChannelVariantId, opt => opt.MapFrom(src => src.GrpcProjectVariables.OutputChannelVariantId))
@@ -30,10 +32,34 @@ public class ProjectMappingProfile : Profile
             .ForMember(dest => dest.editorContentType, opt => opt.MapFrom(src => src.GrpcProjectVariables.EditorContentType))
             .ForMember(dest => dest.reportTypeId, opt => opt.MapFrom(src => src.GrpcProjectVariables.ReportTypeId));
 
+        // Create a direct map from GrpcProjectVariables to ProjectVariables
+        CreateMap<GrpcProjectVariables, ProjectVariables>()
+            .ForMember(dest => dest.projectId, opt => opt.MapFrom(src => src.ProjectId))
+            .ForMember(dest => dest.versionId, opt => opt.MapFrom(src => src.VersionId))
+            .ForMember(dest => dest.did, opt => opt.MapFrom(src => src.Did))
+            .ForMember(dest => dest.editorId, opt => opt.MapFrom(src => src.EditorId))
+            .ForMember(dest => dest.editorContentType, opt => opt.MapFrom(src => src.EditorContentType))
+            .ForMember(dest => dest.reportTypeId, opt => opt.MapFrom(src => src.ReportTypeId))
+            .ForMember(dest => dest.outputChannelType, opt => opt.MapFrom(src => src.OutputChannelType))
+            .ForMember(dest => dest.outputChannelVariantId, opt => opt.MapFrom(src => src.OutputChannelVariantId))
+            .ForMember(dest => dest.outputChannelVariantLanguage, opt => opt.MapFrom(src => src.OutputChannelVariantLanguage))
+            .ForMember(dest => dest.currentUser, opt => opt.MapFrom(src => new AppUserTaxxor
+            {
+                Id = src.UserId,
+                FirstName = src.UserFirstName,
+                LastName = src.UserLastName,
+                Email = src.UserEmail,
+                DisplayName = src.UserDisplayName,
+                IsAuthenticated = true,
+                HasViewRights = true,
+                HasEditRights = true
+            }));
+
         // Create a generic map for any object with similar properties
         CreateMap<object, ProjectVariables>()
             .ForMember(dest => dest.projectId, opt => opt.MapFrom(src => GetNestedPropertyValue(src, "GrpcProjectVariables.ProjectId")))
             .ForMember(dest => dest.versionId, opt => opt.MapFrom(src => GetNestedPropertyValue(src, "GrpcProjectVariables.VersionId")))
+            .ForMember(dest => dest.did, opt => opt.MapFrom(src => GetNestedPropertyValue(src, "GrpcProjectVariables.Did")))
             .ForMember(dest => dest.editorId, opt => opt.MapFrom(src => GetNestedPropertyValue(src, "GrpcProjectVariables.EditorId")))
             .ForMember(dest => dest.outputChannelType, opt => opt.MapFrom(src => GetNestedPropertyValue(src, "GrpcProjectVariables.OutputChannelType")))
             .ForMember(dest => dest.outputChannelVariantId, opt => opt.MapFrom(src => GetNestedPropertyValue(src, "GrpcProjectVariables.OutputChannelVariantId")))

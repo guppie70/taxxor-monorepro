@@ -25,7 +25,97 @@ After implementing ANY changes in the monorepo, you **MUST** publish them to the
 5. ✅ Modifying Startup.cs files
 6. ✅ Any change that needs to be tested in Docker
 
+### Complete Development & Test Feedback Loop
+
+**Use this complete feedback loop for rapid development and testing:**
+
+```bash
+# STEP 1: Implement changes in the monorepo
+# Edit files in the monorepo (e.g., DocumentStore/GrpcServices/Services/FilingComposerDataService.cs)
+
+# STEP 2: Verify local compilation
+cd /path/to/monorepo/DocumentStore
+dotnet build DocumentStore.sln
+
+# Expected output: "0 Error(s)" (warnings are OK)
+# If errors → fix them before proceeding
+
+# STEP 3: Publish changes to Docker-mounted directories
+cd /path/to/_grpc-migration-tools
+bash ./split-from-monorepo.sh
+
+# This syncs only *.cs and *.proto files to the actual service directories
+# Shows which files were changed
+
+# STEP 4: Monitor Docker logs for compilation
+# Wait 5-10 seconds for hot reload to detect changes and rebuild
+docker logs -f tdm-documentstore-1 2>&1 | tail -50
+
+# Look for:
+# - Compilation warnings (expected, safe to ignore most)
+# - Compilation errors (must fix)
+# - "watch : Shutdown requested. Press Ctrl+C again to force exit" (compilation complete)
+
+# STEP 5: Test the endpoint with curl
+# Example for testing a gRPC-backed REST endpoint:
+curl -k "https://editor:8071/api/hierarchymanager/tools/sectionlanguageclone?did=1153794-message-from-the-ceo1&sourcelang=en&targetlang=zh&includechildren=false&ocvariantid=arpdfen&octype=pdf&oclang=en&pid=ar24&vid=1&ctype=regular&token=TOKEN&type=json"
+
+# Expected response for success: HTTP 200 OK with JSON result
+# If not 200 OK → proceed to Step 6
+
+# STEP 6: Check Docker logs for runtime errors
+docker logs tdm-documentstore-1 2>&1 | tail -100 | grep -E "(fail|error|Error|Exception)" -A 10 -B 5
+
+# Look for:
+# - NullReferenceException → Check path initialization
+# - gRPC errors → Check service/client registration
+# - Business logic errors → Check implementation
+
+# STEP 7: If errors found, fix and repeat from Step 1
+# This creates a tight feedback loop: Edit → Compile → Sync → Test → Fix → Repeat
+```
+
+### Feedback Loop Best Practices
+
+**✅ DO:**
+
+1. **Always compile locally first** (Step 2) - Catch syntax errors before Docker
+2. **Wait for Docker rebuild** (Step 4) - Don't test immediately after sync
+3. **Check both compile-time and runtime logs** - Compilation might succeed but runtime might fail
+4. **Use curl for quick API testing** - Faster than browser for repeated tests
+5. **Monitor logs in real-time** during testing - See errors as they happen
+
+**❌ DON'T:**
+
+1. **Don't skip local compilation** - Docker rebuild takes longer; find errors locally first
+2. **Don't test immediately after split** - Wait 5-10 seconds for hot reload
+3. **Don't ignore compilation warnings** - Some warnings indicate real issues
+4. **Don't assume success without testing** - Always verify with curl/browser
+
+### Automated Testing Example
+
+**For rapid iteration, run all steps in sequence:**
+
+```bash
+# Complete feedback loop in one command block
+cd /path/to/monorepo/DocumentStore && \
+dotnet build DocumentStore.sln && \
+cd /path/to/_grpc-migration-tools && \
+bash ./split-from-monorepo.sh && \
+sleep 10 && \
+curl -k "https://editor:8071/api/your-endpoint?params" && \
+docker logs tdm-documentstore-1 2>&1 | tail -50
+```
+
+This provides immediate feedback:
+- ✅ Compilation status
+- ✅ Files synced
+- ✅ API response
+- ✅ Runtime logs
+
 ### Workflow for Each Change
+
+**Quick reference workflow:**
 
 ```bash
 # 1. Make changes in the monorepo
@@ -41,8 +131,302 @@ dotnet build DocumentStore.sln
 # No manual restart needed - dotnet watch handles it
 
 # 5. Test your changes
-# Open browser and test the functionality
+curl -k "https://editor:8071/api/your-endpoint?params"
+
+# 6. Check logs if issues
+docker logs tdm-documentstore-1 | tail -50
 ```
+
+**Time savings**: This feedback loop takes ~20-30 seconds per iteration vs. several minutes with manual Docker restarts
+
+## ⚡ Automated Feedback Loop with Backend Developer Agent
+
+**For maximum productivity**: Use the automated testing workflow that provides automatic testing, monitoring, and iterative fixing until features are fully working.
+
+### Quick Start
+
+**NEW**: This workflow is now available as a **skill** and **slash command**!
+
+**Use the skill**: Claude Code will automatically detect when to use the debugging workflow
+**Use the slash command**: Type `/debug-grpc` to launch the automated testing agent
+
+**With test URL** (full end-to-end testing):
+```
+/debug-grpc https://editor:8071/api/your-endpoint?params
+```
+
+**Without test URL** (compilation + health check only):
+```
+/debug-grpc
+```
+
+See `.claude/README.md` for complete documentation on the skill and command.
+
+---
+
+### How It Works: Option A Enhanced (Semi-Autonomous)
+
+This workflow combines **your implementation expertise** with an **autonomous testing agent** that handles the repetitive test-fix-verify cycle.
+
+```
+┌────────────────────────────────────────────────────────────────┐
+│ WORKFLOW: Automated Feedback Loop                             │
+├────────────────────────────────────────────────────────────────┤
+│                                                                │
+│ 1. YOU say: "Implement Batch 3"                              │
+│                                                                │
+│ 2. CLAUDE implements in monorepo:                            │
+│    ✅ Update proto definitions                               │
+│    ✅ Implement gRPC server handlers                         │
+│    ✅ Update Editor client code                              │
+│    ✅ Verify local compilation                               │
+│                                                                │
+│ 3. CLAUDE launches backend-developer agent:                  │
+│    Parameters:                                                │
+│    - testUrl: (optional) "https://editor:8071/api/..."      │
+│    - maxIterations: 5                                         │
+│    - autoFix: false (reports issues, you fix)                │
+│                                                                │
+│ 4. AGENT executes test loop:                                 │
+│    ┌──────────────────────────────────────────┐             │
+│    │ LOOP until success or max iterations:    │             │
+│    │                                           │             │
+│    │ a. Run split-from-monorepo.sh           │             │
+│    │ b. Monitor Docker logs for compilation   │             │
+│    │ c. Test endpoint (if URL provided)       │             │
+│    │ d. Check logs for runtime errors         │             │
+│    │                                           │             │
+│    │ IF errors found:                         │             │
+│    │   → Extract error details                │             │
+│    │   → Report back to Claude                │             │
+│    │   → WAIT for fix                         │             │
+│    │   → Continue loop after fix              │             │
+│    │                                           │             │
+│    │ IF no errors:                            │             │
+│    │   → Report success                       │             │
+│    │   → EXIT loop                            │             │
+│    └──────────────────────────────────────────┘             │
+│                                                                │
+│ 5. CLAUDE receives agent report:                             │
+│    - Success: Mark batch complete                            │
+│    - Errors: Analyze, fix code, agent re-tests              │
+│                                                                │
+│ 6. Repeat steps 4-5 automatically until success             │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+```
+
+### Two Testing Modes
+
+#### Mode 1: With Test URL (Full End-to-End Testing)
+
+**Use when**: You have a REST endpoint or curl command to test the feature
+
+**Agent tests**:
+1. ✅ Local compilation
+2. ✅ Sync to Docker
+3. ✅ Docker hot-reload compilation
+4. ✅ **Endpoint testing with curl**
+5. ✅ Runtime log analysis
+
+**Example**:
+```
+Agent parameters:
+- testUrl: "https://editor:8071/api/hierarchymanager/tools/sectionlanguageclone?did=123..."
+- maxIterations: 5
+
+Agent report (Iteration 1):
+❌ Test failed
+
+Curl response: HTTP 500 Internal Server Error
+<error>Could not load source data</error>
+
+Docker logs show:
+System.ArgumentNullException: Value cannot be null. (Parameter 'xmlPathOs')
+  at ProjectLogic.LoadAndResolveInlineFilingComposerData(xmlPathOs)
+  at FilingComposerDataService.CloneSectionLanguageData(request)
+
+Waiting for fix...
+```
+
+#### Mode 2: Without Test URL (Compilation + Log Monitoring)
+
+**Use when**:
+- No simple test endpoint available
+- Internal/helper methods
+- Methods requiring complex setup
+- Early stage testing before integration
+
+**Agent tests**:
+1. ✅ Local compilation
+2. ✅ Sync to Docker
+3. ✅ Docker hot-reload compilation
+4. ✅ Runtime log analysis (checks for errors on startup)
+5. ⏭️ **Skips endpoint testing**
+
+**Example**:
+```
+Agent parameters:
+- testUrl: null (or omitted)
+- maxIterations: 3
+
+Agent report (Iteration 1):
+❌ Compilation failed
+
+Docker logs show:
+/app/GrpcServices/Services/FilingDataService.cs(45,25): error CS0103:
+The name 'InitializeProjectVariablesForGrpc' does not exist
+
+Waiting for fix...
+
+---
+
+Agent report (Iteration 2):
+✅ Success
+
+Local compilation: ✅ 0 errors
+Docker compilation: ✅ Hot reload complete
+Runtime logs: ✅ No errors detected
+
+All checks passed!
+```
+
+### Agent Behavior Details
+
+**What the agent does automatically**:
+1. **Publishes changes** - Runs `split-from-monorepo.sh`
+2. **Waits for Docker rebuild** - Monitors for "watch : Shutdown requested"
+3. **Tests endpoint** (if URL provided) - Executes curl and checks response
+4. **Scans logs for errors** - Searches for Exception, Error, fail patterns
+5. **Reports findings** - Extracts relevant error messages and stack traces
+6. **Iterates automatically** - Continues testing after each fix
+7. **Declares success** - Reports when all checks pass
+
+**What you still do**:
+1. **Implement the feature** - Write proto, server, and client code
+2. **Fix issues** - Analyze errors and apply corrections
+3. **Make decisions** - Determine when to stop or change approach
+
+### Why Option A Enhanced is Best
+
+| Feature | Manual Testing | **Option A Enhanced** | Full Auto (Option C) |
+|---------|---------------|---------------------|---------------------|
+| Implementation | You do | **You do (better)** | Agent does |
+| Testing | Manual | **Agent does** | Agent does |
+| Error Detection | Manual | **Agent does** | Agent does |
+| Fixing | You do | **You do (better)** | Agent does |
+| Iteration | Manual | **Automatic** | Automatic |
+| Context Awareness | Full | **Strategic** | Limited |
+| Time per iteration | 3-5 min | **30 sec** | 30 sec |
+
+**Advantages of Option A Enhanced**:
+- ✅ **You have full codebase context** for fixing complex issues
+- ✅ **Agent handles repetitive testing** (the tedious part)
+- ✅ **Automatic iteration** until success
+- ✅ **Human oversight** on fixes (prevents incorrect assumptions)
+- ✅ **Fast feedback** (agent tests in seconds, reports immediately)
+- ✅ **Works with or without test URLs**
+- ✅ **Can evolve** to fully autonomous (Option C) later
+
+### Practical Example: With Test URL
+
+**Scenario**: Implementing Batch 3 (CloneSectionLanguageData)
+
+```
+YOU: "Implement Batch 3"
+
+CLAUDE:
+- Implements proto definitions
+- Implements server handler
+- Updates client code
+- Verifies compilation
+- Launches agent with testUrl
+
+AGENT [Iteration 1]:
+❌ Test failed
+
+Curl: HTTP 500
+Error in logs:
+  NullReferenceException at line 808
+  xmlSectionFolderPathOs is null
+
+CLAUDE:
+Analyzing... I see the issue - forgot to calculate folder path.
+*Fixes code*
+
+AGENT [Iteration 2]:
+✅ Test succeeded
+
+Curl: HTTP 200
+{
+  "success": true,
+  "message": "Section language cloned successfully"
+}
+
+No errors in logs.
+
+CLAUDE:
+✅ Batch 3 complete! Marking MIGRATION_PLAN.md...
+```
+
+### Practical Example: Without Test URL
+
+**Scenario**: Implementing internal helper method
+
+```
+YOU: "Refactor InitializeProjectVariables pattern"
+
+CLAUDE:
+- Creates centralized helper method
+- Updates all 6 methods to use it
+- Verifies compilation
+- Launches agent without testUrl (just compilation check)
+
+AGENT [Iteration 1]:
+✅ Success
+
+Local compilation: ✅ DocumentStore.sln - 0 errors
+Docker compilation: ✅ Hot reload complete at 14:23:45
+Runtime logs: ✅ No exceptions found
+
+CLAUDE:
+✅ Refactoring complete! All services using centralized helper.
+```
+
+### When to Use Each Mode
+
+**Use Mode 1 (with test URL) when**:
+- ✅ Migrating a REST endpoint to gRPC
+- ✅ Have a curl command or browser URL to test
+- ✅ Want full end-to-end verification
+- ✅ Testing external API behavior
+
+**Use Mode 2 (without test URL) when**:
+- ✅ Refactoring internal code
+- ✅ No simple test endpoint exists
+- ✅ Early stage development
+- ✅ Just need compilation + basic runtime verification
+- ✅ Will test manually after agent confirms compilation
+
+### Invoking the Agent
+
+**From CLAUDE.md, Claude will automatically**:
+1. Implement the batch using the 4-step pattern
+2. Verify local compilation
+3. Launch the backend-developer agent
+4. Monitor agent progress
+5. Fix any reported issues
+6. Iterate until agent reports success
+
+**You just need to say**:
+- "Implement Batch 3"
+- "Implement the next batch"
+- "Migrate SaveSourceData method"
+
+**Optionally provide test URL**:
+- "Implement Batch 3 and test with https://editor:8071/api/..."
+
+**Claude will handle the rest**, including launching the agent and managing the feedback loop.
 
 ### What the Split Script Does
 
@@ -198,9 +582,164 @@ message GrpcProjectVariables {
   string reportTypeId = 8;
   string outputChannelType = 9;
   string outputChannelVariantId = 10;
-  string outputChannelVariantLanguage = 11;   
+  string outputChannelVariantLanguage = 11;
 }
 ```
+
+## ⚠️ CRITICAL: ProjectVariables Initialization Pattern for gRPC
+
+**ALL gRPC server handlers MUST use the centralized `InitializeProjectVariablesForGrpc` helper method** to initialize ProjectVariables. This ensures consistency with REST middleware behavior and prevents path calculation issues.
+
+### The Centralized Helper Method
+
+**Location**: `DocumentStore/DocumentStore/backend/code/_Project.cs:806`
+
+**Signature**:
+```csharp
+public static ProjectVariables InitializeProjectVariablesForGrpc(IMapper mapper, object source)
+```
+
+**What it does**:
+1. Uses AutoMapper to map from `GrpcProjectVariables` (or any request containing them) to `ProjectVariables`
+2. Calls `FillCorePathsInProjectVariables()` to calculate all derived path properties:
+   - `cmsDataRootPath` - Web path to project data root
+   - `cmsDataRootBasePathOs` - OS path to project data root base
+   - `cmsDataRootPathOs` - Full OS path including project ID and version (e.g., `/mnt/data/projects/project-name/ar24/version_1`)
+   - `cmsContentRootPathOs` - OS path to content folder
+   - `reportingPeriod` - Project reporting period
+   - `outputChannelDefaultLanguage` - Default output channel language
+
+### ✅ ALWAYS Use This Pattern in gRPC Handlers
+
+**Correct pattern** (use in ALL gRPC service implementations):
+
+```csharp
+public override async Task<TaxxorGrpcResponseMessage> YourMethod(
+    YourRequest request, ServerCallContext context)
+{
+    try
+    {
+        // ✅ CORRECT: Use centralized helper
+        var projectVars = InitializeProjectVariablesForGrpc(_mapper, request);
+
+        // Now projectVars has ALL paths calculated and is ready to use
+        var xmlPath = RetrieveInlineFilingComposerXmlPathOs(reqVars, projectVars, request.Did, false);
+        // ... rest of implementation
+    }
+    catch (Exception ex)
+    {
+        // Error handling
+    }
+}
+```
+
+### ❌ NEVER Use These Anti-Patterns
+
+**Anti-pattern 1: Direct AutoMapper without path calculation**
+```csharp
+// ❌ WRONG: Missing path calculations
+var projectVars = _mapper.Map<ProjectVariables>(request);
+// projectVars.cmsDataRootPathOs is NULL or incomplete!
+```
+
+**Anti-pattern 2: Manual path initialization**
+```csharp
+// ❌ WRONG: Duplicating logic, incomplete initialization
+var projectVars = _mapper.Map<ProjectVariables>(request);
+if (string.IsNullOrEmpty(projectVars.cmsDataRootPathOs))
+{
+    projectVars.cmsDataRootPathOs = RetrieveFilingDataRootFolderPathOs(projectVars.projectId);
+}
+// Missing other path properties like cmsContentRootPathOs, reportingPeriod, etc.
+```
+
+**Anti-pattern 3: Using FillCorePathsInProjectVariables directly**
+```csharp
+// ❌ WRONG: Correct but not centralized - use the helper instead!
+var projectVars = _mapper.Map<ProjectVariables>(request);
+FillCorePathsInProjectVariables(ref projectVars);
+// Works, but violates DRY principle - use InitializeProjectVariablesForGrpc instead
+```
+
+### Why This Pattern Matters
+
+**Path calculation issues** are the most common cause of gRPC handler failures:
+
+- Missing `cmsDataRootPathOs` → File operations fail with incomplete paths like `/textual/file.xml` instead of `/mnt/data/projects/ar24/version_1/textual/file.xml`
+- Missing `cmsContentRootPathOs` → Content operations fail
+- Missing `reportingPeriod` → Report generation fails
+- Inconsistent behavior between REST and gRPC endpoints
+
+**The centralized helper ensures**:
+- ✅ Consistent initialization across all gRPC handlers
+- ✅ Backward compatibility with REST middleware behavior
+- ✅ All derived path properties are calculated
+- ✅ Single source of truth for initialization logic
+- ✅ DRY principle (Don't Repeat Yourself)
+
+### Implementation Checklist
+
+When implementing a new gRPC handler:
+
+1. ✅ Add `private readonly IMapper _mapper;` field to service class (if not present)
+2. ✅ Inject `IMapper mapper` in constructor (if not present)
+3. ✅ Use `InitializeProjectVariablesForGrpc(_mapper, request)` to initialize ProjectVariables
+4. ✅ NEVER use direct `_mapper.Map<ProjectVariables>(request)` without the helper
+5. ✅ NEVER manually initialize path properties
+
+### Example: Correct Implementation
+
+See any method in `DocumentStore/GrpcServices/Services/FilingComposerDataService.cs`:
+
+```csharp
+public class FilingComposerDataService : Protos.FilingComposerDataService.FilingComposerDataServiceBase
+{
+    private readonly RequestContext _requestContext;
+    private readonly IMapper _mapper;  // ← Required for helper method
+
+    public FilingComposerDataService(RequestContext requestContext, IMapper mapper)
+    {
+        _requestContext = requestContext;
+        _mapper = mapper;  // ← Injected via DI
+    }
+
+    public override async Task<TaxxorGrpcResponseMessage> SaveSourceData(
+        SaveSourceDataRequest request, ServerCallContext context)
+    {
+        try
+        {
+            // ✅ CORRECT: One line initialization with all paths calculated
+            var projectVars = InitializeProjectVariablesForGrpc(_mapper, request);
+
+            // projectVars is now fully initialized and ready to use
+            var xmlPath = RetrieveInlineFilingComposerXmlPathOs(reqVars, projectVars, request.Did, false);
+            // ... rest of implementation
+        }
+        catch (Exception ex)
+        {
+            return new TaxxorGrpcResponseMessage
+            {
+                Success = false,
+                Message = $"Error in SaveSourceData: {ex.Message}",
+                Debuginfo = $"stack-trace: {GetStackTrace()}"
+            };
+        }
+    }
+}
+```
+
+### AutoMapper Configuration
+
+The helper method works because AutoMapper is configured (in `DocumentStore/DocumentStore/Models/AutoMapper.cs`) to handle:
+
+- `GetFilingComposerDataRequest` → `ProjectVariables`
+- `SaveSourceDataRequest` → `ProjectVariables`
+- `DeleteSourceDataRequest` → `ProjectVariables`
+- `CreateSourceDataRequest` → `ProjectVariables`
+- `GrpcProjectVariables` → `ProjectVariables` (direct mapping)
+- `object` → `ProjectVariables` (generic fallback)
+
+The helper method accepts `object source` so it works with **any** request type that contains `GrpcProjectVariables`.
 
 ## Migration Pattern: 4 Steps
 

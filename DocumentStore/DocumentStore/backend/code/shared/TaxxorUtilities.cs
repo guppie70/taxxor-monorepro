@@ -771,33 +771,57 @@ namespace Taxxor.Project
                                     {
                                         if (renderWarningWhenNotFound)
                                         {
-
-                                            ProjectVariables projectVars = RetrieveProjectVariables(System.Web.Context.Current);
-                                            var nodeName = nodeArticle.LocalName;
-                                            var debugInfo = $"projectId: {projectVars.projectId}, articleId: {nodeArticle.GetAttribute("id") ?? "unknown"}, articleType: {nodeArticle.GetAttribute("data-articletype") ?? "unknown"}";
-
-                                            switch (nodeName)
+                                            try
                                             {
+                                                // Handle potential null context in gRPC scenarios
+                                                ProjectVariables projectVars = null;
+                                                try
+                                                {
+                                                    projectVars = RetrieveProjectVariables(System.Web.Context.Current);
+                                                }
+                                                catch (Exception ex)
+                                                {
+                                                    appLogger.LogError(ex, "Unable to retrieve project variables from context - likely called from gRPC context where System.Web.Context.Current is null");
+                                                    return null;
+                                                }
 
-                                                default:
-                                                    debugInfo += $", nodeName: {nodeName} (";
-                                                    try
-                                                    {
-                                                        foreach (XmlAttribute attr in nodeArticle.Attributes)
+                                                if (projectVars == null)
+                                                {
+                                                    appLogger.LogError("Project variables are null - cannot generate debug info for missing header warning");
+                                                    return null;
+                                                }
+
+                                                var nodeName = nodeArticle.LocalName;
+                                                var debugInfo = $"projectId: {projectVars.projectId}, articleId: {nodeArticle.GetAttribute("id") ?? "unknown"}, articleType: {nodeArticle.GetAttribute("data-articletype") ?? "unknown"}";
+
+                                                switch (nodeName)
+                                                {
+
+                                                    default:
+                                                        debugInfo += $", nodeName: {nodeName} (";
+                                                        try
                                                         {
-                                                            debugInfo += $"{attr.Name}: {attr.Value}, ";
+                                                            foreach (XmlAttribute attr in nodeArticle.Attributes)
+                                                            {
+                                                                debugInfo += $"{attr.Name}: {attr.Value}, ";
+                                                            }
                                                         }
-                                                    }
-                                                    catch (Exception ex)
-                                                    {
-                                                        appLogger.LogWarning(ex.Message);
-                                                    }
-                                                    debugInfo += ")";
-                                                    break;
+                                                        catch (Exception ex)
+                                                        {
+                                                            appLogger.LogWarning(ex.Message);
+                                                        }
+                                                        debugInfo += ")";
+                                                        break;
+                                                }
+
+
+                                                appLogger.LogWarning($"Unable to find a header node to return. {debugInfo}");
                                             }
-
-
-                                            appLogger.LogWarning($"Unable to find a header node to return. {debugInfo}");
+                                            catch (Exception ex)
+                                            {
+                                                appLogger.LogError(ex, "Error while attempting to log warning about missing header node");
+                                                return null;
+                                            }
                                         }
 
                                         return null;
