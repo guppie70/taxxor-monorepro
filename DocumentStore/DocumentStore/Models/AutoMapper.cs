@@ -32,6 +32,30 @@ public class ProjectMappingProfile : Profile
             .ForMember(dest => dest.editorContentType, opt => opt.MapFrom(src => src.GrpcProjectVariables.EditorContentType))
             .ForMember(dest => dest.reportTypeId, opt => opt.MapFrom(src => src.GrpcProjectVariables.ReportTypeId));
 
+        // Create a map from LoadHierarchyRequest to ProjectVariables
+        CreateMap<LoadHierarchyRequest, ProjectVariables>()
+            .ForMember(dest => dest.projectId, opt => opt.MapFrom(src => src.GrpcProjectVariables.ProjectId))
+            .ForMember(dest => dest.versionId, opt => opt.MapFrom(src => src.GrpcProjectVariables.VersionId))
+            .ForMember(dest => dest.did, opt => opt.MapFrom(src => src.GrpcProjectVariables.Did))
+            .ForMember(dest => dest.editorId, opt => opt.MapFrom(src => src.GrpcProjectVariables.EditorId))
+            .ForMember(dest => dest.outputChannelType, opt => opt.MapFrom(src => src.GrpcProjectVariables.OutputChannelType))
+            .ForMember(dest => dest.outputChannelVariantId, opt => opt.MapFrom(src => src.GrpcProjectVariables.OutputChannelVariantId))
+            .ForMember(dest => dest.outputChannelVariantLanguage, opt => opt.MapFrom(src => src.GrpcProjectVariables.OutputChannelVariantLanguage))
+            .ForMember(dest => dest.editorContentType, opt => opt.MapFrom(src => src.GrpcProjectVariables.EditorContentType))
+            .ForMember(dest => dest.reportTypeId, opt => opt.MapFrom(src => src.GrpcProjectVariables.ReportTypeId));
+
+        // Create a map from SaveHierarchyRequest to ProjectVariables
+        CreateMap<SaveHierarchyRequest, ProjectVariables>()
+            .ForMember(dest => dest.projectId, opt => opt.MapFrom(src => src.GrpcProjectVariables.ProjectId))
+            .ForMember(dest => dest.versionId, opt => opt.MapFrom(src => src.GrpcProjectVariables.VersionId))
+            .ForMember(dest => dest.did, opt => opt.MapFrom(src => src.GrpcProjectVariables.Did))
+            .ForMember(dest => dest.editorId, opt => opt.MapFrom(src => src.GrpcProjectVariables.EditorId))
+            .ForMember(dest => dest.outputChannelType, opt => opt.MapFrom(src => src.GrpcProjectVariables.OutputChannelType))
+            .ForMember(dest => dest.outputChannelVariantId, opt => opt.MapFrom(src => src.GrpcProjectVariables.OutputChannelVariantId))
+            .ForMember(dest => dest.outputChannelVariantLanguage, opt => opt.MapFrom(src => src.GrpcProjectVariables.OutputChannelVariantLanguage))
+            .ForMember(dest => dest.editorContentType, opt => opt.MapFrom(src => src.GrpcProjectVariables.EditorContentType))
+            .ForMember(dest => dest.reportTypeId, opt => opt.MapFrom(src => src.GrpcProjectVariables.ReportTypeId));
+
         // Create a direct map from GrpcProjectVariables to ProjectVariables
         CreateMap<GrpcProjectVariables, ProjectVariables>()
             .ForMember(dest => dest.projectId, opt => opt.MapFrom(src => src.ProjectId))

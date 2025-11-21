@@ -391,36 +391,6 @@ namespace Taxxor.Project
                         }
                         break;
 
-                    case "taxxoreditorcomposerhierarchy":
-                        switch (reqVars.method)
-                        {
-                            case RequestMethodEnum.Get:
-                                await RetrieveFilingHierarchy(request, response, routeData);
-                                break;
-
-                            case RequestMethodEnum.Post:
-                                await SaveFilingHierarchy(request, response, routeData);
-                                break;
-
-                            default:
-                                _handleMethodNotSupported(reqVars);
-                                break;
-                        }
-                        break;
-
-                    case "taxxoreditorcomposerhierarchyimproved":
-                        switch (reqVars.method)
-                        {
-                            case RequestMethodEnum.Get:
-                                await RetrieveFilingHierarchyImproved(request, response, routeData);
-                                break;
-
-                            default:
-                                _handleMethodNotSupported(reqVars);
-                                break;
-                        }
-                        break;
-
                     case "taxxoreditorpdfdata":
                         switch (reqVars.method)
                         {

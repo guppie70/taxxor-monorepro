@@ -161,18 +161,6 @@
 						<linkname>Loads the schema that the composer (editor) uses</linkname>
 					</web_page>
 				</item>
-				<item id="taxxoreditorcomposerhierarchy">
-					<web_page>
-						<path>/api/taxxoreditor/filing/data/composer/hierarchy</path>
-						<linkname>Loads or saves hierarchy data that the composer (editor) uses</linkname>
-					</web_page>
-				</item>
-				<item id="taxxoreditorcomposerhierarchyimproved">
-					<web_page>
-						<path>/api/taxxoreditor/filing/data/composer/hierarchyimproved</path>
-						<linkname>Loads or saves hierarchy data that the composer (editor) uses (improved efficiency)</linkname>
-					</web_page>
-				</item>
 				<item id="taxxoreditorcontentlanguageclone">
 					<web_page>
 						<path>/api/hierarchymanager/tools/sectionlanguageclone</path>

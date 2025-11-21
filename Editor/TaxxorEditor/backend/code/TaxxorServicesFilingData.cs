@@ -526,33 +526,52 @@ namespace Taxxor
                     RequestVariables reqVars = RetrieveRequestVariables(context);
                     ProjectVariables projectVars = RetrieveProjectVariables(context);
 
-                    var dataToPost = new Dictionary<string, string>();
-                    dataToPost.Add("pid", projectId);
-                    dataToPost.Add("vid", versionId);
-                    dataToPost.Add("editorid", editorId);
-                    dataToPost.Add("octype", outputChannelType);
-                    dataToPost.Add("ocvariantid", outputChannelVariantId);
-                    dataToPost.Add("oclang", outputChannelVariantLanguage);
-                    dataToPost.Add("ctype", ((!string.IsNullOrEmpty(projectVars.editorContentType) ? projectVars.editorContentType : "regular")));
-                    dataToPost.Add("rtype", ((!string.IsNullOrEmpty(projectVars.reportTypeId) ? projectVars.reportTypeId : RetrieveReportTypeIdFromProjectId(projectId))));
-
-                    XmlDocument responseXml = await CallTaxxorConnectedService<XmlDocument>(ConnectedServiceEnum.DocumentStore, RequestMethodEnum.Get, "taxxoreditorcomposerhierarchy", dataToPost, debugRoutine);
-
-                    // Handle error
-                    if (XmlContainsError(responseXml)) return responseXml;
-
-                    // The XML content that we are looking for is in decoded form available in the message node
-                    var xml = HttpUtility.HtmlDecode(responseXml.SelectSingleNode("/result/message").InnerText);
-
                     try
                     {
-                        var xmlHierarchyData = new XmlDocument();
-                        xmlHierarchyData.LoadXml(xml);
-                        return xmlHierarchyData;
+                        // Get the gRPC client service via DI
+                        var client = context.RequestServices.GetRequiredService<FilingHierarchyService.FilingHierarchyServiceClient>();
+
+                        // Populate projectVars with the provided parameters
+                        projectVars.projectId = projectId;
+                        projectVars.versionId = versionId;
+                        projectVars.editorId = editorId;
+                        projectVars.outputChannelType = outputChannelType;
+                        projectVars.outputChannelVariantId = outputChannelVariantId;
+                        projectVars.outputChannelVariantLanguage = outputChannelVariantLanguage;
+
+                        // Set content type and report type
+                        if (string.IsNullOrEmpty(projectVars.editorContentType))
+                            projectVars.editorContentType = "regular";
+                        if (string.IsNullOrEmpty(projectVars.reportTypeId))
+                            projectVars.reportTypeId = RetrieveReportTypeIdFromProjectId(projectId);
+
+                        // Create the gRPC request
+                        var grpcRequest = new LoadHierarchyRequest
+                        {
+                            GrpcProjectVariables = ConvertToGrpcProjectVariables(projectVars)
+                        };
+
+                        // Call the gRPC service
+                        var grpcResponse = await client.LoadHierarchyAsync(grpcRequest);
+
+                        if (grpcResponse.Success)
+                        {
+                            // The XML content is HTML-encoded in the data field
+                            var xml = HttpUtility.HtmlDecode(grpcResponse.Data);
+
+                            var xmlHierarchyData = new XmlDocument();
+                            xmlHierarchyData.LoadXml(xml);
+                            return xmlHierarchyData;
+                        }
+                        else
+                        {
+                            return GenerateErrorXml($"Could not load the hierarchy data: {grpcResponse.Message}",
+                                $"debuginfo: {grpcResponse.Debuginfo}, stack-trace: {GetStackTrace()}");
+                        }
                     }
                     catch (Exception ex)
                     {
-                        return GenerateErrorXml("Could not load the hierarchy data", $"error: {ex}, xml: {TruncateString(xml, 100)}, {_generateStandardDebugString(dataToPost)}, stack-trace: {GetStackTrace()}");
+                        return GenerateErrorXml($"Error in LoadHierarchy: {ex.Message}", $"stack-trace: {GetStackTrace()}");
                     }
                 }
 
@@ -574,19 +593,47 @@ namespace Taxxor
                     RequestVariables reqVars = RetrieveRequestVariables(context);
                     ProjectVariables projectVars = RetrieveProjectVariables(context);
 
-                    var dataToPost = new Dictionary<string, string>();
-                    dataToPost.Add("pid", projectId);
-                    dataToPost.Add("vid", versionId);
-                    dataToPost.Add("editorid", editorId);
-                    dataToPost.Add("octype", outputChannelType);
-                    dataToPost.Add("ocvariantid", outputChannelVariantId);
-                    dataToPost.Add("oclang", outputChannelVariantLanguage);
-                    dataToPost.Add("ctype", projectVars.editorContentType);
-                    dataToPost.Add("rtype", projectVars.reportTypeId);
-                    dataToPost.Add("commitchanges", (commitChanges) ? "true" : "false");
-                    dataToPost.Add("hierarchy", hierarchy.OuterXml);
+                    try
+                    {
+                        // Get the gRPC client service via DI
+                        var client = context.RequestServices.GetRequiredService<FilingHierarchyService.FilingHierarchyServiceClient>();
 
-                    return await CallTaxxorConnectedService<XmlDocument>(ConnectedServiceEnum.DocumentStore, RequestMethodEnum.Post, "taxxoreditorcomposerhierarchy", dataToPost, debugRoutine);
+                        // Populate projectVars with the provided parameters
+                        projectVars.projectId = projectId;
+                        projectVars.versionId = versionId;
+                        projectVars.editorId = editorId;
+                        projectVars.outputChannelType = outputChannelType;
+                        projectVars.outputChannelVariantId = outputChannelVariantId;
+                        projectVars.outputChannelVariantLanguage = outputChannelVariantLanguage;
+
+                        // Create the gRPC request
+                        var grpcRequest = new SaveHierarchyRequest
+                        {
+                            GrpcProjectVariables = ConvertToGrpcProjectVariables(projectVars),
+                            Hierarchy = hierarchy.OuterXml,
+                            CommitChanges = commitChanges
+                        };
+
+                        // Call the gRPC service
+                        var grpcResponse = await client.SaveHierarchyAsync(grpcRequest);
+
+                        if (grpcResponse.Success)
+                        {
+                            // Return success XML
+                            var xmlResponse = new XmlDocument();
+                            xmlResponse.LoadXml($"<result><success>true</success><message>{grpcResponse.Message}</message></result>");
+                            return xmlResponse;
+                        }
+                        else
+                        {
+                            return GenerateErrorXml($"Could not save the hierarchy: {grpcResponse.Message}",
+                                $"debuginfo: {grpcResponse.Debuginfo}, stack-trace: {GetStackTrace()}");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        return GenerateErrorXml($"Error in SaveHierarchy: {ex.Message}", $"stack-trace: {GetStackTrace()}");
+                    }
                 }
 
 

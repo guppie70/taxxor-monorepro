@@ -120,6 +120,12 @@ message GetFilingComposerDataRequest {
     bool debug = 4;
 }
 
+// Filing Hierarchy Service - Batch 3
+service FilingHierarchyService {
+  rpc LoadHierarchy (LoadHierarchyRequest) returns (TaxxorGrpcResponseMessage);
+  rpc SaveHierarchy (SaveHierarchyRequest) returns (TaxxorGrpcResponseMessage);
+}
+
 message SetFilingComposerDataRequest {
   string id = 1;
   string data = 2;
@@ -256,4 +262,15 @@ message CloneSectionLanguageDataRequest {
   string sourceLang = 2;
   string targetLang = 3;
   bool includeChildren = 4;
+}
+
+// Batch 3: Hierarchy Management
+message LoadHierarchyRequest {
+  GrpcProjectVariables grpcProjectVariables = 1;
+}
+
+message SaveHierarchyRequest {
+  GrpcProjectVariables grpcProjectVariables = 1;
+  string hierarchy = 2;
+  bool commitChanges = 3;
 }

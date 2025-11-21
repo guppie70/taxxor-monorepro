@@ -180,6 +180,11 @@ namespace Taxxor.Project
                 o.Address = new Uri("https://documentstore:4813");
             });
 
+            services.AddGrpcClient<FilingHierarchyService.FilingHierarchyServiceClient>(o =>
+            {
+                o.Address = new Uri("https://documentstore:4813");
+            });
+
         }
         // Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostEnvironment env, ILoggerFactory loggerFactory, IMemoryCache cache, IConfiguration config)
