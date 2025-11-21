@@ -902,7 +902,11 @@ namespace Taxxor.Project
                     //
                     // => Save the new hierarchy file
                     //
-                    XmlDocument xmlSaveResult = await FilingData.SaveHierarchy(xmlOriginalHierarchy, projectVars.projectId, projectVars.versionId, projectVars.editorId, "pdf", outputChannelVariantId, outputChannelLanguage, true, true);
+                    var projectVarsForSave = projectVars;
+                    projectVarsForSave.outputChannelType = "pdf";
+                    projectVarsForSave.outputChannelVariantId = outputChannelVariantId;
+                    projectVarsForSave.outputChannelVariantLanguage = outputChannelLanguage;
+                    XmlDocument xmlSaveResult = await FilingData.SaveHierarchy(projectVarsForSave, xmlOriginalHierarchy, true, true);
                     if (XmlContainsError(xmlSaveResult))
                     {
                         appLogger.LogError($"Unable to save updated output channel hierarchy to the document store for projectId: {projectVars.projectId}, versionId: {projectVars.versionId}, editorId: {projectVars.editorId}, outputChannelType: pdf, outputChannelVariantId: {outputChannelVariantId}, outputChannelLanguage: {outputChannelLanguage}. Error: {xmlSaveResult.OuterXml}");

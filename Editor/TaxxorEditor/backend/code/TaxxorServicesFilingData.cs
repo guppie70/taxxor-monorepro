@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Xml;
 using DocumentStore.Protos;
+using Grpc.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using static Framework;
@@ -587,35 +588,42 @@ namespace Taxxor
                 /// <param name="outputChannelVariantLanguage"></param>
                 /// <param name="debugRoutine"></param>
                 /// <returns></returns>
-                public static async Task<XmlDocument> SaveHierarchy(XmlDocument hierarchy, string projectId, string versionId, string editorId, string outputChannelType, string outputChannelVariantId, string outputChannelVariantLanguage, bool commitChanges = true, bool debugRoutine = false)
+                public static async Task<XmlDocument> SaveHierarchy(ProjectVariables projectVars, XmlDocument hierarchy, bool commitChanges = true, bool debugRoutine = false)
                 {
                     var context = System.Web.Context.Current;
                     RequestVariables reqVars = RetrieveRequestVariables(context);
-                    ProjectVariables projectVars = RetrieveProjectVariables(context);
 
                     try
                     {
                         // Get the gRPC client service via DI
                         var client = context.RequestServices.GetRequiredService<FilingHierarchyService.FilingHierarchyServiceClient>();
 
-                        // Populate projectVars with the provided parameters
-                        projectVars.projectId = projectId;
-                        projectVars.versionId = versionId;
-                        projectVars.editorId = editorId;
-                        projectVars.outputChannelType = outputChannelType;
-                        projectVars.outputChannelVariantId = outputChannelVariantId;
-                        projectVars.outputChannelVariantLanguage = outputChannelVariantLanguage;
-
                         // Create the gRPC request
                         var grpcRequest = new SaveHierarchyRequest
                         {
-                            GrpcProjectVariables = ConvertToGrpcProjectVariables(projectVars),
+                            GrpcProjectVariables = ConvertToGrpcProjectVariables(projectVars, reqVars),
                             Hierarchy = hierarchy.OuterXml,
                             CommitChanges = commitChanges
                         };
 
-                        // Call the gRPC service
-                        var grpcResponse = await client.SaveHierarchyAsync(grpcRequest);
+                        // Extract user headers from the incoming HTTP request and pass through gRPC metadata
+                        var metadata = new Metadata();
+                        var httpRequest = context.Request;
+
+                        // Add custom headers to gRPC metadata if they exist in the HTTP request
+                        var headers = new[] { "x-tx-userid", "x-tx-userfirstname", "x-tx-userlastname", "x-tx-useremail", "x-tx-userdisplayname" };
+                        foreach (var header in headers)
+                        {
+                            var value = httpRequest.Headers[header];
+                            if (!string.IsNullOrEmpty(value))
+                            {
+                                metadata.Add(header, value);
+                            }
+                        }
+
+                        // Call the gRPC service with metadata headers
+                        var callOptions = new CallOptions(metadata);
+                        var grpcResponse = await client.SaveHierarchyAsync(grpcRequest, callOptions);
 
                         if (grpcResponse.Success)
                         {

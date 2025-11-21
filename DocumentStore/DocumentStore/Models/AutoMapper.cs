@@ -8,7 +8,12 @@ public class ProjectMappingProfile : Profile
 {
     public ProjectMappingProfile()
     {
-        // Create a map from GetFilingComposerDataRequest to ProjectVariables
+        // NOTE: Primary flow for gRPC handlers:
+        // InitializeProjectVariablesForGrpc() extracts GrpcProjectVariables from request
+        // and maps using the central GrpcProjectVariables → ProjectVariables mapping below.
+        // Individual request mappings (below) are fallback only and don't include currentUser.
+
+        // Fallback mappings for individual request types (primary path bypasses these)
         CreateMap<GetFilingComposerDataRequest, ProjectVariables>()
             .ForMember(dest => dest.projectId, opt => opt.MapFrom(src => src.GrpcProjectVariables.ProjectId))
             .ForMember(dest => dest.versionId, opt => opt.MapFrom(src => src.GrpcProjectVariables.VersionId))
@@ -20,7 +25,6 @@ public class ProjectMappingProfile : Profile
             .ForMember(dest => dest.editorContentType, opt => opt.MapFrom(src => src.GrpcProjectVariables.EditorContentType))
             .ForMember(dest => dest.reportTypeId, opt => opt.MapFrom(src => src.GrpcProjectVariables.ReportTypeId));
 
-        // Create a map from StoreFileRequest to ProjectVariables
         CreateMap<StoreFileRequest, ProjectVariables>()
             .ForMember(dest => dest.projectId, opt => opt.MapFrom(src => src.GrpcProjectVariables.ProjectId))
             .ForMember(dest => dest.versionId, opt => opt.MapFrom(src => src.GrpcProjectVariables.VersionId))
@@ -32,7 +36,6 @@ public class ProjectMappingProfile : Profile
             .ForMember(dest => dest.editorContentType, opt => opt.MapFrom(src => src.GrpcProjectVariables.EditorContentType))
             .ForMember(dest => dest.reportTypeId, opt => opt.MapFrom(src => src.GrpcProjectVariables.ReportTypeId));
 
-        // Create a map from LoadHierarchyRequest to ProjectVariables
         CreateMap<LoadHierarchyRequest, ProjectVariables>()
             .ForMember(dest => dest.projectId, opt => opt.MapFrom(src => src.GrpcProjectVariables.ProjectId))
             .ForMember(dest => dest.versionId, opt => opt.MapFrom(src => src.GrpcProjectVariables.VersionId))
@@ -44,7 +47,6 @@ public class ProjectMappingProfile : Profile
             .ForMember(dest => dest.editorContentType, opt => opt.MapFrom(src => src.GrpcProjectVariables.EditorContentType))
             .ForMember(dest => dest.reportTypeId, opt => opt.MapFrom(src => src.GrpcProjectVariables.ReportTypeId));
 
-        // Create a map from SaveHierarchyRequest to ProjectVariables
         CreateMap<SaveHierarchyRequest, ProjectVariables>()
             .ForMember(dest => dest.projectId, opt => opt.MapFrom(src => src.GrpcProjectVariables.ProjectId))
             .ForMember(dest => dest.versionId, opt => opt.MapFrom(src => src.GrpcProjectVariables.VersionId))

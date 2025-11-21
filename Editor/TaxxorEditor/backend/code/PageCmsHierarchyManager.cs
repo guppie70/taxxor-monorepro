@@ -488,7 +488,7 @@ namespace Taxxor.Project
             }
 
             // Save the hierarchy in the Taxxor Data Store
-            XmlDocument xmlSaveResult = await Taxxor.ConnectedServices.DocumentStoreService.FilingData.SaveHierarchy(xmlConvertedSiteStructureHierarchy, projectVars.projectId, projectVars.versionId, projectVars.editorId, projectVars.outputChannelType, projectVars.outputChannelVariantId, projectVars.outputChannelVariantLanguage, true, true);
+            XmlDocument xmlSaveResult = await Taxxor.ConnectedServices.DocumentStoreService.FilingData.SaveHierarchy(projectVars, xmlConvertedSiteStructureHierarchy, true, true);
 
             if (XmlContainsError(xmlSaveResult))
             {

@@ -26,22 +26,38 @@ namespace Taxxor.Project
         /// Renders an escaped json format of author information to be used in the GIT commit message
         /// </summary>
         /// <param name="message"></param>
+        /// <param name="projectVars">Project variables with user context (can be null for REST compatibility)</param>
         /// <param name="authorId"></param>
         /// <param name="authorName"></param>
         /// <param name="authorEmail"></param>
         /// <param name="ipAddressCustom"></param>
         /// <param name="xmlTemplateId">ID of the XML template to use for the commit message</param>
         /// <returns></returns>
-        public static string RenderGitCommitMessageInformation(string message, string? authorId = null, string? authorName = null, string? authorEmail = null, string? ipAddressCustom = null, string xmlTemplateId = "git-commit_message")
+        public static string RenderGitCommitMessageInformation(string message, ProjectVariables? projectVars = null, string? authorId = null, string? authorName = null, string? authorEmail = null, string? ipAddressCustom = null, string xmlTemplateId = "git-commit_message")
         {
-            var context = System.Web.Context.Current;
-            RequestVariables reqVars = RetrieveRequestVariables(context);
-            ProjectVariables projectVars = RetrieveProjectVariables(context);
+            // If projectVars not provided, try to get from HTTP context (REST compatibility)
+            if (projectVars == null)
+            {
+                var context = System.Web.Context.Current;
+                projectVars = RetrieveProjectVariables(context);
+            }
 
-            authorId ??= projectVars.currentUser.Id;
-            authorName ??= projectVars.currentUser.FirstName + " " + projectVars.currentUser.LastName;
-            authorEmail ??= projectVars.currentUser.Email;
-            ipAddressCustom ??= reqVars.ipAddress;
+            // Get request vars if available
+            RequestVariables? reqVars = null;
+            try
+            {
+                var context = System.Web.Context.Current;
+                reqVars = RetrieveRequestVariables(context);
+            }
+            catch
+            {
+                // gRPC context won't have HTTP context
+            }
+
+            authorId ??= projectVars?.currentUser?.Id;
+            authorName ??= projectVars?.currentUser != null ? $"{projectVars.currentUser.FirstName} {projectVars.currentUser.LastName}" : null;
+            authorEmail ??= projectVars?.currentUser?.Email;
+            ipAddressCustom ??= reqVars?.ipAddress;
 
             XmlDocument? xmlMessage = RetrieveTemplate(xmlTemplateId);
 
@@ -128,7 +144,7 @@ namespace Taxxor.Project
         /// <param name="returnType"></param>
         /// <returns></returns>
         public static bool GitCommit(string message, string pathOs, ReturnTypeEnum returnType = ReturnTypeEnum.Txt, bool stopProcessingOnError = false,
-            string authorId = null, string authorName = null, string authorEmail = null)
+            ProjectVariables? projectVars = null, string? authorId = null, string? authorName = null, string? authorEmail = null)
         {
             bool debugRoutine = false;
             List<string> gitCommandList = ["add -A"];
@@ -150,7 +166,7 @@ namespace Taxxor.Project
             Thread.Sleep(100);
 
             gitCommandList.Clear();
-            gitCommandList.Add("commit -a -m \"" + RenderGitCommitMessageInformation(message, authorId, authorName, authorEmail) + "\"");
+            gitCommandList.Add("commit -a -m \"" + RenderGitCommitMessageInformation(message, projectVars, authorId, authorName, authorEmail) + "\"");
             gitResult = GitCommand(gitCommandList, pathOs, returnType, false);
             if (debugRoutine)
             {

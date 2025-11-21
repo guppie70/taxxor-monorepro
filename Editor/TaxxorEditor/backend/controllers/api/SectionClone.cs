@@ -416,7 +416,7 @@ namespace Taxxor.Project
                 var nodeInserted = nodeOriginalItem.ParentNode.InsertAfter(nodeImported, nodeOriginalItem);
 
                 // - save the hierarchy
-                XmlDocument xmlSaveResult = await Taxxor.ConnectedServices.DocumentStoreService.FilingData.SaveHierarchy(xmlHierarchy, projectVars.projectId, projectVars.versionId, projectVars.editorId, projectVars.outputChannelType, projectVars.outputChannelVariantId, projectVars.outputChannelVariantLanguage, false, true);
+                XmlDocument xmlSaveResult = await Taxxor.ConnectedServices.DocumentStoreService.FilingData.SaveHierarchy(projectVars, xmlHierarchy, false, true);
 
                 if (XmlContainsError(xmlSaveResult))
                 {

@@ -110,6 +110,40 @@ namespace DocumentStore.Services
                 // Map gRPC request to ProjectVariables
                 var projectVars = InitializeProjectVariablesForGrpc(_mapper, request);
 
+                // Extract user information from gRPC metadata headers if not in request
+                if (projectVars.currentUser == null || string.IsNullOrEmpty(projectVars.currentUser.Id))
+                {
+                    string? userId = null;
+                    string? userFirstName = null;
+                    string? userLastName = null;
+                    string? userEmail = null;
+                    string? userDisplayName = null;
+
+                    foreach (var header in context.RequestHeaders)
+                    {
+                        if (header.Key == "x-tx-userid") userId = header.Value;
+                        else if (header.Key == "x-tx-userfirstname") userFirstName = header.Value;
+                        else if (header.Key == "x-tx-userlastname") userLastName = header.Value;
+                        else if (header.Key == "x-tx-useremail") userEmail = header.Value;
+                        else if (header.Key == "x-tx-userdisplayname") userDisplayName = header.Value;
+                    }
+
+                    if (!string.IsNullOrEmpty(userId))
+                    {
+                        projectVars.currentUser = new AppUserTaxxor
+                        {
+                            Id = userId,
+                            FirstName = userFirstName ?? "anonymous",
+                            LastName = userLastName ?? "anonymous",
+                            Email = userEmail ?? "",
+                            DisplayName = userDisplayName ?? $"{userFirstName} {userLastName}",
+                            IsAuthenticated = true,
+                            HasViewRights = true,
+                            HasEditRights = true
+                        };
+                    }
+                }
+
                 baseDebugInfo = $"projectId: '{projectVars.projectId}', " +
                     $"versionId: '{projectVars.versionId}', " +
                     $"editorId: '{projectVars.editorId}', " +

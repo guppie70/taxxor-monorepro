@@ -38,14 +38,8 @@ namespace Taxxor.Project
         /// <returns></returns>
         public static bool CommitFilingDataCore(string message, ProjectVariables projectVars, ReturnTypeEnum returnType = ReturnTypeEnum.Txt, bool stopProcessingOnError = false)
         {
-            // Extract user information from projectVars for Git commit
-            string authorId = projectVars.currentUser?.Id;
-            string authorName = projectVars.currentUser != null ?
-                $"{projectVars.currentUser.FirstName} {projectVars.currentUser.LastName}" : null;
-            string authorEmail = projectVars.currentUser?.Email;
-
             return GitCommit(message, projectVars.cmsDataRootBasePathOs, returnType, stopProcessingOnError,
-                authorId, authorName, authorEmail);
+                projectVars);
         }
 
         /// <summary>
@@ -72,7 +66,8 @@ namespace Taxxor.Project
         /// <returns></returns>
         public static bool CommitFilingAssetsCore(string message, ProjectVariables projectVars, ReturnTypeEnum returnType = ReturnTypeEnum.Txt, bool stopProcessingOnError = false)
         {
-            return GitCommit(message, projectVars.cmsContentRootPathOs, returnType, stopProcessingOnError);
+            return GitCommit(message, projectVars.cmsContentRootPathOs, returnType, stopProcessingOnError,
+                projectVars);
         }
 
         /// <summary>
@@ -84,7 +79,8 @@ namespace Taxxor.Project
         /// <returns></returns>
         public static bool CommitDataContent(string message, ReturnTypeEnum returnType = ReturnTypeEnum.Txt, bool stopProcessingOnError = false)
         {
-            return GitCommit(message, dataRootPathOs, returnType, stopProcessingOnError);
+            // No projectVars available - will use HTTP context if available
+            return GitCommit(message, dataRootPathOs, returnType, stopProcessingOnError, null);
         }
 
         // TODO: Consider using below for GIT commits for project data and project content

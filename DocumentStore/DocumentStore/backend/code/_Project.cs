@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Xsl;
 using AutoMapper;
+using DocumentStore.Protos;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
@@ -806,8 +807,33 @@ namespace Taxxor.Project
         /// </remarks>
         public static ProjectVariables InitializeProjectVariablesForGrpc(IMapper mapper, object source)
         {
-            // Use AutoMapper to map from the source object to ProjectVariables
-            var projectVars = mapper.Map<ProjectVariables>(source);
+            ProjectVariables projectVars = null;
+
+            // BEST PRACTICE: Extract GrpcProjectVariables first and use the central mapping
+            // This ensures consistent user credential handling across all gRPC request types
+            if (source != null)
+            {
+                var sourceType = source.GetType();
+                var grpcPropInfo = sourceType.GetProperty("GrpcProjectVariables");
+
+                if (grpcPropInfo != null)
+                {
+                    var grpcProjectVariables = grpcPropInfo.GetValue(source) as GrpcProjectVariables;
+
+                    if (grpcProjectVariables != null)
+                    {
+                        // Use the central GrpcProjectVariables → ProjectVariables mapping
+                        // This mapping is guaranteed to include currentUser handling
+                        projectVars = mapper.Map<ProjectVariables>(grpcProjectVariables);
+                    }
+                }
+            }
+
+            // Fallback: If we couldn't extract GrpcProjectVariables, use the request object directly
+            if (projectVars == null)
+            {
+                projectVars = mapper.Map<ProjectVariables>(source);
+            }
 
             // Calculate all derived path properties (cmsDataRootPathOs, cmsContentRootPathOs, etc.)
             // This replicates what the REST middleware does

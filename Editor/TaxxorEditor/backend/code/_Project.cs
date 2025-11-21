@@ -2229,11 +2229,14 @@ namespace Taxxor.Project
             }
         }
 
-        public static GrpcProjectVariables ConvertToGrpcProjectVariables(ProjectVariables projectVars)
+        public static GrpcProjectVariables ConvertToGrpcProjectVariables(ProjectVariables projectVars, RequestVariables? reqVars = null)
         {
-            return new GrpcProjectVariables
+            // Get user info from ProjectVariables first, fallback to RequestVariables if needed
+            var currentUser = projectVars.currentUser ?? reqVars?.currentUser;
+
+            var grpcProjectVariables = new GrpcProjectVariables
             {
-                UserId = projectVars.currentUser?.Id ?? "",
+                UserId = currentUser?.Id ?? "",
                 ProjectId = projectVars.projectId ?? "",
                 VersionId = projectVars.versionId ?? "",
                 Did = projectVars.did ?? "",
@@ -2244,11 +2247,16 @@ namespace Taxxor.Project
                 OutputChannelVariantId = projectVars.outputChannelVariantId ?? "",
                 OutputChannelVariantLanguage = projectVars.outputChannelVariantLanguage ?? "",
                 // User information for Git commits and audit trails
-                UserFirstName = projectVars.currentUser?.FirstName ?? "",
-                UserLastName = projectVars.currentUser?.LastName ?? "",
-                UserEmail = projectVars.currentUser?.Email ?? "",
-                UserDisplayName = projectVars.currentUser?.DisplayName ?? ""
+                UserFirstName = currentUser?.FirstName ?? "",
+                UserLastName = currentUser?.LastName ?? "",
+                UserEmail = currentUser?.Email ?? "",
+                UserDisplayName = currentUser?.DisplayName ?? ""
             };
+
+            // Debug logging to verify user info is being sent through gRPC
+            Framework.appLogger.LogInformation($"[ConvertToGrpcProjectVariables] userId={grpcProjectVariables.UserId}, firstName={grpcProjectVariables.UserFirstName}, lastName={grpcProjectVariables.UserLastName}, email={grpcProjectVariables.UserEmail}");
+
+            return grpcProjectVariables;
 
         }
 
