@@ -731,18 +731,6 @@ namespace Taxxor.Project
                         }
                         break;
 
-                    case "findreplace":
-                        switch (reqVars.method)
-                        {
-                            case RequestMethodEnum.Post:
-                                await FindReplace(request, response, routeData);
-                                break;
-
-                            default:
-                                _handleMethodNotSupported(reqVars);
-                                break;
-                        }
-                        break;
 
                     case "gitpull":
                         switch (reqVars.method)
@@ -866,18 +854,6 @@ namespace Taxxor.Project
                         }
                         break;
 
-                    case "clearcache":
-                        switch (reqVars.method)
-                        {
-                            case RequestMethodEnum.Delete:
-                                await ClearCache(request, response, routeData);
-                                break;
-
-                            default:
-                                _handleMethodNotSupported(reqVars);
-                                break;
-                        }
-                        break;
 
                     default:
                         // Start custom logic

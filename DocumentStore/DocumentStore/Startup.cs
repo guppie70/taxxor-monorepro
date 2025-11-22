@@ -179,6 +179,7 @@ namespace Taxxor.Project
                 endpoints.MapGrpcService<FilingComposerDataService>();
                 endpoints.MapGrpcService<BinaryFileManagementService>();
                 endpoints.MapGrpcService<FilingHierarchyService>();
+                endpoints.MapGrpcService<FilingDataUtilityService>();
             });
 
             #region Routers

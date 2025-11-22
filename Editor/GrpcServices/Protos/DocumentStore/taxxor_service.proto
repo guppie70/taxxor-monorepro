@@ -274,3 +274,22 @@ message SaveHierarchyRequest {
   string hierarchy = 2;
   bool commitChanges = 3;
 }
+
+// Batch 4: Utility Operations
+service FilingDataUtilityService {
+  rpc FindReplace (FindReplaceRequest) returns (TaxxorGrpcResponseMessage);
+  rpc ClearCache (ClearCacheRequest) returns (TaxxorGrpcResponseMessage);
+}
+
+message FindReplaceRequest {
+  GrpcProjectVariables grpcProjectVariables = 1;
+  string searchFragment = 2;
+  string replaceFragment = 3;
+  bool onlyInUse = 4;
+  bool includeFootnotes = 5;
+  bool dryRun = 6;
+}
+
+message ClearCacheRequest {
+  GrpcProjectVariables grpcProjectVariables = 1;
+}

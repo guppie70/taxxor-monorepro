@@ -337,24 +337,11 @@
 				</item>
 
 				<!-- Utilities -->
-				<item id="clearcache">
-					<web_page>
-						<path>/api/taxxoreditor/cache/clear</path>
-						<linkname>Clears the internal in-memory cache</linkname>
-					</web_page>
-				</item>
 				<!-- Taxxor Data Service Tools -->
 				<item id="taxxoreditordataservicetools">
 					<web_page>
 						<path>/api/taxxoreditor/filingcontent/tools</path>
 						<linkname>Tools to maintain the Taxxor Data Service</linkname>
-					</web_page>
-				</item>
-				<!-- Find and replace in content -->
-				<item id="findreplace">
-					<web_page>
-						<path>/api/taxxoreditor/filingcontent/findreplace</path>
-						<linkname>Bulk find and replace content for a project</linkname>
 					</web_page>
 				</item>
 				<!-- File manager -->

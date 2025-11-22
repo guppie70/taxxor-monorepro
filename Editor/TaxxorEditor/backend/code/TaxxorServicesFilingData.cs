@@ -657,30 +657,46 @@ namespace Taxxor
                 public static async Task<XmlDocument> FindReplace(string searchFragment, string replaceFragment, bool onlyInUse = true, bool includeFootnotes = true, bool dryRun = false, bool debugRoutine = false)
                 {
                     var context = System.Web.Context.Current;
-                    RequestVariables reqVars = RetrieveRequestVariables(context);
                     ProjectVariables projectVars = RetrieveProjectVariables(context);
-                    var dataToPost = new Dictionary<string, string>();
 
                     if (ValidateCmsPostedParameters(projectVars.projectId, "latest", "text"))
                     {
-                        dataToPost.Add("searchfragment", searchFragment);
-                        dataToPost.Add("replacefragment", replaceFragment);
-                        dataToPost.Add("onlyinuse", onlyInUse.ToString().ToLower());
-                        dataToPost.Add("includefootnotes", includeFootnotes.ToString().ToLower());
-                        dataToPost.Add("dryrun", dryRun.ToString().ToLower());
+                        try
+                        {
+                            // Get the gRPC client service via DI
+                            var client = context.RequestServices
+                                .GetRequiredService<FilingDataUtilityService.FilingDataUtilityServiceClient>();
 
+                            // Create the request
+                            var grpcRequest = new FindReplaceRequest
+                            {
+                                GrpcProjectVariables = ConvertToGrpcProjectVariables(projectVars),
+                                SearchFragment = searchFragment,
+                                ReplaceFragment = replaceFragment,
+                                OnlyInUse = onlyInUse,
+                                IncludeFootnotes = includeFootnotes,
+                                DryRun = dryRun
+                            };
 
-                        dataToPost.Add("vid", "latest");
-                        dataToPost.Add("type", "text");
+                            // Call the gRPC service
+                            var grpcResponse = await client.FindReplaceAsync(grpcRequest);
 
-                        dataToPost.Add("pid", projectVars.projectId);
-                        dataToPost.Add("octype", projectVars.outputChannelType);
-                        dataToPost.Add("ocvariantid", projectVars.outputChannelVariantId);
-                        dataToPost.Add("oclang", projectVars.outputChannelVariantLanguage);
-                        dataToPost.Add("ctype", projectVars.editorContentType);
-                        dataToPost.Add("rtype", projectVars.reportTypeId);
-
-                        return await CallTaxxorConnectedService<XmlDocument>(ConnectedServiceEnum.DocumentStore, RequestMethodEnum.Post, "findreplace", dataToPost, debugRoutine);
+                            if (grpcResponse.Success)
+                            {
+                                // Parse the XML response
+                                var xmlResult = new XmlDocument();
+                                xmlResult.LoadXml(System.Web.HttpUtility.HtmlDecode(grpcResponse.Data));
+                                return xmlResult;
+                            }
+                            else
+                            {
+                                return GenerateErrorXml(grpcResponse.Message, $"debuginfo: {grpcResponse.Debuginfo}");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            return GenerateErrorXml($"Error in FindReplace: {ex.Message}", $"stack-trace: {GetStackTrace()}");
+                        }
                     }
                     else
                     {
@@ -695,7 +711,9 @@ namespace Taxxor
                 /// <returns></returns>
                 public static async Task<TaxxorReturnMessage> ClearCache(bool debugRoutine)
                 {
-                    return await CallTaxxorDataService<TaxxorReturnMessage>(RequestMethodEnum.Delete, "clearcache", debugRoutine);
+                    var context = System.Web.Context.Current;
+                    ProjectVariables projectVars = RetrieveProjectVariables(context);
+                    return await ClearCache(projectVars, debugRoutine);
                 }
 
                 /// <summary>
@@ -706,11 +724,36 @@ namespace Taxxor
                 /// <returns></returns>
                 public static async Task<TaxxorReturnMessage> ClearCache(ProjectVariables projectVars, bool debugRoutine)
                 {
-                    // Convert the Dictionary to a List containing KeyValuePair objects
-                    var requestKeyValueData = new List<KeyValuePair<string, string>>();
-                    var requestEncodedData = new FormUrlEncodedContent(requestKeyValueData);
+                    try
+                    {
+                        var context = System.Web.Context.Current;
 
-                    return await CallTaxxorConnectedService<TaxxorReturnMessage>(ConnectedServiceEnum.DocumentStore, RequestMethodEnum.Delete, "clearcache", requestEncodedData, debugRoutine, false, projectVars);
+                        // Get the gRPC client service via DI
+                        var client = context.RequestServices
+                            .GetRequiredService<FilingDataUtilityService.FilingDataUtilityServiceClient>();
+
+                        // Create the request
+                        var grpcRequest = new ClearCacheRequest
+                        {
+                            GrpcProjectVariables = ConvertToGrpcProjectVariables(projectVars)
+                        };
+
+                        // Call the gRPC service
+                        var grpcResponse = await client.ClearCacheAsync(grpcRequest);
+
+                        if (grpcResponse.Success)
+                        {
+                            return new TaxxorReturnMessage(true, grpcResponse.Message, grpcResponse.Debuginfo);
+                        }
+                        else
+                        {
+                            return new TaxxorReturnMessage(false, grpcResponse.Message, grpcResponse.Debuginfo);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        return new TaxxorReturnMessage(false, $"Error clearing cache: {ex.Message}", $"stack-trace: {GetStackTrace()}");
+                    }
                 }
 
             }
