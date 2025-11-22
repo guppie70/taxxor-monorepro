@@ -54,13 +54,6 @@ namespace DocumentStore.Services
 
                 var debugRoutine = (siteType == "local" || siteType == "dev");
 
-                // Access the current HTTP Context by using the custom created service
-                var currentContext = System.Web.Context.Current;
-
-                // Retrieve the request and project variables object from context
-                var contextReqVars = RetrieveRequestVariables(currentContext);
-                var contextProjectVars = RetrieveProjectVariables(currentContext);
-
                 // Get the output channel language from projectVars or default to "en"
                 var outputChannelLanguage = !string.IsNullOrEmpty(projectVars.outputChannelVariantLanguage)
                     ? projectVars.outputChannelVariantLanguage
@@ -116,7 +109,13 @@ namespace DocumentStore.Services
                     var reportTypeId = RetrieveReportTypeIdFromProjectId(projectVars.projectId);
                     var outputChannelVariantId = RetrieveFirstOutputChannelVariantIdFromEditorId(editorId, outputChannelType, outputChannelLanguage);
 
-                    var xmlHierarchy = RenderFilingHierarchy(contextReqVars, projectVars.projectId, "1", editorId, editorContentType, reportTypeId, outputChannelType, outputChannelVariantId, outputChannelLanguage);
+                    // Create minimal RequestVariables for gRPC handler (only needed for hierarchy rendering)
+                    var hierarchyReqVars = new Framework.RequestVariables
+                    {
+                        siteLanguage = outputChannelLanguage
+                    };
+
+                    var xmlHierarchy = RenderFilingHierarchy(hierarchyReqVars, projectVars.projectId, projectVars.versionId, editorId, editorContentType, reportTypeId, outputChannelType, outputChannelVariantId, outputChannelLanguage);
                     xPath = "/items/structured//item";
                     nodeListContent = xmlHierarchy.SelectNodes(xPath);
                 }
