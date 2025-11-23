@@ -79,9 +79,8 @@ RSYNC_OPTIONS=(
     --exclude='.vs/'
     --exclude='obj/'
     --exclude='bin/'
-    --exclude='MIGRATION_PLAN.md'
+    --exclude='*.md'
     --exclude='split-from-monorepo.sh'
-    --exclude='CLAUDE.md'
 )
 
 # Sync Editor
