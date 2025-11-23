@@ -1,1 +1,2 @@
-MIGRATION_PLAN.md
+*.md
+!CLAUDE.md
