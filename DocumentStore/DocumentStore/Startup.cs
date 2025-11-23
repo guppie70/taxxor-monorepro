@@ -175,7 +175,7 @@ namespace Taxxor.Project
                 // Map gRPC services
                 // endpoints.MapGrpcService<SystemStateService>();
                 // endpoints.MapGrpcService<ConfigurationService>();
-                // endpoints.MapGrpcService<FileManagementService>();
+                endpoints.MapGrpcService<FilingDataService>();
                 endpoints.MapGrpcService<FilingComposerDataService>();
                 endpoints.MapGrpcService<BinaryFileManagementService>();
                 endpoints.MapGrpcService<FilingHierarchyService>();

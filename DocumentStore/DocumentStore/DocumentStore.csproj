@@ -14,7 +14,6 @@
 
         <DefaultItemExcludes>.git/**;backend/code/custom/.git/**;logs/**;frontend/**;node_modules/**;data/**;hierarchies/**;typings/**;$(DefaultItemExcludes)</DefaultItemExcludes>
         <LangVersion>latest</LangVersion>
-        <NoWarn>NU1608</NoWarn>
 
         <!-- Improve compilation times -->
         <Optimize>false</Optimize>

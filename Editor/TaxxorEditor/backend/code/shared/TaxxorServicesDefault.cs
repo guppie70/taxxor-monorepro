@@ -355,13 +355,9 @@ namespace Taxxor
                     // TODO: Add support for binary data
                     var returnType = GenericTypeToNormalizedString(typeof(T).ToString());
 
-                    var dataToPost = new Dictionary<string, string>
-                    {
-                        { "pid", projectVars.projectId },
-                        { "locationid", locationId }
-                    };
-
-                    XmlDocument responseXml = await CallTaxxorConnectedService<XmlDocument>(ConnectedServiceEnum.DocumentStore, RequestMethodEnum.Get, "taxxoreditorfilingdata", dataToPost, debug);
+                    // Use gRPC FileManagementService instead of REST endpoint
+                    // locationId is treated as the "path" parameter for the gRPC call
+                    XmlDocument responseXml = await FilingDataWrapper.GetFileContentsAsync(projectVars.projectId, locationId, "", debug);
 
                     if (XmlContainsError(responseXml)) HandleError(responseXml);
 
@@ -487,16 +483,10 @@ namespace Taxxor
                 public async static Task<T> Load<T>(string projectId, string path, string relativeTo, bool debug = false, bool stopOnError = true)
                 {
 
-                    var dataToPost = new Dictionary<string, string>
-                    {
-                        { "pid", projectId },
-                        { "path", path },
-                        { "relativeto", relativeTo }
-                    };
-
                     var returnType = GenericTypeToNormalizedString(typeof(T).ToString());
 
-                    XmlDocument responseXml = await CallTaxxorConnectedService<XmlDocument>(ConnectedServiceEnum.DocumentStore, RequestMethodEnum.Get, "taxxoreditorfilingdata", dataToPost, debug);
+                    // Use gRPC FileManagementService instead of REST endpoint
+                    XmlDocument responseXml = await FilingDataWrapper.GetFileContentsAsync(projectId, path, relativeTo, debug);
 
                     if (XmlContainsError(responseXml))
                     {
@@ -725,17 +715,10 @@ namespace Taxxor
                 /// <returns></returns>
                 public async static Task<T> Save<T>(string data, string projectId, string path, string relativeTo, bool debug = false, bool stopOnError = true, ProjectVariables? projectVars = null)
                 {
-                    var dataToPost = new Dictionary<string, string>
-                    {
-                        { "pid", projectId },
-                        { "path", path },
-                        { "relativeto", relativeTo },
-                        { "data", data }
-                    };
-
                     var returnType = GenericTypeToNormalizedString(typeof(T).ToString());
 
-                    XmlDocument responseXml = await CallTaxxorConnectedService<XmlDocument>(ConnectedServiceEnum.DocumentStore, RequestMethodEnum.Put, "taxxoreditorfilingdata", dataToPost, debug, false, projectVars);
+                    // Call the gRPC FilingDataService via wrapper to store file contents
+                    XmlDocument responseXml = await FilingDataWrapper.PutFileContentsAsync(projectId, path, relativeTo, data, debug);
 
                     if (XmlContainsError(responseXml))
                     {
@@ -803,15 +786,8 @@ namespace Taxxor
                     RequestVariables reqVars = RetrieveRequestVariables(context);
                     ProjectVariables projectVars = RetrieveProjectVariables(context);
 
-                    // Construct and execute the request to the Taxxor Document Store
-                    var dataToPost = new Dictionary<string, string?>
-                    {
-                        { "pid", projectVars.projectId },
-                        { "path", path },
-                        { "relativeto", relativeTo }
-                    };
-
-                    XmlDocument responseXmlEnvelope = await CallTaxxorConnectedService<XmlDocument>(ConnectedServiceEnum.DocumentStore, RequestMethodEnum.Get, "taxxoreditorfilingdata", dataToPost, debug);
+                    // Call the gRPC service via wrapper to retrieve file contents
+                    XmlDocument responseXmlEnvelope = await FilingDataWrapper.GetFileContentsAsync(projectVars.projectId, path, relativeTo, debug);
 
                     // Error handling
                     if (XmlContainsError(responseXmlEnvelope))

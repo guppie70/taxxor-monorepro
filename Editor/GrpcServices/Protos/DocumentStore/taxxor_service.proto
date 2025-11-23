@@ -49,10 +49,11 @@ message GetDataConfigurationRequest {}
 message GetProjectTemplatesRequest {}
 message GetTaxxorServicesRequest {}
 
-// File Management Service
-service FileManagementService {
+// Filing Data Service - File operations for filing data management
+service FilingDataService {
   rpc CheckFileExists (FileExistsRequest) returns (TaxxorGrpcResponseMessage);
   rpc GetFileContents (FileContentsRequest) returns (TaxxorGrpcResponseMessage);
+  rpc PutFileContents (PutFileContentsRequest) returns (TaxxorGrpcResponseMessage);
   rpc DeleteDirectory (DeleteDirectoryRequest) returns (TaxxorGrpcResponseMessage);
   rpc GetDirectoryContents (DirectoryContentsRequest) returns (TaxxorGrpcResponseMessage);
   rpc GetFileProperties (FilePropertiesRequest) returns (TaxxorGrpcResponseMessage);
@@ -69,6 +70,13 @@ message FileContentsRequest {
   string location_id = 1;
   string path = 2;
   string relative_to = 3;
+}
+
+message PutFileContentsRequest {
+  string location_id = 1;
+  string path = 2;
+  string relative_to = 3;
+  string data = 4;
 }
 
 message DeleteDirectoryRequest {

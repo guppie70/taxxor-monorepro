@@ -907,7 +907,7 @@ namespace Taxxor.Project
                 //
                 // => Load the current hierarchy file and prepare for updates
                 //
-                XmlDocument xmlOriginalHierarchy = await FilingData.LoadHierarchy(projectVars.projectId, projectVars.versionId, projectVars.editorId, "pdf", outputChannelVariantId, outputChannelLanguage);
+                XmlDocument xmlOriginalHierarchy = await global::Taxxor.ConnectedServices.DocumentStoreService.FilingData.LoadHierarchy(projectVars.projectId, projectVars.versionId, projectVars.editorId, "pdf", outputChannelVariantId, outputChannelLanguage);
                 // resultsToShow.Add($"- xmlOriginalHierarchy: {HtmlEncodeForDisplay(xmlOriginalHierarchy.OuterXml)}");
                 if (XmlContainsError(xmlOriginalHierarchy))
                 {
@@ -1204,7 +1204,7 @@ namespace Taxxor.Project
                 projectVarsForSave.outputChannelType = "pdf";
                 projectVarsForSave.outputChannelVariantId = outputChannelVariantId;
                 projectVarsForSave.outputChannelVariantLanguage = outputChannelLanguage;
-                XmlDocument xmlSaveResult = await FilingData.SaveHierarchy(projectVarsForSave, xmlOriginalHierarchy, true, true);
+                XmlDocument xmlSaveResult = await global::Taxxor.ConnectedServices.DocumentStoreService.FilingData.SaveHierarchy(projectVarsForSave, xmlOriginalHierarchy, true, true);
                 if (XmlContainsError(xmlSaveResult))
                 {
                     appLogger.LogError($"Unable to save updated output channel hierarchy to the document store for projectId: {projectVars.projectId}, versionId: {projectVars.versionId}, editorId: {projectVars.editorId}, outputChannelType: pdf, outputChannelVariantId: {outputChannelVariantId}, outputChannelLanguage: {outputChannelLanguage}. Error: {xmlSaveResult.OuterXml}");

@@ -885,7 +885,7 @@ namespace Taxxor.Project
                     // Retrieve the hierarchy from the Taxxor Data Store and append it to the document
                     if (includeHierarchies)
                     {
-                        XmlDocument hierarchy = await FilingData.LoadHierarchy(projectVars.projectId, projectVars.versionId, projectVars.editorId, outputChannelType, currentOutputChannelVariantId, currentOutputChannelLanguage);
+                        XmlDocument hierarchy = await global::Taxxor.ConnectedServices.DocumentStoreService.FilingData.LoadHierarchy(projectVars.projectId, projectVars.versionId, projectVars.editorId, outputChannelType, currentOutputChannelVariantId, currentOutputChannelLanguage);
                         var nodeHierarchyRootImported = xmlOutputChannelHierarchies.ImportNode(hierarchy.DocumentElement, true);
                         outputChannelElement.AppendChild(nodeHierarchyRootImported);
                     }
@@ -898,7 +898,7 @@ namespace Taxxor.Project
             {
                 // Add all the section elements to the overview
                 var outputAllItems = xmlOutputChannelHierarchies.CreateElement("item_overview");
-                XmlDocument xmlSourceDataOverview = await FilingData.SourceDataOverview(projectVars, true);
+                XmlDocument xmlSourceDataOverview = await global::Taxxor.ConnectedServices.DocumentStoreService.FilingData.SourceDataOverview(projectVars, true);
                 var nodeSourceDataImported = xmlOutputChannelHierarchies.ImportNode(xmlSourceDataOverview.DocumentElement, true);
                 outputAllItems.AppendChild(nodeSourceDataImported);
                 xmlOutputChannelHierarchies.DocumentElement.AppendChild(outputAllItems);
