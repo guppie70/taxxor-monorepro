@@ -997,19 +997,6 @@ namespace Taxxor.Project
                         }
                         break;
 
-                    case "generatedreportsrepository":
-                        switch (reqVars.method)
-                        {
-                            case RequestMethodEnum.Get:
-                                await StreamGeneratedReport(request, response, routeData);
-                                break;
-
-                            default:
-                                _handleMethodNotSupported(reqVars);
-                                break;
-                        }
-                        break;
-
                     case "findreplace":
                         switch (reqVars.method)
                         {

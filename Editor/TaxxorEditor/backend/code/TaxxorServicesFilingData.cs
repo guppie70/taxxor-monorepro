@@ -798,34 +798,50 @@ namespace Taxxor
                     RequestVariables reqVars = RetrieveRequestVariables(context);
                     ProjectVariables projectVars = RetrieveProjectVariables(context);
 
-                    // The filing source data
-                    var dataToPost = new Dictionary<string, string>();
-
-                    dataToPost.Add("pid", projectVars.projectId);
-                    dataToPost.Add("user", projectVars.currentUser.Id);
-                    dataToPost.Add("path", path);
-                    dataToPost.Add("scheme", reportRequirementScheme);
-
-                    // Convert the xbrl validation information to an XML string that we can easily inject in the repository information in the Document Store
-                    var xmlXbrlProperties = new XmlDocument();
-                    var nodeValidationLinksRoot = xmlXbrlProperties.CreateElement("validationinformation");
-                    foreach (var item in xbrlValidationInformation)
+                    try
                     {
-                        var nodeLink = xmlXbrlProperties.CreateElementWithText("item", item.Value);
-                        nodeLink.SetAttribute("id", item.Key);
-                        nodeValidationLinksRoot.AppendChild(nodeLink);
+                        // Convert the xbrl validation information to an XML string
+                        var xmlXbrlProperties = new XmlDocument();
+                        var nodeValidationLinksRoot = xmlXbrlProperties.CreateElement("validationinformation");
+                        foreach (var item in xbrlValidationInformation)
+                        {
+                            var nodeLink = xmlXbrlProperties.CreateElementWithText("item", item.Value);
+                            nodeLink.SetAttribute("id", item.Key);
+                            nodeValidationLinksRoot.AppendChild(nodeLink);
+                        }
+                        xmlXbrlProperties.AppendChild(nodeValidationLinksRoot);
+
+                        // Get the gRPC client
+                        var client = context.RequestServices.GetRequiredService<GeneratedReportsRepositoryService.GeneratedReportsRepositoryServiceClient>();
+
+                        // Create the gRPC request
+                        var grpcRequest = new GeneratedReportsRepositoryAddRequest
+                        {
+                            GrpcProjectVariables = ConvertToGrpcProjectVariables(projectVars),
+                            Path = path,
+                            ReportRequirementScheme = reportRequirementScheme,
+                            XmlValidationInformation = xmlXbrlProperties.OuterXml
+                        };
+
+                        // Call the gRPC service
+                        var grpcResponse = await client.AddAsync(grpcRequest);
+
+                        if (grpcResponse.Success)
+                        {
+                            // Return success with the report ID as data
+                            var xmlResult = new XmlDocument();
+                            xmlResult.LoadXml($"<result success=\"true\"><message>{grpcResponse.Message}</message><data>{grpcResponse.Data}</data></result>");
+                            return new TaxxorReturnMessage(xmlResult);
+                        }
+                        else
+                        {
+                            return new TaxxorReturnMessage(GenerateErrorXml(grpcResponse.Message, $"debuginfo: {grpcResponse.Debuginfo}"));
+                        }
                     }
-                    xmlXbrlProperties.AppendChild(nodeValidationLinksRoot);
-                    dataToPost.Add("xmlvalidationinformation", xmlXbrlProperties.OuterXml);
-
-                    XmlDocument responseXml = await CallTaxxorConnectedService<XmlDocument>(ConnectedServiceEnum.DocumentStore, RequestMethodEnum.Put, "generatedreportsrepository", dataToPost, debugRoutine);
-
-                    if (debugRoutine)
+                    catch (Exception ex)
                     {
-                        // appLogger.LogInformation($"GeneratedReportsRepository.Add() - {PrettyPrintXml(responseXml)}");
+                        return new TaxxorReturnMessage(GenerateErrorXml($"Error in GeneratedReportsRepository.Add: {ex.Message}", $"stack-trace: {GetStackTrace()}"));
                     }
-
-                    return new TaxxorReturnMessage(responseXml);
                 }
 
                 /// <summary>
@@ -842,24 +858,40 @@ namespace Taxxor
                     RequestVariables reqVars = RetrieveRequestVariables(context);
                     ProjectVariables projectVars = RetrieveProjectVariables(context);
 
-                    // The filing source data
-                    var dataToPost = new Dictionary<string, string>();
-
-                    dataToPost.Add("pid", projectVars.projectId);
-                    dataToPost.Add("filterscheme", filterScheme);
-                    dataToPost.Add("filteruser", filterUser);
-                    dataToPost.Add("filterguid", filterGuid);
-
-                    XmlDocument responseXml = await CallTaxxorConnectedService<XmlDocument>(ConnectedServiceEnum.DocumentStore, RequestMethodEnum.Get, "generatedreportsrepository", dataToPost, debugRoutine);
-
-                    if (debugRoutine)
+                    try
                     {
-                        // appLogger.LogInformation($"GeneratedReportsRepository.RetrieveContent() - {PrettyPrintXml(responseXml)}");
+                        // Get the gRPC client
+                        var client = context.RequestServices.GetRequiredService<GeneratedReportsRepositoryService.GeneratedReportsRepositoryServiceClient>();
+
+                        // Create the gRPC request
+                        var grpcRequest = new GeneratedReportsRepositoryRetrieveContentRequest
+                        {
+                            GrpcProjectVariables = ConvertToGrpcProjectVariables(projectVars),
+                            FilterScheme = filterScheme,
+                            FilterUser = filterUser,
+                            FilterGuid = filterGuid
+                        };
+
+                        // Call the gRPC service
+                        var grpcResponse = await client.RetrieveContentAsync(grpcRequest);
+
+                        if (grpcResponse.Success)
+                        {
+                            // Parse the returned XML content
+                            var xmlResult = new XmlDocument();
+                            var decodedData = HttpUtility.HtmlDecode(grpcResponse.Data);
+                            xmlResult.LoadXml($"<result success=\"true\"><message>{grpcResponse.Message}</message><data>{decodedData}</data></result>");
+                            return new TaxxorReturnMessage(xmlResult);
+                        }
+                        else
+                        {
+                            return new TaxxorReturnMessage(GenerateErrorXml(grpcResponse.Message, $"debuginfo: {grpcResponse.Debuginfo}"));
+                        }
                     }
-
-                    var result = new TaxxorReturnMessage(responseXml);
-
-                    return result;
+                    catch (Exception ex)
+                    {
+                        return new TaxxorReturnMessage(GenerateErrorXml($"Error in GeneratedReportsRepository.RetrieveContent: {ex.Message}", $"stack-trace: {GetStackTrace()}"));
+                    }
                 }
 
             }

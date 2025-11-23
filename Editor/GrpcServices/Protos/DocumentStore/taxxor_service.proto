@@ -293,3 +293,23 @@ message FindReplaceRequest {
 message ClearCacheRequest {
   GrpcProjectVariables grpcProjectVariables = 1;
 }
+
+// Batch 5: Generated Reports Repository
+service GeneratedReportsRepositoryService {
+  rpc Add (GeneratedReportsRepositoryAddRequest) returns (TaxxorGrpcResponseMessage);
+  rpc RetrieveContent (GeneratedReportsRepositoryRetrieveContentRequest) returns (TaxxorGrpcResponseMessage);
+}
+
+message GeneratedReportsRepositoryAddRequest {
+  GrpcProjectVariables grpcProjectVariables = 1;
+  string path = 2;
+  string reportRequirementScheme = 3;
+  string xmlValidationInformation = 4;  // XML string containing validation information
+}
+
+message GeneratedReportsRepositoryRetrieveContentRequest {
+  GrpcProjectVariables grpcProjectVariables = 1;
+  string filterScheme = 2;
+  string filterUser = 3;
+  string filterGuid = 4;
+}

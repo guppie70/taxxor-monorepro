@@ -694,14 +694,6 @@
                             </web_page>
                         </item>
 
-                        <!-- Generated Reports Repository -->
-                        <item id="generatedreportsrepository">
-                            <web_page>
-                                <path>/api/repository/generatedreports</path>
-                                <linkname>CRUD routes for the generated reports repository</linkname>
-                            </web_page>
-                        </item>
-
 
                         <!-- Websockets -->
                         <item id="websocketshub">

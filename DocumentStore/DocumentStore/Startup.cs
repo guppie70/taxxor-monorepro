@@ -180,6 +180,7 @@ namespace Taxxor.Project
                 endpoints.MapGrpcService<BinaryFileManagementService>();
                 endpoints.MapGrpcService<FilingHierarchyService>();
                 endpoints.MapGrpcService<FilingDataUtilityService>();
+                endpoints.MapGrpcService<GeneratedReportsRepositoryService>();
             });
 
             #region Routers

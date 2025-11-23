@@ -304,19 +304,6 @@
 						<linkname>Renders a complete XML document containing the complete content of the project</linkname>
 					</web_page>
 				</item>
-                <!-- Generated Reports Repository -->
-                <item id="generatedreportsrepository">
-					<web_page>
-						<path>/api/taxxoreditor/repository/generatedreports</path>
-						<linkname>CRUD routes for the generated reports repository</linkname>
-					</web_page>
-				</item>
-                <item id="generatedreportsrepositorycomment">
-					<web_page>
-						<path>/api/taxxoreditor/repository/generatedreports/comment</path>
-						<linkname>Stores a comment in the generated report repository item</linkname>
-					</web_page>
-				</item>
 
 				<!-- Utilities -->
 				<!-- Taxxor Data Service Tools -->

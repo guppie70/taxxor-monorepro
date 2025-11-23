@@ -632,36 +632,6 @@ namespace Taxxor.Project
                         }
                         break;
 
-                    case "generatedreportsrepository":
-                        switch (reqVars.method)
-                        {
-                            case RequestMethodEnum.Get:
-                                await RetrieveRepositoryContent(request, response, routeData);
-                                break;
-
-                            case RequestMethodEnum.Put:
-                                await AddGeneratedReport(request, response, routeData);
-                                break;
-
-                            default:
-                                _handleMethodNotSupported(reqVars);
-                                break;
-                        }
-                        break;
-
-                    case "generatedreportsrepositorycomment":
-                        switch (reqVars.method)
-                        {
-                            case RequestMethodEnum.Put:
-                                await AddGeneratedReportComment(request, response, routeData);
-                                break;
-
-                            default:
-                                _handleMethodNotSupported(reqVars);
-                                break;
-                        }
-                        break;
-
                     case "taxxoreditorimagerenditions":
                         switch (reqVars.method)
                         {
