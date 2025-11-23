@@ -236,13 +236,16 @@ namespace DocumentStore.Services
                 // Wrap the result in the expected structure for the client
                 var xmlResponse = new XmlDocument();
                 var nodeResult = xmlResponse.CreateElement("result");
-                var nodePayload = xmlResponse.CreateElement("payload");
-                nodePayload.InnerText = xmlFindReplaceResult.OuterXml;
                 var nodeMessage = xmlResponse.CreateElement("message");
                 nodeMessage.InnerText = "Successfully replaced content";
-
                 nodeResult.AppendChild(nodeMessage);
+
+                // Import the findreplace result as child elements of the response
+                var nodePayload = xmlResponse.CreateElement("payload");
+                var importedContent = xmlResponse.ImportNode(xmlFindReplaceResult.DocumentElement, true);
+                nodePayload.AppendChild(importedContent);
                 nodeResult.AppendChild(nodePayload);
+
                 xmlResponse.AppendChild(nodeResult);
 
                 // Return success
@@ -251,7 +254,7 @@ namespace DocumentStore.Services
                     Success = true,
                     Message = "Successfully replaced content",
                     Debuginfo = $"searchFragment: {request.SearchFragment}, replaceFragment: {request.ReplaceFragment}, dryRun: {request.DryRun}, includeFootnotes: {request.IncludeFootnotes}",
-                    Data = HttpUtility.HtmlEncode(xmlResponse.OuterXml)
+                    Data = HttpUtility.HtmlEncode(xmlResponse.DocumentElement.OuterXml)
                 };
             }
             catch (Exception ex)

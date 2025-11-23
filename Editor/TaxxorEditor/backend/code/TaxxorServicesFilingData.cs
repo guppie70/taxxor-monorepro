@@ -681,15 +681,37 @@ namespace Taxxor
                             // Call the gRPC service
                             var grpcResponse = await client.FindReplaceAsync(grpcRequest);
 
+                            appLogger.LogInformation($"[FindReplace] gRPC response received - Success: {grpcResponse.Success}, Data length: {grpcResponse.Data?.Length ?? 0}");
+
                             if (grpcResponse.Success)
                             {
                                 // Parse the XML response
+                                var decodedData = System.Web.HttpUtility.HtmlDecode(grpcResponse.Data);
+                                appLogger.LogInformation($"[FindReplace] Decoded data length: {decodedData?.Length ?? 0}");
+                                if (string.IsNullOrEmpty(decodedData))
+                                {
+                                    appLogger.LogError("[FindReplace] ERROR: decodedData is null or empty!");
+                                    return GenerateErrorXml("gRPC response data is empty", "");
+                                }
+
+                                appLogger.LogInformation($"[FindReplace] Data (first 500 chars): {decodedData.Substring(0, Math.Min(500, decodedData.Length))}");
+
                                 var xmlResult = new XmlDocument();
-                                xmlResult.LoadXml(System.Web.HttpUtility.HtmlDecode(grpcResponse.Data));
+                                xmlResult.LoadXml(decodedData);
+
+                                // Check if /result/payload exists
+                                var payloadNode = xmlResult.SelectSingleNode("/result/payload");
+                                appLogger.LogInformation($"[FindReplace] Payload node found: {payloadNode != null}");
+                                if (payloadNode == null)
+                                {
+                                    appLogger.LogError($"[FindReplace] ERROR: /result/payload not found. Full XML: {xmlResult.OuterXml}");
+                                }
+
                                 return xmlResult;
                             }
                             else
                             {
+                                appLogger.LogError($"[FindReplace] gRPC response failed - Message: {grpcResponse.Message}, Debug: {grpcResponse.Debuginfo}");
                                 return GenerateErrorXml(grpcResponse.Message, $"debuginfo: {grpcResponse.Debuginfo}");
                             }
                         }

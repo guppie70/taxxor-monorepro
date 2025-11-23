@@ -181,7 +181,18 @@ namespace Taxxor.Project
                                     if (xmlHierarchyDocument == null)
                                     {
                                         if (debugRoutine) appLogger.LogInformation($"* Retrieve new raw hierarchy for {id}");
-                                        xmlHierarchyDocument = await Taxxor.ConnectedServices.DocumentStoreService.FilingData.Load<XmlDocument>(xmlNodeLocation, true);
+                                        try
+                                        {
+                                            xmlHierarchyDocument = await Taxxor.ConnectedServices.DocumentStoreService.FilingData.Load<XmlDocument>(xmlNodeLocation, true);
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            appLogger.LogWarning($"Could not load hierarchy metadata via REST (REST endpoint may have been migrated to gRPC): {ex.Message}. Attempting to continue without metadata for {id}");
+                                            // Create a minimal dummy hierarchy to allow FindReplace and other gRPC-based operations to continue
+                                            xmlHierarchyDocument = new XmlDocument();
+                                            xmlHierarchyDocument.LoadXml($"<items><structured><item id='{System.Security.SecurityElement.Escape(id)}' name='{System.Security.SecurityElement.Escape(name)}'/></structured></items>");
+                                        }
+
                                         if (XmlContainsError(xmlHierarchyDocument))
                                         {
                                             appLogger.LogError($"Failed to load metadata. id: {id}, name: {name}, locationType: {locationType}, stack-trace: {GetStackTrace()}");

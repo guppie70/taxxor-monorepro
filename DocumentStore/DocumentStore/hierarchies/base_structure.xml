@@ -137,12 +137,6 @@
 						<linkname>Retrieves metadata for the filingcontent of one or more projects</linkname>
 					</web_page>
 				</item>
-				<item id="taxxoreditorfilingdata">
-					<web_page>
-						<path>/api/taxxoreditor/filing/data/generic</path>
-						<linkname>Loads or saves filing assets such as metadata, images, etc.</linkname>
-					</web_page>
-				</item>
 				<item id="taxxoreditorfilingimage">
 					<web_page>
 						<path>/api/taxxoreditor/filing/data/image</path>
@@ -159,18 +153,6 @@
 					<web_page>
 						<path>/api/taxxoreditor/filing/data/composer/schema</path>
 						<linkname>Loads the schema that the composer (editor) uses</linkname>
-					</web_page>
-				</item>
-				<item id="taxxoreditorcontentlanguageclone">
-					<web_page>
-						<path>/api/hierarchymanager/tools/sectionlanguageclone</path>
-						<linkname>Clones the content of one language to another</linkname>
-					</web_page>
-				</item>
-				<item id="taxxoreditorcomposerdataoverview">
-					<web_page>
-						<path>/api/taxxoreditor/filing/data/overview</path>
-						<linkname>Renders an overview of all the filing content data fragments/sections</linkname>
 					</web_page>
 				</item>
 				<item id="taxxoreditorpdfdata">

@@ -89,7 +89,15 @@ namespace Taxxor.Project
                     }
 
                     // Retrieve the payload that contains the details of the replace result
-                    var xmlPayload = HttpUtility.HtmlDecode(xmlResult.SelectSingleNode("/result/payload").InnerText);
+                    var payloadNode = xmlResult.SelectSingleNode("/result/payload");
+                    if (payloadNode == null)
+                    {
+                        appLogger.LogError($"[FindReplace] ERROR: /result/payload node not found in response. Full XML: {xmlResult.OuterXml}");
+                        await response.Error(GenerateErrorXml("Invalid gRPC response structure", $"Missing /result/payload node. Full XML: {xmlResult.OuterXml}"), reqVars.returnType, true);
+                        return;
+                    }
+
+                    var xmlPayload = HttpUtility.HtmlDecode(payloadNode.InnerXml);
                     var xmlReplaceDetails = new XmlDocument();
                     xmlReplaceDetails.LoadXml(xmlPayload);
 

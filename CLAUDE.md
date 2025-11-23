@@ -462,24 +462,152 @@ System.InvalidOperationException: No service for type 'DocumentStore.Protos.Your
 docker restart tdm-editor-1
 ```
 
-### Step 4: Clean Up REST Code
+### Step 4: Clean Up REST Code (MANDATORY - NO EXCEPTIONS)
 
-**CRITICAL**: After migration, remove obsolete REST code:
+**⚠️ CRITICAL**: REST cleanup is NOT optional—it is a mandatory part of every batch completion. Leaving orphaned REST code undermines the migration effort and perpetuates legacy patterns.
 
-1. **Remove XML endpoint definition** from `DocumentStore/DocumentStore/hierarchies/base_structure.xml`
-2. **Remove C# routing** from `DocumentStore/DocumentStore/backend/controllers/ApiDispatcher.cs`
+**Why cleanup is mandatory:**
+- Prevents technical debt accumulation from old bespoke code
+- Eliminates confusing duplicate implementations
+- Maintains clear architecture boundaries
+- Ensures the gRPC migration is actually complete
+- Makes future maintenance easier and cheaper
+- Prevents developers from accidentally using old REST code
 
-Look for REST calls like:
-```csharp
-// OLD - Remove this pattern:
-await CallTaxxorConnectedService<XmlDocument>(
-    ConnectedServiceEnum.DocumentStore, 
-    RequestMethodEnum.Post, 
-    "taxxoreditorcomposerdata", 
-    dataToPost, 
-    debugRoutine
-);
+#### Cleanup Checklist (MUST complete all items)
+
+**1. Remove XML Endpoint Definitions** from `DocumentStore/DocumentStore/hierarchies/base_structure.xml`
+
+For each migrated method, find and delete the corresponding `<item>` entry:
+
+```xml
+<!-- REMOVE THIS ENTIRE BLOCK -->
+<item id="endpoint-identifier">
+    <web_page>
+        <path>/api/taxxoreditor/filing/data/generic</path>
+        <linkname>Loads or saves filing assets such as metadata, images, etc.</linkname>
+    </web_page>
+</item>
 ```
+
+**Verification**: Search for the endpoint ID in base_structure.xml - it should NOT exist after cleanup.
+
+**2. Remove C# Routing Cases** from `DocumentStore/DocumentStore/backend/controllers/ApiDispatcher.cs`
+
+Delete the entire `case` statement(s) for migrated endpoints:
+
+```csharp
+// REMOVE THIS ENTIRE BLOCK
+case "endpointname":
+    switch (reqVars.method)
+    {
+        case RequestMethodEnum.Get:
+            await RetrieveData(request, response, routeData);
+            break;
+        case RequestMethodEnum.Put:
+            await StoreData(request, response, routeData);
+            break;
+        default:
+            _handleMethodNotSupported(reqVars);
+            break;
+    }
+    break;
+```
+
+**Verification**: The case statement should be completely gone. Search for the endpoint name in ApiDispatcher.cs - it should NOT exist.
+
+**3. Remove Handler Methods** from `DocumentStore/DocumentStore/backend/controllers/ApiDispatcher.cs`
+
+Find and delete the actual handler methods that were invoked by the removed case statements:
+
+```csharp
+// REMOVE THIS METHOD ENTIRELY
+private async Task RetrieveFilingData(HttpRequest request, HttpResponse response, RouteData routeData)
+{
+    // ... old implementation ...
+}
+```
+
+**Verification**: Search for the method name in ApiDispatcher.cs - it should NOT exist. If it's used anywhere else, keep it; if not, delete it.
+
+**4. Remove REST Service Connectors** from `DocumentStore/DocumentStore/backend/code/shared/TaxxorServiceConnectors.cs`
+
+If the old endpoint had a connector method, remove it:
+
+```csharp
+// REMOVE THIS METHOD
+public static async Task<XmlDocument> CallOldRestEndpoint(...)
+{
+    // Old REST API call
+}
+```
+
+**Same for Editor**: `Editor/TaxxorEditor/backend/code/shared/TaxxorServiceConnectors.cs`
+
+**Verification**: The old connector method should NOT exist in either service. The Editor should use the new gRPC client instead.
+
+**5. Search and Verify Cleanup**
+
+After making changes, verify NO traces remain:
+
+```bash
+# Search in ApiDispatcher.cs
+grep -n "taxxoreditorfilingdata\|RetrieveFilingData\|StoreFilingData" \
+    DocumentStore/DocumentStore/backend/controllers/ApiDispatcher.cs
+
+# Search in base_structure.xml
+grep -n "taxxoreditorfilingdata" \
+    DocumentStore/DocumentStore/hierarchies/base_structure.xml
+
+# Search in both TaxxorServiceConnectors.cs files
+grep -n "OldEndpointName" \
+    DocumentStore/DocumentStore/backend/code/shared/TaxxorServiceConnectors.cs
+grep -n "OldEndpointName" \
+    Editor/TaxxorEditor/backend/code/shared/TaxxorServiceConnectors.cs
+
+# If no output = cleanup successful!
+# If output exists = cleanup incomplete, continue removing!
+```
+
+#### Cleanup Validation Workflow
+
+**Before committing:**
+1. ✅ Run all grep searches above - zero results required
+2. ✅ Compile both solutions successfully:
+   ```bash
+   dotnet build DocumentStore.sln
+   dotnet build Editor/TaxxorEditor.sln
+   ```
+3. ✅ Test in Docker to verify gRPC replacement works
+4. ✅ Verify no compilation warnings about unused methods
+
+**If validation fails:**
+- ❌ Do NOT commit
+- ❌ Do NOT mark batch as complete
+- ❌ Do NOT move to next batch
+- Find and remove remaining orphaned code before proceeding
+
+#### Common Cleanup Mistakes (Avoid These!)
+
+**❌ Mistake 1: Partial Cleanup**
+- Removing the case statement but leaving the handler method
+- Removing XML but leaving C# routing
+- **Fix**: Complete the entire checklist, not just part of it
+
+**❌ Mistake 2: Searching for Just Method Names**
+- Misses XML endpoint definitions
+- Misses service connector methods
+- **Fix**: Use the full verification grep commands above
+
+**❌ Mistake 3: "I'll Clean Up Later"**
+- Never happened in the history of software projects
+- Creates technical debt that gets worse
+- **Fix**: Clean up in the SAME batch, before moving to next batch
+
+**❌ Mistake 4: Keeping "Just in Case" Code**
+- "Someone might still need the old REST code"
+- gRPC is already in place and tested
+- **Fix**: DELETE it. If we need it back, git has the history.
 
 ## Code Quality Guidelines for Migration
 
@@ -581,27 +709,51 @@ public static async Task<XmlDocument> LoadSourceData(
 
 ## Critical Rules
 
-### ✅ DO
+### ✅ DO (MANDATORY)
 
-1. **Always verify compilation** after each batch:
+1. **ALWAYS verify compilation** after each batch:
    ```bash
    cd Editor && dotnet build TaxxorEditor.sln
    cd ../DocumentStore && dotnet build DocumentStore.sln
    ```
 
-2. **Remove obsolete REST code** after successful migration
-3. **Update MIGRATION_PLAN.md** to mark batches complete
-4. **Follow the established pattern** shown in `LoadSourceData`
-5. **Use helper methods** provided in the codebase
-6. **Handle errors gracefully** with meaningful messages
+2. **MUST REMOVE obsolete REST code** - this is not optional:
+   - ✅ Remove XML endpoint definitions from `base_structure.xml`
+   - ✅ Remove C# case statements from `ApiDispatcher.cs`
+   - ✅ Remove handler methods from `ApiDispatcher.cs`
+   - ✅ Remove REST service connectors from `TaxxorServiceConnectors.cs` (both services)
+   - ✅ Run cleanup verification grep commands
+   - ✅ See detailed cleanup checklist in Step 4 above
 
-### ❌ DON'T
+3. **MUST UPDATE MIGRATION_PLAN.md** to mark batches complete with commit hash
+
+4. **ALWAYS follow the established pattern** shown in `LoadSourceData`
+
+5. **ALWAYS use helper methods** provided in the codebase
+
+6. **ALWAYS handle errors gracefully** with meaningful messages
+
+### ❌ DON'T (THESE ARE DEAL-BREAKERS)
 
 1. **Don't commit** if compilation fails
-2. **Don't skip cleanup** of REST code
+2. **Don't skip or defer cleanup** of REST code - cleanup is part of the same batch, not "later"
 3. **Don't create new gRPC client instances** - always use DI
 4. **Don't deviate** from `TaxxorGrpcResponseMessage` format
 5. **Don't forget** to update proto files first (they're the source of truth)
+6. **Don't commit** with orphaned REST code still in the repository
+7. **Don't mark batches as "complete"** without full cleanup verification
+
+### Why This Matters
+
+**Legacy code never cleans itself up.** The bespoke REST implementations were written years ago and created the very technical debt that made this migration necessary. If we don't actively remove them during migration, we create a codebase with:
+
+- Two implementations of each method (REST + gRPC)
+- Developer confusion about which to use
+- Hidden bugs from maintaining duplicate code
+- Years of technical debt accumulation
+- Higher costs for future development
+
+**This migration is only complete when the old code is gone.** Leaving REST code behind means the migration isn't actually finished—it's just added gRPC alongside the old patterns.
 
 ## Proto File Location
 
@@ -633,16 +785,24 @@ Available in `Editor/TaxxorEditor/backend/code/`:
 
 ## Workflow Summary
 
-For each batch:
+**For each batch: Implementation → Testing → Cleanup → Commit (NO SKIPPING)**
 
 1. **Read** the next batch from `MIGRATION_PLAN.md`
 2. **Implement** using the 4-step pattern in the monorepo
 3. **Compile** both solutions - must succeed!
 4. **Publish** changes to Docker-mounted directories: `./split-from-monorepo.sh`
 5. **Test** in Docker (wait ~10 seconds for auto-rebuild)
-6. **Clean up** REST code after successful testing
+6. **Clean up REST code** (MANDATORY - see Step 4 Cleanup Checklist):
+   - Remove XML endpoint definitions from `base_structure.xml`
+   - Remove C# case statements from `ApiDispatcher.cs`
+   - Remove handler methods from `ApiDispatcher.cs`
+   - Remove REST service connectors from `TaxxorServiceConnectors.cs` (both services)
+   - Run verification grep commands - zero results required
+   - Recompile both solutions
 7. **Commit** with clear message (from the monorepo)
-8. **Update** `MIGRATION_PLAN.md` to mark batch complete
+8. **Update** `MIGRATION_PLAN.md` to mark batch complete with commit hash
+
+**CRITICAL**: Do NOT skip step 6. Cleanup is part of the batch, not "something to do later."
 
 ## Debugging with Docker Logs
 

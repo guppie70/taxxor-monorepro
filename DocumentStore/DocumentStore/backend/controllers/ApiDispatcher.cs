@@ -300,23 +300,6 @@ namespace Taxxor.Project
                         }
                         break;
 
-                    case "taxxoreditorfilingdata":
-                        switch (reqVars.method)
-                        {
-                            case RequestMethodEnum.Get:
-                                await RetrieveFilingData(request, response, routeData);
-                                break;
-
-                            case RequestMethodEnum.Put:
-                                await StoreFilingData(request, response, routeData);
-                                break;
-
-                            default:
-                                _handleMethodNotSupported(reqVars);
-                                break;
-                        }
-                        break;
-
                     case "taxxoreditorfilingimage":
                         switch (reqVars.method)
                         {
