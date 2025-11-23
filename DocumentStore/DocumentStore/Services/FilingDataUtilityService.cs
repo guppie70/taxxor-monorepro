@@ -233,13 +233,25 @@ namespace DocumentStore.Services
 
                 xmlFindReplaceResult.Save($"{logRootPathOs}/findreplace-result.xml");
 
+                // Wrap the result in the expected structure for the client
+                var xmlResponse = new XmlDocument();
+                var nodeResult = xmlResponse.CreateElement("result");
+                var nodePayload = xmlResponse.CreateElement("payload");
+                nodePayload.InnerText = xmlFindReplaceResult.OuterXml;
+                var nodeMessage = xmlResponse.CreateElement("message");
+                nodeMessage.InnerText = "Successfully replaced content";
+
+                nodeResult.AppendChild(nodeMessage);
+                nodeResult.AppendChild(nodePayload);
+                xmlResponse.AppendChild(nodeResult);
+
                 // Return success
                 return new TaxxorGrpcResponseMessage
                 {
                     Success = true,
                     Message = "Successfully replaced content",
                     Debuginfo = $"searchFragment: {request.SearchFragment}, replaceFragment: {request.ReplaceFragment}, dryRun: {request.DryRun}, includeFootnotes: {request.IncludeFootnotes}",
-                    Data = HttpUtility.HtmlEncode(xmlFindReplaceResult.OuterXml)
+                    Data = HttpUtility.HtmlEncode(xmlResponse.OuterXml)
                 };
             }
             catch (Exception ex)
