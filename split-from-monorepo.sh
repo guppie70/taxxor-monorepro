@@ -72,6 +72,7 @@ RSYNC_OPTIONS=(
     --exclude='.git'
     --exclude='.git/'
     --exclude='.gitignore'
+	--exclude='.gitmodules'
     --exclude='node_modules'
     --exclude='node_modules/'
     --exclude='.DS_Store'
